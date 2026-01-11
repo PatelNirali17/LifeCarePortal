@@ -1,0 +1,25 @@
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <form class="form_main" [formGroup]="LoginForm">
+                <p class="heading">Sign In</p>
+                <p>Enter your credentials to log in</p>
+                <mat-radio-group formControlName="Role">
+                    <mat-radio-button value="Admin">Admin</mat-radio-button>
+                    <mat-radio-button value="Doctor">Doctor</mat-radio-button>
+                    <mat-radio-button value="Patient">Patient</mat-radio-button>
+                </mat-radio-group>
+                <div class="inputContainer">
+                    <input placeholder="Email" class="inputField" type="email" formControlName="Email">
+                </div>
+                <div class="inputContainer">
+                    <input placeholder="Password" class="inputField" type="password" formControlName="Password">
+                </div>
+                <button id="button" class="bgprimary" (click)="CheckInLogin()">Login</button>
+                <div class="signupContainer">
+                    <p>Don't have any account? <a (click)="OpenRegister()">Sign up</a></p>
+                </div>
+            </form>
+        </div>
+    </div>

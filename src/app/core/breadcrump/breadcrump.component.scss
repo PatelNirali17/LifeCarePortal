@@ -1,0 +1,26 @@
+/* Styles the list */
+ul.breadcrumb {
+  padding: 10px 16px;
+  list-style: none;
+  margin-top: 10px;
+}
+
+/* Display items side by side */
+ul.breadcrumb li {
+  display: inline;
+  font-size: 15px;
+}
+
+/* Add a slash symbol (/) before/behind each list item */
+ul.breadcrumb li+li:before {
+  padding: 8px;
+  color: black;
+  content: '\f0da';
+  font-family: 'FontAwesome';
+}
+
+/* Add color to all links inside the list */
+ul.breadcrumb li a {
+  color: #6A0572;
+  text-decoration: none;
+}

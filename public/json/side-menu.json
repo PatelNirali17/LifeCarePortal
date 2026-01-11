@@ -1,0 +1,366 @@
+{
+    "AdminSideMenu": [
+        {
+            "title": "Dashboard",
+            "icon": "dashboard",
+            "links": [
+                {
+                    "name": "Dashboard 1",
+                    "path": "/dashboard"
+                },
+                {
+                    "name": "Dashboard 2",
+                    "path": "/dashboard2"
+                },
+                {
+                    "name": "Doctor Dashboard",
+                    "path": "/doctordashboard"
+                },
+                {
+                    "name": "Patient Dashboard",
+                    "path": "/patientdashboard"
+                }
+            ]
+        },
+        {
+            "title": "Role Management",
+            "icon": "manage_accounts",
+            "links": [
+                {
+                    "name": "Create Role",
+                    "path": "/rolemanagement/createrole"
+                },
+                {
+                    "name": "Role Assign",
+                    "path": "/rolemanagement/roleassign"
+                }
+            ]
+        },
+        {
+            "title": "Appointments",
+            "icon": "assignment",
+            "links": [
+                {
+                    "name": "Appointment Calendar",
+                    "path": "/appointmentcalendar"
+                },
+                {
+                    "name": "View Appointment",
+                    "path": "/appointments/viewappointment"
+                }
+            ]
+        },
+        {
+            "title": "Doctors",
+            "icon": "supervised_user_circle",
+            "links": [
+                {
+                    "name": "All Doctors",
+                    "path": "/doctors/alldoctors"
+                },
+                {
+                    "name": "Assign Department",
+                    "path": "/doctors/assigndoctor"
+                },
+                {
+                    "name": "Shift Management",
+                    "path": "/doctors/shiftmanagement"
+                },
+                {
+                    "name": "Doctor Profile",
+                    "path": "/editappointment"
+                }
+            ]
+        },
+        {
+            "title": "Staff",
+            "icon": "supervisor_account",
+            "links": [
+                {
+                    "name": "All Staff",
+                    "path": "/staff/allstaff"
+                },
+                {
+                    "name": "Staff Profile",
+                    "path": "/editappointment"
+                }
+            ]
+        },
+        {
+            "title": "Patients",
+            "icon": "face",
+            "links": [
+                {
+                    "name": "All Patients",
+                    "path": "/appointmentcalendar"
+                },
+                {
+                    "name": "Patients Records",
+                    "path": "/editappointment"
+                },
+                {
+                    "name": "Patients Profile",
+                    "path": "/editappointment"
+                }
+            ]
+        },
+        {
+            "title": "Room Allotment",
+            "icon": "hotel",
+            "links": [
+                {
+                    "name": "Add Room",
+                    "path": "/"
+                },
+                {
+                    "name": "Alloted Rooms",
+                    "path": "/"
+                },
+                {
+                    "name": "Room By Department",
+                    "path": "/"
+                }
+            ]
+        },
+        {
+            "title": "Records",
+            "icon": "list_alt",
+            "links": [
+                {
+                    "name": "Birth Records",
+                    "path": "/"
+                },
+                {
+                    "name": "Death Records",
+                    "path": "/"
+                }
+            ]
+        },
+        {
+            "title": "Ambulance",
+            "icon": "airport_shuttle",
+            "links": [
+                {
+                    "name": "Ambulance Call List",
+                    "path": "/"
+                },
+                {
+                    "name": "Ambulance List",
+                    "path": "/"
+                }
+            ]
+        },
+        {
+            "title": "Pharmacy",
+            "icon": "local_pharmacy",
+            "links": [
+                {
+                    "name": "Medicine List",
+                    "path": "/"
+                }
+            ]
+        },
+        {
+            "title": "Blood Bank",
+            "icon": "bloodtype",
+            "links": [
+                {
+                    "name": "Blood Stock",
+                    "path": "/"
+                },
+                {
+                    "name": "Blood Donor",
+                    "path": "/"
+                },
+                {
+                    "name": "Blood Issued",
+                    "path": "/"
+                }
+            ]
+        },
+        {
+            "title": "Accounts",
+            "icon": "paid",
+            "links": [
+                {
+                    "name": "Bill List",
+                    "path": "/"
+                },
+                {
+                    "name": "Income",
+                    "path": "/"
+                },
+                {
+                    "name": "Expenses",
+                    "path": "/"
+                },
+                {
+                    "name": "Income Report",
+                    "path": "/"
+                },
+                {
+                    "name": "Invoice",
+                    "path": "/"
+                }
+            ]
+        },
+        {
+            "title": "Departments",
+            "icon": "group_work",
+            "links": [
+                {
+                    "name": "Department List",
+                    "path": "/"
+                }
+            ]
+        },
+        {
+            "title": "Inventory",
+            "icon": "content_paste",
+            "links": [
+                {
+                    "name": "Item Stock List",
+                    "path": "/"
+                },
+                {
+                    "name": "Issued Items",
+                    "path": "/"
+                }
+            ]
+        },
+        {
+            "title": "Human Resources",
+            "icon": "manage_accounts",
+            "links": [
+                {
+                    "name": "Leave Requests",
+                    "path": "/"
+                },
+                {
+                    "name": "Leave Balance",
+                    "path": "/"
+                },
+                {
+                    "name": "Leave Types",
+                    "path": "/"
+                },
+                {
+                    "name": "Holidays",
+                    "path": "/"
+                },
+                {
+                    "name": "Today's Attendance",
+                    "path": "/"
+                },
+                {
+                    "name": "Employee Attendance",
+                    "path": "/"
+                },
+                {
+                    "name": "Attendance Sheet",
+                    "path": "/"
+                },
+                {
+                    "name": "Employee Salary",
+                    "path": "/"
+                },
+                {
+                    "name": "Payslip",
+                    "path": "/"
+                }
+            ]
+        },
+        {
+            "title": "Insurance",
+            "icon": "shield_watch",
+            "links": [
+                {
+                    "name": "Patient Insurance",
+                    "path": "/"
+                },
+                {
+                    "name": "Claim Status",
+                    "path": "/"
+                },
+                {
+                    "name": "Insurance Provider",
+                    "path": "/"
+                }
+            ]
+        }
+    ],
+    "DoctorSideMenu": [
+        {
+            "title": "Dashboard",
+            "icon": "dashboard",
+            "path": "/doctordashboard",
+            "links": []
+        },
+        {
+            "title": "Appointments",
+            "icon": "assignment",
+            "path": "/appointments/viewappointment",
+            "links": []
+        },
+        {
+            "title": "Doctors",
+            "icon": "supervised_user_circle",
+            "path": "/",
+            "links": []
+        },
+        {
+            "title": "Patients",
+            "icon": "face",
+            "path": "/",
+            "links": []
+        }
+    ],
+    "PatientSideMenu": [
+        {
+            "title": "Dashboard",
+            "icon": "dashboard",
+            "path": "/patientdashboard",
+            "links": []
+        },
+        {
+            "title": "Appointments",
+            "icon": "assignment",
+            "links": [
+                {
+                    "name": "Book Appointments",
+                    "path": "/"
+                },
+                {
+                    "name": "Today Appointments",
+                    "path": "/"
+                },
+                {
+                    "name": "Upcoming Appointments",
+                    "path": "/"
+                },
+                {
+                    "name": "Past Appointments",
+                    "path": "/"
+                }
+            ]
+        },
+        {
+            "title": "Prescriptions",
+            "icon": "receipt_long",
+            "path": "/",
+            "links": []
+        },
+        {
+            "title": "Medical Record",
+            "icon": "medical_information",
+            "path": "/",
+            "links": []
+        },
+        {
+            "title": "Billing",
+            "icon": "receipt",
+            "path": "/",
+            "links": []
+        }
+    ]
+}

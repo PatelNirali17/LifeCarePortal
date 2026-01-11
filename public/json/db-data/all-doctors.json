@@ -1,0 +1,53 @@
+[
+    {
+        "Name": "Dr. James Moore",
+        "Gender": "Male",
+        "Mobile": "1314151617",
+        "Department": "Pulmonology",
+        "Specialization": "Pulmonology",
+        "Address": "Surat",
+        "DateOfBirth": "28/03/1989",
+        "Email": "james.moore@lungcare.com",
+        "Degree": "MBBS, MD",
+        "JoiningDate": "30-06-2018",
+        "Experience": 17,
+        "ConsultationFee": 600,
+        "Availability": "Wednesday to Friday",
+        "Rating": 4.8,
+        "ClinicLocation": "Lung Care Clinic"
+    },
+    {
+        "Name": "Dr. Thomas Miller",
+        "Gender": "Male",
+        "Mobile": "8899001122",
+        "Department": "Psychiatry",
+        "Specialization": "Psychiatry",
+        "Address": "Surat",
+        "DateOfBirth": "11/08/1986",
+        "Email": "thomas.miller@mentalhealth.com",
+        "Degree": "MBBS, MD",
+        "JoiningDate": "10-05-2018",
+        "Experience": 11,
+        "ConsultationFee": 700,
+        "Availability": "Monday to Wednesday",
+        "Rating": 4.4,
+        "ClinicLocation": "Mental Health Center"
+    },
+    {
+        "Name": "Dr. Sophia Williams",
+        "Gender": "Female",
+        "Mobile": "5566778899",
+        "Department": "Pediatrics",
+        "Specialization": "Pediatrics",
+        "Address": "Surat",
+        "DateOfBirth": "15/03/1991",
+        "Email": "sophia.williams@childcare.com",
+        "Degree": "MBBS, MD",
+        "JoiningDate": "05-04-2018",
+        "Experience": 7,
+        "ConsultationFee": 350,
+        "Availability": "Monday to Saturday",
+        "Rating": 4.3,
+        "ClinicLocation": "Children's Clinic"
+    }
+]

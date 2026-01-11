@@ -1,0 +1,53 @@
+<h2 mat-dialog-title class="dialog-header mb-0">Doctor Details</h2>
+<mat-dialog-content>
+    <div class="row mt-2" style="font-size: 13px;">
+        <div class="col-md-4">
+            <b>Name</b> : {{DoctorDetails?.Name}}
+        </div>
+        <div class="col-md-4">
+            <b>Gender</b> : {{DoctorDetails?.Gender}}
+        </div>
+        <div class="col-md-4">
+            <b>Mobile</b> : {{DoctorDetails?.Mobile}}
+        </div>
+        <div class="col-md-4">
+            <b>Department</b> : {{DoctorDetails?.Department}}
+        </div>
+        <div class="col-md-4">
+            <b>Specialization</b> : {{DoctorDetails?.Specialization}}
+        </div>
+        <div class="col-md-4">
+            <b>Address</b> : {{DoctorDetails?.Address}}
+        </div>
+        <div class="col-md-4">
+            <b>Date Of Birth</b> : {{DoctorDetails?.DateOfBirth}}
+        </div>
+        <div class="col-md-4">
+            <b>Email</b> : {{DoctorDetails?.Email}}
+        </div>
+        <div class="col-md-4">
+            <b>Degree</b> : {{DoctorDetails?.Degree}}
+        </div>
+        <div class="col-md-4">
+            <b>Joining Date</b> : {{DoctorDetails?.JoiningDate}}
+        </div>
+        <div class="col-md-4">
+            <b>Experience (Years)</b> : {{DoctorDetails?.Experience}}
+        </div>
+        <div class="col-md-4">
+            <b>Consultation Fee</b> : {{DoctorDetails?.ConsultationFee}}
+        </div>
+        <div class="col-md-4">
+            <b>Availability</b> : {{DoctorDetails?.Availability}}
+        </div>
+        <div class="col-md-4">
+            <b>Rating</b> : {{DoctorDetails?.Rating}}
+        </div>
+        <div class="col-md-4">
+            <b>Clinic Location</b> : {{DoctorDetails?.ClinicLocation}}
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

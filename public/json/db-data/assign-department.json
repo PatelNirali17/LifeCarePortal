@@ -1,0 +1,38 @@
+[
+    {
+        "Name": "Dr. Sarah Martinez",
+        "Department": "Oncology",
+        "Specialization": "Breast Cancer",
+        "ShiftSchedule": "Mon-Wed, 9 AM - 3 PM",
+        "ExperienceLevel": "Consultant",
+        "AssignmentStatus": "Active",
+        "AssignedDate": "25/07/2023"
+    },
+    {
+        "Name": "Dr. James Anderson",
+        "Department": "Orthopedics",
+        "Specialization": "Joint Replacement",
+        "ShiftSchedule": "Mon-Wed, 9 AM - 5 PM",
+        "ExperienceLevel": "Senior",
+        "AssignmentStatus": "Inactive",
+        "AssignedDate": "10/08/2023"
+    },
+    {
+        "Name": "Dr. Alan Brown",
+        "Department": "Neurology",
+        "Specialization": "Epilepsy and Seizure Disorders",
+        "ShiftSchedule": "Tue-Thu, 10 AM - 3 PM",
+        "ExperienceLevel": "Senior",
+        "AssignmentStatus": "Pending",
+        "AssignedDate": "01/09/2023"
+    },
+    {
+        "Name": "Dr. Michael Green",
+        "Department": "Pediatrics",
+        "Specialization": "Neonatology",
+        "ShiftSchedule": "Mon-Fri, 7 AM - 3 PM",
+        "ExperienceLevel": "Junior",
+        "AssignmentStatus": "Active",
+        "AssignedDate": "22/10/2023"
+    }
+]

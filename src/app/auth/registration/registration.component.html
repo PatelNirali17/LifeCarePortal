@@ -1,0 +1,23 @@
+<div class="container d-flex justify-content-center">
+    <div class="row">
+        <div class="col-lg-12">
+
+            <form class="form_main" [formGroup]="RegistrationForm">
+                <p class="heading">Create Account</p>
+                <p>Enter details to create your account</p>
+                <div class="inputContainer">
+                    <input placeholder="Name" class="inputField" type="text" formControlName="UserName" required>
+                </div>
+                <div class="inputContainer">
+                    <input placeholder="Email" class="inputField" type="email" formControlName="Email" required>
+                </div>
+                <div class="inputContainer">
+                    <input placeholder="Password" class="inputField" type="password" formControlName="Password" required>
+                </div>
+                <button id="button" class="bgprimary" (click)="Registration()">Create Account</button>
+                <div class="signupContainer">
+                    <p>Already have an account? <a (click)="OpenLogin()">Login</a></p>
+                </div>
+            </form>
+        </div>
+    </div>

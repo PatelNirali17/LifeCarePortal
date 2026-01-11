@@ -1,0 +1,28 @@
+[
+    {
+        "Name": "Ashton Cox",
+        "Designation": "Compounder",
+        "Mobile": "1234567890",
+        "Email": "ashton.cox@hospital.com",
+        "JoiningDate": "15/01/2016",
+        "Salary": "25000",
+        "Status": "Active",
+        "Shift": "Morning",
+        "Experience": "6",
+        "Gender": "female",
+        "Address": "11, Shyam Appt., Rajkot"
+    },
+    {
+        "Name": "Oliver Jones",
+        "Designation": "Receptionist",
+        "Mobile": "1122334455",
+        "Email": "oliver.jones@hospital.com",
+        "JoiningDate": "05/01/2018",
+        "Salary": "20000",
+        "Status": "Active",
+        "Shift": "Morning",
+        "Experience": "3",
+        "Gender": "male",
+        "Address": "45, Sunrise Villa, Ahmedabad"
+    }
+]

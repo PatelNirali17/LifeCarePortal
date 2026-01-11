@@ -1,0 +1,117 @@
+<h2 mat-dialog-title class="dialog-header mb-0">New Staff</h2>
+<mat-dialog-content>
+    <form class="row mt-2" [formGroup]="StaffForm">
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Name</mat-label>
+                <input matInput formControlName="Name" required>
+                <mat-icon matSuffix>face</mat-icon>
+                <mat-error *ngIf="StaffForm.get('Name')?.invalid">
+                    Please enter Name
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Designation</mat-label>
+                <mat-select formControlName="Designation" required>
+                    <mat-option *ngFor="let Designation of DesignationList"
+                        [value]="Designation.id">{{Designation.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="StaffForm.get('Designation')?.invalid">
+                    Please select Designation
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Mobile</mat-label>
+                <input matInput formControlName="Mobile" required>
+                <mat-icon matSuffix>call</mat-icon>
+                <mat-error *ngIf="StaffForm.get('Mobile')?.invalid">
+                    Please enter Mobile
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Email</mat-label>
+                <input matInput type="email" formControlName="Email" required>
+                <mat-icon matSuffix>mail</mat-icon>
+                <mat-error *ngIf="StaffForm.get('Email')?.invalid">
+                    Please enter Email
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Joining Date</mat-label>
+                <input matInput [matDatepicker]="JoiningDate" formControlName="JoiningDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="JoiningDate"></mat-datepicker-toggle>
+                <mat-datepicker #JoiningDate></mat-datepicker>
+                <mat-error *ngIf="StaffForm.get('JoiningDate')?.invalid">
+                    Please select Joining Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Salary</mat-label>
+                <input matInput formControlName="Salary" required>
+                <mat-icon matSuffix>paid</mat-icon>
+                <mat-error *ngIf="StaffForm.get('Salary')?.invalid">
+                    Please enter Salary
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-radio-group formControlName="Status">
+                <mat-label style="font-size: 14px;">Status</mat-label>
+                <mat-radio-button value="Active">Active</mat-radio-button>
+                <mat-radio-button value="InActive">InActive</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="StaffForm.get('Status')?.invalid">
+                Please select Status
+            </mat-error>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Shift</mat-label>
+                <mat-select formControlName="Shift" required>
+                    <mat-option *ngFor="let Shift of ShiftList" [value]="Shift.id">{{Shift.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="StaffForm.get('Shift')?.invalid">
+                    Please select Shift
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Experience (years)</mat-label>
+                <input matInput formControlName="Experience">
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-radio-group formControlName="Gender">
+                <mat-label style="font-size: 14px;">Gender</mat-label>
+                <mat-radio-button value="male">Male</mat-radio-button>
+                <mat-radio-button value="female">Female</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="StaffForm.get('Gender')?.invalid">
+                Please select Gender
+            </mat-error>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Address</mat-label>
+                <textarea matInput formControlName="Address" rows="1"></textarea>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button class="bgprimary">Save</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

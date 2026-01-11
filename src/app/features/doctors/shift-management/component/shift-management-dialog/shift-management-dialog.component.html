@@ -1,0 +1,121 @@
+<h2 mat-dialog-title class="dialog-header mb-0">New Shift Management</h2>
+<mat-dialog-content>
+    <form class="row mt-2" [formGroup]="ShiftManagementForm">
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Doctor Name</mat-label>
+                <input matInput formControlName="Name" required>
+                <mat-icon matSuffix>face</mat-icon>
+                <mat-error *ngIf="ShiftManagementForm.get('Name')?.invalid">
+                    Please enter Doctor Name
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Department</mat-label>
+                <mat-select formControlName="Department" required>
+                    <mat-option *ngFor="let Department of DepartmentList" [value]="Department.id">{{Department.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="ShiftManagementForm.get('Department')?.invalid">
+                    Please select Department
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Specialization</mat-label>
+                <input matInput formControlName="Specialization">
+                <mat-icon matSuffix>flag</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Shift Start Date</mat-label>
+                <input matInput [matDatepicker]="ShiftStartDate" formControlName="ShiftStartDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="ShiftStartDate"></mat-datepicker-toggle>
+                <mat-datepicker #ShiftStartDate></mat-datepicker>
+                <mat-error *ngIf="ShiftManagementForm.get('ShiftStartDate')?.invalid">
+                    Please select Shift Start Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Shift End Date</mat-label>
+                <input matInput [matDatepicker]="ShiftEndDate" formControlName="ShiftEndDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="ShiftEndDate"></mat-datepicker-toggle>
+                <mat-datepicker #ShiftEndDate></mat-datepicker>
+                <mat-error *ngIf="ShiftManagementForm.get('ShiftEndDate')?.invalid">
+                    Please select Shift End Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Work Days</mat-label>
+                <input matInput formControlName="WorkDays" required>
+                  <mat-error *ngIf="ShiftManagementForm.get('WorkDays')?.invalid">
+                    Please enter Work Days
+                </mat-error>
+            </mat-form-field>
+        </div>
+          <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Shift Hours</mat-label>
+                <input matInput formControlName="ShiftHours" required>
+                  <mat-error *ngIf="ShiftManagementForm.get('ShiftHours')?.invalid">
+                    Please enter Shift Hours
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Shift Type</mat-label>
+                <mat-select formControlName="ShiftType" required>
+                    <mat-option value="Day Shift">Day Shift</mat-option>
+                    <mat-option value="Night Shift">Night Shift</mat-option>
+                </mat-select>
+                 <mat-error *ngIf="ShiftManagementForm.get('ShiftType')?.invalid">
+                    Please select Shift Type
+                </mat-error>
+            </mat-form-field>
+        </div>
+         <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Availability Status</mat-label>
+                <mat-select formControlName="AvailabilityStatus" required>
+                    <mat-option value="Available">Available</mat-option>
+                    <mat-option value="Unavailable">Unavailable</mat-option>
+                    <mat-option value="On Leave">On Leave</mat-option>
+                </mat-select>
+                 <mat-error *ngIf="ShiftManagementForm.get('AvailabilityStatus')?.invalid">
+                    Please select Availability Status
+                </mat-error>
+            </mat-form-field>
+        </div>
+         <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Overtime Hours</mat-label>
+                <input matInput formControlName="OvertimeHours">
+            </mat-form-field>
+        </div>
+         <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Total Hours Per Week</mat-label>
+                <input matInput formControlName="TotalHoursPerWeek">
+            </mat-form-field>
+        </div>
+         <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Shift Notes</mat-label>
+                <textarea matInput rows="1" formControlName="ShiftNotes"></textarea>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button class="bgprimary">Save</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

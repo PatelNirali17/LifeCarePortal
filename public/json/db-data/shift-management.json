@@ -1,0 +1,44 @@
+[
+    {
+        "Name":"Dr. John Smith",
+        "Department":"Cardiology",
+        "Specialization":"Pediatric Cardiology",
+        "ShiftStartDate":"01/02/2024",
+        "ShiftEndDate":"28/02/2024",
+        "WorkDays":"Mon-Fri",
+        "ShiftHours":"9:00 AM - 5:00 PM",
+        "ShiftType":"Day Shift",
+        "AvailabilityStatus":"Available",
+        "OvertimeHours":"0 hours",
+        "TotalHoursPerWeek":"40 hours",
+        "ShiftNotes":"No special notes"
+    },
+    {
+        "Name":"Dr. Emily Johnson",
+        "Department":"Orthopedics",
+        "Specialization":"Sports Medicine",
+        "ShiftStartDate":"01/03/2024",
+        "ShiftEndDate":"31/03/2024",
+        "WorkDays":"Mon-Wed",
+        "ShiftHours":"10:00 AM - 4:00 PM",
+        "ShiftType":"Night Shift",
+        "AvailabilityStatus":"Unavailable",
+        "OvertimeHours":"2 hours",
+        "TotalHoursPerWeek":"30 hours",
+        "ShiftNotes":"On call for emergencies"
+    },
+    {
+        "Name":"Dr. Olivia Black",
+        "Department":"Cardiology",
+        "Specialization":"Adult Cardiology",
+        "ShiftStartDate":"05/03/2024",
+        "ShiftEndDate":"31/03/2024",
+        "WorkDays":"Mon-Fri",
+        "ShiftHours":"9:00 AM - 6:00 PM",
+        "ShiftType":"Day Shift",
+        "AvailabilityStatus":"Available",
+        "OvertimeHours":"0 hours",
+        "TotalHoursPerWeek":"45 hours",
+        "ShiftNotes":"Covering additional shifts this week"
+    }
+]

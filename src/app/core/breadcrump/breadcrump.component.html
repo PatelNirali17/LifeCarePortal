@@ -1,0 +1,9 @@
+<div class="container-fluid">
+  <ul class="breadcrumb">
+    <li><a href="#"><i class="fa-solid fa-house"></i></a></li>
+    <li *ngFor="let breadcrumb of breadcrumbs; let i = index;">
+      <a [hidden]="i == (breadcrumbs.length - 1)" [routerLink]="[breadcrumb.url]">{{breadcrumb.name}}</a>
+      <span [hidden]="i != (breadcrumbs.length - 1)">{{breadcrumb.name}}</span>
+    </li>
+  </ul>
+</div>

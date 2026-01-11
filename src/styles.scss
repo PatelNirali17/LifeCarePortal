@@ -1,0 +1,157 @@
+/* You can add global styles to this file, and also import other style files */
+@use 'bootstrap/dist/css/bootstrap.min.css';
+@use "ngx-toastr/toastr";
+@import '@angular/material/prebuilt-themes/azure-blue.css';
+@import '@fortawesome/fontawesome-free/css/all.min.css';
+
+html,
+body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, sans-serif !important;
+  background-color: #E9F7F1;
+  color: #333333;
+}
+
+.bgprimary {
+  background-color: #6A0572 !important;
+  border: 2px solid #6A0572 !important;
+  color: #FFFFFF !important;
+
+  &:hover {
+    background-color: #580464 !important;
+  }
+}
+
+.bgsecondary {
+  background-color: #D4AF37 !important;
+  border: 2px solid #D4AF37 !important;
+  color: #333333 !important;
+
+  &:hover {
+    background-color: #C9A22F !important;
+  }
+}
+
+.bgaccent {
+  background-color: #FF6B6B !important;
+  border: 2px solid #FF6B6B !important;
+  color: white !important;
+
+  &:hover {
+    background-color: #E85C5C !important;
+  }
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) {
+  background-color: transparent !important;
+}
+
+.mat-mdc-select-value-text {
+  font-size: 14px !important;
+}
+
+.mat-mdc-form-field-input-control.mat-mdc-form-field-input-control {
+  font-size: 14px !important;
+}
+
+.mdc-floating-label--required:not(.mdc-floating-label--hide-required-marker)::after {
+  color: red;
+  font-weight: bolder;
+}
+
+
+.card {
+  border: 3px solid transparent;
+
+  .card-header {
+    background-color: #f5dff8;
+    color: #6A0572;
+    border-bottom: 1px solid transparent;
+  }
+}
+
+.dialog-header {
+  background-color: #f5dff8 !important;
+  color: #6A0572 !important;
+}
+
+.badge-solid-purple {
+  color: #6f42c1;
+  background-color: #6f42c126;
+  border: none;
+  padding: 5px 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  border-radius: 5px;
+}
+
+.badge-solid-green {
+  color: #198754;
+  background-color: #19875426;
+  border: none;
+  padding: 5px 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  border-radius: 5px;
+}
+
+.badge-solid-orange {
+  color: #fd7e14;
+  background-color: #fd7e1426;
+  border: none;
+  padding: 5px 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  border-radius: 5px;
+}
+
+.badge-solid-red {
+  color: #f11541;
+  background-color: #f1154126;
+  border: none;
+  padding: 5px 12px;
+  font-weight: 500;
+  line-height: 1.2;
+  border-radius: 5px;
+}
+
+.mat-mdc-cell {
+  font-size: 13px;
+}
+
+/* Applies to modern browsers (Chrome, Edge, Safari) */
+::-webkit-scrollbar {
+  width: 8px;
+  /* width for vertical scrollbar */
+  height: 8px;
+  /* height for horizontal scrollbar */
+}
+
+::-webkit-scrollbar-track {
+  background: #F5F5F5;
+  /* Light gray track background */
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background-color: #6A0572;
+  /* Twilight Orchid thumb */
+  border-radius: 10px;
+  /* Rounded edges */
+  border: 2px solid #F5F5F5;
+  /* Space between thumb & track */
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background-color: #580464;
+  /* Darker Twilight Orchid on hover */
+}
+
+::-webkit-scrollbar-corner {
+  background: #F5F5F5;
+  /* Clean corner */
+}

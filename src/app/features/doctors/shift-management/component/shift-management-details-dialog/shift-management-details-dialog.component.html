@@ -1,0 +1,44 @@
+<h2 mat-dialog-title class="dialog-header mb-0">Shift Management Details</h2>
+<mat-dialog-content>
+    <div class="row mt-2" style="font-size: 13px;">
+        <div class="col-md-4">
+            <b>Name</b> : {{ShiftManagementDetails?.Name}}
+        </div>
+        <div class="col-md-4">
+            <b>Department</b> : {{ShiftManagementDetails?.Department}}
+        </div>
+        <div class="col-md-4">
+            <b>Specialization</b> : {{ShiftManagementDetails?.Specialization}}
+        </div>
+         <div class="col-md-4">
+            <b>Shift Start Date</b> : {{ShiftManagementDetails?.ShiftStartDate}}
+        </div>
+        <div class="col-md-4">
+            <b>Shift End Date</b> : {{ShiftManagementDetails?.ShiftEndDate}}
+        </div>
+        <div class="col-md-4">
+            <b>Work Days</b> : {{ShiftManagementDetails?.WorkDays}}
+        </div>
+        <div class="col-md-4">
+            <b>Shift Hours</b> : {{ShiftManagementDetails?.ShiftHours}}
+        </div>
+        <div class="col-md-4">
+            <b>Shift Type</b> : {{ShiftManagementDetails?.ShiftType}}
+        </div>
+        <div class="col-md-4">
+            <b>Availability Status</b> : {{ShiftManagementDetails?.AvailabilityStatus}}
+        </div>
+        <div class="col-md-4">
+            <b>Overtime Hours</b> : {{ShiftManagementDetails?.OvertimeHours}}
+        </div>
+        <div class="col-md-4">
+            <b>Total Hours PerWeek</b> : {{ShiftManagementDetails?.TotalHoursPerWeek}}
+        </div>
+        <div class="col-md-4">
+            <b>Shift Notes</b> : {{ShiftManagementDetails?.ShiftNotes}}
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

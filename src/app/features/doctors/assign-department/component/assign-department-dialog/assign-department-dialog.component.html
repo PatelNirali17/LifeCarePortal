@@ -1,0 +1,75 @@
+<h2 mat-dialog-title class="dialog-header mb-0">New Department</h2>
+<mat-dialog-content>
+    <form class="row mt-2" [formGroup]="AssignDepartmentForm">
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Doctor Name</mat-label>
+                <input matInput formControlName="Name" required>
+                <mat-icon matSuffix>face</mat-icon>
+                <mat-error *ngIf="AssignDepartmentForm.get('Name')?.invalid">
+                    Please enter Doctor Name
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Department</mat-label>
+                <mat-select formControlName="Department" required>
+                    <mat-option *ngFor="let Department of DepartmentList" [value]="Department.id">{{Department.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="AssignDepartmentForm.get('Department')?.invalid">
+                    Please select Department
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Specialization</mat-label>
+                <input matInput formControlName="Specialization">
+                <mat-icon matSuffix>flag</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Assigned Date</mat-label>
+                <input matInput [matDatepicker]="AssignedDate" formControlName="AssignedDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="AssignedDate"></mat-datepicker-toggle>
+                <mat-datepicker #AssignedDate></mat-datepicker>
+                <mat-error *ngIf="AssignDepartmentForm.get('AssignedDate')?.invalid">
+                    Please select Assigned Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Shift Schedule</mat-label>
+                <input matInput formControlName="ShiftSchedule">
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Experience Level</mat-label>
+                <mat-select formControlName="ExperienceLevel">
+                    <mat-option value="Junior">Junior</mat-option>
+                    <mat-option value="Consultant">Consultant</mat-option>
+                    <mat-option value="Senior">Senior</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+         <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Current Assignment Status</mat-label>
+                <mat-select formControlName="AssignmentStatus">
+                    <mat-option value="Active">Active</mat-option>
+                    <mat-option value="Pending">Pending</mat-option>
+                    <mat-option value="Inactive">Inactive</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button class="bgprimary">Save</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

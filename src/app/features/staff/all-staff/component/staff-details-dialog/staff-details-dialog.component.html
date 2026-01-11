@@ -1,0 +1,41 @@
+<h2 mat-dialog-title class="dialog-header mb-0">Staff Details</h2>
+<mat-dialog-content>
+    <div class="row mt-2" style="font-size: 13px;">
+        <div class="col-md-4">
+            <b>Name</b> : {{StaffDetails?.Name}}
+        </div>
+        <div class="col-md-4">
+            <b>Designation</b> : {{StaffDetails?.Designation}}
+        </div>
+        <div class="col-md-4">
+            <b>Mobile</b> : {{StaffDetails?.Mobile}}
+        </div>
+        <div class="col-md-4">
+            <b>Email</b> : {{StaffDetails?.Email}}
+        </div>
+        <div class="col-md-4">
+            <b>Joining Date</b> : {{StaffDetails?.JoiningDate}}
+        </div>
+        <div class="col-md-4">
+            <b>Salary</b> : {{StaffDetails?.Salary}}
+        </div>
+        <div class="col-md-4">
+            <b>Status</b> : {{StaffDetails?.Status}}
+        </div>
+        <div class="col-md-4">
+            <b>Shift</b> : {{StaffDetails?.Shift}}
+        </div>
+        <div class="col-md-4">
+            <b>Experience (years)</b> : {{StaffDetails?.Experience}}
+        </div>
+        <div class="col-md-4">
+            <b>Gender</b> : {{StaffDetails?.Gender}}
+        </div>
+        <div class="col-md-8">
+            <b>Address</b> : {{StaffDetails?.Address}}
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

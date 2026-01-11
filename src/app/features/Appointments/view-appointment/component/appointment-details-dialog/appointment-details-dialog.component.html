@@ -1,0 +1,53 @@
+<h2 mat-dialog-title class="dialog-header mb-0">Appointment Details</h2>
+<mat-dialog-content>
+    <div class="row mt-2" style="font-size: 13px;">
+        <div class="col-md-6">
+            <b>Name</b> : {{AppointmentDetails?.Name}}
+        </div>
+        <div class="col-md-6">
+            <b>Email</b> : {{AppointmentDetails?.Email}}
+        </div>
+        <div class="col-md-6">
+            <b>Gender</b> : {{AppointmentDetails?.Gender}}
+        </div>
+        <div class="col-md-6">
+            <b>Date Of Birth</b> : {{AppointmentDetails?.DateofBirth}}
+        </div>
+        <div class="col-md-6">
+            <b>Address</b> : {{AppointmentDetails?.Address}}
+        </div>
+        <div class="col-md-6">
+            <b>Date Of Appointment</b> : {{AppointmentDetails?.AppointmentDate}}
+        </div>
+        <div class="col-md-6">
+            <b>Time Of Appointment</b> : {{AppointmentDetails?.AppointmentTime}}
+        </div>
+        <div class="col-md-6">
+            <b>Mobile</b> : {{AppointmentDetails?.Mobile}}
+        </div>
+        <div class="col-md-6">
+            <b>Doctor</b> : {{AppointmentDetails?.Doctor}}
+        </div>
+        <div class="col-md-6">
+            <b>Injury</b> : {{AppointmentDetails?.Injury}}
+        </div>
+        <div class="col-md-6">
+            <b>Appointment Status</b> : {{AppointmentDetails?.AppointmentStatus}}
+        </div>
+        <div class="col-md-6">
+            <b>Visit Type</b> : {{AppointmentDetails?.VisitType}}
+        </div>
+        <div class="col-md-6">
+            <b>Payment Status</b> : {{AppointmentDetails?.PaymentStatus}}
+        </div>
+        <div class="col-md-6">
+            <b>Insurance Provider</b> : {{AppointmentDetails?.InsuranceProvider}}
+        </div>
+        <div class="col-md-6">
+            <b>Notes</b> : {{AppointmentDetails?.Notes}}
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>
