@@ -38,6 +38,7 @@ export class LoginComponent {
       Admin: '/dashboard', Doctor: '/doctordashboard', Patient: '/patientdashboard'
     };
     this.toast.success('', 'Login Successfully')
+    localStorage.setItem('UserDetails', JSON.stringify(this.LoginForm.value))
     this.router.navigate([roleRouteMap[this.LoginForm.value.Role] || '/']);
     // this.authenticationService.CheckLogin(this.LoginForm.value).subscribe({
     //   next: (result: any) => {

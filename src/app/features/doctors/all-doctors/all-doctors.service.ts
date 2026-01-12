@@ -6,10 +6,14 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class AllDoctorsService {
-  
- constructor(private http : HttpClient) { }
 
-  GetAllDocotors():Observable<any>{
+  constructor(private http: HttpClient) { }
+
+  GetAllDocotors(): Observable<any> {
     return this.http.get<any>('json/db-data/all-doctors.json')
+  }
+
+  GetAllDepartment(): Observable<any> {
+    return this.http.get<any>('json/db-data/department-list.json')
   }
 }

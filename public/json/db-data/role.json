@@ -1,0 +1,26 @@
+[
+    {
+        "Name": "Admin",
+        "Status": "Active",
+        "CreatedDate": "24-03-2024",
+        "UpdatedDate": "24-03-2024"
+    },
+    {
+        "Name": "Doctor",
+        "Status": "Active",
+        "CreatedDate": "24-03-2024",
+        "UpdatedDate": "24-03-2024"
+    },
+    {
+        "Name": "Patient",
+        "Status": "Active",
+        "CreatedDate": "24-03-2024",
+        "UpdatedDate": "24-03-2024"
+    },
+    {
+        "Name": "Lab Staff",
+        "Status": "Inactive",
+        "CreatedDate": "24-03-2024",
+        "UpdatedDate": "24-03-2024"
+    }
+]

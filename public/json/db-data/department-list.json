@@ -1,0 +1,42 @@
+[
+  {
+    "Name": "Gynecologist",
+    "Description": "Investigates and treats..",
+    "Status": "Active"
+  },
+  {
+    "Name": "Gastroenterology",
+    "Description": "This department investigates..",
+    "Status": "Active"
+  },
+  {
+    "Name": "Nephrology",
+    "Description": "Monitors and assesses..",
+    "Status": "Active"
+  },
+  {
+    "Name": "Cardiology",
+    "Description": "Provides medical care..",
+    "Status": "Inactive"
+  },
+  {
+    "Name": "Pharmacy",
+    "Description": "Responsible for drugs..",
+    "Status": "Active"
+  },
+  {
+    "Name": "Physiotherapy",
+    "Description": "Physiotherapists work..",
+    "Status": "Active"
+  },
+  {
+    "Name": "Orthopaedics",
+    "Description": "Treats conditions related..",
+    "Status": "Inactive"
+  },
+  {
+    "Name": "Human Resources",
+    "Description": "Role is to provide..",
+    "Status": "Active"
+  }
+]

@@ -1,0 +1,58 @@
+[
+  {
+    "DepartmentNumber": 1,
+    "DepartmentName": "Gynecologist",
+    "Date": "2021-02-25",
+    "DepartmentHead": "Dr. Sarah Smith",
+    "Status": "Active"
+  },
+  {
+    "DepartmentNumber": 2,
+    "DepartmentName": "Gastroenterology",
+    "Date": "2021-02-25",
+    "DepartmentHead": "Dr. Angelica Ramos",
+    "Status": "Active"
+  },
+  {
+    "DepartmentNumber": 3,
+    "DepartmentName": "Nephrology",
+    "Date": "2021-02-25",
+    "DepartmentHead": "Dr. Cara Stevens",
+    "Status": "Active"
+  },
+  {
+    "DepartmentNumber": 4,
+    "DepartmentName": "Cardiology",
+    "Date": "2021-02-25",
+    "DepartmentHead": "Dr. Eva Willis",
+    "Status": "Inactive"
+  },
+  {
+    "DepartmentNumber": 5,
+    "DepartmentName": "Pharmacy",
+    "Date": "2021-02-25",
+    "DepartmentHead": "Dr. Jacob Ryan",
+    "Status": "Active"
+  },
+  {
+    "DepartmentNumber": 6,
+    "DepartmentName": "Physiotherapy",
+    "Date": "2021-02-25",
+    "DepartmentHead": "Dr. Megha Trivedi",
+    "Status": "Active"
+  },
+  {
+    "DepartmentNumber": 7,
+    "DepartmentName": "Orthopaedics",
+    "Date": "2021-02-25",
+    "DepartmentHead": "Dr. Sarah Smith",
+    "Status": "Inactive"
+  },
+  {
+    "DepartmentNumber": 8,
+    "DepartmentName": "Human Resources",
+    "Date": "2021-02-25",
+    "DepartmentHead": "Angelica Ramos",
+    "Status": "Active"
+  }
+]

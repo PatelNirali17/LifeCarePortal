@@ -33,7 +33,7 @@ export class RoleAssignDialogComponent {
     })
     this.roleAssignService.GetAllRole().subscribe({
       next: (result: any) => {
-        this.RoleList = result
+        this.RoleList = result?.filter((s:any) => s.Status == "Active")
       },
     })
 

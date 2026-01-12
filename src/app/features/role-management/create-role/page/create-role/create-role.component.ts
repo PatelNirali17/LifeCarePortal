@@ -16,11 +16,11 @@ import { ToastrService } from 'ngx-toastr';
   styleUrl: './create-role.component.scss'
 })
 export class CreateRoleComponent {
-  displayedColumns: string[] = ['SrNo', 'Name', 'CreatedDate', 'UpdatedDate', 'Actions'];
+  displayedColumns: string[] = ['SrNo', 'Name', 'Status', 'CreatedDate', 'UpdatedDate', 'Actions'];
   dataSource = new MatTableDataSource<any>();
   @ViewChild(MatPaginator) paginator!: MatPaginator;
 
-  constructor(private createRoleService: CreateRoleService, private dialog: MatDialog,private toast : ToastrService) {
+  constructor(private createRoleService: CreateRoleService, private dialog: MatDialog, private toast: ToastrService) {
     setTimeout(() => {
       this.GetAllRole()
     }, 1000);
@@ -40,7 +40,8 @@ export class CreateRoleComponent {
 
   OpenRoleDialog(obj: any) {
     const dialogRef = this.dialog.open(CreateRoleDialogComponent, {
-      width: '500px',
+      minWidth: '700px',
+      maxWidth: '700px',
       data: obj,
       disableClose: true
     });

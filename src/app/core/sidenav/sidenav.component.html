@@ -18,7 +18,7 @@
                 <a *ngFor="let link of menu?.links" mat-list-item [routerLink]="link?.path" (click)="onToggleClose()"
                     class="custom-item">
                     <span class="item-text" [ngStyle]="{ color: activeLink === link?.path ? '#6A0572' : 'black'}">
-                        {{ link?.name }}
+                      • {{ link?.name }}
                     </span>
                 </a>
             </mat-nav-list>

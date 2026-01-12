@@ -3,6 +3,7 @@ import { SharedModule } from '../../../../../shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { FormGroup, FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { AllDoctorsService } from '../../../all-doctors/all-doctors.service';
 
 @Component({
   selector: 'app-assign-department-dialog',
@@ -13,10 +14,10 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class AssignDepartmentDialogComponent {
   AssignDepartmentForm!: FormGroup;
   DepartmentList: any;
-  constructor(public dialogRef: MatDialogRef<AssignDepartmentDialogComponent>,private fb: NonNullableFormBuilder,
+  constructor(public dialogRef: MatDialogRef<AssignDepartmentDialogComponent>, private fb: NonNullableFormBuilder, private allDoctorsService: AllDoctorsService,
     @Optional() @Inject(MAT_DIALOG_DATA) public AssignDepartmentDetails: any
   ) {
-    
+
     this.AssignDepartmentForm = this.fb.group({
       Name: this.fb.control('', Validators.required),
       Department: this.fb.control('', Validators.required),
@@ -25,6 +26,11 @@ export class AssignDepartmentDialogComponent {
       ShiftSchedule: this.fb.control(''),
       ExperienceLevel: this.fb.control(''),
       AssignmentStatus: this.fb.control(''),
+    })
+    this.allDoctorsService.GetAllDepartment().subscribe({
+      next: (result: any) => {
+        this.DepartmentList = result
+      },
     })
   }
 }

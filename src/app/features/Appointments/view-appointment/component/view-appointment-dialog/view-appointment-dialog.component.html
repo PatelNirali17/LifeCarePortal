@@ -6,7 +6,7 @@
                 <mat-label style="font-size: 14px;">Name</mat-label>
                 <input matInput formControlName="Name" Name>
                 <mat-icon matSuffix>face</mat-icon>
-                   <mat-error *ngIf="AppointmentForm.get('Name')?.invalid">
+                <mat-error *ngIf="AppointmentForm.get('Name')?.invalid">
                     Please enter Name
                 </mat-error>
             </mat-form-field>
@@ -26,12 +26,13 @@
                 <mat-label style="font-size: 14px;">Gender</mat-label>
                 <mat-radio-button value="Male">Male</mat-radio-button>
                 <mat-radio-button value="Female">Female</mat-radio-button>
+                <mat-radio-button value="Other">Other</mat-radio-button>
             </mat-radio-group>
             <mat-error *ngIf="AppointmentForm.get('Gender')?.invalid">
                 Please enter Gender
             </mat-error>
         </div>
-            <div class="col-md-4">
+        <div class="col-md-4">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Date Of Birth</mat-label>
                 <input matInput [matDatepicker]="DateofBirth" formControlName="DateofBirth" required>
@@ -42,7 +43,7 @@
                 </mat-error>
             </mat-form-field>
         </div>
-         <div class="col-md-4">
+        <div class="col-md-4">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Address</mat-label>
                 <textarea matInput formControlName="Address" rows="1"></textarea>
@@ -84,7 +85,7 @@
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Doctor Name</mat-label>
                 <mat-select formControlName="DoctorName" required>
-                    <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.id">{{Doctor.Name}}
+                    <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{Doctor.Name}}
                     </mat-option>
                 </mat-select>
                 <mat-error *ngIf="AppointmentForm.get('DoctorName')?.invalid">
@@ -102,9 +103,9 @@
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Appointment Status</mat-label>
                 <mat-select formControlName="AppointmentStatus">
-                    <mat-option *ngFor="let AppointmentStatus of AppointmentStatusList"
-                        [value]="AppointmentStatus.id">{{AppointmentStatus.Name}}
-                    </mat-option>
+                    <mat-option value="Scheduled">Scheduled</mat-option>
+                    <mat-option value="Compleled">Compleled</mat-option>
+                    <mat-option value="Canceled">Canceled</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
@@ -112,8 +113,8 @@
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Visit Type</mat-label>
                 <mat-select formControlName="VisitType">
-                    <mat-option *ngFor="let VisitType of VisitTypeList" [value]="VisitType.id">{{VisitType.Name}}
-                    </mat-option>
+                    <mat-option value="New Patient">New Patient</mat-option>
+                    <mat-option value="Follow UP">Follow UP</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
@@ -121,13 +122,13 @@
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Payment Status</mat-label>
                 <mat-select formControlName="PaymentStatus">
-                    <mat-option *ngFor="let PaymentStatus of PaymentStatusList"
-                        [value]="PaymentStatus.id">{{PaymentStatus.Name}}
-                    </mat-option>
+                    <mat-option value="Paid">Paid</mat-option>
+                    <mat-option value="Pending">Pending</mat-option>
+                    <mat-option value="Unpaid">Unpaid</mat-option>
                 </mat-select>
             </mat-form-field>
         </div>
-         <div class="col-md-4">
+        <div class="col-md-4">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Insurance Provider</mat-label>
                 <input matInput formControlName="InsuranceProvider">
@@ -137,7 +138,7 @@
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Notes</mat-label>
                 <textarea matInput formControlName="Notes" rows="1"></textarea>
-                </mat-form-field>
+            </mat-form-field>
         </div>
     </form>
 </mat-dialog-content>

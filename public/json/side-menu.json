@@ -65,26 +65,14 @@
                 {
                     "name": "Shift Management",
                     "path": "/doctors/shiftmanagement"
-                },
-                {
-                    "name": "Doctor Profile",
-                    "path": "/editappointment"
                 }
             ]
         },
         {
             "title": "Staff",
             "icon": "supervisor_account",
-            "links": [
-                {
-                    "name": "All Staff",
-                    "path": "/staff/allstaff"
-                },
-                {
-                    "name": "Staff Profile",
-                    "path": "/editappointment"
-                }
-            ]
+            "path": "/staff/allstaff",
+            "links": []
         },
         {
             "title": "Patients",
@@ -96,10 +84,6 @@
                 },
                 {
                     "name": "Patients Records",
-                    "path": "/editappointment"
-                },
-                {
-                    "name": "Patients Profile",
                     "path": "/editappointment"
                 }
             ]
@@ -210,6 +194,10 @@
             "links": [
                 {
                     "name": "Department List",
+                    "path": "/"
+                },
+                {
+                    "name": "Department Overview",
                     "path": "/"
                 }
             ]

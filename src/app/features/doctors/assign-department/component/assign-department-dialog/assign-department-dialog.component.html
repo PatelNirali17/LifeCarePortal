@@ -15,7 +15,7 @@
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Department</mat-label>
                 <mat-select formControlName="Department" required>
-                    <mat-option *ngFor="let Department of DepartmentList" [value]="Department.id">{{Department.Name}}
+                    <mat-option *ngFor="let Department of DepartmentList" [value]="Department.Name">{{Department.Name}}
                     </mat-option>
                 </mat-select>
                 <mat-error *ngIf="AssignDepartmentForm.get('Department')?.invalid">

@@ -1,0 +1,26 @@
+[
+    {
+        "UserName":"Ashton Cox",
+        "Role": "Admin",
+        "CreatedDate": "24-03-2024",
+        "UpdatedDate": "24-03-2024"
+    },
+    {
+        "UserName":"Pooja Patel",
+        "Role": "Doctor",
+        "CreatedDate": "24-03-2024",
+        "UpdatedDate": "24-03-2024"
+    },
+    {
+        "UserName":"Oliver Jones",
+        "Role": "Patient",
+        "CreatedDate": "24-03-2024",
+        "UpdatedDate": "24-03-2024"
+    },
+    {
+        "UserName":"John Doe",
+        "Role": "Doctor",
+        "CreatedDate": "24-03-2024",
+        "UpdatedDate": "24-03-2024"
+    }
+]

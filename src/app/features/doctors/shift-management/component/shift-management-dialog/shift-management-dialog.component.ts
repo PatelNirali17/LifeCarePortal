@@ -3,6 +3,7 @@ import { SharedModule } from '../../../../../shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { FormGroup, FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { AllDoctorsService } from '../../../all-doctors/all-doctors.service';
 
 @Component({
   selector: 'app-shift-management-dialog',
@@ -14,23 +15,28 @@ export class ShiftManagementDialogComponent {
   ShiftManagementForm!: FormGroup;
   DepartmentList: any;
 
-  constructor(public dialogRef: MatDialogRef<ShiftManagementDialogComponent>,private fb: NonNullableFormBuilder,
+  constructor(public dialogRef: MatDialogRef<ShiftManagementDialogComponent>, private fb: NonNullableFormBuilder, private allDoctorsService: AllDoctorsService,
     @Optional() @Inject(MAT_DIALOG_DATA) public ShiftManagementDetails: any
   ) {
-    
+
     this.ShiftManagementForm = this.fb.group({
       Name: this.fb.control('', Validators.required),
       Department: this.fb.control('', Validators.required),
       Specialization: this.fb.control(''),
       ShiftStartDate: this.fb.control('', Validators.required),
-      ShiftEndDate: this.fb.control('',Validators.required),
-      WorkDays: this.fb.control('',Validators.required),
-      ShiftHours: this.fb.control('',Validators.required),
-      ShiftType: this.fb.control('',Validators.required),
-      AvailabilityStatus: this.fb.control('',Validators.required),
+      ShiftEndDate: this.fb.control('', Validators.required),
+      WorkDays: this.fb.control('', Validators.required),
+      ShiftHours: this.fb.control('', Validators.required),
+      ShiftType: this.fb.control('', Validators.required),
+      AvailabilityStatus: this.fb.control('', Validators.required),
       OvertimeHours: this.fb.control(''),
       TotalHoursPerWeek: this.fb.control(''),
       ShiftNotes: this.fb.control(''),
+    })
+    this.allDoctorsService.GetAllDepartment().subscribe({
+      next: (result: any) => {
+        this.DepartmentList = result
+      },
     })
   }
 }

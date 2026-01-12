@@ -11,8 +11,11 @@ export class CreateRoleService {
 
   constructor(private http: HttpClient) { }
 
+  // GetAllRole(): Observable<any> {
+  //   return this.http.get<any>(this.baseurl + 'getallrole/')
+  // }
   GetAllRole(): Observable<any> {
-    return this.http.get<any>(this.baseurl + 'getallrole/')
+    return this.http.get<any>('json/db-data/role.json')
   }
 
   SaveRoleDetails(model: any): Observable<any> {

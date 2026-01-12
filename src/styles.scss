@@ -122,6 +122,80 @@ body {
 .mat-mdc-cell {
   font-size: 13px;
 }
+.mdc-text-field--filled:not(.mdc-text-field--disabled).mdc-text-field--focused .mdc-floating-label {
+  color: #6A0572 !important;
+}
+
+.mdc-text-field--filled:not(.mdc-text-field--disabled) .mdc-line-ripple::after {
+  border-bottom-color: #6A0572 !important;
+}
+
+.mat-mdc-form-field.mat-focused .mat-mdc-select-arrow {
+  color: #6A0572 !important;
+}
+
+.mdc-checkbox__native-control:enabled:checked~.mdc-checkbox__background,
+.mdc-checkbox__native-control:enabled:indeterminate~.mdc-checkbox__background {
+  border-color: #6A0572 !important;
+  background-color: #6A0572 !important;
+}
+
+.mat-calendar-body-selected {
+  background-color: #6A0572 !important;
+}
+
+.mat-calendar-body-in-range::before {
+  background: #f5dff8 !important;
+}
+
+.mat-mdc-option.mdc-list-item--selected:not(.mdc-list-item--disabled):not(.mat-mdc-option-multiple) {
+  background-color: #f5dff8 !important;
+}
+
+.mat-mdc-dialog-actions {
+  padding: 5px !important;
+}
+
+.mat-clock-dial-cell.mat-clock-dial-cell-active {
+  background-color: #6A0572 !important;
+}
+
+.mat-clock-dial-hand:not(.mat-clock-dial-hand-disabled) {
+  background-color: #6A0572 !important;
+}
+
+.mat-clock-dial:before {
+  background-color: #6A0572 !important;
+}
+
+.mat-clock-dial-value.mat-clock-dial-value-active {
+  background-color: #f5dff8 !important;
+}
+
+.mat-time-period-item-active {
+  color: #6A0572 !important;
+  background-color: #f5dff8 !important;
+}
+
+.mat-mdc-button:not(:disabled) {
+  color: #6A0572 !important;
+}
+
+.mat-timepicker-toggle.mat-timepicker-toggle-active button {
+  color: #6A0572 !important;
+}
+
+.mat-mdc-tab .mdc-tab-indicator__content--underline {
+  border-color: #6A0572 !important;
+}
+
+.mat-mdc-radio-button .mdc-radio__native-control:enabled:checked+.mdc-radio__background>.mdc-radio__inner-circle {
+  border-color: #6A0572 !important;
+}
+
+.mat-mdc-radio-button .mdc-radio__native-control:enabled:checked+.mdc-radio__background>.mdc-radio__outer-circle {
+  border-color: #6A0572 !important;
+}
 
 /* Applies to modern browsers (Chrome, Edge, Safari) */
 ::-webkit-scrollbar {

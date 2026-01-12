@@ -3,6 +3,7 @@ import { SharedModule } from '../../../../../shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { FormGroup, FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { AllDoctorsService } from '../../all-doctors.service';
 
 @Component({
   selector: 'app-add-doctor-dialog',
@@ -13,7 +14,7 @@ import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 export class AddDoctorDialogComponent {
   DoctorForm!: FormGroup;
   DepartmentList: any;
-  constructor(public dialogRef: MatDialogRef<AddDoctorDialogComponent>,private fb: NonNullableFormBuilder,
+  constructor(public dialogRef: MatDialogRef<AddDoctorDialogComponent>, private fb: NonNullableFormBuilder, private allDoctorsService: AllDoctorsService,
     @Optional() @Inject(MAT_DIALOG_DATA) public DoctorDetails: any
   ) {
     this.DoctorForm = this.fb.group({
@@ -32,6 +33,11 @@ export class AddDoctorDialogComponent {
       Availability: this.fb.control('', Validators.required),
       Rating: this.fb.control(''),
       ClinicLocation: this.fb.control('', Validators.required)
+    })
+    this.allDoctorsService.GetAllDepartment().subscribe({
+      next: (result: any) => {
+        this.DepartmentList = result
+      },
     })
   }
 

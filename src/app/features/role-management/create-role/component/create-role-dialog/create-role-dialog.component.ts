@@ -21,10 +21,12 @@ export class CreateRoleDialogComponent {
     @Optional() @Inject(MAT_DIALOG_DATA) public RoleDetails: any) {
     this.RoleForm = this.fb.group({
       Name: this.fb.control('', Validators.required),
+      Status: this.fb.control('', Validators.required)
     })
 
     if (RoleDetails != null && RoleDetails.id > 0) {
       this.RoleForm.get('Name')?.patchValue(RoleDetails.Name)
+      this.RoleForm.get('Status')?.patchValue(RoleDetails.Status)
     }
   }
 

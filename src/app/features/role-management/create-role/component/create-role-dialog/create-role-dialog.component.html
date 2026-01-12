@@ -1,7 +1,7 @@
 <h2 mat-dialog-title class="dialog-header mb-0">New Role</h2>
 <mat-dialog-content>
     <form class="row mt-2" [formGroup]="RoleForm">
-        <div class="col-md-12">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Name</mat-label>
                 <input matInput formControlName="Name" required>
@@ -10,6 +10,16 @@
                     Please enter Name
                 </mat-error>
             </mat-form-field>
+        </div>
+         <div class="col-md-6">
+            <mat-radio-group formControlName="Status">
+                <mat-label style="font-size: 14px;">Status :</mat-label>
+                <mat-radio-button value="Active">Active</mat-radio-button>
+                <mat-radio-button value="Inactive">Inactive</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="RoleForm.get('Status')?.invalid">
+                Please select Status
+            </mat-error>
         </div>
     </form>
 </mat-dialog-content>

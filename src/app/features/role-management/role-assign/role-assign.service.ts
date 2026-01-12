@@ -12,16 +12,28 @@ export class RoleAssignService {
 
   constructor(private http: HttpClient) { }
 
+  // GetAllRoleAssign(): Observable<any> {
+  //   return this.http.get<any>(this.baseurl + 'getallroleassign/')
+  // }
+
   GetAllRoleAssign(): Observable<any> {
-    return this.http.get<any>(this.baseurl + 'getallroleassign/')
+    return this.http.get<any>('json/db-data/role-assign.json')
   }
+
+  // GetAllRole(): Observable<any> {
+  //   return this.http.get<any>(this.baseurl + 'getallrole/')
+  // }
 
   GetAllRole(): Observable<any> {
-    return this.http.get<any>(this.baseurl + 'getallrole/')
+    return this.http.get<any>('json/db-data/role.json')
   }
 
+  // GetAllUser(): Observable<any> {
+  //   return this.http.get<any>(this.userbaseurl + 'getalluser/')
+  // }
+
   GetAllUser(): Observable<any> {
-    return this.http.get<any>(this.userbaseurl + 'getalluser/')
+    return this.http.get<any>('json/db-data/users.json')
   }
 
   SaveRoleAssignDetails(model: any): Observable<any> {

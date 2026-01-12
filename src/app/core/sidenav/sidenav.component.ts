@@ -21,15 +21,18 @@ export class SidenavComponent {
     console.log(this.authenticationService.currentUserValue.Data)
     this.sidenavService.GetSideMenuList().subscribe({
       next: (result: any) => {
-        if (this.authenticationService.currentUserValue.Data.Role == 'Admin') {
-          this.menuItems = result.AdminSideMenu
-        }else if (this.authenticationService.currentUserValue.Data.Role == 'Doctor') {
-          this.menuItems = result.DoctorSideMenu
-        }else if (this.authenticationService.currentUserValue.Data.Role == 'Patient') {
-          this.menuItems = result.PatientSideMenu
-        } else {
-          this.menuItems = []
-        }
+        const UserDetails = JSON.parse(localStorage.getItem('UserDetails') || '{}')
+        const roleMenuMap: any = { Admin: result.AdminSideMenu, Doctor: result.DoctorSideMenu, Patient: result.PatientSideMenu };
+        this.menuItems = roleMenuMap[UserDetails.Role]
+        // if (this.authenticationService.currentUserValue.Data.Role == 'Admin') {
+        //   this.menuItems = result.AdminSideMenu
+        // }else if (this.authenticationService.currentUserValue.Data.Role == 'Doctor') {
+        //   this.menuItems = result.DoctorSideMenu
+        // }else if (this.authenticationService.currentUserValue.Data.Role == 'Patient') {
+        //   this.menuItems = result.PatientSideMenu
+        // } else {
+        //   this.menuItems = []
+        // }
       },
     })
 
