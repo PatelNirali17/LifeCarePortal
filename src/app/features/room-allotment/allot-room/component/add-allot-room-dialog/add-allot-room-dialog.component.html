@@ -1,0 +1,63 @@
+<h2 mat-dialog-title class="dialog-header mb-0">Allot Room</h2>
+<mat-dialog-content>
+    <form class="row mt-2" [formGroup]="AllotForm">
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Patient</mat-label>
+                <mat-select formControlName="patientId">
+                    <mat-option *ngFor="let p of PatientList" [value]="p.Mobile">{{p.Name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Room</mat-label>
+                <mat-select formControlName="roomId">
+                    <mat-option *ngFor="let r of RoomList" [value]="r.roomId">{{r.roomNumber}} -
+                        {{r.roomType}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Bed</mat-label>
+                <mat-select formControlName="bedId">
+                    <mat-option *ngFor="let b of BedList" [value]="b.bedId">{{b.bedNumber}} ({{b.bedType}})</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Doctor</mat-label>
+                <mat-select formControlName="doctor">
+                    <mat-option *ngFor="let d of DoctorList" [value]="d.Name">{{d.Name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Allotment Date</mat-label>
+                <input matInput [matDatepicker]="allotmentDate" formControlName="allotmentDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="allotmentDate"></mat-datepicker-toggle>
+                <mat-datepicker #allotmentDate></mat-datepicker>
+                <mat-error *ngIf="AllotForm.get('allotmentDate')?.invalid">
+                    Please select Allotment Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Status</mat-label>
+                <mat-select formControlName="status">
+                    <mat-option value="Discharged">Discharged</mat-option>
+                    <mat-option value="Reserved">Reserved</mat-option>
+                    <mat-option value="Available">Available</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button class="bgprimary" (click)="SaveAllot()">Save</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

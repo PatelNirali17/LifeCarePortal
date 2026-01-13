@@ -9,7 +9,11 @@ export class AllStaffService {
 
  constructor(private http : HttpClient) { }
 
-  GetAlStaff():Observable<any>{
+  GetAllStaff():Observable<any>{
     return this.http.get<any>('json/db-data/all-staff.json')
+  }
+  
+  GetAllDesignationList():Observable<any>{
+    return this.http.get<any>('json/db-data/designation-list.json')
   }
 }

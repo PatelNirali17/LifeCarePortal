@@ -1,12 +1,12 @@
 <mat-toolbar class="navbar">
-  <div>
-    <button mat-icon-button (click)="openSidenav()">
-      <mat-icon class="text-white">menu</mat-icon>
-    </button>
-  </div>
-  <div class="logo"><span style="margin-left: 5px;">LifeCare Portal</span></div>
-  <span class="example-spacer"></span>
-    <button mat-icon-button matTooltip="User Profile">
-    <mat-icon class="text-white">account_circle</mat-icon>
+  <button mat-icon-button (click)="openSidenav()">
+    <mat-icon style="color: #ffffff;">menu</mat-icon>
   </button>
+
+  <div style="display: flex;align-items: center;">
+    <a><img src="Logo/LifeCarePortalLogo_1.png" alt="" width="35" height="35" style="border-radius: 50%;"></a>
+    <span style="margin-left: 5px;"><b>LifeCare Portal</b></span>
+  </div>
+  <span class="example-spacer"></span>
+  <app-user-menu></app-user-menu>
 </mat-toolbar>

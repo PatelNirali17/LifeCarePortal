@@ -14,18 +14,24 @@ import { AllDoctorsService } from '../../../all-doctors/all-doctors.service';
 export class AssignDepartmentDialogComponent {
   AssignDepartmentForm!: FormGroup;
   DepartmentList: any;
+  DoctorList: any;
   constructor(public dialogRef: MatDialogRef<AssignDepartmentDialogComponent>, private fb: NonNullableFormBuilder, private allDoctorsService: AllDoctorsService,
     @Optional() @Inject(MAT_DIALOG_DATA) public AssignDepartmentDetails: any
   ) {
 
     this.AssignDepartmentForm = this.fb.group({
-      Name: this.fb.control('', Validators.required),
+      DoctorID: this.fb.control('', Validators.required),
       Department: this.fb.control('', Validators.required),
       Specialization: this.fb.control(''),
       AssignedDate: this.fb.control('', Validators.required),
       ShiftSchedule: this.fb.control(''),
       ExperienceLevel: this.fb.control(''),
       AssignmentStatus: this.fb.control(''),
+    })
+    this.allDoctorsService.GetAllDoctors().subscribe({
+      next: (result: any) => {
+        this.DoctorList = result
+      },
     })
     this.allDoctorsService.GetAllDepartment().subscribe({
       next: (result: any) => {

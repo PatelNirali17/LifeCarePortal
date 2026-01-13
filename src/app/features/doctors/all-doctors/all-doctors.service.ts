@@ -9,7 +9,7 @@ export class AllDoctorsService {
 
   constructor(private http: HttpClient) { }
 
-  GetAllDocotors(): Observable<any> {
+  GetAllDoctors(): Observable<any> {
     return this.http.get<any>('json/db-data/all-doctors.json')
   }
 

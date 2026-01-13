@@ -1,6 +1,6 @@
-import { Component, EventEmitter, Output } from '@angular/core';
+import { Component, EventEmitter, Inject, Output, PLATFORM_ID } from '@angular/core';
 import { SharedModule } from '../../shared/shared.module';
-import { CommonModule } from '@angular/common';
+import { CommonModule, isPlatformBrowser } from '@angular/common';
 import { NavigationEnd, Router, RouterModule } from '@angular/router';
 import { filter } from 'rxjs/operators';
 import { SidenavService } from '../service/sidenav.service';
@@ -17,28 +17,32 @@ export class SidenavComponent {
   activeLink: string = '';
   Name = 'Admin'
   menuItems: any;
-  constructor(private router: Router, private sidenavService: SidenavService, private authenticationService: AuthenticationService) {
+  constructor(private router: Router, private sidenavService: SidenavService, private authenticationService: AuthenticationService,
+    @Inject(PLATFORM_ID) private platformId: object
+  ) {
     console.log(this.authenticationService.currentUserValue.Data)
-    this.sidenavService.GetSideMenuList().subscribe({
-      next: (result: any) => {
-        const UserDetails = JSON.parse(localStorage.getItem('UserDetails') || '{}')
-        const roleMenuMap: any = { Admin: result.AdminSideMenu, Doctor: result.DoctorSideMenu, Patient: result.PatientSideMenu };
-        this.menuItems = roleMenuMap[UserDetails.Role]
-        // if (this.authenticationService.currentUserValue.Data.Role == 'Admin') {
-        //   this.menuItems = result.AdminSideMenu
-        // }else if (this.authenticationService.currentUserValue.Data.Role == 'Doctor') {
-        //   this.menuItems = result.DoctorSideMenu
-        // }else if (this.authenticationService.currentUserValue.Data.Role == 'Patient') {
-        //   this.menuItems = result.PatientSideMenu
-        // } else {
-        //   this.menuItems = []
-        // }
-      },
-    })
-
-    this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event: any) => {
-      this.activeLink = event.urlAfterRedirects;
+    if (isPlatformBrowser(this.platformId)) {
+      var UserMenuList = this.sidenavService.UserMenuValue
+      const UserDetails = JSON.parse(localStorage.getItem('UserDetails') || '{}')
+      const roleMenuMap: any = { Admin: UserMenuList.AdminMenu, Doctor: UserMenuList.DoctorMenu, Patient: UserMenuList.PatientMenu };
+      const MenuList = this.buildMenuTree(roleMenuMap[UserDetails.Role]);
+      this.menuItems = MenuList || [];
+    }
+    router.events.subscribe(() => {
+      this.activeLink = this.router.url;
+      console.log('activeLink: ', this.activeLink);
     });
+    // this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event: any) => {
+    //   this.activeLink = event.urlAfterRedirects;
+    // });
+  }
+
+  buildMenuTree(list: any, parentId = 0) {
+    return list?.filter((item: any) => item.parentId === parentId)
+      .map((item: any) => ({
+        ID: item.id, title: item.title, icon: item.icon, routerLink: item.routerLink, ParentID: item.parentId,
+        subMenuItems: this.buildMenuTree(list, item.id)
+      }));
   }
 
   onToggleClose() {

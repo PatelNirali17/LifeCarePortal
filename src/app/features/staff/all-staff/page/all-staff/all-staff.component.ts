@@ -21,7 +21,7 @@ export class AllStaffComponent {
 
   constructor(private allStaffService: AllStaffService, private dialog: MatDialog) {
     setTimeout(() => {
-      this.GetAlStaff()
+      this.GetAllStaff()
     }, 1000);
   }
 
@@ -29,8 +29,8 @@ export class AllStaffComponent {
     this.dataSource.paginator = this.paginator;
   }
 
-  GetAlStaff() {
-    this.allStaffService.GetAlStaff().subscribe({
+  GetAllStaff() {
+    this.allStaffService.GetAllStaff().subscribe({
       next: (result: any) => {
         this.dataSource.data = result
       },
@@ -46,7 +46,7 @@ export class AllStaffComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.GetAlStaff()
+      this.GetAllStaff()
     });
   }
 

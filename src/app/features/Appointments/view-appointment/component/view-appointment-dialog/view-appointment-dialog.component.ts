@@ -33,7 +33,7 @@ export class ViewAppointmentDialogComponent {
       InsuranceProvider: this.fb.control(''),
       Notes: this.fb.control('')
     })
-    this.allDoctorsService.GetAllDocotors().subscribe({
+    this.allDoctorsService.GetAllDoctors().subscribe({
       next: (result: any) => {
         this.DoctorList = result
       },

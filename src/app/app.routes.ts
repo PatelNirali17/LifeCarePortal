@@ -7,6 +7,8 @@ import { AppointmentsRoutesList } from './features/Appointments/appointments-rou
 import { DoctorsRoutesList } from './features/doctors/doctors-routes';
 import { StaffRoutesList } from './features/staff/staff-routes';
 import { RoleManagementRoutesList } from './features/role-management/role-management-routes';
+import { PatientsRoutesList } from './features/patients/patients-routes';
+import { RoomAllotmentRoutesList } from './features/room-allotment/room-allotment-routes';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -16,6 +18,8 @@ export const routes: Routes = [
     path: '', component: MainPageComponent,
     children: [
       { path: 'dashboard', component: DashboardComponent, data: { breadcrumb: 'Dashboard' } },
+      { path: 'doctordashboard', component: DashboardComponent, data: { breadcrumb: 'Dashboard' } },
+      { path: 'patientdashboard', component: DashboardComponent, data: { breadcrumb: 'Dashboard' } },
       {
         path: 'appointments', data: { breadcrumb: 'Appointments' },
         children: AppointmentsRoutesList
@@ -31,6 +35,14 @@ export const routes: Routes = [
       {
         path: 'rolemanagement', data: { breadcrumb: 'Role Management' },
         children: RoleManagementRoutesList
+      },
+      {
+        path: 'patients', data: { breadcrumb: 'Patients' },
+        children: PatientsRoutesList
+      }, 
+      {
+        path: 'roomallotment', data: { breadcrumb: 'Room Allotment' },
+        children: RoomAllotmentRoutesList
       },
     ]
   }

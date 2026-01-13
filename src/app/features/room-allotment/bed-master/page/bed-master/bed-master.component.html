@@ -1,0 +1,73 @@
+<div class="container-fluid">
+	<div class="card">
+		<div class="card-header">
+			<div class="d-flex align-items-center">
+				<div class="p-0 flex-grow-1"><b>All Bed Master</b></div>
+				<div class="p-0">
+					<button mat-icon-button (click)="OpenAddBedMasterDialog({ID:0})">
+						<mat-icon style="color: #6A0572;">add_circle</mat-icon>
+					</button>
+				</div>
+				<div class="p-0">
+					<button mat-icon-button>
+						<mat-icon style="color: #D4AF37;">refresh</mat-icon>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="card-body p-0" style="overflow: auto;">
+			<table mat-table [dataSource]="dataSource" style="font-size: 13px;">
+
+				<ng-container matColumnDef="SrNo">
+					<th mat-header-cell *matHeaderCellDef> SrNo </th>
+					<td mat-cell *matCellDef="let element;let i = index;"> {{ i + 1}} </td>
+				</ng-container>
+
+				<ng-container matColumnDef="BedNumber">
+					<th mat-header-cell *matHeaderCellDef> Bed Number </th>
+					<td mat-cell *matCellDef="let element" (click)="OpenBedMasterDetailsDialog(element)">
+						{{element.bedNumber}}</td>
+				</ng-container>
+
+				<ng-container matColumnDef="RoomType">
+					<th mat-header-cell *matHeaderCellDef> Room Type </th>
+					<td mat-cell *matCellDef="let element"> {{element.roomType}} </td>
+				</ng-container>
+
+				<ng-container matColumnDef="BedType">
+					<th mat-header-cell *matHeaderCellDef> Bed Type </th>
+					<td mat-cell *matCellDef="let element">{{element.bedType}}</td>
+				</ng-container>
+
+				 <ng-container matColumnDef="Status">
+					<th mat-header-cell *matHeaderCellDef>Status </th>
+					<td mat-cell *matCellDef="let element">
+						<span class="badge-solid-green"
+							*ngIf="element.status == 'Available'"><b>{{element.status}}</b></span>
+						<span class="badge-solid-purple"
+							*ngIf="element.status == 'Occupied'"><b>{{element.status}}</b></span>
+						<span class="badge-solid-orange"
+							*ngIf="element.status == 'Maintenance'"><b>{{element.status}}</b></span>
+					</td>
+				</ng-container>
+
+				<ng-container matColumnDef="Actions">
+					<th mat-header-cell *matHeaderCellDef class="text-center"> Actions </th>
+					<td mat-cell *matCellDef="let element" class="text-center">
+						<button mat-icon-button>
+							<mat-icon style="color: #D4AF37;">edit_square</mat-icon>
+						</button>
+						<button mat-icon-button>
+							<mat-icon style="color: #FF6B6B;">delete</mat-icon>
+						</button>
+					</td>
+				</ng-container>
+
+				<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+				<tr mat-row *matRowDef="let row; columns: displayedColumns;let i = index"></tr>
+			</table>
+			<mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+			</mat-paginator>
+		</div>
+	</div>
+</div>

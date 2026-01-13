@@ -1,45 +1,42 @@
-.sidenav-list {
-  background-color: white;
-}
-.sidenav-list span {
-  padding-left: 8px;
-}
-.navbar{
-  background-color: #6A0572;
-  color: #FFFFFF;
-}
-.mat-nav-list a.active {
-  color: #6A0572;
+.navbar {
+    background-color: #6A0572;
+    color: #FFFFFF;
+    height: 56px;
 }
 
-.custom-item {
-  position: relative;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding-left: 40px; 
+.user-info {
+    width: 230px;
+
+    p {
+        font-size: 16px;
+        line-height: 22px;
+        text-align: center;
+    }
 }
 
-.item-icon {
-  position: absolute;
-  left: 12px;
-  font-size: 20px;
+.nested-panel {
+    // margin-left: 20px;
+    box-shadow: none !important;
+
 }
 
-.item-text {
-  text-align: center;
-  font-size: 15px !important;
+.mat-expansion-panel-header mat-icon {
+    margin-right: 10px;
 }
 
+::ng-deep .mdc-list-item__primary-text {
+    display: flex;
+    align-items: center;
+}
 
-img {
-  width: 100px;
-  margin-top: 5px;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  border-radius: 50%;
+a.active {
+    color: #6A0572 !important;
 }
-.mainuser{
-  display: flex;
-  align-items: center;
-  justify-content: center;
+a.active span{
+    color: #6A0572 !important;
 }
+
+a.active mat-icon {
+    color: #6A0572 !important;
+}
+

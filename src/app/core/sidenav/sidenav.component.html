@@ -1,39 +1,32 @@
-<div class="card">
-    <div class="card-body p-0">
-        <img class="rounded mx-auto d-block border border-3" src="Logo/logo-transparent.png" alt="Profile Picture"
-            loading="lazy">
-        <h6 class="text-center mt-1" style="color: #6A0572;">LifeCare Portal</h6>
-        <p class="text-center" style="font-size: 11px;"><b>Your Health.Our Priority.</b></p>
-    </div>
+<div style="overflow-x: hidden;height: 100%;">
+    <mat-toolbar class="navbar">
+        <div style="display: flex;align-items: center;">
+            <a><img src="Logo/LifeCarePortalLogo_1.png" alt="" width="30" height="30" style="border-radius: 50px;"></a>
+            <span style="margin-left: 5px;"><b>LifeCare Portal</b></span>
+        </div>
+    </mat-toolbar>
+    <mat-nav-list class="sidenav-list">
+        <ng-container *ngFor="let item of menuItems">
+            <a *ngIf="!item.subMenuItems?.length" mat-list-item [routerLink]="item.routerLink" routerLinkActive="active"
+                class="top-item" (click)="onToggleClose()">
+                <mat-icon>{{item.icon}}</mat-icon>
+                <span style="font-size: 14px;padding-left: 10px;">{{item.title}}</span>
+            </a>
+            <mat-expansion-panel *ngIf="item.subMenuItems?.length" class="mat-elevation-z0">
+                <mat-expansion-panel-header style="padding: 0px 15px;">
+                    <mat-icon>{{item.icon}}</mat-icon>
+                    <span style="font-size: 14px;font-weight:normal;">{{item.title}}</span>
+                </mat-expansion-panel-header>
+                <mat-nav-list>
+                    <ng-container *ngFor="let child of item.subMenuItems">
+                        <a mat-list-item [routerLink]="child.routerLink" routerLinkActive="active"
+                            (click)="onToggleClose()">
+                            <span>➧</span>
+                            <span style="font-size: 14px;padding-left: 10px;">{{child.title}}</span>
+                        </a>
+                    </ng-container>
+                </mat-nav-list>
+            </mat-expansion-panel>
+        </ng-container>
+    </mat-nav-list>
 </div>
-<mat-nav-list class="sidenav-list">
-    <ng-container *ngFor="let menu of menuItems">
-        <mat-expansion-panel *ngIf="menu?.links?.length > 0" [expanded]="isMenuExpanded(menu)"
-            [class.mat-elevation-z0]="true">
-            <mat-expansion-panel-header style="padding: 0px 10px; font-size: 15px !important;">
-                <mat-icon>{{ menu?.icon }}</mat-icon>
-                <span>{{ menu?.title }}</span>
-            </mat-expansion-panel-header>
-            <mat-nav-list>
-                <a *ngFor="let link of menu?.links" mat-list-item [routerLink]="link?.path" (click)="onToggleClose()"
-                    class="custom-item">
-                    <span class="item-text" [ngStyle]="{ color: activeLink === link?.path ? '#6A0572' : 'black'}">
-                      • {{ link?.name }}
-                    </span>
-                </a>
-            </mat-nav-list>
-        </mat-expansion-panel>
-        <a mat-list-item [routerLink]="menu?.path" (click)="onToggleClose()" class="custom-item"
-            *ngIf="menu?.links?.length == 0">
-            <mat-icon class="item-icon" [ngStyle]="{ color: activeLink === menu?.path ? '#6A0572' : 'black'}">{{
-                menu?.icon }}</mat-icon>
-            <span class="item-text" [ngStyle]="{ color: activeLink === menu?.path ? '#6A0572' : 'black'}">{{ menu?.title
-                }}</span>
-        </a>
-    </ng-container>
-
-    <a mat-list-item (click)="logout()" class="custom-item">
-        <mat-icon class="item-icon">power_settings_new</mat-icon>
-        <span class="item-text">Logout</span>
-    </a>
-</mat-nav-list>

@@ -1,0 +1,42 @@
+[
+    {
+        "Name": "Compounder",
+        "Status": "Active"
+    },
+    {
+        "Name": "Nurse",
+        "Status": "Active"
+    },
+    {
+        "Name": "Receptionist",
+        "Status": "Active"
+    },
+    {
+        "Name": "Lab Technician",
+        "Status": "Inactive"
+    },
+    {
+        "Name": "Pharmacist",
+        "Status": "Active"
+    },
+    {
+        "Name": "Security Guard",
+        "Status": "Active"
+    },
+    {
+        "Name": "Accountant",
+        "Status": "Inactive"
+    },
+    {
+        "Name": "Ward Boy",
+        "Status": "Active"
+    },
+    {
+        "Name": "Radiologist",
+        "Status": "Active"
+    },
+    {
+        "Name": "HR Manager",
+        "Status": "Active"
+    }
+]

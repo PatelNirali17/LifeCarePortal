@@ -16,7 +16,7 @@
                 <mat-label style="font-size: 14px;">Designation</mat-label>
                 <mat-select formControlName="Designation" required>
                     <mat-option *ngFor="let Designation of DesignationList"
-                        [value]="Designation.id">{{Designation.Name}}
+                        [value]="Designation.Name">{{Designation.Name}}
                     </mat-option>
                 </mat-select>
                 <mat-error *ngIf="StaffForm.get('Designation')?.invalid">

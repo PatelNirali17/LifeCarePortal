@@ -1,0 +1,118 @@
+<h2 mat-dialog-title class="dialog-header mb-0">New Patient Records</h2>
+<mat-dialog-content>
+    <form class="row mt-2" [formGroup]="PatientRecordsForm">
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Patient</mat-label>
+                <mat-select formControlName="PatientID" required>
+                    <mat-option *ngFor="let Patient of PatientsList" [value]="Patient.Name">{{Patient.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="PatientRecordsForm.get('PatientID')?.invalid">
+                    Please select Patient
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Date of Birth</mat-label>
+                <input matInput [matDatepicker]="DateofBirth" formControlName="DateofBirth" required>
+                <mat-datepicker-toggle matIconSuffix [for]="DateofBirth"></mat-datepicker-toggle>
+                <mat-datepicker #DateofBirth></mat-datepicker>
+                <mat-error *ngIf="PatientRecordsForm.get('DateofBirth')?.invalid">
+                    Please select Date of Birth
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-radio-group formControlName="Gender">
+                <mat-label style="font-size: 14px;">Gender</mat-label>
+                <mat-radio-button value="Male">Male</mat-radio-button>
+                <mat-radio-button value="Female">Female</mat-radio-button>
+                <mat-radio-button value="Other">Other</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="PatientRecordsForm.get('Gender')?.invalid">
+                Please enter Gender
+            </mat-error>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Date of Admission</mat-label>
+                <input matInput [matDatepicker]="DateofAdmission" formControlName="DateofAdmission" required>
+                <mat-datepicker-toggle matIconSuffix [for]="DateofAdmission"></mat-datepicker-toggle>
+                <mat-datepicker #DateofAdmission></mat-datepicker>
+                <mat-error *ngIf="PatientRecordsForm.get('DateofAdmission')?.invalid">
+                    Please select Date of Admission
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Diagnosis</mat-label>
+                <textarea rows="1" matInput formControlName="Diagnosis" required></textarea>
+                <mat-error *ngIf="PatientRecordsForm.get('Diagnosis')?.invalid">
+                    Please enter Diagnosis
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Treatment Plan</mat-label>
+                <textarea rows="1" matInput formControlName="TreatmentPlan" required></textarea>
+                <mat-error *ngIf="PatientRecordsForm.get('TreatmentPlan')?.invalid">
+                    Please enter Treatment Plan
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Medications</mat-label>
+                <textarea rows="1" matInput formControlName="Medications"></textarea>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Next followup</mat-label>
+                <input matInput [matDatepicker]="Nextfollowup" formControlName="Nextfollowup" required>
+                <mat-datepicker-toggle matIconSuffix [for]="Nextfollowup"></mat-datepicker-toggle>
+                <mat-datepicker #Nextfollowup></mat-datepicker>
+                <mat-error *ngIf="PatientRecordsForm.get('Nextfollowup')?.invalid">
+                    Please select Next followup
+                </mat-error>
+            </mat-form-field>
+        </div>
+          <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Doctor Notes</mat-label>
+                <textarea rows="1" matInput formControlName="DoctorNotes"></textarea>
+            </mat-form-field>
+        </div>
+         <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Status</mat-label>
+                <mat-select formControlName="Status">
+                    <mat-option value="In Treatment">In Treatment</mat-option>
+                    <mat-option value="Recovered">Recovered</mat-option>
+                    <mat-option value="Observation">Observation</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Emergency Contact</mat-label>
+                <input matInput formControlName="EmergencyContact">
+                <mat-icon matSuffix>call</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Insurance Provider</mat-label>
+                <input matInput formControlName="InsuranceProvider">
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button class="bgprimary">Save</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

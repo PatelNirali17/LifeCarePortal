@@ -14,13 +14,14 @@ import { AllDoctorsService } from '../../../all-doctors/all-doctors.service';
 export class ShiftManagementDialogComponent {
   ShiftManagementForm!: FormGroup;
   DepartmentList: any;
+  DoctorList: any;
 
   constructor(public dialogRef: MatDialogRef<ShiftManagementDialogComponent>, private fb: NonNullableFormBuilder, private allDoctorsService: AllDoctorsService,
     @Optional() @Inject(MAT_DIALOG_DATA) public ShiftManagementDetails: any
   ) {
 
     this.ShiftManagementForm = this.fb.group({
-      Name: this.fb.control('', Validators.required),
+      DoctorID: this.fb.control('', Validators.required),
       Department: this.fb.control('', Validators.required),
       Specialization: this.fb.control(''),
       ShiftStartDate: this.fb.control('', Validators.required),
@@ -33,7 +34,12 @@ export class ShiftManagementDialogComponent {
       TotalHoursPerWeek: this.fb.control(''),
       ShiftNotes: this.fb.control(''),
     })
-    this.allDoctorsService.GetAllDepartment().subscribe({
+    this.allDoctorsService.GetAllDoctors().subscribe({
+      next: (result: any) => {
+        this.DoctorList = result
+      },
+    })
+      this.allDoctorsService.GetAllDepartment().subscribe({
       next: (result: any) => {
         this.DepartmentList = result
       },

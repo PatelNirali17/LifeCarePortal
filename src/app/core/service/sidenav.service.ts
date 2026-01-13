@@ -1,17 +1,38 @@
+import { isPlatformBrowser } from '@angular/common';
 import { HttpClient } from '@angular/common/http';
-import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Inject, Injectable, PLATFORM_ID } from '@angular/core';
+import { BehaviorSubject, firstValueFrom, Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SidenavService {
+  private UserMenuSubject!: BehaviorSubject<any[]>;
+  public UserMenu!: Observable<any[]>;
 
-  constructor(private http : HttpClient) { }
+  constructor(private http: HttpClient, @Inject(PLATFORM_ID) private platformId: Object) { }
 
-  GetSideMenuList():Observable<any>{
-    return this.http.get<any>('json/side-menu.json')
+  public get UserMenuValue(): any {
+    if (isPlatformBrowser(this.platformId)) {
+      const storedMenu = localStorage.getItem('UserMenu');
+      this.UserMenuSubject = new BehaviorSubject<any[]>(storedMenu ? JSON.parse(storedMenu) : {});
+      return this.UserMenuSubject.value;
+    } else {
+      return {};
+    }
   }
+
+
+  GetUserMenu() {
+    return firstValueFrom(
+      this.http.get('json/side-menu.json')
+    ).then(menu => {
+      localStorage.setItem('UserMenu', JSON.stringify(menu));
+    });
+  }
+
+
+
 
 
 }

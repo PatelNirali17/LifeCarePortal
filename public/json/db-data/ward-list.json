@@ -1,0 +1,57 @@
+[
+  {
+    "wardId": "W_GENERAL",
+    "wardName": "General Ward",
+    "floor": 1,
+    "description": "General patient ward"
+  },
+  {
+    "wardId": "W_ICU",
+    "wardName": "ICU",
+    "floor": 2,
+    "description": "Intensive Care Unit"
+  },
+  {
+    "wardId": "W_MATERNITY",
+    "wardName": "Maternity Ward",
+    "floor": 3,
+    "description": "Maternity and neonatal care"
+  },
+  {
+    "wardId": "W_PEDIATRICS",
+    "wardName": "Pediatrics Ward",
+    "floor": 3,
+    "description": "Children's ward"
+  },
+  {
+    "wardId": "W_SURGERY",
+    "wardName": "Surgery Ward",
+    "floor": 2,
+    "description": "Post-operative care"
+  },
+  {
+    "wardId": "W_EMERGENCY",
+    "wardName": "Emergency",
+    "floor": 1,
+    "description": "Emergency department"
+  },
+  {
+    "wardId": "W_OBSERVATION",
+    "wardName": "Observation",
+    "floor": 1,
+    "description": "Short-term observation"
+  },
+  {
+    "wardId": "W_ISOLATION",
+    "wardName": "Isolation Ward",
+    "floor": 4,
+    "description": "Infectious disease isolation"
+  }
+  ,
+  {
+    "wardId": "W_CARDIOLOGY",
+    "wardName": "Cardiology Ward",
+    "floor": 2,
+    "description": "Cardiac care and monitoring"
+  }
+]

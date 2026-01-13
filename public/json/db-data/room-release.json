@@ -1,0 +1,15 @@
+[
+  {
+    "dischargeId": "D001",
+    "patientId": "P1002",
+    "patientName": "Anita Verma",
+    "roomId": "R101",
+    "bedId": "B101",
+    "roomNumber": "101",
+    "bedNumber": "Bed-1",
+    "dischargeDate": "2026-01-13 11:00",
+    "totalDays": 3,
+    "roomCharges": 3000,
+    "roomStatusAfterRelease": "Available"
+  }
+]

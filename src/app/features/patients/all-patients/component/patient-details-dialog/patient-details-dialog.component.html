@@ -1,0 +1,38 @@
+<h2 mat-dialog-title class="dialog-header mb-0">Patient Details</h2>
+<mat-dialog-content>
+    <div class="row mt-2" style="font-size: 13px;">
+        <div class="col-md-4">
+            <b>Name</b> : {{PatientDetails?.Name}}
+        </div>
+        <div class="col-md-4">
+            <b>Treatment</b> : {{PatientDetails?.Treatment}}
+        </div>
+        <div class="col-md-4">
+            <b>Gender</b> : {{PatientDetails?.Gender}}
+        </div>
+        <div class="col-md-4">
+            <b>Mobile</b> : {{PatientDetails?.Mobile}}
+        </div>
+        <div class="col-md-4">
+            <b>Admission Date</b> : {{PatientDetails?.AdmissionDate}}
+        </div>
+        <div class="col-md-4">
+            <b>Doctor Assigned</b> : {{PatientDetails?.DoctorAssigned}}
+        </div>
+        <div class="col-md-4">
+            <b>Address</b> : {{PatientDetails?.Address}}
+        </div>
+        <div class="col-md-4">
+            <b>Blood Group</b> : {{PatientDetails?.BloodGroup}}
+        </div>
+        <div class="col-md-4">
+            <b>Discharge Date</b> : {{PatientDetails?.DischargeDate}}
+        </div>
+        <div class="col-md-4">
+            <b>Status</b> : {{PatientDetails?.Status}}
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

@@ -3,6 +3,7 @@ import { SharedModule } from '../../../../../shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { FormGroup, FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { AllStaffService } from '../../all-staff.service';
 
 @Component({
   selector: 'app-add-staff-dialog',
@@ -14,7 +15,7 @@ export class AddStaffDialogComponent {
   StaffForm!: FormGroup;
   DesignationList: any;
   ShiftList: any;
-  constructor(public dialogRef: MatDialogRef<AddStaffDialogComponent>, private fb: NonNullableFormBuilder,
+  constructor(public dialogRef: MatDialogRef<AddStaffDialogComponent>, private fb: NonNullableFormBuilder, private allStaffService: AllStaffService,
     @Optional() @Inject(MAT_DIALOG_DATA) public StaffDetails: any
   ) {
     this.StaffForm = this.fb.group({
@@ -23,12 +24,17 @@ export class AddStaffDialogComponent {
       Mobile: this.fb.control('', Validators.required),
       Email: this.fb.control('', Validators.required),
       JoiningDate: this.fb.control('', Validators.required),
-      Salary: this.fb.control('',Validators.required),
+      Salary: this.fb.control('', Validators.required),
       Status: this.fb.control('', Validators.required),
       Shift: this.fb.control('', Validators.required),
       Experience: this.fb.control(''),
       Gender: this.fb.control('', Validators.required),
       Address: this.fb.control(''),
+    })
+    this.allStaffService.GetAllDesignationList().subscribe({
+      next: (result: any) => {
+        this.DesignationList = result
+      },
     })
   }
 }

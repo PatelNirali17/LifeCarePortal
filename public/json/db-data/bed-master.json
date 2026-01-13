@@ -1,0 +1,26 @@
+[
+  {
+    "bedId": "B101",
+    "bedNumber": "Bed-1",
+    "roomId": "R101",
+    "bedType": "Normal",
+    "roomType": "General",
+    "status": "Available"
+  },
+  {
+    "bedId": "B102",
+    "bedNumber": "Bed-2",
+    "roomId": "R101",
+    "bedType": "Normal",
+    "roomType": "General",
+    "status": "Occupied"
+  },
+  {
+    "bedId": "B201",
+    "bedNumber": "ICU-Bed-1",
+    "roomId": "R201",
+    "bedType": "Ventilator",
+    "roomType": "ICU",
+    "status": "Available"
+  }
+]

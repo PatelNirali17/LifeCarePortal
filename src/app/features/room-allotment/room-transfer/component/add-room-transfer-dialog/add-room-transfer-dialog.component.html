@@ -1,0 +1,86 @@
+<h2 mat-dialog-title class="dialog-header mb-0">New Room Transfer</h2>
+<mat-dialog-content>
+    <form class="row mt-2" [formGroup]="RoomTransferForm">
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Patient</mat-label>
+                <mat-select formControlName="patientId" required>
+                    <mat-option *ngFor="let p of PatientsList" [value]="p.Name">{{p.Name}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="RoomTransferForm.get('patientId')?.invalid">
+                    Please select Patient
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">From Room</mat-label>
+                <mat-select formControlName="fromRoom" required>
+                    <mat-option *ngFor="let r of RoomList" [value]="r.roomId">{{r.roomNumber}} - {{r.roomType}}
+                        ({{r.ward}})</mat-option>
+                </mat-select>
+                <mat-error *ngIf="RoomTransferForm.get('fromRoom')?.invalid">
+                    Please select From Room
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">To Room</mat-label>
+                <mat-select formControlName="toRoom" required>
+                    <mat-option *ngFor="let r of RoomList" [value]="r.roomId">{{r.roomNumber}} - {{r.roomType}}
+                        ({{r.ward}})</mat-option>
+                </mat-select>
+                <mat-error *ngIf="RoomTransferForm.get('toRoom')?.invalid">
+                    Please select To Room
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">From Bed</mat-label>
+                <mat-select formControlName="fromBed" required>
+                    <mat-option *ngFor="let b of BedList" [value]="b.bedId">{{b.bedNumber}} ({{b.bedType}})</mat-option>
+                </mat-select>
+                <mat-error *ngIf="RoomTransferForm.get('fromBed')?.invalid">
+                    Please select From Bed
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">To Bed</mat-label>
+                <mat-select formControlName="toBed" required>
+                    <mat-option *ngFor="let b of BedList" [value]="b.bedId">{{b.bedNumber}} ({{b.bedType}})</mat-option>
+                </mat-select>
+                <mat-error *ngIf="RoomTransferForm.get('toBed')?.invalid">
+                    Please select To Bed
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Transfer Date</mat-label>
+                <input matInput [matDatepicker]="transferDate" formControlName="transferDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="transferDate"></mat-datepicker-toggle>
+                <mat-datepicker #transferDate></mat-datepicker>
+                <mat-error *ngIf="RoomTransferForm.get('transferDate')?.invalid">
+                    Please select Transfer Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+       <div class="col-md-4">
+			<mat-form-field class="w-100">
+				<mat-label style="font-size: 14px;">Reason</mat-label>
+				<input matInput type="text" formControlName="reason" required>
+				<mat-error *ngIf="RoomTransferForm.get('reason')?.invalid">
+					Please enter Reason
+				</mat-error>
+			</mat-form-field>
+		</div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button class="bgprimary">Save</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

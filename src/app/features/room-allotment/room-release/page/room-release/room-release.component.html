@@ -1,0 +1,93 @@
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex align-items-center">
+                <div class="p-0 flex-grow-1"><b>All Room Release</b></div>
+                <div class="p-0">
+                    <button mat-icon-button (click)="OpenAddRoomReleaseDialog({ID:0})">
+                        <mat-icon style="color: #6A0572;">add_circle</mat-icon>
+                    </button>
+                </div>
+                <div class="p-0">
+                    <button mat-icon-button>
+                        <mat-icon style="color: #D4AF37;">refresh</mat-icon>
+                    </button>
+                </div>
+                <div class="p-0">
+                    <button mat-icon-button>
+                        <mat-icon style="color: #FF6B6B;">download</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body p-0" style="overflow: auto;">
+            <table mat-table [dataSource]="dataSource" style="font-size: 13px;">
+
+                <ng-container matColumnDef="SrNo">
+                    <th mat-header-cell *matHeaderCellDef> SrNo </th>
+                    <td mat-cell *matCellDef="let element;let i = index;"> {{ i + 1}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="PatientName">
+                    <th mat-header-cell *matHeaderCellDef> Patient Name </th>
+                    <td mat-cell *matCellDef="let element" (click)="OpenRoomReleaseDetailsDialog(element)">
+                        {{element.patientName}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="RoomNumber">
+                    <th mat-header-cell *matHeaderCellDef> Room Number </th>
+                    <td mat-cell *matCellDef="let element"> {{element.roomNumber}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="BedNumber">
+                    <th mat-header-cell *matHeaderCellDef> Bed Number </th>
+                    <td mat-cell *matCellDef="let element"> {{element.bedNumber}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="DischargeDate">
+                    <th mat-header-cell *matHeaderCellDef> Discharge Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.dischargeDate}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="TotalDays">
+                    <th mat-header-cell *matHeaderCellDef> Total Days </th>
+                    <td mat-cell *matCellDef="let element">{{element.totalDays}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="RoomCharges">
+                    <th mat-header-cell *matHeaderCellDef> Room Charges </th>
+                    <td mat-cell *matCellDef="let element">{{element.roomCharges}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="RoomStatus">
+                    <th mat-header-cell *matHeaderCellDef>Room Status</th>
+                     <td mat-cell *matCellDef="let element">
+                        <span class="badge-solid-green"
+                            *ngIf="element.roomStatusAfterRelease == 'Available'"><b>{{element.roomStatusAfterRelease}}</b></span>
+                        <span class="badge-solid-purple"
+                            *ngIf="element.roomStatusAfterRelease == 'Occupied'"><b>{{element.roomStatusAfterRelease}}</b></span>
+                        <span class="badge-solid-orange"
+                            *ngIf="element.roomStatusAfterRelease == 'Maintenance'"><b>{{element.roomStatusAfterRelease}}</b></span>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Actions">
+                    <th mat-header-cell *matHeaderCellDef class="text-center"> Actions </th>
+                    <td mat-cell *matCellDef="let element" class="text-center">
+                        <button mat-icon-button>
+                            <mat-icon style="color: #D4AF37;">edit_square</mat-icon>
+                        </button>
+                        <button mat-icon-button>
+                            <mat-icon style="color: #FF6B6B;">delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;let i = index"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+            </mat-paginator>
+        </div>
+    </div>
+</div>

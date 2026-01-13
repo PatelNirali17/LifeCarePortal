@@ -1,13 +1,15 @@
 <h2 mat-dialog-title class="dialog-header mb-0">New Shift Management</h2>
 <mat-dialog-content>
     <form class="row mt-2" [formGroup]="ShiftManagementForm">
-        <div class="col-md-4">
+          <div class="col-md-4">
             <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Doctor Name</mat-label>
-                <input matInput formControlName="Name" required>
-                <mat-icon matSuffix>face</mat-icon>
-                <mat-error *ngIf="ShiftManagementForm.get('Name')?.invalid">
-                    Please enter Doctor Name
+                <mat-label style="font-size: 14px;">Doctor</mat-label>
+                <mat-select formControlName="DoctorID" required>
+                    <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{Doctor.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="ShiftManagementForm.get('DoctorID')?.invalid">
+                    Please select Doctor
                 </mat-error>
             </mat-form-field>
         </div>

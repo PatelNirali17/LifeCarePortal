@@ -197,35 +197,29 @@ body {
   border-color: #6A0572 !important;
 }
 
-/* Applies to modern browsers (Chrome, Edge, Safari) */
+///default scrollbar
 ::-webkit-scrollbar {
-  width: 8px;
-  /* width for vertical scrollbar */
+  width: 3px;
   height: 8px;
-  /* height for horizontal scrollbar */
 }
 
-::-webkit-scrollbar-track {
-  background: #F5F5F5;
-  /* Light gray track background */
-  border-radius: 10px;
+::-webkit-scrollbar-button {
+  width: 0px;
+  height: 0px;
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #6A0572;
-  /* Twilight Orchid thumb */
-  border-radius: 10px;
-  /* Rounded edges */
-  border: 2px solid #F5F5F5;
-  /* Space between thumb & track */
+  background: #6A0572;
+  border: 0px none #ffffff;
+  border-radius: 0px;
 }
 
-::-webkit-scrollbar-thumb:hover {
-  background-color: #580464;
-  /* Darker Twilight Orchid on hover */
+::-webkit-scrollbar-track {
+  background: #a0a0a0;
+  border: 0px none #ffffff;
+  border-radius: 0px;
 }
 
 ::-webkit-scrollbar-corner {
-  background: #F5F5F5;
-  /* Clean corner */
+  background: transparent;
 }

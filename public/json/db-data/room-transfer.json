@@ -1,0 +1,17 @@
+[
+  {
+    "transferId": "T001",
+    "patientId": "P1001",
+    "patientName": "Rahul Sharma",
+    "fromRoom": "R102",
+    "toRoom": "R201",
+    "fromRoomNumber": "102",
+    "toRoomNumber": "201",
+    "fromBed": "B102",
+    "toBed": "B201",
+    "fromBedNumber": "Bed-2",
+    "toBedNumber": "ICU-Bed-1",
+    "transferDate": "2026-01-12 09:15",
+    "reason": "Condition Critical"
+  }
+]

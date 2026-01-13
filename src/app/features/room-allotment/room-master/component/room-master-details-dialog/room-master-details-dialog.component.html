@@ -1,0 +1,29 @@
+<h2 mat-dialog-title class="dialog-header mb-0">Room Master Details</h2>
+<mat-dialog-content>
+    <div class="row mt-2" style="font-size: 13px;">
+        <div class="col-md-4">
+            <b>Room Number</b> : {{RoomMasterDetails?.roomNumber}}
+        </div>
+        <div class="col-md-4">
+            <b>Room Type</b> : {{RoomMasterDetails?.roomType}}
+        </div>
+        <div class="col-md-4">
+            <b>Ward</b> : {{RoomMasterDetails?.ward}}
+        </div>
+        <div class="col-md-4">
+            <b>Floor</b> : {{RoomMasterDetails?.floor}}
+        </div>
+        <div class="col-md-4">
+            <b>Total Beds</b> : {{RoomMasterDetails?.totalBeds}}
+        </div>
+        <div class="col-md-4">
+            <b>Charge Per Day</b> : {{RoomMasterDetails?.chargePerDay}}
+        </div>
+        <div class="col-md-4">
+            <b>Status</b> : {{RoomMasterDetails?.status}}
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

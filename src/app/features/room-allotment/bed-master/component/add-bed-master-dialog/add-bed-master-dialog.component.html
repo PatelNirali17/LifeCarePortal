@@ -1,0 +1,58 @@
+<h2 mat-dialog-title class="dialog-header mb-0">New Bed Master</h2>
+<mat-dialog-content>
+	<form class="row mt-2" [formGroup]="BedMasterForm">
+		<div class="col-md-4">
+			<mat-form-field class="w-100">
+				<mat-label style="font-size: 14px;">Bed Number</mat-label>
+				<input matInput type="text" formControlName="bedNumber" required>
+				<mat-error *ngIf="BedMasterForm.get('bedNumber')?.invalid">
+					Please enter Bed Number
+				</mat-error>
+			</mat-form-field>
+		</div>
+
+		<div class="col-md-4">
+			<mat-form-field class="w-100">
+				<mat-label style="font-size: 14px;">Room</mat-label>
+				<mat-select formControlName="roomId" required>
+					<mat-option *ngFor="let r of RoomList" [value]="r.roomId">{{r.roomNumber}} - {{r.roomType}} ({{r.ward}})</mat-option>
+				</mat-select>
+				<mat-error *ngIf="BedMasterForm.get('roomId')?.invalid">
+					Please select Room
+				</mat-error>
+			</mat-form-field>
+		</div>
+
+		<div class="col-md-4">
+			<mat-form-field class="w-100">
+				<mat-label style="font-size: 14px;">Bed Type</mat-label>
+				<mat-select formControlName="bedType" required>
+					<mat-option value="Normal">Normal</mat-option>
+					<mat-option value="Ventilator">Ventilator</mat-option>
+					<mat-option value="Deluxe">Deluxe</mat-option>
+				</mat-select>
+				<mat-error *ngIf="BedMasterForm.get('bedType')?.invalid">
+					Please select Bed Type
+				</mat-error>
+			</mat-form-field>
+		</div>
+
+		<div class="col-md-4">
+			<mat-form-field class="w-100">
+				<mat-label style="font-size: 14px;">Status</mat-label>
+				<mat-select formControlName="status" required>
+					<mat-option value="Available">Available</mat-option>
+					<mat-option value="Occupied">Occupied</mat-option>
+					<mat-option value="Maintenance">Maintenance</mat-option>
+				</mat-select>
+				<mat-error *ngIf="BedMasterForm.get('status')?.invalid">
+					Please select Status
+				</mat-error>
+			</mat-form-field>
+		</div>
+	</form>
+</mat-dialog-content>
+<mat-dialog-actions>
+	<button mat-raised-button class="bgprimary" (click)="SaveBed()">Save</button>
+	<button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

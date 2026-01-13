@@ -1,0 +1,23 @@
+[
+  {
+    "roomId": "R101",
+    "roomType": "General",
+    "availableBeds": 3,
+    "occupiedBeds": 1,
+    "status": "Partially Available"
+  },
+  {
+    "roomId": "R102",
+    "roomType": "Private",
+    "availableBeds": 0,
+    "occupiedBeds": 1,
+    "status": "Fully Occupied"
+  },
+  {
+    "roomId": "R201",
+    "roomType": "ICU",
+    "availableBeds": 2,
+    "occupiedBeds": 0,
+    "status": "Available"
+  }
+]

@@ -1,0 +1,28 @@
+[
+  {
+    "allotmentId": "A001",
+    "patientId": "P1001",
+    "patientName": "Rahul Sharma",
+    "roomId": "R102",
+    "bedId": "B102",
+    "roomNumber": "102",
+    "bedNumber": "Bed-2",
+    "roomType": "Private",
+    "doctor": "Dr. Mehta",
+    "allotmentDate": "2026-01-10 10:30",
+    "status": "Discharged"
+  },
+  {
+    "allotmentId": "A002",
+    "patientId": "P1002",
+    "patientName": "Anita Verma",
+    "roomId": "R101",
+    "bedId": "B101",
+    "roomNumber": "101",
+    "bedNumber": "Bed-1",
+    "roomType": "General",
+    "doctor": "Dr. Singh",
+    "allotmentDate": "2026-01-11 14:00",
+    "status": "Discharged"
+  }
+]

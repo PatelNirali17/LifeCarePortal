@@ -1,0 +1,39 @@
+[
+  {
+    "roomTypeId": "RT_GENERAL",
+    "roomType": "General",
+    "defaultChargePerDay": 1000,
+    "description": "General ward bed"
+  },
+  {
+    "roomTypeId": "RT_PRIVATE",
+    "roomType": "Private",
+    "defaultChargePerDay": 2500,
+    "description": "Private room"
+  },
+  {
+    "roomTypeId": "RT_ICU",
+    "roomType": "ICU",
+    "defaultChargePerDay": 6000,
+    "description": "Intensive Care Unit"
+  }
+  ,
+  {
+    "roomTypeId": "RT_SEMIPRIVATE",
+    "roomType": "Semi-Private",
+    "defaultChargePerDay": 1800,
+    "description": "Semi-private room"
+  },
+  {
+    "roomTypeId": "RT_NICU",
+    "roomType": "NICU",
+    "defaultChargePerDay": 8000,
+    "description": "Neonatal Intensive Care Unit"
+  },
+  {
+    "roomTypeId": "RT_OT",
+    "roomType": "OT",
+    "defaultChargePerDay": 10000,
+    "description": "Operation Theater"
+  }
+]

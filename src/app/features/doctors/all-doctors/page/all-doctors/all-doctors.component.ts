@@ -30,7 +30,7 @@ export class AllDoctorsComponent {
   }
 
   GetAllDocotors() {
-    this.allDoctorsService.GetAllDocotors().subscribe({
+    this.allDoctorsService.GetAllDoctors().subscribe({
       next: (result: any) => {
         this.dataSource.data = result
       },

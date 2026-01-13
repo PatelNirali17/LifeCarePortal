@@ -1,0 +1,44 @@
+<h2 mat-dialog-title class="dialog-header mb-0">Patient Records Details</h2>
+<mat-dialog-content>
+    <div class="row mt-2" style="font-size: 13px;">
+        <div class="col-md-4">
+            <b>Patient</b> : {{PatientRecordsDetails?.full_name}}
+        </div>
+        <div class="col-md-4">
+            <b>Date Of Birth</b> : {{PatientRecordsDetails?.date_of_birth}}
+        </div>
+        <div class="col-md-4">
+            <b>Gender</b> : {{PatientRecordsDetails?.gender}}
+        </div>
+        <div class="col-md-4">
+            <b>Date Of Admission</b> : {{PatientRecordsDetails?.date_of_admission}}
+        </div>
+        <div class="col-md-4">
+            <b>Diagnosis</b> : {{PatientRecordsDetails?.diagnosis}}
+        </div>
+        <div class="col-md-4">
+            <b>Medications</b> : {{PatientRecordsDetails?.medications}}
+        </div>
+        <div class="col-md-4">
+            <b>Next Followup</b> : {{PatientRecordsDetails?.next_follow_up}}
+        </div>
+        <div class="col-md-4">
+            <b>Status</b> : {{PatientRecordsDetails?.status}}
+        </div>
+        <div class="col-md-4">
+            <b>Emergency Contact</b> : {{PatientRecordsDetails?.emergency_contact}}
+        </div>
+        <div class="col-md-4">
+            <b>Insurance Provider</b> : {{PatientRecordsDetails?.insurance_provider}}
+        </div>
+         <div class="col-md-12">
+            <b>Treatment Plan</b> : {{PatientRecordsDetails?.treatment_plan}}
+        </div>
+           <div class="col-md-12">
+            <b>Doctor Notes</b> : {{PatientRecordsDetails?.doctor_notes}}
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

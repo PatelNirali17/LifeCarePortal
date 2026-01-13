@@ -1,354 +1,788 @@
 {
-    "AdminSideMenu": [
+    "AdminMenu": [
         {
+            "id": 1,
             "title": "Dashboard",
+            "routerLink": null,
+            "href": null,
             "icon": "dashboard",
-            "links": [
-                {
-                    "name": "Dashboard 1",
-                    "path": "/dashboard"
-                },
-                {
-                    "name": "Dashboard 2",
-                    "path": "/dashboard2"
-                },
-                {
-                    "name": "Doctor Dashboard",
-                    "path": "/doctordashboard"
-                },
-                {
-                    "name": "Patient Dashboard",
-                    "path": "/patientdashboard"
-                }
-            ]
+            "target": null,
+            "hasSubMenu": true,
+            "parentId": 0
         },
         {
+            "id": 2,
+            "title": "Dashboard 1",
+            "routerLink": "/dashboard",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 1
+        },
+        {
+            "id": 3,
+            "title": "Dashboard 2",
+            "routerLink": "/dashboard2",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 1
+        },
+        {
+            "id": 4,
+            "title": "Doctor Dashboard",
+            "routerLink": "/doctordashboard",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 1
+        },
+        {
+            "id": 5,
+            "title": "Patient Dashboard",
+            "routerLink": "/patientdashboard",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 1
+        },
+        {
+            "id": 6,
             "title": "Role Management",
+            "routerLink": null,
+            "href": null,
             "icon": "manage_accounts",
-            "links": [
-                {
-                    "name": "Create Role",
-                    "path": "/rolemanagement/createrole"
-                },
-                {
-                    "name": "Role Assign",
-                    "path": "/rolemanagement/roleassign"
-                }
-            ]
+            "target": null,
+            "hasSubMenu": true,
+            "parentId": 0
         },
         {
+            "id": 7,
+            "title": "Create Role",
+            "routerLink": "/rolemanagement/createrole",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 6
+        },
+        {
+            "id": 8,
+            "title": "Role Assign",
+            "routerLink": "/rolemanagement/roleassign",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 6
+        },
+        {
+            "id": 9,
             "title": "Appointments",
+            "routerLink": null,
+            "href": null,
             "icon": "assignment",
-            "links": [
-                {
-                    "name": "Appointment Calendar",
-                    "path": "/appointmentcalendar"
-                },
-                {
-                    "name": "View Appointment",
-                    "path": "/appointments/viewappointment"
-                }
-            ]
+            "target": null,
+            "hasSubMenu": true,
+            "parentId": 0
         },
         {
+            "id": 10,
+            "title": "Appointment Calendar",
+            "routerLink": "/appointmentcalendar",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 9
+        },
+        {
+            "id": 11,
+            "title": "View Appointment",
+            "routerLink": "/appointments/viewappointment",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 9
+        },
+        {
+            "id": 12,
             "title": "Doctors",
+            "routerLink": null,
+            "href": null,
             "icon": "supervised_user_circle",
-            "links": [
-                {
-                    "name": "All Doctors",
-                    "path": "/doctors/alldoctors"
-                },
-                {
-                    "name": "Assign Department",
-                    "path": "/doctors/assigndoctor"
-                },
-                {
-                    "name": "Shift Management",
-                    "path": "/doctors/shiftmanagement"
-                }
-            ]
+            "target": null,
+            "hasSubMenu": true,
+            "parentId": 0
         },
         {
+            "id": 13,
+            "title": "All Doctors",
+            "routerLink": "/doctors/alldoctors",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 12
+        },
+        {
+            "id": 14,
+            "title": "Assign Department",
+            "routerLink": "/doctors/assigndoctor",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 12
+        },
+        {
+            "id": 15,
+            "title": "Shift Management",
+            "routerLink": "/doctors/shiftmanagement",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 12
+        },
+        {
+            "id": 16,
             "title": "Staff",
+            "routerLink": "/staff/allstaff",
+            "href": null,
             "icon": "supervisor_account",
-            "path": "/staff/allstaff",
-            "links": []
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 0
         },
         {
+            "id": 17,
             "title": "Patients",
+            "routerLink": null,
+            "href": null,
             "icon": "face",
-            "links": [
-                {
-                    "name": "All Patients",
-                    "path": "/appointmentcalendar"
-                },
-                {
-                    "name": "Patients Records",
-                    "path": "/editappointment"
-                }
-            ]
+            "target": null,
+            "hasSubMenu": true,
+            "parentId": 0
         },
         {
+            "id": 18,
+            "title": "All Patients",
+            "routerLink": "patients/allpatients",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 17
+        },
+        {
+            "id": 19,
+            "title": "Patients Records",
+            "routerLink": "patients/patientsrecords",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 17
+        },
+        {
+            "id": 20,
             "title": "Room Allotment",
+            "routerLink": null,
+            "href": null,
             "icon": "hotel",
-            "links": [
-                {
-                    "name": "Add Room",
-                    "path": "/"
-                },
-                {
-                    "name": "Alloted Rooms",
-                    "path": "/"
-                },
-                {
-                    "name": "Room By Department",
-                    "path": "/"
-                }
-            ]
+            "target": null,
+            "hasSubMenu": true,
+            "parentId": 0
         },
         {
+            "id": 21,
+            "title": "Room Master",
+            "routerLink": "roomallotment/roommaster",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 20
+        },
+        {
+            "id": 22,
+            "title": "Bed Master",
+            "routerLink": "roomallotment/bedmaster",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 20
+        },
+        {
+            "id": 23,
+            "title": "Allot Room",
+            "routerLink": "roomallotment/allotroom",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 20
+        },
+        {
+            "id": 24,
+            "title": "Room Transfer",
+            "routerLink": "roomallotment/roomtransfer",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 20
+        },
+        {
+            "id": 25,
+            "title": "Room Availability",
+            "routerLink": "roomallotment/roomavailability",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 20
+        },
+        {
+            "id": 26,
+            "title": "Room Release",
+            "routerLink": "roomallotment/roomrelease",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 20
+        },
+        {
+            "id": 27,
             "title": "Records",
+            "routerLink": null,
+            "href": null,
             "icon": "list_alt",
-            "links": [
-                {
-                    "name": "Birth Records",
-                    "path": "/"
-                },
-                {
-                    "name": "Death Records",
-                    "path": "/"
-                }
-            ]
+            "target": null,
+            "hasSubMenu": true,
+            "parentId": 0
         },
         {
+            "id": 28,
+            "title": "Birth Records",
+            "routerLink": "/birthrecords",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 27
+        },
+        {
+            "id": 29,
+            "title": "Death Records",
+            "routerLink": "/deathrecords",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 27
+        },
+        {
+            "id": 30,
             "title": "Ambulance",
+            "routerLink": null,
+            "href": null,
             "icon": "airport_shuttle",
-            "links": [
-                {
-                    "name": "Ambulance Call List",
-                    "path": "/"
-                },
-                {
-                    "name": "Ambulance List",
-                    "path": "/"
-                }
-            ]
+            "target": null,
+            "hasSubMenu": true,
+            "parentId": 0
         },
         {
+            "id": 31,
+            "title": "Ambulance Call List",
+            "routerLink": "/ambulancecalllist",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 30
+        },
+        {
+            "id": 32,
+            "title": "Ambulance List",
+            "routerLink": "/ambulancelist",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 30
+        },
+        {
+            "id": 33,
             "title": "Pharmacy",
+            "routerLink": null,
+            "href": null,
             "icon": "local_pharmacy",
-            "links": [
-                {
-                    "name": "Medicine List",
-                    "path": "/"
-                }
-            ]
+            "target": null,
+            "hasSubMenu": true,
+            "parentId": 0
         },
         {
+            "id": 34,
+            "title": "Medicine List",
+            "routerLink": "/medicinelist",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 33
+        },
+        {
+            "id": 35,
             "title": "Blood Bank",
+            "routerLink": null,
+            "href": null,
             "icon": "bloodtype",
-            "links": [
-                {
-                    "name": "Blood Stock",
-                    "path": "/"
-                },
-                {
-                    "name": "Blood Donor",
-                    "path": "/"
-                },
-                {
-                    "name": "Blood Issued",
-                    "path": "/"
-                }
-            ]
+            "target": null,
+            "hasSubMenu": true,
+            "parentId": 0
         },
         {
+            "id": 36,
+            "title": "Blood Stock",
+            "routerLink": "/bloodstock",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 35
+        },
+        {
+            "id": 37,
+            "title": "Blood Donor",
+            "routerLink": "/blooddonor",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 35
+        },
+        {
+            "id": 38,
+            "title": "Blood Issued",
+            "routerLink": "/bloodissued",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 35
+        },
+        {
+            "id": 39,
             "title": "Accounts",
+            "routerLink": null,
+            "href": null,
             "icon": "paid",
-            "links": [
-                {
-                    "name": "Bill List",
-                    "path": "/"
-                },
-                {
-                    "name": "Income",
-                    "path": "/"
-                },
-                {
-                    "name": "Expenses",
-                    "path": "/"
-                },
-                {
-                    "name": "Income Report",
-                    "path": "/"
-                },
-                {
-                    "name": "Invoice",
-                    "path": "/"
-                }
-            ]
+            "target": null,
+            "hasSubMenu": true,
+            "parentId": 0
         },
         {
+            "id": 40,
+            "title": "Bill List",
+            "routerLink": "/billlist",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 39
+        },
+        {
+            "id": 41,
+            "title": "Income",
+            "routerLink": "/income",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 39
+        },
+        {
+            "id": 42,
+            "title": "Expenses",
+            "routerLink": "/expenses",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 39
+        },
+        {
+            "id": 43,
+            "title": "Income Report",
+            "routerLink": "/incomereport",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 39
+        },
+        {
+            "id": 44,
+            "title": "Invoice",
+            "routerLink": "/invoice",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 39
+        },
+        {
+            "id": 45,
             "title": "Departments",
+            "routerLink": null,
+            "href": null,
             "icon": "group_work",
-            "links": [
-                {
-                    "name": "Department List",
-                    "path": "/"
-                },
-                {
-                    "name": "Department Overview",
-                    "path": "/"
-                }
-            ]
+            "target": null,
+            "hasSubMenu": true,
+            "parentId": 0
         },
         {
+            "id": 46,
+            "title": "Department List",
+            "routerLink": "/departmentlist",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 45
+        },
+        {
+            "id": 47,
+            "title": "Department Overview",
+            "routerLink": "/departmentoverview",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 45
+        },
+          {
+            "id": 48,
+            "title": "Designation List",
+            "routerLink": "/designationlist",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 45
+        },
+        {
+            "id": 49,
             "title": "Inventory",
+            "routerLink": null,
+            "href": null,
             "icon": "content_paste",
-            "links": [
-                {
-                    "name": "Item Stock List",
-                    "path": "/"
-                },
-                {
-                    "name": "Issued Items",
-                    "path": "/"
-                }
-            ]
+            "target": null,
+            "hasSubMenu": true,
+            "parentId": 0
         },
         {
+            "id": 50,
+            "title": "Item Stock List",
+            "routerLink": "/itemstocklist",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 49
+        },
+        {
+            "id": 51,
+            "title": "Issued Items",
+            "routerLink": "/issueditem",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 49
+        },
+        {
+            "id": 52,
             "title": "Human Resources",
+            "routerLink": null,
+            "href": null,
             "icon": "manage_accounts",
-            "links": [
-                {
-                    "name": "Leave Requests",
-                    "path": "/"
-                },
-                {
-                    "name": "Leave Balance",
-                    "path": "/"
-                },
-                {
-                    "name": "Leave Types",
-                    "path": "/"
-                },
-                {
-                    "name": "Holidays",
-                    "path": "/"
-                },
-                {
-                    "name": "Today's Attendance",
-                    "path": "/"
-                },
-                {
-                    "name": "Employee Attendance",
-                    "path": "/"
-                },
-                {
-                    "name": "Attendance Sheet",
-                    "path": "/"
-                },
-                {
-                    "name": "Employee Salary",
-                    "path": "/"
-                },
-                {
-                    "name": "Payslip",
-                    "path": "/"
-                }
-            ]
+            "target": null,
+            "hasSubMenu": true,
+            "parentId": 0
         },
         {
+            "id": 53,
+            "title": "Leave Requests",
+            "routerLink": "/leaverequest",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 52
+        },
+        {
+            "id": 54,
+            "title": "Leave Balance",
+            "routerLink": "/leavebalance",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 52
+        },
+        {
+            "id": 55,
+            "title": "Leave Types",
+            "routerLink": "/leavetypes",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 52
+        },
+        {
+            "id": 56,
+            "title": "Holidays",
+            "routerLink": "/holidays",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 52
+        },
+        {
+            "id": 57,
+            "title": "Today's Attendance",
+            "routerLink": "/todaysattendance",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 52
+        },
+        {
+            "id": 58,
+            "title": "Employee Attendance",
+            "routerLink": "/employeeattendance",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 52
+        },
+        {
+            "id": 59,
+            "title": "Attendance Sheet",
+            "routerLink": "/attendancesheet",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 52
+        },
+        {
+            "id": 60,
+            "title": "Employee Salary",
+            "routerLink": "/employeesalary",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 52
+        },
+        {
+            "id": 61,
+            "title": "Payslip",
+            "routerLink": "/payslip",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 52
+        },
+        {
+            "id": 62,
             "title": "Insurance",
+            "routerLink": null,
+            "href": null,
             "icon": "shield_watch",
-            "links": [
-                {
-                    "name": "Patient Insurance",
-                    "path": "/"
-                },
-                {
-                    "name": "Claim Status",
-                    "path": "/"
-                },
-                {
-                    "name": "Insurance Provider",
-                    "path": "/"
-                }
-            ]
+            "target": null,
+            "hasSubMenu": true,
+            "parentId": 0
+        },
+        {
+            "id": 63,
+            "title": "Patient Insurance",
+            "routerLink": "/patientinsurance",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 62
+        },
+        {
+            "id": 64,
+            "title": "Claim Status",
+            "routerLink": "/claimstatus",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 62
+        },
+        {
+            "id": 65,
+            "title": "Insurance Provider",
+            "routerLink": "/insuranceprovider",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 62
         }
     ],
-    "DoctorSideMenu": [
+    "DoctorMenu": [
         {
+            "id": 1,
             "title": "Dashboard",
+            "routerLink": "/doctordashboard",
+            "href": null,
             "icon": "dashboard",
-            "path": "/doctordashboard",
-            "links": []
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 0
         },
         {
+            "id": 2,
             "title": "Appointments",
+            "routerLink": "/appointments/viewappointment",
+            "href": null,
             "icon": "assignment",
-            "path": "/appointments/viewappointment",
-            "links": []
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 0
         },
         {
+            "id": 3,
             "title": "Doctors",
+            "routerLink": "/doctordetails",
+            "href": null,
             "icon": "supervised_user_circle",
-            "path": "/",
-            "links": []
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 0
         },
         {
+            "id": 4,
             "title": "Patients",
+            "routerLink": "/patientdetails",
+            "href": null,
             "icon": "face",
-            "path": "/",
-            "links": []
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 0
         }
     ],
-    "PatientSideMenu": [
+    "PatientMenu": [
         {
+            "id": 1,
             "title": "Dashboard",
+            "routerLink": "/patientdashboard",
+            "href": null,
             "icon": "dashboard",
-            "path": "/patientdashboard",
-            "links": []
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 0
         },
         {
+            "id": 2,
             "title": "Appointments",
+            "routerLink": null,
+            "href": null,
             "icon": "assignment",
-            "links": [
-                {
-                    "name": "Book Appointments",
-                    "path": "/"
-                },
-                {
-                    "name": "Today Appointments",
-                    "path": "/"
-                },
-                {
-                    "name": "Upcoming Appointments",
-                    "path": "/"
-                },
-                {
-                    "name": "Past Appointments",
-                    "path": "/"
-                }
-            ]
+            "target": null,
+            "hasSubMenu": true,
+            "parentId": 0
         },
         {
+            "id": 3,
+            "title": "Book Appointments",
+            "routerLink": "/bookappointments",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 2
+        },
+        {
+            "id": 4,
+            "title": "Today Appointments",
+            "routerLink": "/todayappointments",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 2
+        },
+        {
+            "id": 5,
+            "title": "Upcoming Appointments",
+            "routerLink": "/upcomingappointments",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 2
+        },
+        {
+            "id": 6,
+            "title": "Past Appointments",
+            "routerLink": "/pastappointments",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 2
+        },
+        {
+            "id": 7,
             "title": "Prescriptions",
+            "routerLink": "/prescriptions",
+            "href": null,
             "icon": "receipt_long",
-            "path": "/",
-            "links": []
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 0
         },
         {
+            "id": 8,
             "title": "Medical Record",
+            "routerLink": "/medicalrecord",
+            "href": null,
             "icon": "medical_information",
-            "path": "/",
-            "links": []
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 0
         },
         {
+            "id": 9,
             "title": "Billing",
+            "routerLink": "/billing",
+            "href": null,
             "icon": "receipt",
-            "path": "/",
-            "links": []
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 0
         }
     ]
 }

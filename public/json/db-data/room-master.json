@@ -1,0 +1,32 @@
+[
+  {
+    "roomId": "R101",
+    "roomNumber": "101",
+    "roomType": "General",
+    "ward": "General Ward",
+    "floor": 1,
+    "totalBeds": 4,
+    "chargePerDay": 1000,
+    "status": "Available"
+  },
+  {
+    "roomId": "R102",
+    "roomNumber": "102",
+    "roomType": "Private",
+    "ward": "General Ward",
+    "floor": 1,
+    "totalBeds": 1,
+    "chargePerDay": 2500,
+    "status": "Occupied"
+  },
+  {
+    "roomId": "R201",
+    "roomNumber": "201",
+    "roomType": "ICU",
+    "ward": "ICU",
+    "floor": 2,
+    "totalBeds": 2,
+    "chargePerDay": 6000,
+    "status": "Available"
+  }
+]

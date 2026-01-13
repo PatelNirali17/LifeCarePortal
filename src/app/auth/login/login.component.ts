@@ -6,6 +6,7 @@ import { FormGroup, FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Va
 import { AuthenticationService } from '../../core/service/authentication.service';
 import { ToastrService } from 'ngx-toastr';
 import { HttpErrorResponse } from '@angular/common/http';
+import { SidenavService } from '../../core/service/sidenav.service';
 
 @Component({
   selector: 'app-login',
@@ -17,7 +18,7 @@ export class LoginComponent {
   LoginForm!: FormGroup;
 
   constructor(private router: Router, private fb: NonNullableFormBuilder, private authenticationService: AuthenticationService,
-    private toast: ToastrService) {
+    private toast: ToastrService, private sidenavService: SidenavService) {
     this.LoginForm = this.fb.group({
       Role: this.fb.control(null, Validators.required),
       Email: this.fb.control(null, Validators.required),
@@ -29,7 +30,7 @@ export class LoginComponent {
     this.router.navigate(['/register'])
   }
 
-  CheckInLogin() {
+  async CheckInLogin() {
     // if (this.LoginForm.invalid) {
     //   this.LoginForm.markAllAsTouched()
     //   return
@@ -37,6 +38,7 @@ export class LoginComponent {
     const roleRouteMap: Record<string, string> = {
       Admin: '/dashboard', Doctor: '/doctordashboard', Patient: '/patientdashboard'
     };
+    await this.GetUserMenu()
     this.toast.success('', 'Login Successfully')
     localStorage.setItem('UserDetails', JSON.stringify(this.LoginForm.value))
     this.router.navigate([roleRouteMap[this.LoginForm.value.Role] || '/']);
@@ -53,6 +55,11 @@ export class LoginComponent {
     //     this.toast.error('Something went wrong',);
     //   }
     // })
+  }
+
+
+  async GetUserMenu() {
+    await this.sidenavService.GetUserMenu()
   }
 
 }
