@@ -4,7 +4,7 @@
         <div class="col-md-4">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Name</mat-label>
-                <input matInput formControlName="Name" Name>
+                <input matInput formControlName="Name" required>
                 <mat-icon matSuffix>face</mat-icon>
                 <mat-error *ngIf="AppointmentForm.get('Name')?.invalid">
                     Please enter Name

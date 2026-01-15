@@ -273,7 +273,7 @@
         {
             "id": 28,
             "title": "Birth Records",
-            "routerLink": "/birthrecords",
+            "routerLink": "records/birthrecords",
             "href": null,
             "icon": null,
             "target": null,
@@ -283,7 +283,7 @@
         {
             "id": 29,
             "title": "Death Records",
-            "routerLink": "/deathrecords",
+            "routerLink": "records/deathrecords",
             "href": null,
             "icon": null,
             "target": null,
@@ -303,7 +303,7 @@
         {
             "id": 31,
             "title": "Ambulance Call List",
-            "routerLink": "/ambulancecalllist",
+            "routerLink": "ambulance/ambulancecalllist",
             "href": null,
             "icon": null,
             "target": null,
@@ -313,7 +313,7 @@
         {
             "id": 32,
             "title": "Ambulance List",
-            "routerLink": "/ambulancelist",
+            "routerLink": "ambulance/ambulancelist",
             "href": null,
             "icon": null,
             "target": null,

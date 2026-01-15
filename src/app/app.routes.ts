@@ -9,6 +9,8 @@ import { StaffRoutesList } from './features/staff/staff-routes';
 import { RoleManagementRoutesList } from './features/role-management/role-management-routes';
 import { PatientsRoutesList } from './features/patients/patients-routes';
 import { RoomAllotmentRoutesList } from './features/room-allotment/room-allotment-routes';
+import { RecordsRoutesList } from './features/records/records-routes';
+import { AmbulanceRoutesList } from './features/ambulance/ambulance-list-routes';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -43,6 +45,14 @@ export const routes: Routes = [
       {
         path: 'roomallotment', data: { breadcrumb: 'Room Allotment' },
         children: RoomAllotmentRoutesList
+      },
+      {
+        path: 'records', data: { breadcrumb: 'Records' },
+        children: RecordsRoutesList
+      },
+        {
+        path: 'ambulance', data: { breadcrumb: 'Ambulance' },
+        children: AmbulanceRoutesList
       },
     ]
   }

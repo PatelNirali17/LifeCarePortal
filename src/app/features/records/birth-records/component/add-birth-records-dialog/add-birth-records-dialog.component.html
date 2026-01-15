@@ -1,0 +1,101 @@
+<h2 mat-dialog-title class="dialog-header mb-0">New Birth Records</h2>
+<mat-dialog-content>
+    <form class="row mt-2" [formGroup]="BirthRecordsForm">
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Case Number</mat-label>
+                <input matInput formControlName="CaseNumber" required>
+                <mat-icon matSuffix>receipt</mat-icon>
+                <mat-error *ngIf="BirthRecordsForm.get('CaseNumber')?.invalid">
+                    Please enter Case Number
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Child Name</mat-label>
+                <input matInput type="text" formControlName="ChildName" required>
+                <mat-icon matSuffix>face</mat-icon>
+                <mat-error *ngIf="BirthRecordsForm.get('ChildName')?.invalid">
+                    Please enter Child Name
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-radio-group formControlName="Gender">
+                <mat-label style="font-size: 14px;">Gender</mat-label>
+                <mat-radio-button value="Male">Male</mat-radio-button>
+                <mat-radio-button value="Female">Female</mat-radio-button>
+                <mat-radio-button value="Other">Other</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="BirthRecordsForm.get('Gender')?.invalid">
+                Please enter Gender
+            </mat-error>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Birth Date</mat-label>
+                <input matInput [matDatepicker]="BirthDate" formControlName="BirthDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="BirthDate"></mat-datepicker-toggle>
+                <mat-datepicker #BirthDate></mat-datepicker>
+                <mat-error *ngIf="BirthRecordsForm.get('BirthDate')?.invalid">
+                    Please select Birth Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Mother Name</mat-label>
+                <input matInput formControlName="MotherName" required>
+                <mat-icon matSuffix>account_circle</mat-icon>
+                <mat-error *ngIf="BirthRecordsForm.get('MotherName')?.invalid">
+                    Please enter Mother Name
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Father Name</mat-label>
+                <input matInput formControlName="FatherName" required>
+                <mat-icon matSuffix>account_circle</mat-icon>
+                <mat-error *ngIf="BirthRecordsForm.get('FatherName')?.invalid">
+                    Please enter Father Name
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Mobile</mat-label>
+                <input matInput formControlName="Mobile" required>
+                <mat-icon matSuffix>call</mat-icon>
+                <mat-error *ngIf="BirthRecordsForm.get('Mobile')?.invalid">
+                    Please enter Mobile
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Address</mat-label>
+                <textarea matInput formControlName="Address" rows="1" required></textarea>
+                <mat-error *ngIf="BirthRecordsForm.get('Address')?.invalid">
+                    Please enter Address
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Notes</mat-label>
+                <textarea matInput formControlName="Notes" rows="1" required></textarea>
+                <mat-error *ngIf="BirthRecordsForm.get('Notes')?.invalid">
+                    Please enter Notes
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions>
+    <button mat-raised-button class="bgprimary">Save</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

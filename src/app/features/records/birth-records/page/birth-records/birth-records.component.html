@@ -1,0 +1,106 @@
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            <div class="d-flex align-items-center">
+                <div class="p-0 flex-grow-1"><b>All Birth Records</b></div>
+                <div class="p-0">
+                    <button mat-icon-button (click)="OpenAddBirthRecordsDialog({ID:0})">
+                        <mat-icon style="color: #6A0572;">add_circle</mat-icon>
+                    </button>
+                </div>
+                <div class="p-0">
+                    <button mat-icon-button>
+                        <mat-icon style="color: #D4AF37;">refresh</mat-icon>
+                    </button>
+                </div>
+                <div class="p-0">
+                    <button mat-icon-button>
+                        <mat-icon style="color: #FF6B6B;">download</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <div class="card-body p-0" style="overflow: auto;">
+            <table mat-table [dataSource]="dataSource" style="font-size: 13px;">
+
+                <ng-container matColumnDef="SrNo">
+                    <th mat-header-cell *matHeaderCellDef> SrNo </th>
+                    <td mat-cell *matCellDef="let element;let i = index;"> {{ i + 1}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="CaseNumber">
+                    <th mat-header-cell *matHeaderCellDef> Case Number </th>
+                    <td mat-cell *matCellDef="let element">
+                        {{element.CaseNumber}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="ChildName">
+                    <th mat-header-cell *matHeaderCellDef> Child Name </th>
+                    <td mat-cell *matCellDef="let element"> {{element.ChildName}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Gender">
+                    <th mat-header-cell *matHeaderCellDef> Gender </th>
+                    <td mat-cell *matCellDef="let element">
+                        <span class="badge-solid-green"
+                            *ngIf="element.Gender == 'Male'"><b>{{element.Gender}}</b></span>
+                        <span class="badge-solid-purple"
+                            *ngIf="element.Gender == 'Female'"><b>{{element.Gender}}</b></span>
+                    </td>
+                </ng-container>
+
+                <ng-container matColumnDef="BirthDate">
+                    <th mat-header-cell *matHeaderCellDef> Birth Date </th>
+                    <td mat-cell *matCellDef="let element"> {{element.BirthDate}} </td>
+                </ng-container>
+
+                <ng-container matColumnDef="Mother">
+                    <th mat-header-cell *matHeaderCellDef> Mother </th>
+                    <td mat-cell *matCellDef="let element">{{element.MotherName}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Father">
+                    <th mat-header-cell *matHeaderCellDef> Father </th>
+                    <td mat-cell *matCellDef="let element">{{element.FatherName}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Contact">
+                    <th mat-header-cell *matHeaderCellDef> Mobile </th>
+                    <td mat-cell *matCellDef="let element">
+                       <span class="icon-text">
+                            <mat-icon style="font-size: 20px;color: #198754;">call</mat-icon>
+                            {{element.Mobile}}
+                        </span>
+                    </td>
+                </ng-container>
+                
+                <ng-container matColumnDef="Address">
+                    <th mat-header-cell *matHeaderCellDef> Address </th>
+                    <td mat-cell *matCellDef="let element">{{element.Address}}</td>
+                </ng-container>
+                
+                <ng-container matColumnDef="Notes">
+                    <th mat-header-cell *matHeaderCellDef> Notes </th>
+                    <td mat-cell *matCellDef="let element">{{element.Notes}}</td>
+                </ng-container>
+
+                <ng-container matColumnDef="Actions">
+                    <th mat-header-cell *matHeaderCellDef class="text-center"> Actions </th>
+                    <td mat-cell *matCellDef="let element" class="text-center">
+                        <button mat-icon-button>
+                            <mat-icon style="color: #D4AF37;">edit_square</mat-icon>
+                        </button>
+                        <button mat-icon-button>
+                            <mat-icon style="color: #FF6B6B;">delete</mat-icon>
+                        </button>
+                    </td>
+                </ng-container>
+
+                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+                <tr mat-row *matRowDef="let row; columns: displayedColumns;let i = index"></tr>
+            </table>
+            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
+            </mat-paginator>
+        </div>
+    </div>
+</div>

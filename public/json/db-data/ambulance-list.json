@@ -1,0 +1,90 @@
+[
+  {
+    "id": "001",
+    "vehicle_number": "GJ88KW7845",
+    "vehicle_name": "Toyota Innova",
+    "year_made": 2009,
+    "driver_name": "Ramona Freeman",
+    "driver_license_number": "GT6456345645",
+    "driver_number": "1234567890",
+    "vehicle_type": "Contractual",
+    "notes": ""
+  },
+  {
+    "id": "002",
+    "vehicle_number": "GJ88PO6743",
+    "vehicle_name": "Force Traveller",
+    "year_made": 2021,
+    "driver_name": "Serena Bond",
+    "driver_license_number": "YT5643463465",
+    "driver_number": "1234567890",
+    "vehicle_type": "Owned",
+    "notes": ""
+  },
+  {
+    "id": "003",
+    "vehicle_number": "GJ54XS2345",
+    "vehicle_name": "Tata Winger",
+    "year_made": 2000,
+    "driver_name": "Marvin Miller",
+    "driver_license_number": "SD645645654",
+    "driver_number": "1234567890",
+    "vehicle_type": "Owned",
+    "notes": ""
+  },
+  {
+    "id": "004",
+    "vehicle_number": "GJ54XS8743",
+    "vehicle_name": "Maruti Suzuki Omni",
+    "year_made": 2018,
+    "driver_name": "Mia Howell",
+    "driver_license_number": "ZR6456456545",
+    "driver_number": "1234567890",
+    "vehicle_type": "Contractual",
+    "notes": ""
+  },
+  {
+    "id": "005",
+    "vehicle_number": "GJ54WE5684",
+    "vehicle_name": "Force Traveller",
+    "year_made": 2019,
+    "driver_name": "Vania Jackson",
+    "driver_license_number": "GF4645645534",
+    "driver_number": "1234567890",
+    "vehicle_type": "Contractual",
+    "notes": ""
+  },
+  {
+    "id": "006",
+    "vehicle_number": "GJ60KJ3563",
+    "vehicle_name": "Force Trax",
+    "year_made": 2010,
+    "driver_name": "Baxter Burgess",
+    "driver_license_number": "AD5634523434",
+    "driver_number": "1234567890",
+    "vehicle_type": "Owned",
+    "notes": ""
+  },
+  {
+    "id": "007",
+    "vehicle_number": "GJ49FD7633",
+    "vehicle_name": "Tata Winger",
+    "year_made": 2009,
+    "driver_name": "Laurel Maxwell",
+    "driver_license_number": "JD778324554",
+    "driver_number": "1234567890",
+    "vehicle_type": "Owned",
+    "notes": ""
+  },
+  {
+    "id": "008",
+    "vehicle_number": "GJ49FD9974",
+    "vehicle_name": "Mahindra Bolero",
+    "year_made": 2004,
+    "driver_name": "Camille Mckinney",
+    "driver_license_number": "WE674575675",
+    "driver_number": "1234567890",
+    "vehicle_type": "Owned",
+    "notes": ""
+  }
+]

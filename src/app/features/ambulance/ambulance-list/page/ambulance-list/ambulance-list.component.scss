@@ -1,0 +1,381 @@
+// Color Palette
+$primary: #0d6efd;
+$success: #198754;
+$warning: #ffc107;
+$danger: #dc3545;
+$info: #0dcaf0;
+$light: #f8f9fa;
+$dark: #212529;
+$border-color: #dee2e6;
+
+.ambulance-wrapper {
+  padding: 30px 0;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+  min-height: 100vh;
+
+  // Header Section
+  .ambulance-header {
+    background: linear-gradient(135deg, $primary 0%, #0056b3 100%);
+    color: white;
+    padding: 40px 30px;
+    border-radius: 12px;
+    margin-bottom: 40px;
+    box-shadow: 0 10px 30px rgba(13, 110, 253, 0.2);
+
+    .header-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 30px;
+
+      .page-title {
+        font-size: 2.5rem;
+        font-weight: 700;
+        margin: 0;
+        display: flex;
+        align-items: center;
+        gap: 15px;
+
+        i {
+          font-size: 3rem;
+          animation: float 3s ease-in-out infinite;
+        }
+      }
+
+      .page-subtitle {
+        margin: 10px 0 0 0;
+        opacity: 0.9;
+        font-size: 1.1rem;
+      }
+
+      .header-stats {
+        display: flex;
+        gap: 20px;
+        align-items: center;
+
+        .stat-card {
+          background: rgba(255, 255, 255, 0.2);
+          padding: 15px 25px;
+          border-radius: 8px;
+          backdrop-filter: blur(10px);
+          border: 1px solid rgba(255, 255, 255, 0.3);
+          text-align: center;
+          min-width: 120px;
+
+          .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 5px;
+          }
+
+          .stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+          }
+        }
+      }
+    }
+  }
+
+  // Filter Section
+  .filter-section {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    margin-bottom: 35px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    .search-box {
+      position: relative;
+
+      .search-icon {
+        position: absolute;
+        left: 12px;
+        top: 50%;
+        transform: translateY(-50%);
+        color: #999;
+        z-index: 10;
+      }
+
+      .form-control {
+        padding-left: 38px;
+        border: 2px solid $border-color;
+        border-radius: 8px;
+        transition: all 0.3s ease;
+
+        &:focus {
+          border-color: $primary;
+          box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+        }
+      }
+    }
+
+    .filter-label {
+      font-weight: 600;
+      color: $dark;
+      margin-bottom: 8px;
+      display: block;
+    }
+
+    .form-select {
+      border: 2px solid $border-color;
+      border-radius: 8px;
+      padding: 0.6rem 0.75rem;
+      transition: all 0.3s ease;
+
+      &:focus {
+        border-color: $primary;
+        box-shadow: 0 0 0 0.2rem rgba(13, 110, 253, 0.15);
+      }
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, $primary 0%, #0056b3 100%);
+      border: none;
+      font-weight: 600;
+      transition: all 0.3s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 5px 15px rgba(13, 110, 253, 0.3);
+      }
+    }
+  }
+
+  // Empty State
+  .empty-state {
+    text-align: center;
+    padding: 60px 30px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+
+    i {
+      font-size: 4rem;
+      color: $border-color;
+      margin-bottom: 20px;
+      display: block;
+    }
+
+    h3 {
+      color: $dark;
+      font-weight: 600;
+      margin-bottom: 10px;
+    }
+
+    p {
+      color: #999;
+      font-size: 0.95rem;
+    }
+  }
+
+  // Ambulances Grid
+  .ambulances-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 25px;
+    margin-bottom: 30px;
+
+    @media (max-width: 768px) {
+      grid-template-columns: 1fr;
+    }
+
+    // Ambulance Card
+    .ambulance-card {
+      background: white;
+      border-radius: 12px;
+      overflow: hidden;
+      box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+      transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+      display: flex;
+      flex-direction: column;
+      border: 2px solid transparent;
+
+      &:hover {
+        transform: translateY(-8px) scale(1.02);
+        box-shadow: 0 12px 30px rgba(0, 0, 0, 0.15);
+        border-color: $primary;
+      }
+
+      // Card Header
+      .card-header {
+        background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+        color: white;
+        padding: 20px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+
+        .vehicle-badge {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+          font-weight: 600;
+          font-size: 1.1rem;
+
+          i {
+            font-size: 1.5rem;
+          }
+        }
+
+        .badge {
+          padding: 6px 12px;
+          border-radius: 20px;
+          font-size: 0.85rem;
+          font-weight: 600;
+
+          &.bg-success {
+            background: rgba(25, 135, 84, 0.8) !important;
+          }
+
+          &.bg-warning {
+            background: rgba(255, 193, 7, 0.8) !important;
+            color: #212529;
+          }
+        }
+      }
+
+      // Card Body
+      .card-body {
+        padding: 20px;
+        flex-grow: 1;
+
+        .info-grid {
+          display: grid;
+          grid-template-columns: 1fr 1fr;
+          gap: 15px;
+        }
+
+        .info-group {
+          display: flex;
+          flex-direction: column;
+
+          .info-label {
+            font-size: 0.75rem;
+            font-weight: 700;
+            color: $primary;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            margin-bottom: 5px;
+          }
+
+          .info-value {
+            font-size: 0.95rem;
+            color: $dark;
+            margin: 0;
+            font-weight: 500;
+            word-break: break-word;
+
+            &.vehicle-number {
+              font-family: 'Courier New', monospace;
+              font-weight: 700;
+              color: $primary;
+              letter-spacing: 1px;
+            }
+
+            &.driver-name,
+            &.phone {
+              display: flex;
+              align-items: center;
+              gap: 8px;
+
+              i {
+                color: $primary;
+                width: 16px;
+              }
+            }
+
+            .age-badge {
+              background: #e7f3ff;
+              color: $primary;
+              padding: 2px 6px;
+              border-radius: 4px;
+              font-size: 0.8rem;
+              font-weight: 600;
+              margin-left: 5px;
+            }
+
+            .condition-badge {
+              padding: 4px 10px !important;
+              border-radius: 4px;
+              font-size: 0.8rem;
+              font-weight: 600;
+              display: inline-block;
+
+              &.bg-success {
+                background: #198754 !important;
+              }
+
+              &.bg-info {
+                background: #0dcaf0 !important;
+              }
+
+              &.bg-warning {
+                background: #ffc107 !important;
+                color: #212529;
+              }
+
+              &.bg-danger {
+                background: #dc3545 !important;
+              }
+            }
+          }
+        }
+      }
+
+      // Card Footer
+      .card-footer {
+        background: #f8f9fa;
+        padding: 15px 20px;
+        border-top: 1px solid $border-color;
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        align-items: center;
+
+        .btn {
+          padding: 0.4rem 0.8rem;
+          font-size: 0.85rem;
+          border-radius: 6px;
+          transition: all 0.3s ease;
+          font-weight: 500;
+
+          &:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 3px 8px rgba(0, 0, 0, 0.15);
+          }
+
+          i {
+            margin-right: 4px;
+          }
+        }
+      }
+    }
+  }
+}
+
+// Animations
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+// Spinner
+.spinner-border {
+  width: 3rem;
+  height: 3rem;
+  animation: spinner-border 0.75s linear infinite;
+}
+
+@keyframes spinner-border {
+  to {
+    transform: rotate(360deg);
+  }
+}

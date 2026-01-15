@@ -1,0 +1,129 @@
+<div class="container-fluid ambulance-wrapper">
+  <!-- Header Section -->
+  <div class="ambulance-header">
+    <div class="header-content">
+      <div>
+        <h1 class="page-title"><i class="fas fa-ambulance"></i> Ambulance Fleet Management</h1>
+        <p class="page-subtitle">Manage and monitor all ambulances in the system</p>
+      </div>
+      <div class="header-stats">
+        <div class="stat-card">
+          <div class="stat-number">{{ ambulances.length }}</div>
+          <div class="stat-label">Total Ambulances</div>
+        </div>
+        <div class="stat-card">
+          <div class="stat-number">{{ filteredAmbulances.length }}</div>
+          <div class="stat-label">Showing</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Filter Section -->
+  <div class="filter-section">
+    <div class="row g-3 align-items-end">
+      <div class="col-md-6">
+        <div class="search-box">
+          <i class="fas fa-search search-icon"></i>
+          <input 
+            type="text" 
+            class="form-control" 
+            placeholder="Search by vehicle number, name, or driver..." 
+            [(ngModel)]="searchTerm"
+            (input)="onSearch()">
+        </div>
+      </div>
+      <div class="col-md-4">
+        <label class="form-label filter-label">Filter by Type</label>
+        <select 
+          class="form-select" 
+          [(ngModel)]="selectedType"
+          (change)="onTypeChange()">
+          <option *ngFor="let type of vehicleTypes" [value]="type">{{ type }}</option>
+        </select>
+      </div>
+      <div class="col-md-2">
+        <button class="btn btn-primary w-100" (click)="loadAmbulances()">
+          <i class="fas fa-sync"></i> Refresh
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- Loading State -->
+  <div *ngIf="loading" class="text-center py-5">
+    <div class="spinner-border text-primary" role="status">
+      <span class="visually-hidden">Loading...</span>
+    </div>
+  </div>
+
+  <!-- Ambulances Grid -->
+  <div *ngIf="!loading" class="ambulances-grid">
+    <div *ngIf="filteredAmbulances.length === 0" class="empty-state">
+      <i class="fas fa-search"></i>
+      <h3>No Ambulances Found</h3>
+      <p>Try adjusting your search or filter criteria</p>
+    </div>
+
+    <div *ngFor="let ambulance of filteredAmbulances" class="ambulance-card">
+      <!-- Card Header -->
+      <div class="card-header">
+        <div class="vehicle-badge">
+          <i class="fas fa-truck-medical"></i>
+          <span>{{ ambulance.vehicle_name }}</span>
+        </div>
+        <span [class]="'badge bg-' + (ambulance.vehicle_type === 'Owned' ? 'success' : 'warning')">
+          {{ ambulance.vehicle_type }}
+        </span>
+      </div>
+
+      <!-- Card Body -->
+      <div class="card-body">
+        <div class="info-grid">
+          <!-- Vehicle Info -->
+          <div class="info-group">
+            <label class="info-label">Vehicle Number</label>
+            <p class="info-value vehicle-number">{{ ambulance.vehicle_number }}</p>
+          </div>
+          <div class="info-group">
+            <label class="info-label">Year Made</label>
+            <p class="info-value">{{ ambulance.year_made }} <span class="age-badge">{{ getVehicleAge(ambulance.year_made) }}y</span></p>
+          </div>
+          <div class="info-group">
+            <label class="info-label">Condition</label>
+            <span [class]="'badge bg-' + getConditionBadgeClass(ambulance.year_made) + ' condition-badge'">
+              {{ getVehicleCondition(ambulance.year_made) }}
+            </span>
+          </div>
+
+          <!-- Driver Info -->
+          <div class="info-group">
+            <label class="info-label">Driver Name</label>
+            <p class="info-value driver-name"><i class="fas fa-user-circle"></i> {{ ambulance.driver_name }}</p>
+          </div>
+          <div class="info-group">
+            <label class="info-label">License Number</label>
+            <p class="info-value">{{ ambulance.driver_license_number }}</p>
+          </div>
+          <div class="info-group">
+            <label class="info-label">Contact Number</label>
+            <p class="info-value phone"><i class="fas fa-phone"></i> {{ ambulance.driver_number }}</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- Card Footer -->
+      <div class="card-footer">
+        <button class="btn btn-sm btn-outline-primary">
+          <i class="fas fa-edit"></i> Edit
+        </button>
+        <button class="btn btn-sm btn-outline-danger">
+          <i class="fas fa-trash"></i> Delete
+        </button>
+        <button class="btn btn-sm btn-outline-info ms-auto">
+          <i class="fas fa-info-circle"></i> Details
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

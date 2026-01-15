@@ -1,0 +1,132 @@
+<div class="container-fluid">
+    <div class="death-records-container">
+        <div class="header-section">
+            <div class="header-title">
+                <mat-icon class="header-icon">assignment</mat-icon>
+                <h2>Death Records Management</h2>
+            </div>
+            <div class="header-actions">
+                <div class="search-box">
+                    <mat-icon>search</mat-icon>
+                    <input type="text" placeholder="Search records..." (keyup)="applyFilter($event)"
+                        class="search-input">
+                </div>
+                <button class="action-btn add-btn" title="Add new record">
+                    <mat-icon>add_circle</mat-icon>
+                </button>
+                <button class="action-btn refresh-btn" (click)="GetAllDeathRecords()" title="Refresh">
+                    <mat-icon>refresh</mat-icon>
+                </button>
+                <button class="action-btn download-btn" title="Download">
+                    <mat-icon>download</mat-icon>
+                </button>
+            </div>
+        </div>
+        <div class="grid-wrapper">
+            <div class="table-responsive">
+                <table class="table table-hover death-records-table">
+                    <thead class="table-header">
+                        <tr>
+                            <th class="col-srno">Sr No</th>
+                            <th class="col-case">Case #</th>
+                            <th class="col-name">Patient Name</th>
+                            <th class="col-gender">Gender</th>
+                            <th class="col-date">Death Date</th>
+                            <th class="col-guardian">Guardian</th>
+                            <th class="col-mobile">Mobile</th>
+                            <th class="col-address">Address</th>
+                            <th class="col-notes">Cause</th>
+                            <th class="col-actions text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr *ngFor="let record of paginatedRecords; let i = index" class="data-row">
+                            <td class="col-srno"><span class="srno-badge">{{ (currentPage - 1) * pageSize + i + 1
+                                    }}</span>
+                            </td>
+                            <td class="col-case">
+                                <span class="case-badge">{{ record.case_number }}</span>
+                            </td>
+                            <td class="col-name">
+                                <span class="patient-badge">{{ record.patient_name }}</span>
+                            </td>
+                            <td class="col-gender">
+                                <span class="gender-badge"
+                                    [ngClass]="record.gender === 'Male' ? 'male-badge' : 'female-badge'">
+                                    <mat-icon>{{ record.gender === 'Male' ? 'male' : 'female' }}</mat-icon>
+                                    {{ record.gender }}
+                                </span>
+                            </td>
+                            <td class="col-date">
+                                <span class="date-badge">{{ record.death_date }}</span>
+                            </td>
+                            <td class="col-guardian">{{ record.guardian_name }}</td>
+                            <td class="col-mobile">
+                                <span class="mobile-badge">
+                                    <mat-icon>phone</mat-icon>
+                                    {{ record.mobile }}
+                                </span>
+                            </td>
+                            <td class="col-address">
+                                <span class="address-text" title="{{ record.address }}">{{ record.address }}</span>
+                            </td>
+                            <td class="col-notes">
+                                <span class="cause-badge">{{ record.notes }}</span>
+                            </td>
+                            <td class="col-actions">
+                                <div class="action-buttons">
+                                    <button class="btn-action view" title="View details">
+                                        <mat-icon>visibility</mat-icon>
+                                    </button>
+                                    <button class="btn-action edit" title="Edit record">
+                                        <mat-icon>edit</mat-icon>
+                                    </button>
+                                    <button class="btn-action delete" title="Delete record">
+                                        <mat-icon>delete</mat-icon>
+                                    </button>
+                                </div>
+                            </td>
+                        </tr>
+                        <tr *ngIf="paginatedRecords.length === 0" class="no-data-row">
+                            <td colspan="10" class="text-center">
+                                <span class="no-data-text">No records found</span>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+        <div class="pagination-section" *ngIf="totalPages > 1">
+            <div class="pagination-info">
+                <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                    filteredRecords.length ?
+                    filteredRecords.length : currentPage * pageSize }} of {{ filteredRecords.length }} records</span>
+            </div>
+            <nav aria-label="Page navigation">
+                <ul class="pagination">
+                    <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                        <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                    </li>
+                    <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                        <button class="page-link" (click)="changePage(currentPage - 1)"
+                            [disabled]="currentPage == 1">Previous</button>
+                    </li>
+
+                    <li class="page-item" *ngFor="let page of [].constructor(totalPages); let i = index"
+                        [ngClass]="{active: currentPage == i + 1}">
+                        <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                    </li>
+
+                    <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                        <button class="page-link" (click)="changePage(currentPage + 1)"
+                            [disabled]="currentPage == totalPages">Next</button>
+                    </li>
+                    <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                        <button class="page-link" (click)="changePage(totalPages)"
+                            [disabled]="currentPage == totalPages">Last</button>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+</div>
