@@ -6,10 +6,22 @@ import { HttpClient } from '@angular/common/http';
 import { DeathRecordsService } from '../../death-records.service';
 import { MatDialog } from '@angular/material/dialog';
 import { SharedModule } from '../../../../../shared/shared.module';
+import { AddDeathRecordsDialogComponent } from '../../component/add-death-records-dialog/add-death-records-dialog.component';
+
+export interface DeathRecord {
+  id: string;
+  fullName: string;
+  dateOfDeath: Date;
+  dateOfBirth: Date;
+  placeOfDeath: string;
+  causeOfDeath: string;
+  status: 'Certified' | 'Pending' | 'Archived';
+  referenceNumber: string;
+}
 
 @Component({
   selector: 'app-death-records',
-  imports: [CommonModule, MatIconModule, MatButtonModule, SharedModule],
+  imports: [CommonModule, SharedModule],
   templateUrl: './death-records.component.html',
   styleUrl: './death-records.component.scss'
 })
@@ -22,11 +34,7 @@ export class DeathRecordsComponent implements OnInit {
   maleCount = 0;
   femaleCount = 0;
 
-  constructor(
-    private http: HttpClient,
-    private deathRecordsService: DeathRecordsService,
-    private dialog: MatDialog
-  ) {}
+  constructor(private http: HttpClient, private deathRecordsService: DeathRecordsService, private dialog: MatDialog) { }
 
   ngOnInit() {
     setTimeout(() => {
@@ -35,7 +43,7 @@ export class DeathRecordsComponent implements OnInit {
   }
 
   GetAllDeathRecords() {
-    this.http.get<any[]>('json/db-data/death-records.json').subscribe({
+    this.deathRecordsService.GetAllDeathRecords().subscribe({
       next: (result: any) => {
         this.deathRecords = result;
         this.filteredRecords = result;
@@ -80,7 +88,20 @@ export class DeathRecordsComponent implements OnInit {
   }
 
   OpenAddDeathRecordsDialog(obj: any) {
-    // TODO: Implement add dialog if needed
+    const dialogRef = this.dialog.open(AddDeathRecordsDialogComponent, {
+      minWidth: '900px',
+      maxWidth: '900px',
+      data: obj,
+      disableClose: true
+    });
+
+    dialogRef.afterClosed().subscribe(result => {
+      if (result) {
+        // TODO: Call service to save/update record
+        console.log('Dialog result:', result);
+        this.GetAllDeathRecords();
+      }
+    });
   }
 
   EditRecord(obj: any) {

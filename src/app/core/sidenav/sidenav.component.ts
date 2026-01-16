@@ -30,7 +30,6 @@ export class SidenavComponent {
     }
     router.events.subscribe(() => {
       this.activeLink = this.router.url;
-      console.log('activeLink: ', this.activeLink);
     });
     // this.router.events.pipe(filter(event => event instanceof NavigationEnd)).subscribe((event: any) => {
     //   this.activeLink = event.urlAfterRedirects;

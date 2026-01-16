@@ -1,12 +1,13 @@
-$primary-color: #6A0572;     
-$primary-dark: #580464;       
-$secondary-color: #D4AF37;    
-$secondary-dark: #C9A22F;     
-$accent-color: #FF6B6B;       
-$accent-dark: #E85C5C;        
+$primary-color: #6A0572;
+$primary-dark: #580464;
+$secondary-color: #D4AF37;
+$secondary-dark: #C9A22F;
+$accent-color: #FF6B6B;
+$accent-dark: #E85C5C;
 
 .death-records-container {
   min-height: 100vh;
+
   .header-section {
     display: flex;
     justify-content: space-between;
@@ -33,7 +34,7 @@ $accent-dark: #E85C5C;
       }
 
       .header-icon {
-        font-size: 28px;
+        font-size: 27px;
         color: $primary-color;
       }
     }
@@ -163,7 +164,7 @@ $accent-dark: #E85C5C;
         left: 0;
         right: 0;
         bottom: 0;
-        background: linear-gradient(135deg, rgba(255,255,255,0.5) 0%, rgba(255,255,255,0) 100%);
+        background: linear-gradient(135deg, rgba(255, 255, 255, 0.5) 0%, rgba(255, 255, 255, 0) 100%);
         pointer-events: none;
       }
 
@@ -203,11 +204,11 @@ $accent-dark: #E85C5C;
         background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(212, 175, 55, 0.05) 100%);
         border-left-color: $secondary-color;
         border-top: 3px solid $secondary-color;
-        
+
         &::before {
           background: $secondary-color;
         }
-        
+
         .stat-number {
           color: $secondary-color;
         }
@@ -227,11 +228,11 @@ $accent-dark: #E85C5C;
         background: linear-gradient(135deg, rgba(255, 107, 107, 0.15) 0%, rgba(255, 107, 107, 0.05) 100%);
         border-left-color: $accent-color;
         border-top: 3px solid $accent-color;
-        
+
         &::before {
           background: $accent-color;
         }
-        
+
         .stat-number {
           color: $accent-color;
         }
@@ -251,11 +252,11 @@ $accent-dark: #E85C5C;
         background: linear-gradient(135deg, rgba(106, 5, 114, 0.15) 0%, rgba(106, 5, 114, 0.05) 100%);
         border-left-color: $primary-color;
         border-top: 3px solid $primary-color;
-        
+
         &::before {
           background: $primary-color;
         }
-        
+
         .stat-number {
           color: $primary-color;
         }
@@ -290,6 +291,21 @@ $accent-dark: #E85C5C;
         margin-bottom: 0;
 
         thead {
+          th {
+            padding: 10px 8px;
+            font-weight: 600;
+            font-size: 13px;
+            text-align: left;
+            border-bottom: 2px solid #e5e7eb;
+            letter-spacing: 0.5px;
+            white-space: nowrap;
+            background: linear-gradient(135deg, $primary-color 0%, $primary-dark 100%);
+            color: white;
+            position: sticky;
+            top: 0;
+            z-index: 10;
+          }
+
           .table-header {
             background: linear-gradient(135deg, $primary-color 0%, $primary-dark 100%);
             color: white;
@@ -297,18 +313,7 @@ $accent-dark: #E85C5C;
             top: 0;
             z-index: 10;
 
-            th {
-              padding: 10px 8px;
-              font-weight: 600;
-              font-size: 13px;
-              text-align: left;
-              border-bottom: 2px solid #e5e7eb;
-              text-transform: uppercase;
-              letter-spacing: 0.5px;
-              white-space: nowrap;
-              background: linear-gradient(135deg, $primary-color 0%, $primary-dark 100%);
-              color: white;
-            }
+
           }
         }
 
@@ -437,8 +442,7 @@ $accent-dark: #E85C5C;
 
         .col-guardian {
           width: 140px;
-          font-weight: 500;
-          color: #555;
+          font-weight: 600;
         }
 
         .col-mobile {

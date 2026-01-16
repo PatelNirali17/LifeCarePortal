@@ -11,7 +11,7 @@
                     <input type="text" placeholder="Search records..." (keyup)="applyFilter($event)"
                         class="search-input">
                 </div>
-                <button class="action-btn add-btn" title="Add new record">
+                <button class="action-btn add-btn" title="Add new record" (click)="OpenAddDeathRecordsDialog(null)">
                     <mat-icon>add_circle</mat-icon>
                 </button>
                 <button class="action-btn refresh-btn" (click)="GetAllDeathRecords()" title="Refresh">
