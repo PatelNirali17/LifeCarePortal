@@ -1,48 +1,79 @@
-import { Component, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { SharedModule } from '../../../../../shared/shared.module';
 import { CommonModule } from '@angular/common';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
 import { CreateRoleService } from '../../create-role.service';
 import { MatDialog } from '@angular/material/dialog';
 import { CreateRoleDialogComponent } from '../../component/create-role-dialog/create-role-dialog.component';
 import Swal from 'sweetalert2';
 import { ToastrService } from 'ngx-toastr';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-create-role',
-  imports: [SharedModule, CommonModule],
+  imports: [SharedModule, CommonModule, FormsModule],
   templateUrl: './create-role.component.html',
   styleUrl: './create-role.component.scss'
 })
 export class CreateRoleComponent {
-  displayedColumns: string[] = ['SrNo', 'Name', 'Status', 'CreatedDate', 'UpdatedDate', 'Actions'];
-  dataSource = new MatTableDataSource<any>();
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  RoleList: any[] = [];
+  paginatedList: any[] = [];
+  pageSize = 5;
+  pageIndex = 0;
 
-  constructor(private createRoleService: CreateRoleService, private dialog: MatDialog, private toast: ToastrService) {
+  constructor(private createRoleService: CreateRoleService, private dialog: MatDialog, private toast: ToastrService, private cdr: ChangeDetectorRef) {
     setTimeout(() => {
       this.GetAllRole()
     }, 1000);
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
-
   GetAllRole() {
     this.createRoleService.GetAllRole().subscribe({
       next: (result: any) => {
-        this.dataSource.data = result
+        this.RoleList = result;
+        this.updatePaginatedList();
+        this.cdr.markForCheck();
       },
     })
   }
 
+  trackByFn(index: number, item: any): any {
+    return item.ID || index;
+  }
+
+  getBadgeClass(type: string): string {
+    return type ? type.toLowerCase().replace(/\s+/g, '-') : '';
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.RoleList.length / this.pageSize);
+  }
+
+  get currentPage(): number {
+    return this.pageIndex + 1;
+  }
+
+  get pagesArray(): any[] {
+    return Array(this.totalPages).fill(0);
+  }
+
+  updatePaginatedList(): void {
+    const startIndex = this.pageIndex * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.paginatedList = this.RoleList.slice(startIndex, endIndex);
+  }
+
+  changePage(page: number): void {
+    if (page >= 1 && page <= this.totalPages) {
+      this.pageIndex = page - 1;
+      this.updatePaginatedList();
+    }
+  }
+
   OpenRoleDialog(obj: any) {
     const dialogRef = this.dialog.open(CreateRoleDialogComponent, {
-      minWidth: '700px',
-      maxWidth: '700px',
-      data: obj,
+      minWidth: '500px',
+      maxWidth: '500px',
+      data: obj ? obj : null,
       disableClose: true
     });
 

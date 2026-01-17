@@ -1,5 +1,10 @@
-<h2 mat-dialog-title class="dialog-header mb-0">New Department</h2>
-<mat-dialog-content>
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ AssignDepartmentDetails ? 'Edit' : 'Add New' }} Assign Department</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
     <form class="row mt-2" [formGroup]="AssignDepartmentForm">
           <div class="col-md-4">
             <mat-form-field class="w-100">
@@ -71,7 +76,7 @@
         </div>
     </form>
 </mat-dialog-content>
-<mat-dialog-actions>
-    <button mat-raised-button class="bgprimary">Save</button>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ AssignDepartmentDetails ? 'Update' : 'Save' }}</button>
     <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
 </mat-dialog-actions>

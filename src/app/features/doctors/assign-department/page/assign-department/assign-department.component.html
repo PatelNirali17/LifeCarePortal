@@ -1,98 +1,98 @@
 <div class="container-fluid">
-    <div class="card">
-        <div class="card-header">
-            <div class="d-flex align-items-center">
-                <div class="p-0 flex-grow-1"><b>Assign Department</b></div>
-                <div class="p-0">
-                    <button mat-icon-button (click)="OpenAssignDepartmentDialog({id:0})">
-                        <mat-icon style="color: #6A0572;">add_circle</mat-icon>
-                    </button>
-                </div>
-                <div class="p-0">
-                    <button mat-icon-button>
-                        <mat-icon style="color: #D4AF37;">refresh</mat-icon>
-                    </button>
-                </div>
-                <div class="p-0">
-                    <button mat-icon-button>
-                        <mat-icon style="color: #FF6B6B;">download</mat-icon>
-                    </button>
-                </div>
-            </div>
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>Assign Department</h2>
+            <p>Assign departments to doctors</p>
         </div>
-        <div class="card-body p-0" style="overflow: auto;">
-            <table mat-table [dataSource]="dataSource" style="font-size: 13px;">
-
-                <ng-container matColumnDef="SrNo">
-                    <th mat-header-cell *matHeaderCellDef> SrNo </th>
-                    <td mat-cell *matCellDef="let element;let i = index;"> {{ i + 1}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="Name">
-                    <th mat-header-cell *matHeaderCellDef> Name </th>
-                    <td mat-cell *matCellDef="let element">
-                        {{element.Name}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="Department">
-                    <th mat-header-cell *matHeaderCellDef> Department </th>
-                    <td mat-cell *matCellDef="let element"> {{element.Department}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="Specialization">
-                    <th mat-header-cell *matHeaderCellDef> Specialization </th>
-                    <td mat-cell *matCellDef="let element"> {{element.Specialization}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="ShiftSchedule">
-                    <th mat-header-cell *matHeaderCellDef> Shift Schedule </th>
-                    <td mat-cell *matCellDef="let element">{{element.ShiftSchedule}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="ExperienceLevel">
-                    <th mat-header-cell *matHeaderCellDef> Experience Level </th>
-                    <td mat-cell *matCellDef="let element">{{element.ExperienceLevel}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="AssignmentStatus">
-                    <th mat-header-cell *matHeaderCellDef>Assignment Status </th>
-                    <td mat-cell *matCellDef="let element">
-                        <span class="badge-solid-green"
-                            *ngIf="element.AssignmentStatus == 'Active'"><b>{{element.AssignmentStatus}}</b></span>
-                        <span class="badge-solid-purple"
-                            *ngIf="element.AssignmentStatus == 'Pending'"><b>{{element.AssignmentStatus}}</b></span>
-                        <span class="badge-solid-orange"
-                            *ngIf="element.AssignmentStatus == 'Inactive'"><b>{{element.AssignmentStatus}}</b></span>
-                    </td>
-                </ng-container>
-
-                <ng-container matColumnDef="AssignedDate">
-                    <th mat-header-cell *matHeaderCellDef>Assigned Date </th>
-                    <td mat-cell *matCellDef="let element">
-                        <span class="icon-text">
-                            <mat-icon style="font-size: 20px;color: #6b4704;">today</mat-icon>
-                            {{element.AssignedDate}}
-                        </span>
-                    </td>
-                </ng-container>
-
-                <ng-container matColumnDef="Actions">
-                    <th mat-header-cell *matHeaderCellDef class="text-center"> Actions </th>
-                    <td mat-cell *matCellDef="let element" class="text-center">
-                        <button mat-icon-button>
-                            <mat-icon style="color: #D4AF37;">edit_square</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon style="color: #FF6B6B;">delete</mat-icon>
-                        </button>
-                    </td>
-                </ng-container>
-
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;let i = index"></tr>
-            </table>
-            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
-            </mat-paginator>
+        <div class="header-actions">
+            <button class="add-btn" (click)="OpenAssignDepartmentDialog(null)">
+                <span class="icon">+</span> Add New Assign Department
+            </button>
         </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>Name</th>
+                    <th>Department</th>
+                    <th>Specialization</th>
+                    <th>Shift Schedule</th>
+                    <th>Experience Level</th>
+                    <th>Assignment Status</th>
+                    <th>Assigned Date</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let doctor of paginatedList; trackBy: trackByFn;let i = index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>{{ doctor.Name }}</td>
+                    <td>{{ doctor.Department }}</td>
+                    <td>{{ doctor.Specialization }}</td>
+                    <td>{{ doctor.ShiftSchedule }}</td>
+                    <td>{{ doctor.ExperienceLevel }}</td>
+                    <td>
+                         <span class="type-badge active" *ngIf="doctor.AssignmentStatus == 'Active'">{{doctor.AssignmentStatus
+                            }}</span>
+                        <span class="type-badge contractual" *ngIf="doctor.AssignmentStatus == 'Pending'">{{doctor.AssignmentStatus
+                            }}</span>
+                        <span class="type-badge inactive" *ngIf="doctor.AssignmentStatus == 'Inactive'">{{doctor.AssignmentStatus
+                            }}</span>
+                    </td>
+                    <td>{{ doctor.AssignedDate }}</td>
+                    <td class="text-end">
+                        <div class="action-group">
+                            <button class="action-btn edit" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="AssignDepartmentList.length === 0" class="empty-state">
+            <p>No doctor data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                AssignDepartmentList.length ?
+                AssignDepartmentList.length : currentPage * pageSize }} of {{ AssignDepartmentList.length }} records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
     </div>
 </div>

@@ -1,151 +1,162 @@
-<h2 mat-dialog-title class="dialog-header mb-0">New Doctor</h2>
-<mat-dialog-content>
-    <form class="row mt-2" [formGroup]="DoctorForm">
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Name</mat-label>
-                <input matInput formControlName="Name" required>
-                <mat-icon matSuffix>face</mat-icon>
-                <mat-error *ngIf="DoctorForm.get('Name')?.invalid">
-                    Please enter Name
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ DoctorDetails ? 'Edit' : 'Add New' }} Doctor</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="DoctorForm">
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Name</mat-label>
+                    <input matInput formControlName="Name" required>
+                    <mat-error *ngIf="DoctorForm.get('Name')?.invalid">
+                        Please enter Name
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Department</mat-label>
+                    <mat-select formControlName="Department" required>
+                        <mat-option *ngFor="let Department of DepartmentList"
+                            [value]="Department.Name">{{Department.Name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="DoctorForm.get('Department')?.invalid">
+                        Please select Department
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Specialization</mat-label>
+                    <input matInput formControlName="Specialization" required>
+                    <mat-error *ngIf="DoctorForm.get('Specialization')?.invalid">
+                        Please enter Specialization
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Joining Date</mat-label>
+                    <input matInput [matDatepicker]="JoiningDate" formControlName="JoiningDate" required>
+                    <mat-datepicker-toggle matIconSuffix [for]="JoiningDate"></mat-datepicker-toggle>
+                    <mat-datepicker #JoiningDate></mat-datepicker>
+                    <mat-error *ngIf="DoctorForm.get('JoiningDate')?.invalid">
+                        Please select Joining Date
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Experience (years)</mat-label>
+                    <input matInput formControlName="Experience" required>
+                    <mat-error *ngIf="DoctorForm.get('Experience')?.invalid">
+                        Please enter Experience
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Consultation Fee</mat-label>
+                    <input matInput formControlName="ConsultationFee" required>
+                    <mat-error *ngIf="DoctorForm.get('ConsultationFee')?.invalid">
+                        Please enter Consultation Fee
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Availability</mat-label>
+                    <input matInput formControlName="Availability" required>
+                    <mat-error *ngIf="DoctorForm.get('Availability')?.invalid">
+                        Please enter Availability
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Rating</mat-label>
+                    <input matInput formControlName="Rating">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Clinic Location</mat-label>
+                    <input matInput formControlName="ClinicLocation" required>
+                    <mat-error *ngIf="DoctorForm.get('ClinicLocation')?.invalid">
+                        Please enter Clinic Location
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="section-title">Personal Details</div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <mat-radio-group formControlName="Gender">
+                    <mat-label style="font-size: 14px;">Gender</mat-label>
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">Female</mat-radio-button>
+                </mat-radio-group>
+                <mat-error *ngIf="DoctorForm.get('Gender')?.invalid">
+                    Please select Gender
                 </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-radio-group formControlName="Gender">
-                <mat-label style="font-size: 14px;">Gender</mat-label>
-                <mat-radio-button value="Male">Male</mat-radio-button>
-                <mat-radio-button value="Female">Female</mat-radio-button>
-            </mat-radio-group>
-            <mat-error *ngIf="DoctorForm.get('Gender')?.invalid">
-                Please select Gender
-            </mat-error>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Mobile</mat-label>
-                <input matInput formControlName="Mobile" required>
-                <mat-icon matSuffix>call</mat-icon>
-                <mat-error *ngIf="DoctorForm.get('Mobile')?.invalid">
-                    Please enter Mobile
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Department</mat-label>
-                <mat-select formControlName="Department" required>
-                    <mat-option *ngFor="let Department of DepartmentList" [value]="Department.Name">{{Department.Name}}
-                    </mat-option>
-                </mat-select>
-                <mat-error *ngIf="DoctorForm.get('Department')?.invalid">
-                    Please select Department
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Specialization</mat-label>
-                <input matInput formControlName="Specialization" required>
-                <mat-icon matSuffix>flag</mat-icon>
-                <mat-error *ngIf="DoctorForm.get('Specialization')?.invalid">
-                    Please enter Specialization
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Date Of Birth</mat-label>
-                <input matInput [matDatepicker]="DateOfBirth" formControlName="DateOfBirth" required>
-                <mat-datepicker-toggle matIconSuffix [for]="DateOfBirth"></mat-datepicker-toggle>
-                <mat-datepicker #DateOfBirth></mat-datepicker>
-                <mat-error *ngIf="DoctorForm.get('DateOfBirth')?.invalid">
-                    Please select Date Of Birth
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Address</mat-label>
-                <textarea matInput formControlName="Address" rows="1"></textarea>
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Email</mat-label>
-                <input matInput type="email" formControlName="Email" required>
-                <mat-icon matSuffix>mail</mat-icon>
-                <mat-error *ngIf="DoctorForm.get('Email')?.invalid">
-                    Please enter Email
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Degree</mat-label>
-                <input matInput formControlName="Degree" required>
-                <mat-icon matSuffix>school</mat-icon>
-                <mat-error *ngIf="DoctorForm.get('Degree')?.invalid">
-                    Please enter Degree
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Joining Date</mat-label>
-                <input matInput [matDatepicker]="JoiningDate" formControlName="JoiningDate" required>
-                <mat-datepicker-toggle matIconSuffix [for]="JoiningDate"></mat-datepicker-toggle>
-                <mat-datepicker #JoiningDate></mat-datepicker>
-                <mat-error *ngIf="DoctorForm.get('JoiningDate')?.invalid">
-                    Please select Joining Date
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Experience (years)</mat-label>
-                <input matInput formControlName="Experience" required>
-                <mat-error *ngIf="DoctorForm.get('Experience')?.invalid">
-                    Please enter Experience
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Consultation Fee</mat-label>
-                <input matInput formControlName="ConsultationFee" required>
-                <mat-error *ngIf="DoctorForm.get('ConsultationFee')?.invalid">
-                    Please enter Consultation Fee
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Availability</mat-label>
-                <input matInput formControlName="Availability" required>
-                <mat-error *ngIf="DoctorForm.get('Availability')?.invalid">
-                    Please enter Availability
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Rating</mat-label>
-                <input matInput formControlName="Rating">
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Clinic Location</mat-label>
-                <input matInput formControlName="ClinicLocation" required>
-                <mat-error *ngIf="DoctorForm.get('ClinicLocation')?.invalid">
-                    Please enter Clinic Location
-                </mat-error>
-            </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Mobile</mat-label>
+                    <input matInput formControlName="Mobile" required>
+                    <mat-icon matSuffix>call</mat-icon>
+                    <mat-error *ngIf="DoctorForm.get('Mobile')?.invalid">
+                        Please enter Mobile
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Date Of Birth</mat-label>
+                    <input matInput [matDatepicker]="DateOfBirth" formControlName="DateOfBirth" required>
+                    <mat-datepicker-toggle matIconSuffix [for]="DateOfBirth"></mat-datepicker-toggle>
+                    <mat-datepicker #DateOfBirth></mat-datepicker>
+                    <mat-error *ngIf="DoctorForm.get('DateOfBirth')?.invalid">
+                        Please select Date Of Birth
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Address</mat-label>
+                    <textarea matInput formControlName="Address" rows="1"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Email</mat-label>
+                    <input matInput type="email" formControlName="Email" required>
+                    <mat-icon matSuffix>mail</mat-icon>
+                    <mat-error *ngIf="DoctorForm.get('Email')?.invalid">
+                        Please enter Email
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Degree</mat-label>
+                    <input matInput formControlName="Degree" required>
+                    <mat-icon matSuffix>school</mat-icon>
+                    <mat-error *ngIf="DoctorForm.get('Degree')?.invalid">
+                        Please enter Degree
+                    </mat-error>
+                </mat-form-field>
+            </div>
         </div>
     </form>
 </mat-dialog-content>
-<mat-dialog-actions>
-    <button mat-raised-button class="bgprimary">Save</button>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ DoctorDetails ? 'Update' : 'Save' }}</button>
     <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
 </mat-dialog-actions>

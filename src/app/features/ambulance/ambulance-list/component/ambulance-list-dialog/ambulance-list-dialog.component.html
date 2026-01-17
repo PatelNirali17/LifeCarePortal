@@ -1,0 +1,70 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ details ? 'Edit' : 'Add New' }} Ambulance</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="ambulanceForm">
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <mat-label>Vehicle Number</mat-label>
+                    <input matInput formControlName="VehicleNumber">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <mat-label>Vehicle Name</mat-label>
+                    <input matInput formControlName="VehicleName">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <mat-label>Year Made</mat-label>
+                    <input matInput type="number" formControlName="YearMade">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <mat-label>Vehicle Type</mat-label>
+                    <mat-select formControlName="VehicleType">
+                        <mat-option *ngFor="let type of vehicleTypes" [value]="type">{{ type }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="section-title">Driver Details</div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <mat-label>Driver Name</mat-label>
+                    <input matInput formControlName="DriverName">
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <mat-label>Contact Number</mat-label>
+                    <input matInput formControlName="DriverNumber">
+                    <mat-icon matSuffix>call</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="col-12">
+                <mat-form-field class="w-100">
+                    <mat-label>License Number</mat-label>
+                    <input matInput formControlName="DriverLicenseNumber">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary" (click)="onSubmit()">
+        {{ details ? 'Update' : 'Save' }}
+    </button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

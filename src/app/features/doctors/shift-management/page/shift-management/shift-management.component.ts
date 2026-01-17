@@ -1,4 +1,4 @@
-import { Component, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ViewChild } from '@angular/core';
 import { SharedModule } from '../../../../../shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { MatTableDataSource } from '@angular/material/table';
@@ -15,33 +15,65 @@ import { ShiftManagementDetailsDialogComponent } from '../../component/shift-man
   styleUrl: './shift-management.component.scss'
 })
 export class ShiftManagementComponent {
-  displayedColumns: string[] = ['SrNo', 'Name', 'Department', 'Specialization', 'ShiftStartDate', "ShiftEndDate", "WorkDays", "ShiftHours", 'ShiftType', 'AvailabilityStatus', 'Actions'];
-  dataSource = new MatTableDataSource<any>();
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  ShiftManagementList: any[] = [];
+  paginatedList: any[] = [];
+  pageSize = 5;
+  pageIndex = 0;
 
-  constructor(private shiftManagementService: ShiftManagementService, private dialog: MatDialog) {
+  constructor(private shiftManagementService: ShiftManagementService, private dialog: MatDialog, private cdr: ChangeDetectorRef) {
     setTimeout(() => {
       this.GetAllShiftManagement()
     }, 1000);
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
-
   GetAllShiftManagement() {
     this.shiftManagementService.GetAllShiftManagement().subscribe({
       next: (result: any) => {
-        this.dataSource.data = result
+        this.ShiftManagementList = result;
+        this.updatePaginatedList();
+        this.cdr.markForCheck();
       },
     })
+  }
+
+  trackByFn(index: number, item: any): any {
+    return item.ID || index;
+  }
+
+  getBadgeClass(type: string): string {
+    return type ? type.toLowerCase().replace(/\s+/g, '-') : '';
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.ShiftManagementList.length / this.pageSize);
+  }
+
+  get currentPage(): number {
+    return this.pageIndex + 1;
+  }
+
+  get pagesArray(): any[] {
+    return Array(this.totalPages).fill(0);
+  }
+
+  updatePaginatedList(): void {
+    const startIndex = this.pageIndex * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.paginatedList = this.ShiftManagementList.slice(startIndex, endIndex);
+  }
+
+  changePage(page: number): void {
+    if (page >= 1 && page <= this.totalPages) {
+      this.pageIndex = page - 1;
+      this.updatePaginatedList();
+    }
   }
 
   OpenShiftManagementDialog(obj: any) {
     const dialogRef = this.dialog.open(ShiftManagementDialogComponent, {
       minWidth: '1000px',
       maxWidth: '1000px',
-      data: obj,
+      data: obj ? obj : null,
       disableClose: true
     });
 

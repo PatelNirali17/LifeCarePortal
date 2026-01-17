@@ -1,0 +1,96 @@
+<div class="container-fluid pb-2">
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>Ambulance List</h2>
+            <p>Real-time overview of all registered ambulances</p>
+        </div>
+        <div class="header-actions">
+            <button class="add-btn" (click)="onAdd()">
+                <span class="icon">+</span> Add New Unit
+            </button>
+        </div>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>Vehicle Info</th>
+                    <th>Driver</th>
+                    <th>Type</th>
+                    <th>Year</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ambulance of paginatedList; trackBy: trackByFn">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-icon">🚑</div>
+                            <div>
+                                <div class="column-number">{{ ambulance.VehicleNumber }}</div>
+                                <div class="column-name">{{ ambulance.VehicleName }}</div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="cell-info">
+                            <div class="cell-name">{{ ambulance.DriverName }}</div>
+                            <div class="cell-number">
+                                <mat-icon>call</mat-icon>
+                                {{ ambulance.DriverNumber }}
+                            </div>
+                        </div>
+                    </td>
+                    <td><span class="type-badge" [ngClass]="getBadgeClass(ambulance.VehicleType)">{{ ambulance.VehicleType }}</span></td>
+                    <td>{{ ambulance.YearMade }}</td>
+                    <td class="text-end">
+                        <div class="action-group">
+                            <button class="action-btn edit" (click)="onEdit(ambulance)" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" (click)="onDelete(ambulance)" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="ambulanceList.length === 0" class="empty-state">
+            <p>No ambulance data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section" >
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                ambulanceList.length ?
+                ambulanceList.length : currentPage * pageSize }} of {{ ambulanceList.length }} records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

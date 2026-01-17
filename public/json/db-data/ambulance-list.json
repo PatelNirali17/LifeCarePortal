@@ -1,47 +1,82 @@
 [
   {
-    "id": 1,
-    "vehicleNumber": "KA-01-AB-1234",
-    "driverName": "Ramesh Kumar",
-    "contactNumber": "+91 9876543210",
-    "type": "ICU",
-    "status": "Available",
-    "location": "Indiranagar, Bangalore"
+    "ID": "001",
+    "VehicleNumber": "GJ88KW7845",
+    "VehicleName": "Toyota Innova",
+    "YearMade": 2009,
+    "DriverName": "Ramona Freeman",
+    "DriverLicenseNumber": "GT6456345645",
+    "DriverNumber": "1234567890",
+    "VehicleType": "Contractual"
   },
   {
-    "id": 2,
-    "vehicleNumber": "KA-05-XY-5678",
-    "driverName": "Suresh Babu",
-    "contactNumber": "+91 8765432109",
-    "type": "Basic",
-    "status": "Busy",
-    "location": "Koramangala, Bangalore"
+    "ID": "002",
+    "VehicleNumber": "GJ88PO6743",
+    "VehicleName": "Force Traveller",
+    "YearMade": 2021,
+    "DriverName": "Serena Bond",
+    "DriverLicenseNumber": "YT5643463465",
+    "DriverNumber": "1234567890",
+    "VehicleType": "Owned"
   },
   {
-    "id": 3,
-    "vehicleNumber": "KA-53-ZZ-9988",
-    "driverName": "John Doe",
-    "contactNumber": "+91 7654321098",
-    "type": "Neonatal",
-    "status": "Maintenance",
-    "location": "Whitefield, Bangalore"
+    "ID": "003",
+    "VehicleNumber": "GJ54XS2345",
+    "VehicleName": "Tata Winger",
+    "YearMade": 2000,
+    "DriverName": "Marvin Miller",
+    "DriverLicenseNumber": "SD645645654",
+    "DriverNumber": "1234567890",
+    "VehicleType": "Owned"
   },
   {
-    "id": 4,
-    "vehicleNumber": "KA-04-MN-4321",
-    "driverName": "Ahmed Khan",
-    "contactNumber": "+91 9988776655",
-    "type": "ICU",
-    "status": "Available",
-    "location": "Jayanagar, Bangalore"
+    "ID": "004",
+    "VehicleNumber": "GJ54XS8743",
+    "VehicleName": "Maruti Suzuki Omni",
+    "YearMade": 2018,
+    "DriverName": "Mia Howell",
+    "DriverLicenseNumber": "ZR6456456545",
+    "DriverNumber": "1234567890",
+    "VehicleType": "Contractual"
   },
   {
-    "id": 5,
-    "vehicleNumber": "KA-02-PQ-1122",
-    "driverName": "Joseph Vijay",
-    "contactNumber": "+91 8899001122",
-    "type": "Basic",
-    "status": "Busy",
-    "location": "Electronic City, Bangalore"
+    "ID": "005",
+    "VehicleNumber": "GJ54WE5684",
+    "VehicleName": "Force Traveller",
+    "YearMade": 2019,
+    "DriverName": "Vania Jackson",
+    "DriverLicenseNumber": "GF4645645534",
+    "DriverNumber": "1234567890",
+    "VehicleType": "Contractual"
+  },
+  {
+    "ID": "006",
+    "VehicleNumber": "GJ60KJ3563",
+    "VehicleName": "Force Trax",
+    "YearMade": 2010,
+    "DriverName": "Baxter Burgess",
+    "DriverLicenseNumber": "AD5634523434",
+    "DriverNumber": "1234567890",
+    "VehicleType": "Owned"
+  },
+  {
+    "ID": "007",
+    "VehicleNumber": "GJ49FD7633",
+    "VehicleName": "Tata Winger",
+    "YearMade": 2009,
+    "DriverName": "Laurel Maxwell",
+    "DriverLicenseNumber": "JD778324554",
+    "DriverNumber": "1234567890",
+    "VehicleType": "Owned"
+  },
+  {
+    "ID": "008",
+    "VehicleNumber": "GJ49FD9974",
+    "VehicleName": "Mahindra Bolero",
+    "YearMade": 2004,
+    "DriverName": "Camille Mckinney",
+    "DriverLicenseNumber": "WE674575675",
+    "DriverNumber": "1234567890",
+    "VehicleType": "Owned"
   }
 ]

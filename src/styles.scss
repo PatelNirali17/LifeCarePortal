@@ -1,5 +1,6 @@
 /* You can add global styles to this file, and also import other style files */
 @use 'bootstrap/dist/css/bootstrap.min.css';
+@use 'app/shared/style/_base.scss';
 @use "ngx-toastr/toastr";
 @import '@angular/material/prebuilt-themes/azure-blue.css';
 @import '@fortawesome/fontawesome-free/css/all.min.css';
@@ -74,9 +75,8 @@ body {
   }
 }
 
-.dialog-header {
-  background-color: #f5dff8 !important;
-  color: #6A0572 !important;
+.mat-mdc-dialog-title{
+  display: '' ;
 }
 .mat-mdc-dialog-container {
     height: auto !important;
