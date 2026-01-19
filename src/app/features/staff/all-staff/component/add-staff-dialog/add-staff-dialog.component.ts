@@ -14,7 +14,7 @@ import { AllStaffService } from '../../all-staff.service';
 export class AddStaffDialogComponent {
   StaffForm!: FormGroup;
   DesignationList: any;
-  ShiftList: any;
+  ShiftList = ['Morning', 'Night', 'Day', 'Evening'];
   constructor(public dialogRef: MatDialogRef<AddStaffDialogComponent>, private fb: NonNullableFormBuilder, private allStaffService: AllStaffService,
     @Optional() @Inject(MAT_DIALOG_DATA) public StaffDetails: any
   ) {

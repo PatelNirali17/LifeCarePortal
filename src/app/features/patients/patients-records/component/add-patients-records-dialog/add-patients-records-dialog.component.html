@@ -1,6 +1,11 @@
-<h2 mat-dialog-title class="dialog-header mb-0">New Patient Records</h2>
-<mat-dialog-content>
-    <form class="row mt-2" [formGroup]="PatientRecordsForm">
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ PatientDetails ? 'Edit' : 'Add New' }} Patient Records</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form class="row" [formGroup]="PatientRecordsForm">
         <div class="col-md-4">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Patient</mat-label>
@@ -81,13 +86,13 @@
                 </mat-error>
             </mat-form-field>
         </div>
-          <div class="col-md-4">
+        <div class="col-md-4">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Doctor Notes</mat-label>
                 <textarea rows="1" matInput formControlName="DoctorNotes"></textarea>
             </mat-form-field>
         </div>
-         <div class="col-md-4">
+        <div class="col-md-4">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Status</mat-label>
                 <mat-select formControlName="Status">
@@ -113,6 +118,6 @@
     </form>
 </mat-dialog-content>
 <mat-dialog-actions>
-    <button mat-raised-button class="bgprimary">Save</button>
+    <button mat-raised-button class="bgprimary">{{ PatientDetails ? 'Update' : 'Save' }}</button>
     <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
 </mat-dialog-actions>

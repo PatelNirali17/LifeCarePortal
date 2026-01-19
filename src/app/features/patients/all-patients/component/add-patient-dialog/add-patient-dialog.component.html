@@ -1,99 +1,109 @@
-<h2 mat-dialog-title class="dialog-header mb-0">New Patient</h2>
-<mat-dialog-content>
-    <form class="row mt-2" [formGroup]="PatientForm">
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Name</mat-label>
-                <input matInput formControlName="Name" Name>
-                <mat-icon matSuffix>face</mat-icon>
-                <mat-error *ngIf="PatientForm.get('Name')?.invalid">
-                    Please enter Name
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ PatientDetails ? 'Edit' : 'Add New' }} Patient</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="PatientForm">
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Name</mat-label>
+                    <input matInput formControlName="Name" Name>
+                    <mat-icon matSuffix>face</mat-icon>
+                    <mat-error *ngIf="PatientForm.get('Name')?.invalid">
+                        Please enter Name
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Treatment</mat-label>
+                    <textarea rows="1" matInput formControlName="Treatment"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Admission Date</mat-label>
+                    <input matInput [matDatepicker]="AdmissionDate" formControlName="AdmissionDate" required>
+                    <mat-datepicker-toggle matIconSuffix [for]="AdmissionDate"></mat-datepicker-toggle>
+                    <mat-datepicker #AdmissionDate></mat-datepicker>
+                    <mat-error *ngIf="PatientForm.get('AdmissionDate')?.invalid">
+                        Please select Admission Date
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Doctor Assigned</mat-label>
+                    <mat-select formControlName="DoctorAssigned" required>
+                        <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{Doctor.Name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="PatientForm.get('DoctorAssigned')?.invalid">
+                        Please select Doctor Assigned
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Discharge Date</mat-label>
+                    <input matInput [matDatepicker]="DischargeDate" formControlName="DischargeDate">
+                    <mat-datepicker-toggle matIconSuffix [for]="DischargeDate"></mat-datepicker-toggle>
+                    <mat-datepicker #DischargeDate></mat-datepicker>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Status</mat-label>
+                    <mat-select formControlName="Status">
+                        <mat-option value="Under Treatment">Under Treatment</mat-option>
+                        <mat-option value="Recovered">Recovered</mat-option>
+                        <mat-option value="Under Observation">Under Observation</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="section-title">Personal Details</div>
+        <div class="row">
+            <div class="col-md-4">
+                <mat-radio-group formControlName="Gender">
+                    <mat-label style="font-size: 14px;">Gender :</mat-label>
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">Female</mat-radio-button>
+                    <mat-radio-button value="Other">Other</mat-radio-button>
+                </mat-radio-group>
+                <mat-error *ngIf="PatientForm.get('Gender')?.invalid">
+                    Please enter Gender
                 </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Treatment</mat-label>
-                <textarea rows="1" matInput formControlName="Treatment"></textarea>
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-radio-group formControlName="Gender">
-                <mat-label style="font-size: 14px;">Gender</mat-label>
-                <mat-radio-button value="Male">Male</mat-radio-button>
-                <mat-radio-button value="Female">Female</mat-radio-button>
-                <mat-radio-button value="Other">Other</mat-radio-button>
-            </mat-radio-group>
-            <mat-error *ngIf="PatientForm.get('Gender')?.invalid">
-                Please enter Gender
-            </mat-error>
-        </div>
-         <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Mobile</mat-label>
-                <input matInput formControlName="Mobile" required>
-                <mat-icon matSuffix>call</mat-icon>
-                <mat-error *ngIf="PatientForm.get('Mobile')?.invalid">
-                    Please enter Mobile
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Admission Date</mat-label>
-                <input matInput [matDatepicker]="AdmissionDate" formControlName="AdmissionDate" required>
-                <mat-datepicker-toggle matIconSuffix [for]="AdmissionDate"></mat-datepicker-toggle>
-                <mat-datepicker #AdmissionDate></mat-datepicker>
-                <mat-error *ngIf="PatientForm.get('AdmissionDate')?.invalid">
-                    Please select Admission Date
-                </mat-error>
-            </mat-form-field>
-        </div>
-           <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Doctor Assigned</mat-label>
-                <mat-select formControlName="DoctorAssigned" required>
-                    <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{Doctor.Name}}
-                    </mat-option>
-                </mat-select>
-                <mat-error *ngIf="PatientForm.get('DoctorAssigned')?.invalid">
-                    Please select Doctor Assigned
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Address</mat-label>
-                <textarea matInput formControlName="Address" rows="1"></textarea>
-            </mat-form-field>
-        </div>
-          <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Blood Group</mat-label>
-                <input matInput formControlName="BloodGroup">
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Discharge Date</mat-label>
-                <input matInput [matDatepicker]="DischargeDate" formControlName="DischargeDate">
-                <mat-datepicker-toggle matIconSuffix [for]="DischargeDate"></mat-datepicker-toggle>
-                <mat-datepicker #DischargeDate></mat-datepicker>
-            </mat-form-field>
-        </div>
-        <div class="col-md-4">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Status</mat-label>
-                <mat-select formControlName="Status">
-                    <mat-option value="Under Treatment">Under Treatment</mat-option>
-                    <mat-option value="Recovered">Recovered</mat-option>
-                    <mat-option value="Under Observation">Under Observation</mat-option>
-                </mat-select>
-            </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Mobile</mat-label>
+                    <input matInput formControlName="Mobile" required>
+                    <mat-icon matSuffix>call</mat-icon>
+                    <mat-error *ngIf="PatientForm.get('Mobile')?.invalid">
+                        Please enter Mobile
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Address</mat-label>
+                    <textarea matInput formControlName="Address" rows="1"></textarea>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Blood Group</mat-label>
+                    <input matInput formControlName="BloodGroup">
+                </mat-form-field>
+            </div>
         </div>
     </form>
 </mat-dialog-content>
-<mat-dialog-actions>
-    <button mat-raised-button class="bgprimary">Save</button>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ PatientDetails ? 'Update' : 'Save' }}</button>
     <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
 </mat-dialog-actions>

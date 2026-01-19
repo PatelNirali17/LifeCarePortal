@@ -9,7 +9,7 @@
         "Status": "Active",
         "Shift": "Morning",
         "Experience": "6",
-        "Gender": "female",
+        "Gender": "Female",
         "Address": "11, Shyam Appt., Rajkot"
     },
     {
@@ -22,7 +22,7 @@
         "Status": "Active",
         "Shift": "Morning",
         "Experience": "3",
-        "Gender": "male",
+        "Gender": "Male",
         "Address": "45, Sunrise Villa, Ahmedabad"
     }
 ]

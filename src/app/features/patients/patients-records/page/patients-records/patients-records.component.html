@@ -1,91 +1,99 @@
 <div class="container-fluid">
-    <div class="card">
-        <div class="card-header">
-            <div class="d-flex align-items-center">
-                <div class="p-0 flex-grow-1"><b>All Patients Records</b></div>
-                <div class="p-0">
-                    <button mat-icon-button (click)="OpenAddPatientsRecordsDialog({ID:0})">
-                        <mat-icon style="color: #6A0572;">add_circle</mat-icon>
-                    </button>
-                </div>
-                <div class="p-0">
-                    <button mat-icon-button>
-                        <mat-icon style="color: #D4AF37;">refresh</mat-icon>
-                    </button>
-                </div>
-                <div class="p-0">
-                    <button mat-icon-button>
-                        <mat-icon style="color: #FF6B6B;">download</mat-icon>
-                    </button>
-                </div>
-            </div>
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>All Patients Records</h2>
+            <p>View and manage records of all patients</p>
         </div>
-        <div class="card-body p-0" style="overflow: auto;">
-            <table mat-table [dataSource]="dataSource" style="font-size: 13px;">
-
-                <ng-container matColumnDef="SrNo">
-                    <th mat-header-cell *matHeaderCellDef> SrNo </th>
-                    <td mat-cell *matCellDef="let element;let i = index;"> {{ i + 1}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="Name">
-                    <th mat-header-cell *matHeaderCellDef> Name </th>
-                    <td mat-cell *matCellDef="let element" (click)="OpenPatientRecordsDetailsDialog(element)">
-                        {{element.full_name}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="DateofBirth">
-                    <th mat-header-cell *matHeaderCellDef> Date of Birth </th>
-                    <td mat-cell *matCellDef="let element"> {{element.date_of_birth}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="Gender">
-                    <th mat-header-cell *matHeaderCellDef> Gender </th>
-                    <td mat-cell *matCellDef="let element">
-                        <span class="badge-solid-green"
-                            *ngIf="element.gender == 'Male'"><b>{{element.gender}}</b></span>
-                        <span class="badge-solid-purple"
-                            *ngIf="element.gender == 'Female'"><b>{{element.gender}}</b></span>
-                    </td>
-                </ng-container>
-
-                <ng-container matColumnDef="Diagnosis">
-                    <th mat-header-cell *matHeaderCellDef> Diagnosis </th>
-                    <td mat-cell *matCellDef="let element"> {{element.diagnosis}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="Status">
-                    <th mat-header-cell *matHeaderCellDef> Status </th>
-                    <td mat-cell *matCellDef="let element">{{element.status}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="DateofAdmission">
-                    <th mat-header-cell *matHeaderCellDef> Date of Admission </th>
-                    <td mat-cell *matCellDef="let element">{{element.date_of_admission}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="NextFollowUp">
-                    <th mat-header-cell *matHeaderCellDef> Next FollowUp </th>
-                    <td mat-cell *matCellDef="let element">{{element.next_follow_up}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="Actions">
-                    <th mat-header-cell *matHeaderCellDef class="text-center"> Actions </th>
-                    <td mat-cell *matCellDef="let element" class="text-center">
-                        <button mat-icon-button>
-                            <mat-icon style="color: #D4AF37;">edit_square</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon style="color: #FF6B6B;">delete</mat-icon>
-                        </button>
-                    </td>
-                </ng-container>
-
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;let i = index"></tr>
-            </table>
-            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
-            </mat-paginator>
+        <div class="header-actions">
+            <button class="add-btn" (click)="OpenAddPatientsRecordsDialog(null)">
+                <span class="icon">+</span> Add New Patients Records
+            </button>
         </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>Name</th>
+                    <th>Date of Birth</th>
+                    <th>Gender</th>
+                    <th>Diagnosis</th>
+                    <th>Status</th>
+                    <th>Date of Admission</th>
+                    <th>Next FollowUp</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let patient of paginatedList; trackBy: trackByFn;let i = index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>{{ patient.full_name }}</td>
+                    <td>📅 {{ patient.date_of_birth }}</td>
+                    <td>
+                        <span class="type-badge active" *ngIf="patient.gender == 'Male'">{{patient.gender}}</span>
+                        <span class="type-badge contractual"
+                            *ngIf="patient.gender == 'Female'">{{patient.gender}}</span>
+                        <span class="type-badge inactive" *ngIf="patient.gender == 'Other'">{{patient.gender}}</span>
+                    </td>
+                    <td>{{ patient.diagnosis }}</td>
+                    <td>{{ patient.status }}</td>
+                    <td>📅 {{ patient.date_of_admission }}</td>
+                    <td>📅 {{ patient.next_follow_up }}</td>
+                    <td class="text-end">
+                        <div class="action-group">
+                            <button class="action-btn view" title="View" (click)="OpenPatientRecordsDetailsDialog(patient)">
+                                <mat-icon>visibility</mat-icon>
+                            </button>
+                            <button class="action-btn edit" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="PatientRecordsList.length === 0" class="empty-state">
+            <p>No patients records data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                PatientRecordsList.length ?
+                PatientRecordsList.length : currentPage * pageSize }} of {{ PatientRecordsList.length }} records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
     </div>
 </div>

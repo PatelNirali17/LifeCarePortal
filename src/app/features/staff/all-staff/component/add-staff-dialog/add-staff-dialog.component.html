@@ -1,6 +1,11 @@
-<h2 mat-dialog-title class="dialog-header mb-0">New Staff</h2>
-<mat-dialog-content>
-    <form class="row mt-2" [formGroup]="StaffForm">
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ StaffDetails ? 'Edit' : 'Add New' }} Staff</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form class="row" [formGroup]="StaffForm">
         <div class="col-md-4">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Name</mat-label>
@@ -67,7 +72,7 @@
         </div>
         <div class="col-md-4">
             <mat-radio-group formControlName="Status">
-                <mat-label style="font-size: 14px;">Status</mat-label>
+                <mat-label style="font-size: 14px;">Status: </mat-label>
                 <mat-radio-button value="Active">Active</mat-radio-button>
                 <mat-radio-button value="InActive">InActive</mat-radio-button>
             </mat-radio-group>
@@ -79,7 +84,7 @@
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Shift</mat-label>
                 <mat-select formControlName="Shift" required>
-                    <mat-option *ngFor="let Shift of ShiftList" [value]="Shift.id">{{Shift.Name}}
+                    <mat-option *ngFor="let Shift of ShiftList" [value]="Shift">{{Shift}}
                     </mat-option>
                 </mat-select>
                 <mat-error *ngIf="StaffForm.get('Shift')?.invalid">
@@ -95,9 +100,10 @@
         </div>
         <div class="col-md-4">
             <mat-radio-group formControlName="Gender">
-                <mat-label style="font-size: 14px;">Gender</mat-label>
-                <mat-radio-button value="male">Male</mat-radio-button>
-                <mat-radio-button value="female">Female</mat-radio-button>
+                <mat-label style="font-size: 14px;">Gender: </mat-label>
+                <mat-radio-button value="Male">Male</mat-radio-button>
+                <mat-radio-button value="Female">Female</mat-radio-button>
+                <mat-radio-button value="Other">Other</mat-radio-button>
             </mat-radio-group>
             <mat-error *ngIf="StaffForm.get('Gender')?.invalid">
                 Please select Gender
@@ -111,7 +117,7 @@
         </div>
     </form>
 </mat-dialog-content>
-<mat-dialog-actions>
-    <button mat-raised-button class="bgprimary">Save</button>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ StaffDetails ? 'Update' : 'Save' }}</button>
     <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
 </mat-dialog-actions>

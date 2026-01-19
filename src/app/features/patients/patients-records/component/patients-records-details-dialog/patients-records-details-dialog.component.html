@@ -1,5 +1,10 @@
-<h2 mat-dialog-title class="dialog-header mb-0">Patient Records Details</h2>
-<mat-dialog-content>
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>Patient Records Details</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
     <div class="row mt-2" style="font-size: 13px;">
         <div class="col-md-4">
             <b>Patient</b> : {{PatientRecordsDetails?.full_name}}
@@ -31,14 +36,14 @@
         <div class="col-md-4">
             <b>Insurance Provider</b> : {{PatientRecordsDetails?.insurance_provider}}
         </div>
-         <div class="col-md-12">
+        <div class="col-md-12">
             <b>Treatment Plan</b> : {{PatientRecordsDetails?.treatment_plan}}
         </div>
-           <div class="col-md-12">
+        <div class="col-md-12">
             <b>Doctor Notes</b> : {{PatientRecordsDetails?.doctor_notes}}
         </div>
     </div>
 </mat-dialog-content>
-<mat-dialog-actions>
+<mat-dialog-actions class="dialog-actions">
     <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
 </mat-dialog-actions>

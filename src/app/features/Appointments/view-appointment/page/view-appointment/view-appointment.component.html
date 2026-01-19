@@ -54,14 +54,14 @@
                     </td>
                     <td>
                         <div class="cell-info">
-                            <div class="cell-name">{{ appointment.AppointmentDate }}</div>
+                            <div class="cell-name">📅 {{ appointment.AppointmentDate }}</div>
                             <div class="cell-number">
                                 <mat-icon>schedule</mat-icon>
                                 {{ appointment.AppointmentTime }}
                             </div>
                         </div>
                     </td>
-                    <td>{{ appointment.Email }}</td>
+                    <td>✉️ {{ appointment.Email }}</td>
                     <td>
                         <span class="type-badge active"
                             *ngIf="appointment.AppointmentStatus == 'Scheduled'">{{appointment.AppointmentStatus
