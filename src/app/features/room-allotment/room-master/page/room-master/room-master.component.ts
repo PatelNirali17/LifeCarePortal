@@ -68,8 +68,8 @@ export class RoomMasterComponent {
 
   OpenAddRoomMasterDialog(obj: any) {
     const dialogRef = this.dialog.open(AddRoomMasterDialogComponent, {
-      minWidth: '1000px',
-      maxWidth: '1000px',
+      minWidth: '600px',
+      maxWidth: '600px',
       data: obj ? obj : null,
       disableClose: true
     });

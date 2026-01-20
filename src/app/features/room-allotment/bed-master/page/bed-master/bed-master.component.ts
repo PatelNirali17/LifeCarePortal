@@ -68,8 +68,8 @@ export class BedMasterComponent {
 
   OpenAddBedMasterDialog(obj: any) {
     const dialogRef = this.dialog.open(AddBedMasterDialogComponent, {
-      minWidth: '800px',
-      maxWidth: '1000px',
+      minWidth: '600px',
+      maxWidth: '600px',
       data: obj ? obj : null,
       disableClose: true
     });

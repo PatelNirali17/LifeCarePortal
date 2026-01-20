@@ -26,8 +26,8 @@ export class AddAllotRoomDialogComponent {
 
   constructor(public dialogRef: MatDialogRef<AddAllotRoomDialogComponent>, private fb: NonNullableFormBuilder, private allPatientsService: AllPatientsService,
     private roomMasterService: RoomMasterService, private bedMasterService: BedMasterService, private allDoctorsService: AllDoctorsService,
-    private allotRoomService: AllotRoomService, private http: HttpClient,
-    @Optional() @Inject(MAT_DIALOG_DATA) public data: any) {
+    private allotRoomService: AllotRoomService,
+    @Optional() @Inject(MAT_DIALOG_DATA) public AllotRoomDetails: any) {
 
     this.AllotForm = this.fb.group({
       patientId: this.fb.control('', Validators.required),
@@ -43,7 +43,7 @@ export class AddAllotRoomDialogComponent {
     this.allPatientsService.GetAllPatients().subscribe({ next: (p: any) => this.PatientList = p || [] });
     this.allDoctorsService.GetAllDoctors().subscribe({ next: (d: any) => this.DoctorList = d || [] });
 
-    if (data) this.AllotForm.patchValue(data);
+    if (AllotRoomDetails) this.AllotForm.patchValue(AllotRoomDetails);
   }
 
   SaveAllot() {

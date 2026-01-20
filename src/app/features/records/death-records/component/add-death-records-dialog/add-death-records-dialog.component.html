@@ -1,8 +1,97 @@
-<h2 mat-dialog-title class="dialog-header mb-0">New Death Records</h2>
-<mat-dialog-content>
-   
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ DeathRecordDetails ? 'Edit' : 'Add New' }} Death Records</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form class="row" [formGroup]="DeathRecordForm">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Case Number</mat-label>
+                <input matInput formControlName="case_number" required>
+                <mat-icon matSuffix>receipt</mat-icon>
+                <mat-error *ngIf="DeathRecordForm.get('case_number')?.invalid">
+                    Please enter Case Number
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Patient</mat-label>
+                <mat-select formControlName="patient_name" required>
+                    <mat-option *ngFor="let Patient of PatientsList" [value]="Patient.Name">{{Patient.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="DeathRecordForm.get('patient_name')?.invalid">
+                    Please select Patient
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-12">
+            <mat-radio-group formControlName="gender">
+                <mat-label style="font-size: 14px;">Gender:</mat-label>
+                <mat-radio-button value="Male">Male</mat-radio-button>
+                <mat-radio-button value="Female">Female</mat-radio-button>
+                <mat-radio-button value="Other">Other</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="DeathRecordForm.get('gender')?.invalid">
+                Please enter Gender
+            </mat-error>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Death Date</mat-label>
+                <input matInput [matDatepicker]="death_date" formControlName="death_date" required>
+                <mat-datepicker-toggle matIconSuffix [for]="death_date"></mat-datepicker-toggle>
+                <mat-datepicker #death_date></mat-datepicker>
+                <mat-error *ngIf="DeathRecordForm.get('death_date')?.invalid">
+                    Please select Death Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Guardian Name</mat-label>
+                <input matInput formControlName="guardian_name" required>
+                <mat-icon matSuffix>account_circle</mat-icon>
+                <mat-error *ngIf="DeathRecordForm.get('guardian_name')?.invalid">
+                    Please enter Mother Name
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Mobile</mat-label>
+                <input matInput formControlName="mobile" required>
+                <mat-icon matSuffix>call</mat-icon>
+                <mat-error *ngIf="DeathRecordForm.get('mobile')?.invalid">
+                    Please enter Mobile
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Address</mat-label>
+                <textarea matInput formControlName="address" rows="1" required></textarea>
+                <mat-error *ngIf="DeathRecordForm.get('address')?.invalid">
+                    Please enter Address
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Notes</mat-label>
+                <textarea matInput formControlName="notes" rows="1" required></textarea>
+                <mat-error *ngIf="DeathRecordForm.get('notes')?.invalid">
+                    Please enter Notes
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
 </mat-dialog-content>
-<mat-dialog-actions>
-    <button mat-raised-button class="bgprimary">Save</button>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ DeathRecordDetails ? 'Update' : 'Save' }}</button>
     <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
 </mat-dialog-actions>

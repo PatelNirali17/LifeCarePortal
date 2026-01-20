@@ -1,11 +1,8 @@
-import { Component, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { SharedModule } from '../../../../../shared/shared.module';
 import { CommonModule } from '@angular/common';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
 import { RoomAvailabilityService } from '../../room-availability.service';
 import { MatDialog } from '@angular/material/dialog';
-import { RoomAvailabilityDetailsDialogComponent } from '../../component/room-availability-details-dialog/room-availability-details-dialog.component';
 
 @Component({
   selector: 'app-room-availability',
@@ -14,36 +11,58 @@ import { RoomAvailabilityDetailsDialogComponent } from '../../component/room-ava
   styleUrl: './room-availability.component.scss'
 })
 export class RoomAvailabilityComponent {
-  displayedColumns: string[] = ['SrNo', 'RoomType', 'AvailableBeds', 'OccupiedBeds', "Status"];
-  dataSource = new MatTableDataSource<any>();
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  RoomAvailabilityList: any[] = [];
+  paginatedList: any[] = [];
+  pageSize = 5;
+  pageIndex = 0;
 
-  constructor(private roomAvailabilityService: RoomAvailabilityService, private dialog: MatDialog) {
+  constructor(private roomAvailabilityService: RoomAvailabilityService, private dialog: MatDialog, private cdr: ChangeDetectorRef) {
     setTimeout(() => {
       this.GetRoomAvailability()
     }, 1000);
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
-
   GetRoomAvailability() {
     this.roomAvailabilityService.GetRoomAvailability().subscribe({
       next: (result: any) => {
-        this.dataSource.data = result
+        this.RoomAvailabilityList = result;
+        this.updatePaginatedList();
+        this.cdr.markForCheck();
       },
     })
   }
 
+  trackByFn(index: number, item: any): any {
+    return item.ID || index;
+  }
 
-  OpenRoomAvailabilityDetailsDialog(RoomAvailabilityDetails: any) {
-    const dialogRef = this.dialog.open(RoomAvailabilityDetailsDialogComponent, {
-      minWidth: '1000px',
-      maxWidth: '1000px',
-      data: RoomAvailabilityDetails,
-      disableClose: true
-    });
+  getBadgeClass(type: string): string {
+    return type ? type.toLowerCase().replace(/\s+/g, '-') : '';
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.RoomAvailabilityList.length / this.pageSize);
+  }
+
+  get currentPage(): number {
+    return this.pageIndex + 1;
+  }
+
+  get pagesArray(): any[] {
+    return Array(this.totalPages).fill(0);
+  }
+
+  updatePaginatedList(): void {
+    const startIndex = this.pageIndex * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.paginatedList = this.RoomAvailabilityList.slice(startIndex, endIndex);
+  }
+
+  changePage(page: number): void {
+    if (page >= 1 && page <= this.totalPages) {
+      this.pageIndex = page - 1;
+      this.updatePaginatedList();
+    }
   }
 
 }

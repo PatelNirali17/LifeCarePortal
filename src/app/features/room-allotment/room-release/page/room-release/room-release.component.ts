@@ -1,12 +1,9 @@
-import { Component, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component } from '@angular/core';
 import { SharedModule } from '../../../../../shared/shared.module';
 import { CommonModule } from '@angular/common';
-import { MatTableDataSource } from '@angular/material/table';
-import { MatPaginator } from '@angular/material/paginator';
 import { RoomReleaseService } from '../../room-release.service';
 import { MatDialog } from '@angular/material/dialog';
 import { AddRoomReleaseDialogComponent } from '../../component/add-room-release-dialog/add-room-release-dialog.component';
-import { RoomReleaseDetailsDialogComponent } from '../../component/room-release-details-dialog/room-release-details-dialog.component';
 
 @Component({
   selector: 'app-room-release',
@@ -15,47 +12,70 @@ import { RoomReleaseDetailsDialogComponent } from '../../component/room-release-
   styleUrl: './room-release.component.scss'
 })
 export class RoomReleaseComponent {
-  displayedColumns: string[] = ['SrNo', 'PatientName', 'RoomNumber', 'BedNumber', "DischargeDate", "TotalDays", 'RoomCharges', 'RoomStatus', 'Actions'];
-  dataSource = new MatTableDataSource<any>();
-  @ViewChild(MatPaginator) paginator!: MatPaginator;
+  RoomReleaseList: any[] = [];
+  paginatedList: any[] = [];
+  pageSize = 5;
+  pageIndex = 0;
 
-  constructor(private roomReleaseService: RoomReleaseService, private dialog: MatDialog) {
+  constructor(private roomReleaseService: RoomReleaseService, private dialog: MatDialog, private cdr: ChangeDetectorRef) {
     setTimeout(() => {
       this.GetRoomRelease()
     }, 1000);
   }
 
-  ngAfterViewInit() {
-    this.dataSource.paginator = this.paginator;
-  }
-
   GetRoomRelease() {
     this.roomReleaseService.GetRoomRelease().subscribe({
       next: (result: any) => {
-        this.dataSource.data = result
+        this.RoomReleaseList = result;
+        this.updatePaginatedList();
+        this.cdr.markForCheck();
       },
     })
   }
 
+  trackByFn(index: number, item: any): any {
+    return item.ID || index;
+  }
+
+  getBadgeClass(type: string): string {
+    return type ? type.toLowerCase().replace(/\s+/g, '-') : '';
+  }
+
+  get totalPages(): number {
+    return Math.ceil(this.RoomReleaseList.length / this.pageSize);
+  }
+
+  get currentPage(): number {
+    return this.pageIndex + 1;
+  }
+
+  get pagesArray(): any[] {
+    return Array(this.totalPages).fill(0);
+  }
+
+  updatePaginatedList(): void {
+    const startIndex = this.pageIndex * this.pageSize;
+    const endIndex = startIndex + this.pageSize;
+    this.paginatedList = this.RoomReleaseList.slice(startIndex, endIndex);
+  }
+
+  changePage(page: number): void {
+    if (page >= 1 && page <= this.totalPages) {
+      this.pageIndex = page - 1;
+      this.updatePaginatedList();
+    }
+  }
+
   OpenAddRoomReleaseDialog(obj: any) {
     const dialogRef = this.dialog.open(AddRoomReleaseDialogComponent, {
-      minWidth: '1000px',
-      maxWidth: '1000px',
-      data: obj,
+      minWidth: '600px',
+      maxWidth: '600px',
+      data: obj ? obj : null,
       disableClose: true
     });
 
     dialogRef.afterClosed().subscribe(result => {
       this.GetRoomRelease()
-    });
-  }
-
-  OpenRoomReleaseDetailsDialog(RoomReleaseDetails: any) {
-    const dialogRef = this.dialog.open(RoomReleaseDetailsDialogComponent, {
-      minWidth: '1000px',
-      maxWidth: '1000px',
-      data: RoomReleaseDetails,
-      disableClose: true
     });
   }
 

@@ -1,0 +1,74 @@
+[
+  {
+    "MedicineName": "Paracetamol",
+    "Category": "Tablet",
+    "Company": "Sky Pharma",
+    "PurchaseDate": "2021-02-25",
+    "Price": "50",
+    "ExpiryDate": "2024-02-25",
+    "Stock": 234
+  },
+  {
+    "MedicineName": "Amoxicillin",
+    "Category": "Injectable",
+    "Company": "Mandud Pharma",
+    "PurchaseDate": "2021-02-25",
+    "Price": "23",
+    "ExpiryDate": "2024-02-25",
+    "Stock": 29
+  },
+  {
+    "MedicineName": "Azithromycin",
+    "Category": "Tablet",
+    "Company": "Ajay Medicine",
+    "PurchaseDate": "2021-02-25",
+    "Price": "43",
+    "ExpiryDate": "2024-02-25",
+    "Stock": 26
+  },
+  {
+    "MedicineName": "Amlodipine",
+    "Category": "Syrup",
+    "Company": "MedCare Pharma",
+    "PurchaseDate": "2021-02-25",
+    "Price": "152",
+    "ExpiryDate": "2024-02-25",
+    "Stock": 387
+  },
+  {
+    "MedicineName": "Cyclobenzaprine",
+    "Category": "Injectable",
+    "Company": "PHL Pharma",
+    "PurchaseDate": "2021-02-25",
+    "Price": "87",
+    "ExpiryDate": "2024-02-25",
+    "Stock": 183
+  },
+  {
+    "MedicineName": "Cephalexin",
+    "Category": "Tablet",
+    "Company": "Ajay Medicine",
+    "PurchaseDate": "2021-02-25",
+    "Price": "38",
+    "ExpiryDate": "2024-02-25",
+    "Stock": 72
+  },
+  {
+    "MedicineName": "Hydrochlorothiazide",
+    "Category": "Tablet",
+    "Company": "Ajay Medicine",
+    "PurchaseDate": "2021-02-25",
+    "Price": "10",
+    "ExpiryDate": "2024-02-25",
+    "Stock": 82
+  },
+  {
+    "MedicineName": "Vitamin D",
+    "Category": "Syrup",
+    "Company": "MedCare Pharma",
+    "PurchaseDate": "2021-02-25",
+    "Price": "57",
+    "ExpiryDate": "2024-02-25",
+    "Stock": 293
+  }
+]

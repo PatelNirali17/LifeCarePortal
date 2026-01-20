@@ -1,0 +1,49 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>Blood Stock Details</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <div class="row mt-2" style="font-size: 13px;">
+        <div class="col-md-4">
+            <b>Blood Product ID</b> : {{BloodStockDetails?.BloodProductID}}
+        </div>
+        <div class="col-md-4">
+            <b>Blood Type</b> : {{BloodStockDetails?.BloodType}}
+        </div>
+        <div class="col-md-4">
+            <b>Component Type</b> : {{BloodStockDetails?.ComponentType}}
+        </div>
+        <div class="col-md-4">
+            <b>Quantity In Stock</b> : {{BloodStockDetails?.QuantityInStock}}
+        </div>
+        <div class="col-md-4">
+            <b>Expiry Date</b> : {{BloodStockDetails?.ExpiryDate}}
+        </div>
+        <div class="col-md-4">
+            <b>Collection Date</b> : {{BloodStockDetails?.CollectionDate}}
+        </div>
+        <div class="col-md-4">
+            <b>Storage Location</b> : {{BloodStockDetails?.StorageLocation}}
+        </div>
+        <div class="col-md-4">
+            <b>Donation Status</b> : {{BloodStockDetails?.DonationStatus}}
+        </div>
+        <div class="col-md-4">
+            <b>Batch Number</b> : {{BloodStockDetails?.BatchNumber}}
+        </div>
+        <div class="col-md-4">
+            <b>Condition Status</b> : {{BloodStockDetails?.ConditionQualityStatus}}
+        </div>
+        <div class="col-md-4">
+            <b>Temperature Range</b> : {{BloodStockDetails?.TemperatureRange}}
+        </div>
+        <div class="col-md-4">
+            <b>Date Last Updated</b> : {{BloodStockDetails?.DateLastUpdated}}
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

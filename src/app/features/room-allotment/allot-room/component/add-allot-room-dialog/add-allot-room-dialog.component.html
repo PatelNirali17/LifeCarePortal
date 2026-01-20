@@ -1,7 +1,12 @@
-<h2 mat-dialog-title class="dialog-header mb-0">Allot Room</h2>
-<mat-dialog-content>
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ AllotRoomDetails ? 'Edit' : 'Add New' }} Allot Room</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
     <form class="row mt-2" [formGroup]="AllotForm">
-        <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Patient</mat-label>
                 <mat-select formControlName="patientId">
@@ -9,7 +14,7 @@
                 </mat-select>
             </mat-form-field>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Room</mat-label>
                 <mat-select formControlName="roomId">
@@ -18,7 +23,7 @@
                 </mat-select>
             </mat-form-field>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Bed</mat-label>
                 <mat-select formControlName="bedId">
@@ -26,7 +31,7 @@
                 </mat-select>
             </mat-form-field>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Doctor</mat-label>
                 <mat-select formControlName="doctor">
@@ -34,7 +39,7 @@
                 </mat-select>
             </mat-form-field>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Allotment Date</mat-label>
                 <input matInput [matDatepicker]="allotmentDate" formControlName="allotmentDate" required>
@@ -45,7 +50,7 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Status</mat-label>
                 <mat-select formControlName="status">
@@ -57,7 +62,7 @@
         </div>
     </form>
 </mat-dialog-content>
-<mat-dialog-actions>
-    <button mat-raised-button class="bgprimary" (click)="SaveAllot()">Save</button>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary" (click)="SaveAllot()">{{ AllotRoomDetails ? 'Update' : 'Save' }}</button>
     <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
 </mat-dialog-actions>

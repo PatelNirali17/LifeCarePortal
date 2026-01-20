@@ -5,8 +5,8 @@
             <p>Real-time overview of all registered ambulances</p>
         </div>
         <div class="header-actions">
-            <button class="add-btn" (click)="onAdd()">
-                <span class="icon">+</span> Add New Unit
+            <button class="add-btn" (click)="OpenAmbulanceListDialog(null)">
+                <span class="icon">+</span> Add New Ambulance
             </button>
         </div>
     </div>
@@ -15,18 +15,24 @@
         <table class="modern-table">
             <thead>
                 <tr>
+                    <th>SrNo</th>
                     <th>Vehicle Info</th>
                     <th>Driver</th>
+                    <th>License Number</th>
                     <th>Type</th>
                     <th>Year</th>
                     <th class="text-end">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let ambulance of paginatedList; trackBy: trackByFn">
+                <tr *ngFor="let ambulance of paginatedList; trackBy: trackByFn;let i=index">
                     <td>
                         <div class="column-cell">
-                            <div class="column-icon">🚑</div>
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="column-cell">
                             <div>
                                 <div class="column-number">{{ ambulance.VehicleNumber }}</div>
                                 <div class="column-name">{{ ambulance.VehicleName }}</div>
@@ -42,14 +48,16 @@
                             </div>
                         </div>
                     </td>
-                    <td><span class="type-badge" [ngClass]="getBadgeClass(ambulance.VehicleType)">{{ ambulance.VehicleType }}</span></td>
+                    <td>🚑 {{ ambulance.DriverLicenseNumber }}</td>
+                    <td><span class="type-badge" [ngClass]="getBadgeClass(ambulance.VehicleType)">{{
+                            ambulance.VehicleType }}</span></td>
                     <td>{{ ambulance.YearMade }}</td>
                     <td class="text-end">
                         <div class="action-group">
-                            <button class="action-btn edit" (click)="onEdit(ambulance)" title="Edit">
+                            <button class="action-btn edit" title="Edit">
                                 <mat-icon>edit</mat-icon>
                             </button>
-                            <button class="action-btn delete" (click)="onDelete(ambulance)" title="Delete">
+                            <button class="action-btn delete" title="Delete">
                                 <mat-icon>delete</mat-icon>
                             </button>
                         </div>
@@ -63,7 +71,7 @@
         </div>
     </div>
 
-    <div class="pagination-section" >
+    <div class="pagination-section">
         <div class="pagination-info">
             <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
                 ambulanceList.length ?

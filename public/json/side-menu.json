@@ -333,7 +333,7 @@
         {
             "id": 34,
             "title": "Medicine List",
-            "routerLink": "/medicinelist",
+            "routerLink": "pharmacy/medicinelist",
             "href": null,
             "icon": null,
             "target": null,
@@ -353,7 +353,7 @@
         {
             "id": 36,
             "title": "Blood Stock",
-            "routerLink": "/bloodstock",
+            "routerLink": "bloodbank/bloodstock",
             "href": null,
             "icon": null,
             "target": null,
@@ -363,7 +363,7 @@
         {
             "id": 37,
             "title": "Blood Donor",
-            "routerLink": "/blooddonor",
+            "routerLink": "bloodbank/blooddonor",
             "href": null,
             "icon": null,
             "target": null,
@@ -373,7 +373,7 @@
         {
             "id": 38,
             "title": "Blood Issued",
-            "routerLink": "/bloodissued",
+            "routerLink": "bloodbank/bloodissued",
             "href": null,
             "icon": null,
             "target": null,

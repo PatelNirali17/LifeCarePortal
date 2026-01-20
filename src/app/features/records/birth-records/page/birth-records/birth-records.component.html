@@ -1,106 +1,107 @@
 <div class="container-fluid">
-    <div class="card">
-        <div class="card-header">
-            <div class="d-flex align-items-center">
-                <div class="p-0 flex-grow-1"><b>All Birth Records</b></div>
-                <div class="p-0">
-                    <button mat-icon-button (click)="OpenAddBirthRecordsDialog({ID:0})">
-                        <mat-icon style="color: #6A0572;">add_circle</mat-icon>
-                    </button>
-                </div>
-                <div class="p-0">
-                    <button mat-icon-button>
-                        <mat-icon style="color: #D4AF37;">refresh</mat-icon>
-                    </button>
-                </div>
-                <div class="p-0">
-                    <button mat-icon-button>
-                        <mat-icon style="color: #FF6B6B;">download</mat-icon>
-                    </button>
-                </div>
-            </div>
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>All Birth Records</h2>
+            <p>View and manage all birth records</p>
         </div>
-        <div class="card-body p-0" style="overflow: auto;">
-            <table mat-table [dataSource]="dataSource" style="font-size: 13px;">
-
-                <ng-container matColumnDef="SrNo">
-                    <th mat-header-cell *matHeaderCellDef> SrNo </th>
-                    <td mat-cell *matCellDef="let element;let i = index;"> {{ i + 1}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="CaseNumber">
-                    <th mat-header-cell *matHeaderCellDef> Case Number </th>
-                    <td mat-cell *matCellDef="let element">
-                        {{element.CaseNumber}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="ChildName">
-                    <th mat-header-cell *matHeaderCellDef> Child Name </th>
-                    <td mat-cell *matCellDef="let element"> {{element.ChildName}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="Gender">
-                    <th mat-header-cell *matHeaderCellDef> Gender </th>
-                    <td mat-cell *matCellDef="let element">
-                        <span class="badge-solid-green"
-                            *ngIf="element.Gender == 'Male'"><b>{{element.Gender}}</b></span>
-                        <span class="badge-solid-purple"
-                            *ngIf="element.Gender == 'Female'"><b>{{element.Gender}}</b></span>
-                    </td>
-                </ng-container>
-
-                <ng-container matColumnDef="BirthDate">
-                    <th mat-header-cell *matHeaderCellDef> Birth Date </th>
-                    <td mat-cell *matCellDef="let element"> {{element.BirthDate}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="Mother">
-                    <th mat-header-cell *matHeaderCellDef> Mother </th>
-                    <td mat-cell *matCellDef="let element">{{element.MotherName}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="Father">
-                    <th mat-header-cell *matHeaderCellDef> Father </th>
-                    <td mat-cell *matCellDef="let element">{{element.FatherName}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="Contact">
-                    <th mat-header-cell *matHeaderCellDef> Mobile </th>
-                    <td mat-cell *matCellDef="let element">
-                       <span class="icon-text">
-                            <mat-icon style="font-size: 20px;color: #198754;">call</mat-icon>
-                            {{element.Mobile}}
-                        </span>
-                    </td>
-                </ng-container>
-                
-                <ng-container matColumnDef="Address">
-                    <th mat-header-cell *matHeaderCellDef> Address </th>
-                    <td mat-cell *matCellDef="let element">{{element.Address}}</td>
-                </ng-container>
-                
-                <ng-container matColumnDef="Notes">
-                    <th mat-header-cell *matHeaderCellDef> Notes </th>
-                    <td mat-cell *matCellDef="let element">{{element.Notes}}</td>
-                </ng-container>
-
-                <ng-container matColumnDef="Actions">
-                    <th mat-header-cell *matHeaderCellDef class="text-center"> Actions </th>
-                    <td mat-cell *matCellDef="let element" class="text-center">
-                        <button mat-icon-button>
-                            <mat-icon style="color: #D4AF37;">edit_square</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon style="color: #FF6B6B;">delete</mat-icon>
-                        </button>
-                    </td>
-                </ng-container>
-
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns;let i = index"></tr>
-            </table>
-            <mat-paginator [pageSizeOptions]="[5, 10, 20]" showFirstLastButtons>
-            </mat-paginator>
+        <div class="header-actions">
+            <button class="add-btn" (click)="OpenAddBirthRecordsDialog(null)">
+                <span class="icon">+</span> Add New Birth Records
+            </button>
         </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>Case Number</th>
+                    <th>Child Name</th>
+                    <th>Gender</th>
+                    <th>Birth Date</th>
+                    <th>Mother</th>
+                    <th>Father</th>
+                    <th>Address</th>
+                    <th>Notes</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let birth of paginatedList; trackBy: trackByFn;let i = index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>{{ birth.CaseNumber }}</td>
+                    <td>{{ birth.ChildName }}</td>
+                    <td>
+                        <span class="type-badge active" *ngIf="birth.Gender == 'Male'">{{birth.Gender}}</span>
+                        <span class="type-badge contractual" *ngIf="birth.Gender == 'Female'">{{birth.Gender}}</span>
+                        <span class="type-badge inactive" *ngIf="birth.Gender == 'Other'">{{birth.Gender}}</span>
+                    </td>
+                    <td>📅 {{ birth.BirthDate }}</td>
+                    <td>{{ birth.MotherName }}</td>
+                    <td>
+                        <div class="column-cell">
+                            <div>
+                                <div class="column-number">{{ birth.FatherName }}</div>
+                                <div class="column-name">
+                                    <mat-icon>call</mat-icon>
+                                    {{ birth.Mobile }}
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>📍 {{ birth.Address }}</td>
+                    <td>{{ birth.Notes }}</td>
+                    <td class="text-end">
+                        <div class="action-group">
+                            <button class="action-btn edit" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="BirthRecordsList.length === 0" class="empty-state">
+            <p>No Birth Records data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                BirthRecordsList.length ?
+                BirthRecordsList.length : currentPage * pageSize }} of {{ BirthRecordsList.length }} records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
     </div>
 </div>

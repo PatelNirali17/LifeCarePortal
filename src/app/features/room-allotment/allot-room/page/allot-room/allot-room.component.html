@@ -1,91 +1,102 @@
 <div class="container-fluid">
-    <div class="card">
-        <div class="card-header">
-            <div class="d-flex align-items-center">
-                <div class="p-0 flex-grow-1"><b>All Allotments</b></div>
-                <div class="p-0">
-                    <button mat-icon-button (click)="OpenAddAllotDialog({ID:0})">
-                        <mat-icon style="color: #6A0572;">add_circle</mat-icon>
-                    </button>
-                </div>
-                <div class="p-0">
-                    <button mat-icon-button>
-                        <mat-icon style="color: #D4AF37;">refresh</mat-icon>
-                    </button>
-                </div>
-                <div class="p-0">
-                    <button mat-icon-button>
-                        <mat-icon style="color: #FF6B6B;">download</mat-icon>
-                    </button>
-                </div>
-            </div>
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>All Allotments</h2>
+            <p>View and manage all room allotment details in one place</p>
         </div>
-        <div class="card-body p-0" style="overflow:auto;">
-            <table mat-table [dataSource]="dataSource" style="font-size:13px;">
-
-                <ng-container matColumnDef="SrNo">
-                    <th mat-header-cell *matHeaderCellDef> SrNo </th>
-                    <td mat-cell *matCellDef="let element; let i = index"> {{i + 1}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="PatientName">
-                    <th mat-header-cell *matHeaderCellDef> Patient </th>
-                    <td mat-cell *matCellDef="let element" (click)="OpenDetailsDialog(element)"> {{element.patientName}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="RoomNumber">
-                    <th mat-header-cell *matHeaderCellDef> Room Number </th>
-                    <td mat-cell *matCellDef="let element"> {{element.roomNumber}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="RoomType">
-                    <th mat-header-cell *matHeaderCellDef> Room Type </th>
-                    <td mat-cell *matCellDef="let element"> {{element.roomType}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="BedNumber">
-                    <th mat-header-cell *matHeaderCellDef> Bed </th>
-                    <td mat-cell *matCellDef="let element"> {{element.bedNumber}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="Doctor">
-                    <th mat-header-cell *matHeaderCellDef> Doctor </th>
-                    <td mat-cell *matCellDef="let element"> {{element.doctor}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="AllotmentDate">
-                    <th mat-header-cell *matHeaderCellDef> Date </th>
-                    <td mat-cell *matCellDef="let element"> {{element.allotmentDate}} </td>
-                </ng-container>
-
-                <ng-container matColumnDef="Status">
-                    <th mat-header-cell *matHeaderCellDef>Status </th>
-                    <td mat-cell *matCellDef="let element">
-                        <span class="badge-solid-green"
-                            *ngIf="element.status == 'Reserved'"><b>{{element.status}}</b></span>
-                        <span class="badge-solid-purple"
-                            *ngIf="element.status == 'Available'"><b>{{element.status}}</b></span>
-                        <span class="badge-solid-orange"
-                            *ngIf="element.status == 'Discharged'"><b>{{element.status}}</b></span>
-                    </td>
-                </ng-container>
-
-                <ng-container matColumnDef="Actions">
-                    <th mat-header-cell *matHeaderCellDef class="text-center"> Actions </th>
-                    <td mat-cell *matCellDef="let element" class="text-center">
-                        <button mat-icon-button>
-                            <mat-icon style="color: #D4AF37;">edit_square</mat-icon>
-                        </button>
-                        <button mat-icon-button>
-                            <mat-icon style="color: #FF6B6B;">delete</mat-icon>
-                        </button>
-                    </td>
-                </ng-container>
-
-                <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-                <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-            </table>
-            <mat-paginator [pageSizeOptions]="[5,10,20]" showFirstLastButtons></mat-paginator>
+        <div class="header-actions">
+            <button class="add-btn" (click)="OpenAddAllotDialog(null)">
+                <span class="icon">+</span> Add New Allot Room
+            </button>
         </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>Patient</th>
+                    <th>Room</th>
+                    <th>Bed</th>
+                    <th>Doctor</th>
+                    <th>Date</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let allotment of paginatedList; trackBy: trackByFn;let i = index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>{{ allotment.patientName }}</td>
+                    <td>
+                        <div class="column-cell">
+                            <div>
+                                <div class="column-number">#{{ allotment.roomNumber }}</div>
+                                <div class="column-name">
+                                    {{ allotment.roomType }}
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{ allotment.bedNumber }}</td>
+                    <td>{{ allotment.doctor }}</td>
+                    <td>📅 {{ allotment.allotmentDate }}</td>
+                    <td>
+                        <span class="type-badge active" *ngIf="allotment.status == 'Available'">{{allotment.status}}</span>
+                        <span class="type-badge contractual" *ngIf="allotment.status == 'Reserved'">{{allotment.status}}</span>
+                        <span class="type-badge inactive" *ngIf="allotment.status == 'Discharged'">{{allotment.status}}</span>
+                    </td>
+                    <td class="text-end">
+                        <div class="action-group">
+                            <button class="action-btn edit" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="AllotRoomList.length === 0" class="empty-state">
+            <p>No Allot Room data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                AllotRoomList.length ?
+                AllotRoomList.length : currentPage * pageSize }} of {{ AllotRoomList.length }} records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
     </div>
 </div>

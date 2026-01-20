@@ -1,0 +1,87 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ MedicineFDetails ? 'Edit' : 'Add New' }} Medicine</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form class="row" [formGroup]="MedicineForm">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Medicine Name</mat-label>
+                <input matInput formControlName="MedicineName" required>
+                <mat-icon matSuffix>medication</mat-icon>
+                <mat-error *ngIf="MedicineForm.get('MedicineName')?.invalid">
+                    Please enter Medicine Name
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Category</mat-label>
+                <mat-select formControlName="Category">
+                    <mat-option value="Tablet">Tablet</mat-option>
+                    <mat-option value="Syrup">Syrup</mat-option>
+                    <mat-option value="Injectable">Injectable</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Company</mat-label>
+                <input matInput type="text" formControlName="Company" required>
+                <mat-icon matSuffix>store</mat-icon>
+                <mat-error *ngIf="MedicineForm.get('Company')?.invalid">
+                    Please enter Company
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Purchase Date</mat-label>
+                <input matInput [matDatepicker]="PurchaseDate" formControlName="PurchaseDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="PurchaseDate"></mat-datepicker-toggle>
+                <mat-datepicker #PurchaseDate></mat-datepicker>
+                <mat-error *ngIf="MedicineForm.get('PurchaseDate')?.invalid">
+                    Please select Purchase Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Price</mat-label>
+                <input matInput type="number" formControlName="Price" required>
+                <mat-icon matSuffix>currency_rupee</mat-icon>
+                <mat-error *ngIf="MedicineForm.get('Price')?.invalid">
+                    Please enter Price
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Expiry Date</mat-label>
+                <input matInput [matDatepicker]="ExpiryDate" formControlName="ExpiryDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="ExpiryDate"></mat-datepicker-toggle>
+                <mat-datepicker #ExpiryDate></mat-datepicker>
+                <mat-error *ngIf="MedicineForm.get('ExpiryDate')?.invalid">
+                    Please select Expiry Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Stock</mat-label>
+                <input matInput type="number" formControlName="Stock" required>
+                <mat-icon matSuffix>inventory_2</mat-icon>
+                <mat-error *ngIf="MedicineForm.get('Stock')?.invalid">
+                    Please enter Stock
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ MedicineFDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

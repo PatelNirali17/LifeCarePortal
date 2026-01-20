@@ -1,0 +1,97 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ AmbulanceCallDetails ? 'Edit' : 'Add New' }} Ambulance Call</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="AmbulanceCallForm">
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <mat-label>Case Number</mat-label>
+                    <input matInput formControlName="CaseNumber">
+                    <mat-error *ngIf="AmbulanceCallForm.get('CaseNumber')?.invalid">
+                        Please enter Case Number
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <mat-label>Patient Name</mat-label>
+                    <input matInput formControlName="PatientName">
+                    <mat-error *ngIf="AmbulanceCallForm.get('PatientName')?.invalid">
+                        Please enter Patient Name
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <mat-label>Patient Number</mat-label>
+                    <input matInput formControlName="PatientNumber">
+                    <mat-icon matSuffix>call</mat-icon>
+                    <mat-error *ngIf="AmbulanceCallForm.get('PatientNumber')?.invalid">
+                        Please enter Patient Number
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Date</mat-label>
+                    <input matInput [matDatepicker]="Date" formControlName="Date" required>
+                    <mat-datepicker-toggle matIconSuffix [for]="Date"></mat-datepicker-toggle>
+                    <mat-datepicker #Date></mat-datepicker>
+                    <mat-error *ngIf="AmbulanceCallForm.get('Date')?.invalid">
+                        Please select Date
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-12">
+                <mat-radio-group formControlName="Gender">
+                    <mat-label style="font-size: 14px;">Gender:</mat-label>
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">Female</mat-radio-button>
+                    <mat-radio-button value="Other">Other</mat-radio-button>
+                </mat-radio-group>
+                <mat-error *ngIf="AmbulanceCallForm.get('Gender')?.invalid">
+                    Please enter Gender
+                </mat-error>
+            </div>
+
+        </div>
+
+        <div class="section-title">Ambulance Details</div>
+
+        <div class="row">
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <mat-label>Vehicle</mat-label>
+                    <mat-select formControlName="VehicleNumber">
+                        <mat-option *ngFor="let Vehicle of VehicleList" [value]="Vehicle.VehicleNumber">
+                            {{ Vehicle.VehicleNumber }} - {{ Vehicle.DriverName }}</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="AmbulanceCallForm.get('VehicleNumber')?.invalid">
+                        Please select Vehicle
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <mat-label>PatientAddress</mat-label>
+                    <textarea rows="1" matInput formControlName="PatientAddress"></textarea>
+                    <mat-error *ngIf="AmbulanceCallForm.get('PatientAddress')?.invalid">
+                        Please enter Patient Address
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">
+        {{ AmbulanceCallDetails ? 'Update' : 'Save' }}
+    </button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

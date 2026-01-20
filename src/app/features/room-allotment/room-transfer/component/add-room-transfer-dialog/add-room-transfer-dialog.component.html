@@ -1,7 +1,12 @@
-<h2 mat-dialog-title class="dialog-header mb-0">New Room Transfer</h2>
-<mat-dialog-content>
-    <form class="row mt-2" [formGroup]="RoomTransferForm">
-        <div class="col-md-4">
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ RoomTransferDetails ? 'Edit' : 'Add New' }} Room Transfer</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form class="row" [formGroup]="RoomTransferForm">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Patient</mat-label>
                 <mat-select formControlName="patientId" required>
@@ -12,7 +17,7 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">From Room</mat-label>
                 <mat-select formControlName="fromRoom" required>
@@ -24,7 +29,7 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">To Room</mat-label>
                 <mat-select formControlName="toRoom" required>
@@ -36,7 +41,7 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">From Bed</mat-label>
                 <mat-select formControlName="fromBed" required>
@@ -47,7 +52,7 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">To Bed</mat-label>
                 <mat-select formControlName="toBed" required>
@@ -58,7 +63,7 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Transfer Date</mat-label>
                 <input matInput [matDatepicker]="transferDate" formControlName="transferDate" required>
@@ -69,7 +74,7 @@
                 </mat-error>
             </mat-form-field>
         </div>
-       <div class="col-md-4">
+       <div class="col-md-6">
 			<mat-form-field class="w-100">
 				<mat-label style="font-size: 14px;">Reason</mat-label>
 				<input matInput type="text" formControlName="reason" required>
@@ -80,7 +85,7 @@
 		</div>
     </form>
 </mat-dialog-content>
-<mat-dialog-actions>
-    <button mat-raised-button class="bgprimary">Save</button>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ RoomTransferDetails ? 'Update' : 'Save' }}</button>
     <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
 </mat-dialog-actions>

@@ -1,0 +1,114 @@
+<div class="container-fluid pb-2">
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>Ambulance Call List</h2>
+            <p>RView and manage all ambulance call records</p>
+        </div>
+        <div class="header-actions">
+            <button class="add-btn" (click)="OpenAmbulanceCallListDialog(null)">
+                <span class="icon">+</span> Add New Ambulance Call
+            </button>
+        </div>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>Case Number</th>
+                    <th>Patient Name</th>
+                    <th>Gender</th>
+                    <th>Date</th>
+                    <th>Vehicle Number</th>
+                    <th>Driver Name</th>
+                    <th>Patient Address</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let ambulance of paginatedList; trackBy: trackByFn;let i=index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>#{{ ambulance.CaseNumber }}</td>
+                    <td>
+                        <div class="cell-info">
+                            <div class="cell-name">{{ ambulance.PatientName }}</div>
+                            <div class="cell-number">
+                                <mat-icon>call</mat-icon>
+                                {{ ambulance.PatientNumber }}
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="type-badge active" *ngIf="ambulance.Gender == 'Male'">{{ambulance.Gender}}</span>
+                        <span class="type-badge contractual"
+                            *ngIf="ambulance.Gender == 'Female'">{{ambulance.Gender}}</span>
+                        <span class="type-badge inactive"
+                            *ngIf="ambulance.Gender == 'Other'">{{ambulance.Gender}}</span>
+                    </td>
+                    <td>📅 {{ ambulance.Date }}</td>
+                    <td>{{ ambulance.VehicleNumber }}</td>
+                    <td>
+                        <div class="cell-info">
+                            <div class="cell-name">{{ ambulance.DriverName }}</div>
+                            <div class="cell-number">
+                                <mat-icon>call</mat-icon>
+                                {{ ambulance.DriverNumber }}
+                            </div>
+                        </div>
+                    </td>
+                    <td>📍 {{ ambulance.PatientAddress }}</td>
+                    <td class="text-end">
+                        <div class="action-group">
+                            <button class="action-btn edit" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="AmbulanceCallList.length === 0" class="empty-state">
+            <p>No Ambulance Call data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                AmbulanceCallList.length ?
+                AmbulanceCallList.length : currentPage * pageSize }} of {{ AmbulanceCallList.length }} records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

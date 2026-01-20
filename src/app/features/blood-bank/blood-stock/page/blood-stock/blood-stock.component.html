@@ -1,0 +1,110 @@
+<div class="container-fluid">
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>All Blood Stock</h2>
+            <p>View and manage all blood stock details</p>
+        </div>
+        <div class="header-actions">
+            <button class="add-btn" (click)="OpenAddBloodStockDialog(null)">
+                <span class="icon">+</span> Add New Blood Stock
+            </button>
+        </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>Blood Product ID</th>
+                    <th>Blood Type</th>
+                    <th>Component Type</th>
+                    <th>Quantity In Stock</th>
+                    <th>Expiry Date</th>
+                    <th>Storage Location</th>
+                    <th>Donation Status</th>
+                    <th>Condition Status</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let blood of paginatedList; trackBy: trackByFn;let i = index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>{{ blood.BloodProductID }}</td>
+                    <td>{{ blood.BloodType }}</td>
+                    <td>{{ blood.ComponentType }}</td>
+                    <td>{{ blood.QuantityInStock }}</td>
+                    <td>📅 {{ blood.ExpiryDate }}</td>
+                    <td>{{ blood.StorageLocation }}</td>
+                    <td>
+                        <span class="type-badge active"
+                            *ngIf="blood.DonationStatus == 'Fresh'">{{blood.DonationStatus}}</span>
+                        <span class="type-badge contractual"
+                            *ngIf="blood.DonationStatus == 'In-Use'">{{blood.DonationStatus}}</span>
+                        <span class="type-badge inactive"
+                            *ngIf="blood.DonationStatus == 'Expired'">{{blood.DonationStatus}}</span>
+                    </td>
+                     <td>
+                        <span class="type-badge active"
+                            *ngIf="blood.ConditionQualityStatus == 'Good'">{{blood.ConditionQualityStatus}}</span>
+                        <span class="type-badge contractual"
+                            *ngIf="blood.ConditionQualityStatus == 'Hemolyzed'">{{blood.ConditionQualityStatus}}</span>
+                        <span class="type-badge inactive"
+                            *ngIf="blood.ConditionQualityStatus == 'Clotted'">{{blood.ConditionQualityStatus}}</span>
+                    </td>
+                    <td class="text-end">
+                        <div class="action-group">
+                              <button class="action-btn view" title="View" (click)="OpenBloodStockDetailsDialog(blood)">
+                                <mat-icon>visibility</mat-icon>
+                            </button>
+                            <button class="action-btn edit" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="BloodStockList.length === 0" class="empty-state">
+            <p>No Blood Stock data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                BloodStockList.length ?
+                BloodStockList.length : currentPage * pageSize }} of {{ BloodStockList.length }} records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

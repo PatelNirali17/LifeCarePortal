@@ -11,6 +11,8 @@ import { PatientsRoutesList } from './features/patients/patients-routes';
 import { RoomAllotmentRoutesList } from './features/room-allotment/room-allotment-routes';
 import { RecordsRoutesList } from './features/records/records-routes';
 import { AmbulanceRoutesList } from './features/ambulance/ambulance-list-routes';
+import { PharmacyRoutesList } from './features/pharmacy/pharmacy-routes';
+import { BloodBankRoutesList } from './features/blood-bank/blood-bank-routes';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -41,7 +43,7 @@ export const routes: Routes = [
       {
         path: 'patients', data: { breadcrumb: 'Patients' },
         children: PatientsRoutesList
-      }, 
+      },
       {
         path: 'roomallotment', data: { breadcrumb: 'Room Allotment' },
         children: RoomAllotmentRoutesList
@@ -50,9 +52,17 @@ export const routes: Routes = [
         path: 'records', data: { breadcrumb: 'Records' },
         children: RecordsRoutesList
       },
-        {
+      {
         path: 'ambulance', data: { breadcrumb: 'Ambulance' },
         children: AmbulanceRoutesList
+      },
+      {
+        path: 'pharmacy', data: { breadcrumb: 'Pharmacy' },
+        children: PharmacyRoutesList
+      },
+      {
+        path: 'bloodbank', data: { breadcrumb: 'Blood Bank' },
+        children: BloodBankRoutesList
       },
     ]
   }

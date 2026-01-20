@@ -14,23 +14,27 @@ import { AmbulanceListDialogComponent } from '../../component/ambulance-list-dia
   templateUrl: './ambulance-list.component.html',
   styleUrl: './ambulance-list.component.scss'
 })
-export class AmbulanceListComponent implements OnInit {
+export class AmbulanceListComponent {
   ambulanceList: any[] = [];
   paginatedList: any[] = [];
   pageSize = 5;
   pageIndex = 0;
 
   constructor(private ambulanceService: AmbulanceListService, private cdr: ChangeDetectorRef,
-    private dialog: MatDialog) { }
+    private dialog: MatDialog) {
+    setTimeout(() => {
+      this.GetAllAmbulanceList()
+    }, 1000);
+  }
 
-  ngOnInit(): void {
+
+  GetAllAmbulanceList() {
     this.ambulanceService.getAmbulanceList().subscribe({
       next: (data) => {
         this.ambulanceList = data;
         this.updatePaginatedList();
         this.cdr.markForCheck();
-      },
-      error: (err) => console.error('Error fetching ambulance list:', err)
+      }
     });
   }
 
@@ -67,27 +71,19 @@ export class AmbulanceListComponent implements OnInit {
     }
   }
 
-  onAdd(): void {
+  OpenAmbulanceListDialog(obj:any): void {
     const dialogRef = this.dialog.open(AmbulanceListDialogComponent, {
-      width: '600px',
+      minWidth: '600px',
+      maxWidth: '600px',
       disableClose: true,
-      data: null
+      data: obj ? obj : null
     });
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        console.log('New Ambulance Data:', result);
-        // Here you would typically call a service to save the data
+        this.GetAllAmbulanceList()
       }
     });
-  }
-
-  onEdit(ambulance: any): void {
-    console.log('Edit ambulance:', ambulance);
-  }
-
-  onDelete(ambulance: any): void {
-    console.log('Delete ambulance:', ambulance);
   }
 
 }

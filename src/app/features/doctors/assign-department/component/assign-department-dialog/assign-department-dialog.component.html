@@ -6,7 +6,7 @@
 </div>
 <mat-dialog-content class="dialog-content">
     <form class="row" [formGroup]="AssignDepartmentForm">
-          <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Doctor</mat-label>
                 <mat-select formControlName="DoctorID" required>
@@ -18,7 +18,7 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Department</mat-label>
                 <mat-select formControlName="Department" required>
@@ -30,14 +30,14 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Specialization</mat-label>
                 <input matInput formControlName="Specialization">
                 <mat-icon matSuffix>flag</mat-icon>
             </mat-form-field>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Assigned Date</mat-label>
                 <input matInput [matDatepicker]="AssignedDate" formControlName="AssignedDate" required>
@@ -48,13 +48,13 @@
                 </mat-error>
             </mat-form-field>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Shift Schedule</mat-label>
                 <input matInput formControlName="ShiftSchedule">
             </mat-form-field>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Experience Level</mat-label>
                 <mat-select formControlName="ExperienceLevel">
@@ -64,7 +64,7 @@
                 </mat-select>
             </mat-form-field>
         </div>
-         <div class="col-md-4">
+        <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Current Assignment Status</mat-label>
                 <mat-select formControlName="AssignmentStatus">
