@@ -1,0 +1,103 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ BloodIssuedDetails ? 'Edit' : 'Add New' }} Blood Issued</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="BloodIssuedForm">
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Patient</mat-label>
+                    <mat-select formControlName="patient_id">
+                        <mat-option *ngFor="let Patient of PatientList" [value]="Patient.Name">{{ Patient.Name }} - {{
+                            Patient.Gender }} - {{ Patient.BloodGroup }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Blood Group</mat-label>
+                    <mat-select formControlName="blood_product_id">
+                        <mat-option *ngFor="let Blood of BloodStockList" [value]="Blood.BloodProductID">{{
+                            Blood.BloodType }} / {{ Blood.ComponentType }} / {{ Blood.BatchNumber }} / (Qty: {{
+                            Blood.QuantityInStock }})</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Quantity Issued (ml)</mat-label>
+                    <input matInput formControlName="quantity_issued">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="section-title">Issued Details</div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Issue Date</mat-label>
+                    <input matInput [matDatepicker]="issue_date" formControlName="issue_date" required>
+                    <mat-datepicker-toggle matIconSuffix [for]="issue_date"></mat-datepicker-toggle>
+                    <mat-datepicker #issue_date></mat-datepicker>
+                    <mat-error *ngIf="BloodIssuedForm.get('issue_date')?.invalid">
+                        Please select Issue Date
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Issued By</mat-label>
+                    <mat-select formControlName="issued_by">
+                        <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{ Doctor.Name
+                            }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Issue Reason</mat-label>
+                    <input matInput formControlName="issue_reason">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Doctor</mat-label>
+                    <mat-select formControlName="doctor_name">
+                        <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{ Doctor.Name
+                            }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Blood Transfusion Date</mat-label>
+                    <input matInput [matDatepicker]="blood_transfusion_date" formControlName="blood_transfusion_date"
+                        required>
+                    <mat-datepicker-toggle matIconSuffix [for]="blood_transfusion_date"></mat-datepicker-toggle>
+                    <mat-datepicker #blood_transfusion_date></mat-datepicker>
+                    <mat-error *ngIf="BloodIssuedForm.get('blood_transfusion_date')?.invalid">
+                        Please select Blood Transfusion Date
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Remarks</mat-label>
+                    <input matInput formControlName="remarks">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">
+        {{ BloodIssuedDetails ? 'Update' : 'Save' }}
+    </button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

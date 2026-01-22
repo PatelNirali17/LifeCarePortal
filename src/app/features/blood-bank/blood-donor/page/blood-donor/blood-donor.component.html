@@ -1,0 +1,107 @@
+<div class="container-fluid">
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>All Blood Donor</h2>
+            <p>View and manage all registered blood donors</p>
+        </div>
+        <div class="header-actions">
+            <button class="add-btn" (click)="OpenAddBloodDonorDialog(null)">
+                <span class="icon">+</span> Add New Blood Donor
+            </button>
+        </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>Donor Name</th>
+                    <th>Gender</th>
+                    <th>Blood Type</th>
+                    <th>Donor Status</th>
+                    <th>Last Donation Date</th>
+                    <th>Next Eligible Donation Date</th>
+                    <th>Donor Location</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let blood of paginatedList; trackBy: trackByFn;let i = index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="cell-info">
+                            <div class="cell-name">{{ blood.donorName }}</div>
+                            <div class="cell-number">
+                                <mat-icon>call</mat-icon>
+                                {{ blood.phoneNumber }}
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <span class="type-badge active" *ngIf="blood.gender == 'Male'">{{blood.gender}}</span>
+                        <span class="type-badge contractual" *ngIf="blood.gender == 'Female'">{{blood.gender}}</span>
+                        <span class="type-badge inactive" *ngIf="blood.gender == 'Other'">{{blood.gender}}</span>
+                    </td>
+                    <td>{{ blood.bloodType }}</td>
+                    <td><span class="type-badge" [ngClass]="getBadgeClass(blood.donorStatus)">{{
+                            blood.donorStatus }}</span></td>
+                    <td>📅 {{ blood.lastDonationDate }}</td>
+                    <td>📅 {{ blood.nextEligibleDonationDate }}</td>
+                    <td>{{ blood.donorLocation }}</td>
+                    <td class="text-end">
+                        <div class="action-group">
+                            <button class="action-btn view" title="View" (click)="OpenBloodDonorDetailsDialog(blood)">
+                                <mat-icon>visibility</mat-icon>
+                            </button>
+                            <button class="action-btn edit" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="BloodDonorList.length === 0" class="empty-state">
+            <p>No Blood Donor data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                BloodDonorList.length ?
+                BloodDonorList.length : currentPage * pageSize }} of {{ BloodDonorList.length }} records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

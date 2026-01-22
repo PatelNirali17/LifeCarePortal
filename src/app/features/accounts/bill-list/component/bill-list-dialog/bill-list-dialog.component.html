@@ -1,0 +1,82 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ BillDetails ? 'Edit' : 'Add New' }} Bill</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="BillForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label>Patient</mat-label>
+                <mat-select formControlName="PatientName">
+                    <mat-option *ngFor="let Patient of PatientList" [value]="Patient.Name">{{ Patient.Name }}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label>AdmissionID</mat-label>
+                <input matInput formControlName="AdmissionID">
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label>Doctor</mat-label>
+                <mat-select formControlName="DoctorName">
+                    <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{ Doctor.Name}}</mat-option>
+                </mat-select>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-radio-group formControlName="Status">
+                <mat-label style="font-size: 14px;">Status :</mat-label>
+                <mat-radio-button value="Paid">Paid</mat-radio-button>
+                <mat-radio-button value="Unpaid">Unpaid</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="BillForm.get('Status')?.invalid">
+                Please select Status
+            </mat-error>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Admission Date</mat-label>
+                <input matInput [matDatepicker]="AdmissionDate" formControlName="AdmissionDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="AdmissionDate"></mat-datepicker-toggle>
+                <mat-datepicker #AdmissionDate></mat-datepicker>
+                <mat-error *ngIf="BillForm.get('AdmissionDate')?.invalid">
+                    Please select Admission Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label>Tax</mat-label>
+                <input matInput formControlName="Tax">
+                <mat-icon matSuffix>description</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label>Discount</mat-label>
+                <input matInput formControlName="Discount">
+                <mat-icon matSuffix>percent_discount</mat-icon>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label>Total Amount</mat-label>
+                <input matInput formControlName="TotalAmount">
+                <mat-icon matSuffix>receipt</mat-icon>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">
+        {{ BillDetails ? 'Update' : 'Save' }}
+    </button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

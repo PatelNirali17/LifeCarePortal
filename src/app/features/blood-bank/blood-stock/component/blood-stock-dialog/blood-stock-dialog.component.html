@@ -1,1 +1,124 @@
-<p>blood-stock-dialog works!</p>
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ BloodStockDetails ? 'Edit' : 'Add New' }} Blood Stock</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="BloodStockForm">
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Blood Product ID</mat-label>
+                    <input matInput formControlName="BloodProductID">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Blood Type</mat-label>
+                    <mat-select formControlName="BloodType">
+                        <mat-option *ngFor="let type of BloodTypeList" [value]="type">{{ type }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Component Type</mat-label>
+                    <mat-select formControlName="ComponentType">
+                        <mat-option *ngFor="let type of ComponentTypeList" [value]="type">{{ type }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Batch Number</mat-label>
+                    <input matInput formControlName="BatchNumber">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Quantity In Stock</mat-label>
+                    <input matInput formControlName="QuantityInStock">
+                    <mat-icon matSuffix>inventory_2</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Collection Date</mat-label>
+                    <input matInput [matDatepicker]="CollectionDate" formControlName="CollectionDate" required>
+                    <mat-datepicker-toggle matIconSuffix [for]="CollectionDate"></mat-datepicker-toggle>
+                    <mat-datepicker #CollectionDate></mat-datepicker>
+                    <mat-error *ngIf="BloodStockForm.get('CollectionDate')?.invalid">
+                        Please select Collection Date
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Expiry Date</mat-label>
+                    <input matInput [matDatepicker]="ExpiryDate" formControlName="ExpiryDate" required>
+                    <mat-datepicker-toggle matIconSuffix [for]="ExpiryDate"></mat-datepicker-toggle>
+                    <mat-datepicker #ExpiryDate></mat-datepicker>
+                    <mat-error *ngIf="BloodStockForm.get('ExpiryDate')?.invalid">
+                        Please select Expiry Date
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="section-title">Storage & Status Details</div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Storage Location</mat-label>
+                    <input matInput formControlName="StorageLocation">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Temperature Range</mat-label>
+                    <input matInput formControlName="TemperatureRange">
+                    <mat-icon matSuffix>device_thermostat</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Condition/Quality Status</mat-label>
+                    <mat-select formControlName="ConditionQualityStatus">
+                        <mat-option *ngFor="let Status of ConditionQualityStatusList" [value]="Status">{{ Status
+                            }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Donation Status</mat-label>
+                    <mat-select formControlName="DonationStatus">
+                        <mat-option *ngFor="let Status of DonationStatusList" [value]="Status">{{ Status
+                            }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Date Last Updated</mat-label>
+                    <input matInput [matDatepicker]="DateLastUpdated" formControlName="DateLastUpdated" required>
+                    <mat-datepicker-toggle matIconSuffix [for]="DateLastUpdated"></mat-datepicker-toggle>
+                    <mat-datepicker #DateLastUpdated></mat-datepicker>
+                    <mat-error *ngIf="BloodStockForm.get('DateLastUpdated')?.invalid">
+                        Please select Date Last Updated
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">
+        {{ BloodStockDetails ? 'Update' : 'Save' }}
+    </button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

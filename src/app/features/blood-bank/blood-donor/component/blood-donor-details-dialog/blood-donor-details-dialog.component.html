@@ -1,0 +1,49 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>Blood Donor Details</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <div class="row mt-2" style="font-size: 13px;">
+        <div class="col-md-4">
+            <b>Donor Id</b> : {{BloodDonorDetails?.donorId}}
+        </div>
+        <div class="col-md-4">
+            <b>Donor Name</b> : {{BloodDonorDetails?.donorName}}
+        </div>
+        <div class="col-md-4">
+            <b>Date Of Birth</b> : {{BloodDonorDetails?.dateOfBirth}}
+        </div>
+        <div class="col-md-4">
+            <b>Gender</b> : {{BloodDonorDetails?.gender}}
+        </div>
+        <div class="col-md-4">
+            <b>Blood Type</b> : {{BloodDonorDetails?.bloodType}}
+        </div>
+        <div class="col-md-4">
+            <b>Phone Number</b> : {{BloodDonorDetails?.phoneNumber}}
+        </div>
+        <div class="col-md-4">
+            <b>Email</b> : {{BloodDonorDetails?.email}}
+        </div>
+        <div class="col-md-4">
+            <b>Donor Status</b> : {{BloodDonorDetails?.donorStatus}}
+        </div>
+        <div class="col-md-4">
+            <b>Last Donation Date</b> : {{BloodDonorDetails?.lastDonationDate}}
+        </div>
+        <div class="col-md-4">
+            <b>Next Eligible Donation Date</b> : {{BloodDonorDetails?.nextEligibleDonationDate}}
+        </div>
+        <div class="col-md-4">
+            <b>Health Status</b> : {{BloodDonorDetails?.healthStatus}}
+        </div>
+        <div class="col-md-4">
+            <b>Donor Location</b> : {{BloodDonorDetails?.donorLocation}}
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

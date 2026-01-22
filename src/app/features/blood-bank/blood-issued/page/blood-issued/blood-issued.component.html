@@ -1,0 +1,110 @@
+<div class="container-fluid">
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>All Blood Issued</h2>
+            <p>View complete details of blood issued to patients</p>
+        </div>
+        <div class="header-actions">
+            <button class="add-btn" (click)="OpenAddBloodIssuedDialog(null)">
+                <span class="icon">+</span> Add New Blood Issued
+            </button>
+        </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>Patient Name</th>
+                    <th>Gender</th>
+                    <th>Blood Type</th>
+                    <th>Component Type</th>
+                    <th>Quantity Issued</th>
+                    <th>Issue Date</th>
+                    <th>Issued By</th>
+                    <th>Blood Status</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let blood of paginatedList; trackBy: trackByFn;let i = index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>{{ blood.patient_name }}</td>
+                    <td>
+                        <span class="type-badge active"
+                            *ngIf="blood.patient_gender == 'Male'">{{blood.patient_gender}}</span>
+                        <span class="type-badge contractual"
+                            *ngIf="blood.patient_gender == 'Female'">{{blood.patient_gender}}</span>
+                        <span class="type-badge inactive"
+                            *ngIf="blood.patient_gender == 'Other'">{{blood.patient_gender}}</span>
+                    </td>
+                    <td>{{ blood.blood_type }}</td>
+                    <td>{{ blood.component_type }}</td>
+                    <td>{{ blood.quantity_issued }}</td>
+                    <td>📅 {{ blood.issue_date }}</td>
+                    <td>{{ blood.issued_by }}</td>
+                    <td>
+                        <span class="type-badge active"
+                            *ngIf="blood.blood_status == 'Fresh'">{{blood.blood_status}}</span>
+                        <span class="type-badge contractual"
+                            *ngIf="blood.blood_status == 'In-Use'">{{blood.blood_status}}</span>
+                        <span class="type-badge inactive"
+                            *ngIf="blood.blood_status == 'Expired'">{{blood.blood_status}}</span>
+                    </td>
+                    <td class="text-end">
+                        <div class="action-group">
+                            <button class="action-btn view" title="View" (click)="OpenBloodIssuedDetailsDialog(blood)">
+                                <mat-icon>visibility</mat-icon>
+                            </button>
+                            <button class="action-btn edit" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="BloodIssuedList.length === 0" class="empty-state">
+            <p>No Blood Issued data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                BloodIssuedList.length ?
+                BloodIssuedList.length : currentPage * pageSize }} of {{ BloodIssuedList.length }} records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

@@ -1,0 +1,58 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>Blood Issued Details</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <div class="row mt-2" style="font-size: 13px;">
+        <div class="col-md-4">
+            <b>Patient Name</b> : {{BloodIssuedDetails?.patient_name}}
+        </div>
+        <div class="col-md-4">
+            <b>Patient Age</b> : {{BloodIssuedDetails?.patient_age}}
+        </div>
+        <div class="col-md-4">
+            <b>Patient Gender</b> : {{BloodIssuedDetails?.patient_gender}}
+        </div>
+        <div class="col-md-4">
+            <b>Blood Type</b> : {{BloodIssuedDetails?.blood_type}}
+        </div>
+        <div class="col-md-4">
+            <b>Component Type</b> : {{BloodIssuedDetails?.component_type}}
+        </div>
+        <div class="col-md-4">
+            <b>Quantity Issued</b> : {{BloodIssuedDetails?.quantity_issued}}
+        </div>
+        <div class="col-md-4">
+            <b>Unit</b> : {{BloodIssuedDetails?.unit}}
+        </div>
+        <div class="col-md-4">
+            <b>Issue_date</b> : {{BloodIssuedDetails?.issue_date}}
+        </div>
+        <div class="col-md-4">
+            <b>Batch Number</b> : {{BloodIssuedDetails?.batch_number}}
+        </div>
+        <div class="col-md-4">
+            <b>Issued By</b> : {{BloodIssuedDetails?.issued_by}}
+        </div>
+        <div class="col-md-4">
+            <b>Issue Reason</b> : {{BloodIssuedDetails?.issue_reason}}
+        </div>
+        <div class="col-md-4">
+            <b>Doctor Name</b> : {{BloodIssuedDetails?.doctor_name}}
+        </div>
+        <div class="col-md-4">
+            <b>Blood Status</b> : {{BloodIssuedDetails?.blood_status}}
+        </div>
+        <div class="col-md-4">
+            <b>Blood Transfusion Date</b> : {{BloodIssuedDetails?.blood_transfusion_date}}
+        </div>
+        <div class="col-md-4">
+            <b>Remarks</b> : {{BloodIssuedDetails?.remarks}}
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

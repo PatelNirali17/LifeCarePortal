@@ -1,0 +1,97 @@
+<div class="container-fluid">
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>All Income</h2>
+            <p>View complete income reports</p>
+        </div>
+        <div class="header-actions">
+            <button class="add-btn" (click)="OpenAddIncomeDialog(null)">
+                <span class="icon">+</span> Add New Income
+            </button>
+        </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>Patient Name</th>
+                    <th>Service Type</th>
+                    <th>Service Date</th>
+                    <th>Amount Billed</th>
+                    <th>Amount Paid</th>
+                    <th>Payment Status</th>
+                    <th>Invoice Number</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let income of paginatedList; trackBy: trackByFn;let i = index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>{{ income.PatientName }}</td>
+                    <td>{{ income.ServiceType }}</td>
+                    <td>📅 {{ income.ServiceDate }}</td>
+                    <td>₹{{ income.AmountBilled }}</td>
+                    <td>₹{{ income.AmountPaid }}</td>
+                    <td>
+                        <span class="type-badge active" *ngIf="income.PaymentStatus == 'Completed'">{{income.PaymentStatus}}</span>
+                        <span class="type-badge inactive" *ngIf="income.PaymentStatus == 'Pending'">{{income.PaymentStatus}}</span>
+                    </td>
+                    <td>{{ income.InvoiceNumber }}</td>
+                    <td class="text-end">
+                        <div class="action-group">
+                             <button class="action-btn view" title="View" (click)="OpenIncomeDetailsDialog(income)">
+                                <mat-icon>visibility</mat-icon>
+                            </button>
+                            <button class="action-btn edit" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="IncomeList.length === 0" class="empty-state">
+            <p>No Income data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                IncomeList.length ?
+                IncomeList.length : currentPage * pageSize }} of {{ IncomeList.length }} records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

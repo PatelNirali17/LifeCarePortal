@@ -393,7 +393,7 @@
         {
             "id": 40,
             "title": "Bill List",
-            "routerLink": "/billlist",
+            "routerLink": "accounts/billlist",
             "href": null,
             "icon": null,
             "target": null,
@@ -403,7 +403,7 @@
         {
             "id": 41,
             "title": "Income",
-            "routerLink": "/income",
+            "routerLink": "accounts/income",
             "href": null,
             "icon": null,
             "target": null,
@@ -413,7 +413,7 @@
         {
             "id": 42,
             "title": "Expenses",
-            "routerLink": "/expenses",
+            "routerLink": "accounts/expenses",
             "href": null,
             "icon": null,
             "target": null,
@@ -423,7 +423,7 @@
         {
             "id": 43,
             "title": "Income Report",
-            "routerLink": "/incomereport",
+            "routerLink": "accounts/incomereport",
             "href": null,
             "icon": null,
             "target": null,
@@ -433,7 +433,7 @@
         {
             "id": 44,
             "title": "Invoice",
-            "routerLink": "/invoice",
+            "routerLink": "accounts/invoice",
             "href": null,
             "icon": null,
             "target": null,
@@ -453,7 +453,7 @@
         {
             "id": 46,
             "title": "Department List",
-            "routerLink": "/departmentlist",
+            "routerLink": "departments/departmentlist",
             "href": null,
             "icon": null,
             "target": null,
@@ -463,7 +463,7 @@
         {
             "id": 47,
             "title": "Department Overview",
-            "routerLink": "/departmentoverview",
+            "routerLink": "departments/departmentoverview",
             "href": null,
             "icon": null,
             "target": null,
@@ -473,7 +473,7 @@
           {
             "id": 48,
             "title": "Designation List",
-            "routerLink": "/designationlist",
+            "routerLink": "departments/designationlist",
             "href": null,
             "icon": null,
             "target": null,

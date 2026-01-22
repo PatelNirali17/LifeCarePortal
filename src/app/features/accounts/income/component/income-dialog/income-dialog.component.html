@@ -1,0 +1,111 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ IncomeDetails ? 'Edit' : 'Add New' }} Income</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="IncomeForm">
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Patient</mat-label>
+                    <mat-select formControlName="PatientName">
+                        <mat-option *ngFor="let Patient of PatientList" [value]="Patient.Name">{{ Patient.Name
+                            }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Service Type</mat-label>
+                    <input matInput formControlName="ServiceType">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Service Date</mat-label>
+                    <input matInput [matDatepicker]="ServiceDate" formControlName="ServiceDate" required>
+                    <mat-datepicker-toggle matIconSuffix [for]="ServiceDate"></mat-datepicker-toggle>
+                    <mat-datepicker #ServiceDate></mat-datepicker>
+                    <mat-error *ngIf="IncomeForm.get('ServiceDate')?.invalid">
+                        Please select Service Date
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Doctor</mat-label>
+                    <mat-select formControlName="DoctorName">
+                        <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{
+                            Doctor.Name}}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Doctor Fee</mat-label>
+                    <input matInput formControlName="DoctorFee">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="section-title">Payment / Billing Details</div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Amount Billed</mat-label>
+                    <input matInput formControlName="AmountBilled">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Amount Paid</mat-label>
+                    <input matInput formControlName="AmountPaid">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Insurance Amount</mat-label>
+                    <input matInput formControlName="InsuranceAmount">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Outstanding Amount</mat-label>
+                    <input matInput formControlName="OutstandingAmount">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Payment Method</mat-label>
+                    <input matInput formControlName="PaymentMethod">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Payment Status</mat-label>
+                    <mat-select formControlName="PaymentStatus">
+                        <mat-option value="Completed">Completed</mat-option>
+                        <mat-option value="Pending">Pending</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Invoice Number</mat-label>
+                    <input matInput formControlName="InvoiceNumber">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">
+        {{ IncomeDetails ? 'Update' : 'Save' }}
+    </button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

@@ -1,35 +1,35 @@
 import { CommonModule } from '@angular/common';
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { SharedModule } from '../../../../../shared/shared.module';
-import { BloodStockService } from '../../blood-stock.service';
+import { BloodIssuedService } from '../../blood-issued.service';
 import { MatDialog } from '@angular/material/dialog';
-import { BloodStockDialogComponent } from '../../component/blood-stock-dialog/blood-stock-dialog.component';
-import { BloodStockDetailsDialogComponent } from '../../component/blood-stock-details-dialog/blood-stock-details-dialog.component';
+import { BloodIssuedDialogComponent } from '../../component/blood-issued-dialog/blood-issued-dialog.component';
+import { BloodIssuedDetailsDialogComponent } from '../../component/blood-issued-details-dialog/blood-issued-details-dialog.component';
 
 @Component({
-  selector: 'app-blood-stock',
+  selector: 'app-blood-issued',
   imports: [CommonModule, SharedModule],
-  templateUrl: './blood-stock.component.html',
-  styleUrl: './blood-stock.component.scss'
+  templateUrl: './blood-issued.component.html',
+  styleUrl: './blood-issued.component.scss'
 })
-export class BloodStockComponent {
-  BloodStockList: any[] = [];
+export class BloodIssuedComponent {
+  BloodIssuedList: any[] = [];
   paginatedList: any[] = [];
   pageSize = 5;
   pageIndex = 0;
 
-  constructor(private bloodStockService: BloodStockService, private dialog: MatDialog, private cdr: ChangeDetectorRef) { }
+  constructor(private bloodIssuedService: BloodIssuedService, private dialog: MatDialog, private cdr: ChangeDetectorRef) { }
 
   ngOnInit() {
     setTimeout(() => {
-      this.GetAllBloodStock();
+      this.GetAllBloodIssued();
     }, 500);
   }
 
-  GetAllBloodStock() {
-    this.bloodStockService.GetAllBloodStock().subscribe({
+  GetAllBloodIssued() {
+    this.bloodIssuedService.GetAllBloodIssued().subscribe({
       next: (result: any) => {
-        this.BloodStockList = result;
+        this.BloodIssuedList = result;
         this.updatePaginatedList();
         this.cdr.markForCheck();
       }
@@ -45,7 +45,7 @@ export class BloodStockComponent {
   }
 
   get totalPages(): number {
-    return Math.ceil(this.BloodStockList.length / this.pageSize);
+    return Math.ceil(this.BloodIssuedList.length / this.pageSize);
   }
 
   get currentPage(): number {
@@ -59,7 +59,7 @@ export class BloodStockComponent {
   updatePaginatedList(): void {
     const startIndex = this.pageIndex * this.pageSize;
     const endIndex = startIndex + this.pageSize;
-    this.paginatedList = this.BloodStockList.slice(startIndex, endIndex);
+    this.paginatedList = this.BloodIssuedList.slice(startIndex, endIndex);
   }
 
   changePage(page: number): void {
@@ -69,8 +69,8 @@ export class BloodStockComponent {
     }
   }
 
-  OpenAddBloodStockDialog(obj: any) {
-    const dialogRef = this.dialog.open(BloodStockDialogComponent, {
+  OpenAddBloodIssuedDialog(obj: any) {
+    const dialogRef = this.dialog.open(BloodIssuedDialogComponent, {
       minWidth: '1000px',
       maxWidth: '1000px',
       data: obj ? obj : null,
@@ -79,16 +79,16 @@ export class BloodStockComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       if (result) {
-        this.GetAllBloodStock();
+        this.GetAllBloodIssued();
       }
     });
   }
 
-  OpenBloodStockDetailsDialog(BoolStockDetails: any) {
-    const dialogRef = this.dialog.open(BloodStockDetailsDialogComponent, {
+  OpenBloodIssuedDetailsDialog(BoolIssuedDetails: any) {
+    const dialogRef = this.dialog.open(BloodIssuedDetailsDialogComponent, {
       minWidth: '1000px',
       maxWidth: '1000px',
-      data: BoolStockDetails,
+      data: BoolIssuedDetails,
       disableClose: true
     });
   }

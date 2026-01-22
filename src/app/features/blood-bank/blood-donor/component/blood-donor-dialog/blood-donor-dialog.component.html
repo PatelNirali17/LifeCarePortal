@@ -1,0 +1,133 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ BloodDonorDetails ? 'Edit' : 'Add New' }} Blood Donor</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="BloodDonorForm">
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Donor Id</mat-label>
+                    <input matInput formControlName="donorId">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Donor Name</mat-label>
+                    <input matInput formControlName="donorName">
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Date Of Birth</mat-label>
+                    <input matInput [matDatepicker]="dateOfBirth" formControlName="dateOfBirth" required>
+                    <mat-datepicker-toggle matIconSuffix [for]="dateOfBirth"></mat-datepicker-toggle>
+                    <mat-datepicker #dateOfBirth></mat-datepicker>
+                    <mat-error *ngIf="BloodDonorForm.get('dateOfBirth')?.invalid">
+                        Please select Date Of Birth
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-radio-group formControlName="gender">
+                    <mat-label style="font-size: 14px;">Gender :</mat-label>
+                    <mat-radio-button value="Male">Male</mat-radio-button>
+                    <mat-radio-button value="Female">Female</mat-radio-button>
+                    <mat-radio-button value="Other">Other</mat-radio-button>
+                </mat-radio-group>
+                <mat-error *ngIf="BloodDonorForm.get('gender')?.invalid">
+                    Please enter Gender
+                </mat-error>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Blood Type</mat-label>
+                    <mat-select formControlName="BloodType">
+                        <mat-option *ngFor="let type of BloodTypeList" [value]="type">{{ type }}</mat-option>
+                    </mat-select>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Mobile Number</mat-label>
+                    <input matInput formControlName="phoneNumber">
+                    <mat-icon matSuffix>call</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Email</mat-label>
+                    <input matInput formControlName="email">
+                    <mat-icon matSuffix>mail</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Donor Location</mat-label>
+                    <input matInput formControlName="donorLocation">
+                </mat-form-field>
+            </div>
+        </div>
+
+        <div class="section-title">Donation & Health Information</div>
+
+        <div class="row">
+            <div class="col-md-4">
+                <mat-radio-group formControlName="donorStatus">
+                    <mat-label style="font-size: 14px;">Donor Status :</mat-label>
+                    <mat-radio-button value="Active">Active</mat-radio-button>
+                    <mat-radio-button value="Inactive">Inactive</mat-radio-button>
+                </mat-radio-group>
+                <mat-error *ngIf="BloodDonorForm.get('donorStatus')?.invalid">
+                    Please enter Donor Status
+                </mat-error>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Last Donation Date</mat-label>
+                    <input matInput [matDatepicker]="lastDonationDate" formControlName="lastDonationDate" required>
+                    <mat-datepicker-toggle matIconSuffix [for]="lastDonationDate"></mat-datepicker-toggle>
+                    <mat-datepicker #lastDonationDate></mat-datepicker>
+                    <mat-error *ngIf="BloodDonorForm.get('lastDonationDate')?.invalid">
+                        Please select Last Donation Date
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Next Eligible Donation Date</mat-label>
+                    <input matInput [matDatepicker]="nextEligibleDonationDate"
+                        formControlName="nextEligibleDonationDate" required>
+                    <mat-datepicker-toggle matIconSuffix [for]="nextEligibleDonationDate"></mat-datepicker-toggle>
+                    <mat-datepicker #nextEligibleDonationDate></mat-datepicker>
+                    <mat-error *ngIf="BloodDonorForm.get('nextEligibleDonationDate')?.invalid">
+                        Please select Next Eligible Donation Date
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Health Status</mat-label>
+                    <input matInput formControlName="healthStatus">
+                    <mat-icon matSuffix>health_and_safety</mat-icon>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label>Donor Location</mat-label>
+                    <input matInput formControlName="donorLocation">
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">
+        {{ BloodDonorDetails ? 'Update' : 'Save' }}
+    </button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

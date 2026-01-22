@@ -199,6 +199,9 @@ body {
 .mat-mdc-radio-button .mdc-radio__native-control:enabled:checked+.mdc-radio__background>.mdc-radio__outer-circle {
   border-color: #6A0572 !important;
 }
+mat-option{
+  font-size: 14px !important;
+}
 
 ///default scrollbar
 ::-webkit-scrollbar {

@@ -1,0 +1,108 @@
+<div class="container-fluid">
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>All Expenses</h2>
+            <p>View and manage expense details</p>
+        </div>
+        <div class="header-actions">
+            <button class="add-btn" (click)="OpenAddExpensesDialog(null)">
+                <span class="icon">+</span> Add New Expenses
+            </button>
+        </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>Date</th>
+                    <th>Category</th>
+                    <th>Description</th>
+                    <th>Department</th>
+                    <th>Vendor</th>
+                    <th>Total Cost</th>
+                    <th>Approval Status</th>
+                    <th>Payment Status</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let expenses of paginatedList; trackBy: trackByFn;let i = index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>📅 {{ expenses.date }}</td>
+                    <td>{{ expenses.category }}</td>
+                    <td>{{ expenses.description }}</td>
+                    <td>{{ expenses.department }}</td>
+                    <td>{{ expenses.vendor }}</td>
+                    <td>₹{{ expenses.total_cost }}</td>
+                    <td>
+                        <span class="type-badge active"
+                            *ngIf="expenses.approval_status == 'Approved'">{{expenses.approval_status}}</span>
+                        <span class="type-badge inactive"
+                            *ngIf="expenses.approval_status == 'Pending'">{{expenses.approval_status}}</span>
+                    </td>
+                    <td>
+                        <span class="type-badge active"
+                            *ngIf="expenses.payment_status == 'Paid'">{{expenses.payment_status}}</span>
+                        <span class="type-badge contractual"
+                            *ngIf="expenses.payment_status == 'Partially Paid'">{{expenses.payment_status}}</span>
+                        <span class="type-badge inactive"
+                            *ngIf="expenses.payment_status == 'Pending'">{{expenses.payment_status}}</span>
+                    </td>
+                    <td class="text-end">
+                        <div class="action-group">
+                             <button class="action-btn view" title="View" (click)="OpenExpensesDetailsDialog(expenses)">
+                                <mat-icon>visibility</mat-icon>
+                            </button>
+                            <button class="action-btn edit" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="ExpensesList.length === 0" class="empty-state">
+            <p>No Expenses data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                ExpensesList.length ?
+                ExpensesList.length : currentPage * pageSize }} of {{ ExpensesList.length }} records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

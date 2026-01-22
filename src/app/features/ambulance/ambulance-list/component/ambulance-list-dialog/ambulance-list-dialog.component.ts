@@ -1,6 +1,6 @@
 import { Component, Inject } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
+import { FormBuilder, FormGroup, FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
 import { SharedModule } from '../../../../../shared/shared.module';
 
@@ -16,20 +16,18 @@ export class AmbulanceListDialogComponent {
   vehicleTypes = ['Owned', 'Contractual'];
   details: any;
 
-  constructor(
-    private fb: FormBuilder,
-    public dialogRef: MatDialogRef<AmbulanceListDialogComponent>,
+  constructor(private fb: NonNullableFormBuilder,public dialogRef: MatDialogRef<AmbulanceListDialogComponent>,
     @Inject(MAT_DIALOG_DATA) public data: any
   ) {
     this.details = data
     this.ambulanceForm = this.fb.group({
-      VehicleNumber: ['', Validators.required],
-      VehicleName: ['', Validators.required],
-      YearMade: ['', [Validators.required, Validators.min(1900), Validators.max(new Date().getFullYear())]],
-      DriverName: ['', Validators.required],
-      DriverLicenseNumber: ['', Validators.required],
-      DriverNumber: ['', [Validators.required, Validators.pattern('^[0-9]{10}$')]],
-      VehicleType: ['', Validators.required]
+      VehicleNumber: this.fb.control('', Validators.required),
+      VehicleName: this.fb.control('', Validators.required),
+      YearMade: this.fb.control('', Validators.required),
+      DriverName: this.fb.control('', Validators.required),
+      DriverLicenseNumber: this.fb.control('', Validators.required),
+      DriverNumber: this.fb.control('', Validators.required),
+      VehicleType: this.fb.control('', Validators.required)
     });
 
     if (data) {

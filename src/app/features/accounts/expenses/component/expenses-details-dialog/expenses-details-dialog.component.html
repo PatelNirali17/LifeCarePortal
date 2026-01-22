@@ -1,0 +1,49 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>Expenses Details</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <div class="row mt-2" style="font-size: 13px;">
+        <div class="col-md-4">
+            <b>Date</b> : {{ExpensesDetails?.date}}
+        </div>
+        <div class="col-md-4">
+            <b>Category</b> : {{ExpensesDetails?.category}}
+        </div>
+        <div class="col-md-4">
+            <b>Description</b> : {{ExpensesDetails?.description}}
+        </div>
+        <div class="col-md-4">
+            <b>Vendor</b> : {{ExpensesDetails?.vendor}}
+        </div>
+        <div class="col-md-4">
+            <b>Department</b> : {{ExpensesDetails?.department}}
+        </div>
+        <div class="col-md-4">
+            <b>Amount</b> : {{ExpensesDetails?.amount}}
+        </div>
+        <div class="col-md-4">
+            <b>Tax</b> : {{ExpensesDetails?.tax}}
+        </div>
+        <div class="col-md-4">
+            <b>Total Cost</b> : {{ExpensesDetails?.total_cost}}
+        </div>
+        <div class="col-md-4">
+            <b>Payment Method</b> : {{ExpensesDetails?.payment_method}}
+        </div>
+        <div class="col-md-4">
+            <b>Approval Status</b> : {{ExpensesDetails?.approval_status}}
+        </div>
+        <div class="col-md-4">
+            <b>Payment Status</b> : {{ExpensesDetails?.payment_status}}
+        </div>
+        <div class="col-md-4">
+            <b>Notes</b> : {{ExpensesDetails?.notes}}
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>
