@@ -14,6 +14,7 @@ import { AmbulanceRoutesList } from './features/ambulance/ambulance-list-routes'
 import { PharmacyRoutesList } from './features/pharmacy/pharmacy-routes';
 import { BloodBankRoutesList } from './features/blood-bank/blood-bank-routes';
 import { AccountsRoutesList } from './features/accounts/accounts-routes';
+import { LaboratoryRoutesList } from './features/laboratory/laboratory-routes';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -68,6 +69,10 @@ export const routes: Routes = [
       {
         path: 'accounts', data: { breadcrumb: 'Accounts' },
         children: AccountsRoutesList
+      },
+      {
+        path: 'laboratory', data: { breadcrumb: 'Laboratory' },
+        children: LaboratoryRoutesList
       },
     ]
   }

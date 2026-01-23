@@ -1,0 +1,89 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ TestRequestsDetails ? 'Edit' : 'Add New' }} Test Requests</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="TestRequestsForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Patient</mat-label>
+                <mat-select formControlName="PatientName" required>
+                    <mat-option *ngFor="let Patient of PatientList" [value]="Patient.Name">{{Patient.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="TestRequestsForm.get('Patient')?.invalid">
+                    Please select Patient
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Test Name</mat-label>
+                <mat-select formControlName="TestName" required>
+                    <mat-option *ngFor="let Test of TestList" [value]="Test.TestName">{{Test.TestName}} -
+                        {{Test.SampleType}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="TestRequestsForm.get('TestName')?.invalid">
+                    Please select Test Name
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Doctor</mat-label>
+                <mat-select formControlName="Doctor" required>
+                    <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{Doctor.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="TestRequestsForm.get('Doctor')?.invalid">
+                    Please select Doctor
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Request Date</mat-label>
+                <input matInput [matDatepicker]="RequestDate" formControlName="RequestDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="RequestDate"></mat-datepicker-toggle>
+                <mat-datepicker #RequestDate></mat-datepicker>
+                <mat-error *ngIf="TestRequestsForm.get('RequestDate')?.invalid">
+                    Please select Request Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Priority</mat-label>
+                <mat-select formControlName="Priority" required>
+                    <mat-option value="Normal">Normal</mat-option>
+                    <mat-option value="High">High</mat-option>
+                    <mat-option value="Low">Low</mat-option>
+                </mat-select>
+                <mat-error *ngIf="TestRequestsForm.get('Priority')?.invalid">
+                    Please select Priority
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Status</mat-label>
+                <mat-select formControlName="Status" required>
+                    <mat-option value="Pending">Pending</mat-option>
+                    <mat-option value="Completed">Completed</mat-option>
+                    <mat-option value="Cancelled">Cancelled</mat-option>
+                    <mat-option value="In Progress">In Progress</mat-option>
+                </mat-select>
+                <mat-error *ngIf="TestRequestsForm.get('Status')?.invalid">
+                    Please select Status
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ TestRequestsDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

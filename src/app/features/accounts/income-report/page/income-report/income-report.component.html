@@ -1,0 +1,76 @@
+<div class="container-fluid pb-2">
+  <div class="header-section">
+    <h2 class="report-title">Departmental Income Overview</h2>
+    <p class="report-subtitle">Fiscal Year 2026 Performance Analysis</p>
+  </div>
+  
+  <div class="grid-container">
+    <div class="income-card" *ngFor="let row of incomeData">
+      
+      <div class="card-header">
+        <div class="header-content">
+          <div class="dept-icon">{{ row.Department.charAt(0) }}</div>
+          <span class="dept-title">{{ row.Department }}</span>
+        </div>
+        <div class="header-total">
+          <span class="total-label">Total</span>
+          <span class="total-value">{{ row.Yearly | currency:'INR':'symbol':'1.0-0' }}</span>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="months-grid">
+          <div class="month-item">
+            <span class="month-label">Jan</span>
+            <span class="month-value">{{ row.Jan | currency:'INR':'symbol':'1.0-0' }}</span>
+          </div>
+          <div class="month-item">
+            <span class="month-label">Feb</span>
+            <span class="month-value">{{ row.Feb | currency:'INR':'symbol':'1.0-0' }}</span>
+          </div>
+          <div class="month-item">
+            <span class="month-label">Mar</span>
+            <span class="month-value">{{ row.Mar | currency:'INR':'symbol':'1.0-0' }}</span>
+          </div>
+          <div class="month-item">
+            <span class="month-label">Apr</span>
+            <span class="month-value">{{ row.Apr | currency:'INR':'symbol':'1.0-0' }}</span>
+          </div>
+          <div class="month-item">
+            <span class="month-label">May</span>
+            <span class="month-value">{{ row.May | currency:'INR':'symbol':'1.0-0' }}</span>
+          </div>
+          <div class="month-item">
+            <span class="month-label">Jun</span>
+            <span class="month-value">{{ row.Jun | currency:'INR':'symbol':'1.0-0' }}</span>
+          </div>
+          <div class="month-item">
+            <span class="month-label">Jul</span>
+            <span class="month-value">{{ row.Jul | currency:'INR':'symbol':'1.0-0' }}</span>
+          </div>
+          <div class="month-item">
+            <span class="month-label">Aug</span>
+            <span class="month-value">{{ row.Aug | currency:'INR':'symbol':'1.0-0' }}</span>
+          </div>
+          <div class="month-item">
+            <span class="month-label">Sep</span>
+            <span class="month-value">{{ row.Sep | currency:'INR':'symbol':'1.0-0' }}</span>
+          </div>
+          <div class="month-item">
+            <span class="month-label">Oct</span>
+            <span class="month-value">{{ row.Oct | currency:'INR':'symbol':'1.0-0' }}</span>
+          </div>
+          <div class="month-item">
+            <span class="month-label">Nov</span>
+            <span class="month-value">{{ row.Nov | currency:'INR':'symbol':'1.0-0' }}</span>
+          </div>
+          <div class="month-item">
+            <span class="month-label">Dec</span>
+            <span class="month-value">{{ row.Dec | currency:'INR':'symbol':'1.0-0' }}</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

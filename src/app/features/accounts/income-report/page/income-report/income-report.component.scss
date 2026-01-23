@@ -1,0 +1,125 @@
+.header-section {
+  text-align: center;
+  margin-bottom: 2.5rem;
+
+  .report-title {
+    color: #6A0572;
+    font-size: 2rem;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-bottom: 0.25rem;
+  }
+
+  .report-subtitle {
+    color: #7f8c8d;
+    font-size: 0.95rem;
+    font-weight: 400;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+  }
+}
+
+.grid-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 1.5rem;
+  padding: 0 1rem;
+}
+
+.income-card {
+  background: #fff;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  display: flex;
+  flex-direction: column;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 25px rgba(0, 0, 0, 0.1);
+  }
+
+  // Unique gradients for the header
+  &:nth-child(1) .card-header { background: linear-gradient(135deg, #6A0572 0%, #9C27B0 100%); }
+  &:nth-child(2) .card-header { 
+    background: linear-gradient(135deg, #D4AF37 0%, #F1C40F 100%); 
+    color: #333333;
+    .dept-icon { background: rgba(0,0,0,0.1); }
+  }
+  &:nth-child(3) .card-header { background: linear-gradient(135deg, #FF6B6B 0%, #FF8A65 100%); }
+  &:nth-child(4) .card-header { background: linear-gradient(135deg, #580464 0%, #6A0572 100%); }
+  &:nth-child(5) .card-header { 
+    background: linear-gradient(135deg, #C9A22F 0%, #D4AF37 100%);
+    color: #333333;
+    .dept-icon { background: rgba(0,0,0,0.1); }
+  }
+
+  .card-header {
+    padding: 1rem 1.25rem;
+    color: white;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    
+    .header-content {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+
+      .dept-icon {
+        width: 36px;
+        height: 36px;
+        background: rgba(255,255,255,0.2);
+        border-radius: 8px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.1rem;
+        font-weight: 700;
+        backdrop-filter: blur(5px);
+      }
+
+      .dept-title {
+        font-size: 1.1rem;
+        font-weight: 600;
+        letter-spacing: 0.3px;
+      }
+    }
+
+    .header-total {
+      text-align: right;
+      
+      .total-label {
+        display: block;
+        font-size: 0.65rem;
+        text-transform: uppercase;
+        opacity: 0.85;
+        margin-bottom: 2px;
+      }
+      .total-value {
+        display: block;
+        font-size: 1.1rem;
+        font-weight: 700;
+      }
+    }
+  }
+
+  .card-body {
+    padding: 1.25rem;
+    
+    .months-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+
+      .month-item {
+        display: flex;
+        flex-direction: column;
+
+        .month-label { font-size: 0.7rem; color: #95a5a6; font-weight: 600; text-transform: uppercase; margin-bottom: 2px; }
+        .month-value { font-size: 0.9rem; color: #34495e; font-weight: 600; }
+      }
+    }
+  }
+}

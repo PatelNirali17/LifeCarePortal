@@ -1,0 +1,102 @@
+[
+  {
+    "Code": "HEM001",
+    "TestName": "Complete Blood Count (CBC)",
+    "Category": "Hematology",
+    "Department": "Clinical Lab",
+    "SampleType": "Blood",
+    "Price": 50,
+    "Duration": "24 Hours",
+    "Status": "Active"
+  },
+  {
+    "Code": "BIO001",
+    "TestName": "Liver Function Test",
+    "Category": "Biochemistry",
+    "Department": "Clinical Lab",
+    "SampleType": "Blood",
+    "Price": 120,
+    "Duration": "24 Hours",
+    "Status": "Inactive"
+  },
+  {
+    "Code": "IMM001",
+    "TestName": "Thyroid Stimulating Hormone (TSH)",
+    "Category": "Immunology",
+    "Department": "Endocrinology",
+    "SampleType": "Blood",
+    "Price": 80,
+    "Duration": "48 Hours",
+    "Status": "Active"
+  },
+  {
+    "Code": "MIC001",
+    "TestName": "Urine Culture",
+    "Category": "Microbiology",
+    "Department": "Pathology",
+    "SampleType": "Urine",
+    "Price": 70,
+    "Duration": "72 Hours",
+    "Status": "Active"
+  },
+  {
+    "Code": "CAR001",
+    "TestName": "Lipid Panel",
+    "Category": "Cardiology",
+    "Department": "Clinical Lab",
+    "SampleType": "Blood",
+    "Price": 90,
+    "Duration": "24 Hours",
+    "Status": "Inactive"
+  },
+  {
+    "Code": "HEM002",
+    "TestName": "Hemoglobin A1c",
+    "Category": "Hematology",
+    "Department": "Clinical Lab",
+    "SampleType": "Blood",
+    "Price": 60,
+    "Duration": "24 Hours",
+    "Status": "Inactive"
+  },
+  {
+    "Code": "BIO002",
+    "TestName": "Kidney Function Test",
+    "Category": "Biochemistry",
+    "Department": "Clinical Lab",
+    "SampleType": "Blood, Urine",
+    "Price": 110,
+    "Duration": "24 Hours",
+    "Status": "Inactive"
+  },
+  {
+    "Code": "IMM002",
+    "TestName": "Vitamin D (25-Hydroxy)",
+    "Category": "Immunology",
+    "Department": "Endocrinology",
+    "SampleType": "Blood",
+    "Price": 100,
+    "Duration": "48 Hours",
+    "Status": "Active"
+  },
+  {
+    "Code": "MIC002",
+    "TestName": "Stool Culture",
+    "Category": "Microbiology",
+    "Department": "Pathology",
+    "SampleType": "Stool",
+    "Price": 85,
+    "Duration": "72 Hours",
+    "Status": "Active"
+  },
+  {
+    "Code": "CAR002",
+    "TestName": "Troponin I",
+    "Category": "Cardiology",
+    "Department": "Clinical Lab",
+    "SampleType": "Blood",
+    "Price": 150,
+    "Duration": "3 Hours",
+    "Status": "Active"
+  }
+]

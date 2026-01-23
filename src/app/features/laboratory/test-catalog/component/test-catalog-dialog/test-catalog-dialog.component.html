@@ -1,0 +1,81 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ TestCatalogDetails ? 'Edit' : 'Add New' }} Test Catalog</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="TestCatalogForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Test Name</mat-label>
+                <input matInput formControlName="TestName" required>
+                <mat-error *ngIf="TestCatalogForm.get('TestName')?.invalid">
+                    Please enter Test Name
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Category</mat-label>
+                <input matInput formControlName="Category" required>
+                <mat-error *ngIf="TestCatalogForm.get('Category')?.invalid">
+                    Please enter Category
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Department</mat-label>
+                <mat-select formControlName="Department" required>
+                    <mat-option *ngFor="let Department of DepartmentList" [value]="Department.Name">{{Department.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="TestCatalogForm.get('Department')?.invalid">
+                    Please select Department
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Sample Type</mat-label>
+                <input matInput formControlName="SampleType" required>
+                <mat-error *ngIf="TestCatalogForm.get('SampleType')?.invalid">
+                    Please enter Sample Type
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Price</mat-label>
+                <input matInput formControlName="Price" required>
+                <mat-error *ngIf="TestCatalogForm.get('Price')?.invalid">
+                    Please enter Price
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Duration</mat-label>
+                <input matInput formControlName="Duration" required>
+                <mat-error *ngIf="TestCatalogForm.get('Duration')?.invalid">
+                    Please enter Duration
+                </mat-error>
+            </mat-form-field>
+        </div>
+         <div class="col-md-6">
+                <mat-radio-group formControlName="Status">
+                    <mat-label style="font-size: 14px;">Status :</mat-label>
+                    <mat-radio-button value="Active">Active</mat-radio-button>
+                    <mat-radio-button value="Inactive">Inactive</mat-radio-button>
+                </mat-radio-group>
+                <mat-error *ngIf="TestCatalogForm.get('Status')?.invalid">
+                    Please select Status
+                </mat-error>
+            </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ TestCatalogDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>
