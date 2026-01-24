@@ -1,0 +1,97 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ TechnicianAssignmentDetails ? 'Edit' : 'Add New' }} Technician Assignment</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="TechnicianAssignmentForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Technician</mat-label>
+                <input matInput formControlName="Technician" required>
+                <mat-error *ngIf="TechnicianAssignmentForm.get('Technician')?.invalid">
+                    Please enter Technician
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Test Name</mat-label>
+                <mat-select formControlName="TestName" required>
+                    <mat-option *ngFor="let Test of TestList" [value]="Test.TestName">{{Test.TestName}}</mat-option>
+                </mat-select>
+                <mat-error *ngIf="TechnicianAssignmentForm.get('TestName')?.invalid">
+                    Please select Test Name
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Patient</mat-label>
+                <mat-select formControlName="PatientName" required>
+                    <mat-option *ngFor="let Patient of PatientList" [value]="Patient.Name">{{Patient.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="TechnicianAssignmentForm.get('Patient')?.invalid">
+                    Please select Patient
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Assigned Date</mat-label>
+                <input matInput [matDatepicker]="AssignedDate" formControlName="AssignedDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="AssignedDate"></mat-datepicker-toggle>
+                <mat-datepicker #AssignedDate></mat-datepicker>
+                <mat-error *ngIf="TechnicianAssignmentForm.get('AssignedDate')?.invalid">
+                    Please select Assigned Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Priority</mat-label>
+                <mat-select formControlName="Priority" required>
+                    <mat-option value="Normal">Normal</mat-option>
+                    <mat-option value="High">High</mat-option>
+                    <mat-option value="Urgent">Urgent</mat-option>
+                    <mat-option value="Low">Low</mat-option>
+                </mat-select>
+                <mat-error *ngIf="TechnicianAssignmentForm.get('Priority')?.invalid">
+                    Please select Priority
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Status</mat-label>
+                <mat-select formControlName="Status" required>
+                    <mat-option value="Assigned">Assigned</mat-option>
+                    <mat-option value="In Progress">In Progress</mat-option>
+                    <mat-option value="Completed">Completed</mat-option>
+                    <mat-option value="Cancelled">Cancelled</mat-option>
+                </mat-select>
+                <mat-error *ngIf="TechnicianAssignmentForm.get('Status')?.invalid">
+                    Please select Status
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Department</mat-label>
+                <mat-select formControlName="Department" required>
+                    <mat-option *ngFor="let Department of DepartmentList" [value]="Department.Name">{{Department.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="TechnicianAssignmentForm.get('Department')?.invalid">
+                    Please select Department
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ TechnicianAssignmentDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

@@ -1,0 +1,110 @@
+[
+  {
+    "PatientName": "Alice Smith",
+    "Doctor": "Dr. Brown",
+    "Diagnosis": "Hypertension",
+    "Treatment": "Medication, diet, exercise",
+    "StartDate": "2024-11-01",
+    "EndDate": "2025-11-01",
+    "Status": "Active"
+  },
+  {
+    "PatientName": "Robert Johnson",
+    "Doctor": "Dr. Williams",
+    "Diagnosis": "Type 2 Diabetes",
+    "Treatment": "Insulin therapy, carb counting",
+    "StartDate": "2024-10-15",
+    "EndDate": "2025-10-15",
+    "Status": "Active"
+  },
+  {
+    "PatientName": "Emily Wilson",
+    "Doctor": "Dr. Jones",
+    "Diagnosis": "Asthma",
+    "Treatment": "Inhaler, avoid triggers",
+    "StartDate": "2024-09-20",
+    "EndDate": "2025-09-20",
+    "Status": "Active"
+  },
+  {
+    "PatientName": "Michael Davis",
+    "Doctor": "Dr. Miller",
+    "Diagnosis": "Post-Op Recovery",
+    "Treatment": "Physical therapy, pain management",
+    "StartDate": "2024-11-10",
+    "EndDate": "2024-12-10",
+    "Status": "Completed"
+  },
+  {
+    "PatientName": "Sarah Thompson",
+    "Doctor": "Dr. Garcia",
+    "Diagnosis": "Chronic Back Pain",
+    "Treatment": "Yoga, acupuncture, NSAIDs",
+    "StartDate": "2024-08-05",
+    "EndDate": "2025-02-05",
+    "Status": "Active"
+  },
+  {
+    "PatientName": "James Anderson",
+    "Doctor": "Dr. Martinez",
+    "Diagnosis": "High Cholesterol",
+    "Treatment": "Statins, low-fat diet",
+    "StartDate": "2024-11-05",
+    "EndDate": "2025-05-05",
+    "Status": "Active"
+  },
+  {
+    "PatientName": "Linda White",
+    "Doctor": "Dr. Robinson",
+    "Diagnosis": "Anxiety Disorder",
+    "Treatment": "CBT, SSRIs",
+    "StartDate": "2024-10-01",
+    "EndDate": "2025-04-01",
+    "Status": "Active"
+  },
+  {
+    "PatientName": "David Lee",
+    "Doctor": "Dr. Clark",
+    "Diagnosis": "Osteoarthritis",
+    "Treatment": "Weight loss, gentle exercise",
+    "StartDate": "2024-07-15",
+    "EndDate": "2025-07-15",
+    "Status": "Active"
+  },
+  {
+    "PatientName": "Elizabeth Moore",
+    "Doctor": "Dr. Rodriguez",
+    "Diagnosis": "Hypothyroidism",
+    "Treatment": "Levothyroxine",
+    "StartDate": "2024-06-20",
+    "EndDate": "2025-06-20",
+    "Status": "Active"
+  },
+  {
+    "PatientName": "William Taylor",
+    "Doctor": "Dr. Lewis",
+    "Diagnosis": "Sleep Apnea",
+    "Treatment": "CPAP machine, weight management",
+    "StartDate": "2024-11-15",
+    "EndDate": "2025-11-15",
+    "Status": "Active"
+  },
+  {
+    "PatientName": "Jennifer Harris",
+    "Doctor": "Dr. Walker",
+    "Diagnosis": "Iron Deficiency Anemia",
+    "Treatment": "Iron supplements, vitamin C",
+    "StartDate": "2024-11-25",
+    "EndDate": "2025-02-25",
+    "Status": "Active"
+  },
+  {
+    "PatientName": "Charles Martin",
+    "Doctor": "Dr. Hall",
+    "Diagnosis": "Migraine",
+    "Treatment": "Triptans, trigger identification",
+    "StartDate": "2024-05-10",
+    "EndDate": "2024-11-10",
+    "Status": "Completed"
+  }
+]

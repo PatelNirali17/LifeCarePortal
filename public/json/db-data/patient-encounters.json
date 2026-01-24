@@ -1,0 +1,92 @@
+[
+  {
+    "EncounterID": "ENC-1001",
+    "PatientName": "Sarah Johnson",
+    "Doctor": "Dr. Smith",
+    "Date": "2024-11-20",
+    "Type": "OPD",
+    "Department": "General Medicine",
+    "Status": "Completed"
+  },
+  {
+    "EncounterID": "ENC-1002",
+    "PatientName": "John Doe",
+    "Doctor": "Dr. Jones",
+    "Date": "2024-11-21",
+    "Type": "IPD",
+    "Department": "Orthopedics",
+    "Status": "Admitted"
+  },
+  {
+    "EncounterID": "ENC-1003",
+    "PatientName": "Jane Smith",
+    "Doctor": "Dr. Williams",
+    "Date": "2024-11-22",
+    "Type": "Emergency",
+    "Department": "Emergency Medicine",
+    "Status": "Transferred"
+  },
+  {
+    "EncounterID": "ENC-1004",
+    "PatientName": "Peter Jones",
+    "Doctor": "Dr. Brown",
+    "Date": "2024-11-23",
+    "Type": "OPD",
+    "Department": "Dermatology",
+    "Status": "Completed"
+  },
+  {
+    "EncounterID": "ENC-1005",
+    "PatientName": "Alice Williams",
+    "Doctor": "Dr. Davis",
+    "Date": "2024-11-24",
+    "Type": "IPD",
+    "Department": "Cardiology",
+    "Status": "Admitted"
+  },
+  {
+    "EncounterID": "ENC-1006",
+    "PatientName": "Robert Brown",
+    "Doctor": "Dr. Miller",
+    "Date": "2024-11-25",
+    "Type": "OPD",
+    "Department": "Neurology",
+    "Status": "FollowUp"
+  },
+  {
+    "EncounterID": "ENC-1007",
+    "PatientName": "Emily Davis",
+    "Doctor": "Dr. Wilson",
+    "Date": "2024-11-26",
+    "Type": "Emergency",
+    "Department": "Trauma Center",
+    "Status": "Critical"
+  },
+  {
+    "EncounterID": "ENC-1008",
+    "PatientName": "Michael Miller",
+    "Doctor": "Dr. Moore",
+    "Date": "2024-11-27",
+    "Type": "OPD",
+    "Department": "Pediatrics",
+    "Status": "Completed"
+  },
+  {
+    "EncounterID": "ENC-1009",
+    "PatientName": "Jessica Wilson",
+    "Doctor": "Dr. Taylor",
+    "Date": "2024-11-28",
+    "Type": "IPD",
+    "Department": "Gynecology",
+    "Status": "Admitted"
+  },
+  {
+    "EncounterID": "ENC-1010",
+    "PatientName": "David Garcia",
+    "Doctor": "Dr. White",
+    "Date": "2024-11-29",
+    "Type": "OPD",
+    "Department": "ENT",
+    "Status": "Completed"
+  }
+]

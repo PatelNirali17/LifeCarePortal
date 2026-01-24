@@ -3,31 +3,44 @@ import { SharedModule } from '../../../../../shared/shared.module';
 import { CommonModule } from '@angular/common';
 import { FormGroup, FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
+import { AllDoctorsService } from '../../../../doctors/all-doctors/all-doctors.service';
 import { AllPatientsService } from '../../../../patients/all-patients/all-patients.service';
 import { TestCatalogService } from '../../../test-catalog/test-catalog.service';
 
 @Component({
-  selector: 'app-sample-collection-dialog',
+  selector: 'app-lab-reports-dialog',
   imports: [SharedModule, CommonModule, FormsModule, ReactiveFormsModule],
-  templateUrl: './sample-collection-dialog.component.html',
-  styleUrl: './sample-collection-dialog.component.scss'
+  templateUrl: './lab-reports-dialog.component.html',
+  styleUrl: './lab-reports-dialog.component.scss'
 })
-export class SampleCollectionDialogComponent {
-  SampleCollectionForm!: FormGroup;
+export class LabReportsDialogComponent {
+  LabReportsForm!: FormGroup;
   PatientList: any;
   TestList: any;
+  DoctorList: any;
+  DepartmentList: any;
 
-  constructor(public dialogRef: MatDialogRef<SampleCollectionDialogComponent>, private fb: NonNullableFormBuilder, 
+  constructor(public dialogRef: MatDialogRef<LabReportsDialogComponent>, private fb: NonNullableFormBuilder, private allDoctorsService: AllDoctorsService,
     private allPatientService: AllPatientsService, private testCatalogService: TestCatalogService,
-    @Optional() @Inject(MAT_DIALOG_DATA) public SampleCollectionDetails: any) {
-    this.SampleCollectionForm = this.fb.group({
+    @Optional() @Inject(MAT_DIALOG_DATA) public LabReportsDetails: any) {
+    this.LabReportsForm = this.fb.group({
       PatientName: this.fb.control('', Validators.required),
-      TestName: this.fb.control('', Validators.required),
-      CollectionDate: this.fb.control('', Validators.required),
-      CollectedBy: this.fb.control('', Validators.required),
+      Tests: this.fb.control('', Validators.required),
+      Doctor: this.fb.control('', Validators.required),
+      ReportDate: this.fb.control('', Validators.required),
       Status: this.fb.control('', Validators.required),
+      Department: this.fb.control('', Validators.required),
     })
-
+    this.allDoctorsService.GetAllDoctors().subscribe({
+      next: (result: any) => {
+        this.DoctorList = result
+      },
+    })
+    this.allDoctorsService.GetAllDepartment().subscribe({
+      next: (result: any) => {
+        this.DepartmentList = result
+      },
+    })
     this.allPatientService.GetAllPatients().subscribe({
       next: (result: any) => {
         this.PatientList = result

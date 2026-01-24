@@ -5,11 +5,11 @@ import { Observable } from 'rxjs';
 @Injectable({
   providedIn: 'root'
 })
-export class SampleCollectionService {
+export class TechnicianAssignmentService {
 
   constructor(private http: HttpClient) { }
 
-  GetAllSampleCollection(): Observable<any> {
-    return this.http.get<any>('json/db-data/sample-collection.json')
+  GetAllTechnicianAssignment(): Observable<any> {
+    return this.http.get<any>('json/db-data/technician-assignment.json')
   }
 }

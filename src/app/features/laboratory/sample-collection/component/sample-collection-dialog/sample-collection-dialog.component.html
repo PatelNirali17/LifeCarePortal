@@ -1,1 +1,72 @@
-<p>sample-collection-dialog works!</p>
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ SampleCollectionDetails ? 'Edit' : 'Add New' }} Sample</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="SampleCollectionForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Patient</mat-label>
+                <mat-select formControlName="PatientName" required>
+                    <mat-option *ngFor="let Patient of PatientList" [value]="Patient.Name">{{Patient.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="SampleCollectionForm.get('Patient')?.invalid">
+                    Please select Patient
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Test Name</mat-label>
+                <mat-select formControlName="TestName" required>
+                    <mat-option *ngFor="let Test of TestList" [value]="Test.TestName">{{Test.TestName}} -
+                        {{Test.SampleType}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="SampleCollectionForm.get('TestName')?.invalid">
+                    Please select Test Name
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Collection Date</mat-label>
+                <input matInput [matDatepicker]="CollectionDate" formControlName="CollectionDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="CollectionDate"></mat-datepicker-toggle>
+                <mat-datepicker #CollectionDate></mat-datepicker>
+                <mat-error *ngIf="SampleCollectionForm.get('CollectionDate')?.invalid">
+                    Please select Collection Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Collected By</mat-label>
+                <input matInput formControlName="CollectedBy" required>
+                <mat-error *ngIf="SampleCollectionForm.get('CollectedBy')?.invalid">
+                    Please enter Collected By
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Status</mat-label>
+                <mat-select formControlName="Status" required>
+                    <mat-option value="Pending">Pending</mat-option>
+                    <mat-option value="Collected">Collected</mat-option>
+                    <mat-option value="Transferred">Transferred</mat-option>
+                </mat-select>
+                <mat-error *ngIf="SampleCollectionForm.get('Status')?.invalid">
+                    Please select Status
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ SampleCollectionDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

@@ -1,12 +1,12 @@
 <div class="container-fluid">
     <div class="unique-header-section">
         <div class="header-content">
-            <h2>All Sample Collection</h2>
-            <p>View and manage all collected samples with detailed test information</p>
+            <h2>All Technician Assignment</h2>
+            <p>View and manage all technician assignments with complete details</p>
         </div>
         <div class="header-actions">
-            <button class="add-btn" (click)="OpenAddSampleCollectionDialog(null)">
-                <span class="icon">+</span> Add New Sample
+            <button class="add-btn" (click)="OpenAddTechnicianAssignmentDialog(null)">
+                <span class="icon">+</span> Add New Technician Assignment
             </button>
         </div>
     </div>
@@ -15,12 +15,13 @@
             <thead>
                 <tr>
                     <th>SrNo</th>
-                    <th>Patient</th>
+                    <th>Technician</th>
                     <th>Test Name</th>
-                    <th>Sample Type</th>
-                    <th>Collection Date</th>
-                    <th>Collected By</th>
+                    <th>Patient</th>
+                    <th>Assigned Date</th>
+                    <th>Priority</th>
                     <th>Status</th>
+                    <th>Department</th>
                     <th class="text-end">Actions</th>
                 </tr>
             </thead>
@@ -31,16 +32,26 @@
                             <div class="column-number">{{ i + 1 }}</div>
                         </div>
                     </td>
-                    <td>{{ sample.PatientName }}</td>
+                    <td>{{ sample.Technician }}</td>
                     <td>{{ sample.TestName }}</td>
-                    <td>{{ sample.SampleType }}</td>
-                    <td>📅 {{ sample.CollectionDate }}</td>
-                    <td>{{ sample.CollectedBy }}</td>
+                    <td>{{ sample.PatientName }}</td>
+                    <td>📅 {{ sample.AssignedDate }}</td>
                     <td>
-                        <span class="type-badge active" *ngIf="sample.Status == 'Collected'">{{sample.Status}}</span>
-                        <span class="type-badge contractual" *ngIf="sample.Status == 'Transferred'">{{sample.Status}}</span>
-                        <span class="type-badge inactive" *ngIf="sample.Status == 'Pending'">{{sample.Status}}</span>
+                        <span class="type-badge active" *ngIf="sample.Priority == 'High'">{{sample.Priority}}</span>
+                        <span class="type-badge contractual"
+                            *ngIf="sample.Priority == 'Urgent'">{{sample.Priority}}</span>
+                        <span class="type-badge owned" *ngIf="sample.Priority == 'Normal'">{{sample.Priority}}</span>
+                        <span class="type-badge inactive" *ngIf="sample.Priority == 'Low'">{{sample.Priority}}</span>
                     </td>
+                    <td>
+                        <span class="type-badge active" *ngIf="sample.Status == 'Assigned'">{{sample.Status}}</span>
+                        <span class="type-badge contractual"
+                            *ngIf="sample.Status == 'In Progress'">{{sample.Status}}</span>
+                        <span class="type-badge owned" *ngIf="sample.Status == 'Completed'">{{sample.Status}}</span>
+                        <span class="type-badge inactive"
+                            *ngIf="sample.Status == 'Cancelled'">{{sample.Status}}</span>
+                    </td>
+                    <td>{{ sample.Department }}</td>
                     <td class="text-end">
                         <div class="action-group">
                             <button class="action-btn edit" title="Edit">
@@ -55,16 +66,17 @@
             </tbody>
         </table>
 
-        <div *ngIf="SampleCollectionList.length === 0" class="empty-state">
-            <p>No Sample data available.</p>
+        <div *ngIf="TechnicianAssignmentList.length === 0" class="empty-state">
+            <p>No Technician Assignment data available.</p>
         </div>
     </div>
 
     <div class="pagination-section">
         <div class="pagination-info">
             <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
-                SampleCollectionList.length ?
-                SampleCollectionList.length : currentPage * pageSize }} of {{ SampleCollectionList.length }} records</span>
+                TechnicianAssignmentList.length ?
+                TechnicianAssignmentList.length : currentPage * pageSize }} of {{ TechnicianAssignmentList.length }}
+                records</span>
         </div>
         <nav aria-label="Page navigation">
             <ul class="pagination">

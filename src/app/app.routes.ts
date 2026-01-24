@@ -15,6 +15,7 @@ import { PharmacyRoutesList } from './features/pharmacy/pharmacy-routes';
 import { BloodBankRoutesList } from './features/blood-bank/blood-bank-routes';
 import { AccountsRoutesList } from './features/accounts/accounts-routes';
 import { LaboratoryRoutesList } from './features/laboratory/laboratory-routes';
+import { EMR_EHRRoutesList } from './features/emr_ehr/emr-ehr-routes';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -73,6 +74,10 @@ export const routes: Routes = [
       {
         path: 'laboratory', data: { breadcrumb: 'Laboratory' },
         children: LaboratoryRoutesList
+      },
+      {
+        path: 'emr_ehr', data: { breadcrumb: 'EMR/EHR' },
+        children: EMR_EHRRoutesList
       },
     ]
   }

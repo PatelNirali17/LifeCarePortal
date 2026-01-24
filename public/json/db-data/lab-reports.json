@@ -1,0 +1,83 @@
+[
+  {
+    "ReportID": "RPT001",
+    "PatientName": "Sarah Johnson",
+    "Tests": "CBC, Lipid Panel",
+    "Doctor": "Dr. Smith",
+    "ReportDate": "2024-11-20",
+    "Status": "Completed",
+    "Department": "Clinical Lab"
+  },
+  {
+    "ReportID": "RPT002",
+    "PatientName": "John Doe",
+    "Tests": "Thyroid Panel",
+    "Doctor": "Dr. Jones",
+    "ReportDate": "2024-11-21",
+    "Status": "Pending",
+    "Department": "Endocrinology"
+  },
+  {
+    "ReportID": "RPT003",
+    "PatientName": "Jane Smith",
+    "Tests": "Urinalysis",
+    "Doctor": "Dr. Williams",
+    "ReportDate": "2024-11-22",
+    "Status": "Completed",
+    "Department": "Urology"
+  },
+  {
+    "ReportID": "RPT004",
+    "PatientName": "Peter Jones",
+    "Tests": "Glucose Test",
+    "Doctor": "Dr. Brown",
+    "ReportDate": "2024-11-23",
+    "Status": "Processing",
+    "Department": "Clinical Lab"
+  },
+  {
+    "ReportID": "RPT005",
+    "PatientName": "Alice Williams",
+    "Tests": "X-Ray",
+    "Doctor": "Dr. Davis",
+    "ReportDate": "2024-11-24",
+    "Status": "Completed",
+    "Department": "Radiology"
+  },
+  {
+    "ReportID": "RPT006",
+    "PatientName": "Robert Brown",
+    "Tests": "MRI Scan",
+    "Doctor": "Dr. Miller",
+    "ReportDate": "2024-11-25",
+    "Status": "Pending",
+    "Department": "Radiology"
+  },
+  {
+    "ReportID": "RPT007",
+    "PatientName": "Emily Davis",
+    "Tests": "CT Scan",
+    "Doctor": "Dr. Wilson",
+    "ReportDate": "2024-11-26",
+    "Status": "Completed",
+    "Department": "Radiology"
+  },
+  {
+    "ReportID": "RPT008",
+    "PatientName": "Michael Miller",
+    "Tests": "Ultrasound",
+    "Doctor": "Dr. Moore",
+    "ReportDate": "2024-11-27",
+    "Status": "Processing",
+    "Department": "Radiology"
+  },
+  {
+    "ReportID": "RPT009",
+    "PatientName": "Jessica Wilson",
+    "Tests": "ECG",
+    "Doctor": "Dr. Taylor",
+    "ReportDate": "2024-11-28",
+    "Status": "Completed",
+    "Department": "Cardiology"
+  }
+]

@@ -1,32 +1,32 @@
 import { ChangeDetectorRef, Component } from '@angular/core';
 import { SharedModule } from '../../../../../shared/shared.module';
 import { CommonModule } from '@angular/common';
-import { SampleCollectionService } from '../../sample-collection.service';
+import { LabReportsService } from '../../lab-reports.service';
 import { MatDialog } from '@angular/material/dialog';
-import { SampleCollectionDialogComponent } from '../../component/sample-collection-dialog/sample-collection-dialog.component';
+import { LabReportsDialogComponent } from '../../component/lab-reports-dialog/lab-reports-dialog.component';
 
 @Component({
-  selector: 'app-sample-collection',
+  selector: 'app-lab-reports',
   imports: [SharedModule, CommonModule],
-  templateUrl: './sample-collection.component.html',
-  styleUrl: './sample-collection.component.scss'
+  templateUrl: './lab-reports.component.html',
+  styleUrl: './lab-reports.component.scss'
 })
-export class SampleCollectionComponent {
-  SampleCollectionList: any[] = [];
+export class LabReportsComponent {
+  LabReportsList: any[] = [];
   paginatedList: any[] = [];
   pageSize = 5;
   pageIndex = 0;
 
-  constructor(private sampleCollectionService: SampleCollectionService, private dialog: MatDialog, private cdr: ChangeDetectorRef) {
+  constructor(private labReportsService: LabReportsService, private dialog: MatDialog, private cdr: ChangeDetectorRef) {
     setTimeout(() => {
-      this.GetAllSampleCollection()
+      this.GetAllLabReports()
     }, 1000);
   }
 
-  GetAllSampleCollection() {
-    this.sampleCollectionService.GetAllSampleCollection().subscribe({
+  GetAllLabReports() {
+    this.labReportsService.GetAllLabReports().subscribe({
       next: (result: any) => {
-        this.SampleCollectionList = result;
+        this.LabReportsList = result;
         this.updatePaginatedList();
         this.cdr.markForCheck();
       },
@@ -42,7 +42,7 @@ export class SampleCollectionComponent {
   }
 
   get totalPages(): number {
-    return Math.ceil(this.SampleCollectionList.length / this.pageSize);
+    return Math.ceil(this.LabReportsList.length / this.pageSize);
   }
 
   get currentPage(): number {
@@ -56,7 +56,7 @@ export class SampleCollectionComponent {
   updatePaginatedList(): void {
     const startIndex = this.pageIndex * this.pageSize;
     const endIndex = startIndex + this.pageSize;
-    this.paginatedList = this.SampleCollectionList.slice(startIndex, endIndex);
+    this.paginatedList = this.LabReportsList.slice(startIndex, endIndex);
   }
 
   changePage(page: number): void {
@@ -66,8 +66,8 @@ export class SampleCollectionComponent {
     }
   }
 
-  OpenAddSampleCollectionDialog(obj: any) {
-    const dialogRef = this.dialog.open(SampleCollectionDialogComponent, {
+  OpenAddLabReportsDialog(obj: any) {
+    const dialogRef = this.dialog.open(LabReportsDialogComponent, {
       minWidth: '600px',
       maxWidth: '600px',
       data: obj ? obj : null,
@@ -75,7 +75,7 @@ export class SampleCollectionComponent {
     });
 
     dialogRef.afterClosed().subscribe(result => {
-      this.GetAllSampleCollection()
+      this.GetAllLabReports()
     });
   }
 }

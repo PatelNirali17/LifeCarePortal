@@ -23,7 +23,7 @@ export const APP_DATE_FORMATS: MatDateFormats = {
 const ngxUiLoaderConfig: NgxUiLoaderConfig = {
   fgsColor: '#6A0572',
   pbColor: '#6A0572',
-  fgsType: "three-strings",
+  fgsType: "ball-spin-clockwise",
   hasProgressBar: true,
 };
 

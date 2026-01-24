@@ -1,0 +1,112 @@
+[
+  {
+    "MedicationID": "MED-1001",
+    "PatientName": "Sarah Johnson",
+    "DrugName": "Metformin",
+    "Dosage": "500mg",
+    "Frequency": "Twice daily",
+    "PrescribedBy": "Dr. Smith",
+    "StartDate": "2024-11-01",
+    "EndDate": "2025-02-01",
+    "Status": "Active"
+  },
+  {
+    "MedicationID": "MED-1002",
+    "PatientName": "Michael Brown",
+    "DrugName": "Lisinopril",
+    "Dosage": "10mg",
+    "Frequency": "Once daily",
+    "PrescribedBy": "Dr. Williams",
+    "StartDate": "2024-10-15",
+    "EndDate": "2025-01-15",
+    "Status": "Active"
+  },
+  {
+    "MedicationID": "MED-1003",
+    "PatientName": "Emily Davis",
+    "DrugName": "Amoxicillin",
+    "Dosage": "250mg",
+    "Frequency": "Three times daily",
+    "PrescribedBy": "Dr. Johnson",
+    "StartDate": "2024-11-10",
+    "EndDate": "2024-11-20",
+    "Status": "Completed"
+  },
+  {
+    "MedicationID": "MED-1004",
+    "PatientName": "David Wilson",
+    "DrugName": "Ibuprofen",
+    "Dosage": "400mg",
+    "Frequency": "As needed",
+    "PrescribedBy": "Dr. Brown",
+    "StartDate": "2024-09-20",
+    "EndDate": "2024-12-20",
+    "Status": "Active"
+  },
+  {
+    "MedicationID": "MED-1005",
+    "PatientName": "Jessica Martinez",
+    "DrugName": "Albuterol Inhaler",
+    "Dosage": "90mcg",
+    "Frequency": "As needed",
+    "PrescribedBy": "Dr. Davis",
+    "StartDate": "2024-11-05",
+    "EndDate": "2025-05-05",
+    "Status": "Active"
+  },
+  {
+    "MedicationID": "MED-1006",
+    "PatientName": "James Anderson",
+    "DrugName": "Sertraline",
+    "Dosage": "50mg",
+    "Frequency": "Once daily",
+    "PrescribedBy": "Dr. Miller",
+    "StartDate": "2024-10-01",
+    "EndDate": "2025-04-01",
+    "Status": "Discontinued"
+  },
+  {
+    "MedicationID": "MED-1007",
+    "PatientName": "Linda Taylor",
+    "DrugName": "Methotrexate",
+    "Dosage": "15mg",
+    "Frequency": "Weekly",
+    "PrescribedBy": "Dr. Wilson",
+    "StartDate": "2024-08-15",
+    "EndDate": "2025-02-15",
+    "Status": "Active"
+  },
+  {
+    "MedicationID": "MED-1008",
+    "PatientName": "Robert Thomas",
+    "DrugName": "Furosemide",
+    "Dosage": "40mg",
+    "Frequency": "Once daily",
+    "PrescribedBy": "Dr. Moore",
+    "StartDate": "2024-09-01",
+    "EndDate": "2025-03-01",
+    "Status": "Active"
+  },
+  {
+    "MedicationID": "MED-1009",
+    "PatientName": "Patricia Jackson",
+    "DrugName": "Sumatriptan",
+    "Dosage": "50mg",
+    "Frequency": "As needed",
+    "PrescribedBy": "Dr. Taylor",
+    "StartDate": "2024-10-20",
+    "EndDate": "2024-12-31",
+    "Status": "Active"
+  },
+  {
+    "MedicationID": "MED-1010",
+    "PatientName": "Christopher White",
+    "DrugName": "Naproxen",
+    "Dosage": "500mg",
+    "Frequency": "Twice daily",
+    "PrescribedBy": "Dr. Anderson",
+    "StartDate": "2024-11-12",
+    "EndDate": "2025-02-12",
+    "Status": "Active"
+  }
+]

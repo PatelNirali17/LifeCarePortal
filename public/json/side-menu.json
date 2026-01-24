@@ -312,8 +312,8 @@
         },
         {
             "id": 32,
-            "title": "Result Entry",
-            "routerLink": "laboratory/resultentry",
+            "title": "Lab Reports",
+            "routerLink": "laboratory/labreports",
             "href": null,
             "icon": null,
             "target": null,
@@ -322,16 +322,6 @@
         },
         {
             "id": 33,
-            "title": "Lab Report",
-            "routerLink": "laboratory/labreport",
-            "href": null,
-            "icon": null,
-            "target": null,
-            "hasSubMenu": false,
-            "parentId": 27
-        },
-        {
-            "id": 34,
             "title": "EMR/EHR",
             "routerLink": null,
             "href": null,
@@ -341,57 +331,57 @@
             "parentId": 0
         },
         {
-            "id": 35,
+            "id": 34,
             "title": "Patient Encounters",
             "routerLink": "emr_ehr/patientencounters",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 34
+            "parentId": 33
         },
         {
-            "id": 36,
+            "id": 35,
             "title": "Clinical Notes",
             "routerLink": "emr_ehr/clinicalnotes",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 34
+            "parentId": 33
         },
         {
-            "id": 37,
+            "id": 36,
             "title": "Treatment Plans",
             "routerLink": "emr_ehr/treatmentplans",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 34
+            "parentId": 33
         },
         {
-            "id": 38,
+            "id": 37,
             "title": "Medication History",
             "routerLink": "emr_ehr/medicationhistory",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 34
+            "parentId": 33
         },
         {
-            "id": 39,
+            "id": 38,
             "title": "Patient Documents",
             "routerLink": "emr_ehr/patientdocuments",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 34
+            "parentId": 33
         },
         {
-            "id": 40,
+            "id": 39,
             "title": "Operation Theatre",
             "routerLink": null,
             "href": null,
@@ -401,57 +391,57 @@
             "parentId": 0
         },
         {
-            "id": 41,
+            "id": 40,
             "title": "OT Scheduling",
             "routerLink": "operationtheatre/otscheduling",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 40
+            "parentId": 39
         },
         {
-            "id": 42,
+            "id": 41,
             "title": "Pre-Op Assessment",
             "routerLink": "operationtheatre/preopassessment",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 40
+            "parentId": 39
         },
         {
-            "id": 43,
+            "id": 42,
             "title": "Post-Op Notes",
             "routerLink": "operationtheatre/postopnotes",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 40
+            "parentId": 39
         },
         {
-            "id": 44,
+            "id": 43,
             "title": "Surgery Records",
             "routerLink": "operationtheatre/surgeryrecords",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 40
+            "parentId": 39
         },
         {
-            "id": 45,
+            "id": 44,
             "title": "OT Inventory",
             "routerLink": "operationtheatre/otinventory",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 40
+            "parentId": 39
         },
         {
-            "id": 46,
+            "id": 45,
             "title": "Radiology (RIS)",
             "routerLink": null,
             "href": null,
@@ -461,37 +451,37 @@
             "parentId": 0
         },
         {
-            "id": 47,
+            "id": 46,
             "title": "Test Ordering",
             "routerLink": "radiology/testordering",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 46
+            "parentId": 45
         },
         {
-            "id": 48,
+            "id": 47,
             "title": "Scans Tracking",
             "routerLink": "radiology/scanstracking",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 46
+            "parentId": 45
         },
         {
-            "id": 49,
+            "id": 48,
             "title": "Imaging Reports",
             "routerLink": "radiology/imagingreports",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 46
+            "parentId": 45
         },
         {
-            "id": 50,
+            "id": 49,
             "title": "Ambulance",
             "routerLink": null,
             "href": null,
@@ -501,27 +491,27 @@
             "parentId": 0
         },
         {
-            "id": 51,
+            "id": 50,
             "title": "Ambulance Call List",
             "routerLink": "ambulance/ambulancecalllist",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 50
+            "parentId": 49
         },
         {
-            "id": 52,
+            "id": 51,
             "title": "Ambulance List",
             "routerLink": "ambulance/ambulancelist",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 50
+            "parentId": 49
         },
         {
-            "id": 53,
+            "id": 52,
             "title": "Pharmacy",
             "routerLink": null,
             "href": null,
@@ -531,17 +521,17 @@
             "parentId": 0
         },
         {
-            "id": 54,
+            "id": 53,
             "title": "Medicine List",
             "routerLink": "pharmacy/medicinelist",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 53
+            "parentId": 52
         },
         {
-            "id": 55,
+            "id": 54,
             "title": "Blood Bank",
             "routerLink": null,
             "href": null,
@@ -551,37 +541,37 @@
             "parentId": 0
         },
         {
-            "id": 56,
+            "id": 55,
             "title": "Blood Stock",
             "routerLink": "bloodbank/bloodstock",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 55
+            "parentId": 54
         },
         {
-            "id": 57,
+            "id": 56,
             "title": "Blood Donor",
             "routerLink": "bloodbank/blooddonor",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 55
+            "parentId": 54
         },
         {
-            "id": 58,
+            "id": 57,
             "title": "Blood Issued",
             "routerLink": "bloodbank/bloodissued",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 55
+            "parentId": 54
         },
         {
-            "id": 59,
+            "id": 58,
             "title": "Insurance",
             "routerLink": null,
             "href": null,
@@ -591,37 +581,37 @@
             "parentId": 0
         },
         {
-            "id": 60,
+            "id": 59,
             "title": "Patient Insurance",
             "routerLink": "/patientinsurance",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 59
+            "parentId": 58
         },
         {
-            "id": 61,
+            "id": 60,
             "title": "Claim Status",
             "routerLink": "/claimstatus",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 59
+            "parentId": 58
         },
         {
-            "id": 62,
+            "id": 61,
             "title": "Insurance Provider",
             "routerLink": "/insuranceprovider",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 59
+            "parentId": 58
         },
         {
-            "id": 63,
+            "id": 62,
             "title": "Records",
             "routerLink": null,
             "href": null,
@@ -631,27 +621,27 @@
             "parentId": 0
         },
         {
-            "id": 64,
+            "id": 63,
             "title": "Birth Records",
             "routerLink": "records/birthrecords",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 63
+            "parentId": 62
         },
         {
-            "id": 65,
+            "id": 64,
             "title": "Death Records",
             "routerLink": "records/deathrecords",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 63
+            "parentId": 62
         },
         {
-            "id": 66,
+            "id": 65,
             "title": "Accounts",
             "routerLink": null,
             "href": null,
@@ -661,57 +651,57 @@
             "parentId": 0
         },
         {
-            "id": 67,
+            "id": 66,
             "title": "Bill List",
             "routerLink": "accounts/billlist",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 66
+            "parentId": 65
         },
         {
-            "id": 68,
+            "id": 67,
             "title": "Income",
             "routerLink": "accounts/income",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 66
+            "parentId": 65
         },
         {
-            "id": 69,
+            "id": 68,
             "title": "Expenses",
             "routerLink": "accounts/expenses",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 66
+            "parentId": 65
         },
         {
-            "id": 70,
+            "id": 69,
             "title": "Income Report",
             "routerLink": "accounts/incomereport",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 66
+            "parentId": 65
         },
         {
-            "id": 71,
+            "id": 70,
             "title": "Invoice",
             "routerLink": "accounts/invoice",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 66
+            "parentId": 65
         },
         {
-            "id": 72,
+            "id": 71,
             "title": "Departments",
             "routerLink": null,
             "href": null,
@@ -721,37 +711,37 @@
             "parentId": 0
         },
         {
-            "id": 73,
+            "id": 72,
             "title": "Department List",
             "routerLink": "departments/departmentlist",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 72
+            "parentId": 71
         },
         {
-            "id": 74,
+            "id": 73,
             "title": "Department Overview",
             "routerLink": "departments/departmentoverview",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 72
+            "parentId": 71
         },
         {
-            "id": 75,
+            "id": 74,
             "title": "Designation List",
             "routerLink": "departments/designationlist",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 72
+            "parentId": 71
         },
         {
-            "id": 76,
+            "id": 75,
             "title": "Inventory",
             "routerLink": null,
             "href": null,
@@ -761,27 +751,27 @@
             "parentId": 0
         },
         {
-            "id": 77,
+            "id": 76,
             "title": "Item Stock List",
             "routerLink": "/itemstocklist",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 76
+            "parentId": 75
         },
         {
-            "id": 78,
+            "id": 77,
             "title": "Issued Items",
             "routerLink": "/issueditem",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 76
+            "parentId": 75
         },
         {
-            "id": 79,
+            "id": 78,
             "title": "Human Resources",
             "routerLink": null,
             "href": null,
@@ -791,94 +781,94 @@
             "parentId": 0
         },
         {
-            "id": 80,
+            "id": 79,
             "title": "Leave Requests",
             "routerLink": "/leaverequest",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 79
+            "parentId": 78
         },
         {
-            "id": 81,
+            "id": 80,
             "title": "Leave Balance",
             "routerLink": "/leavebalance",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 79
+            "parentId": 78
         },
         {
-            "id": 82,
+            "id": 81,
             "title": "Leave Types",
             "routerLink": "/leavetypes",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 79
+            "parentId": 78
         },
         {
-            "id": 83,
+            "id": 82,
             "title": "Holidays",
             "routerLink": "/holidays",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 79
+            "parentId": 78
         },
         {
-            "id": 84,
+            "id": 83,
             "title": "Today's Attendance",
             "routerLink": "/todaysattendance",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 79
+            "parentId": 78
         },
         {
-            "id": 85,
+            "id": 84,
             "title": "Employee Attendance",
             "routerLink": "/employeeattendance",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 79
+            "parentId": 78
         },
         {
-            "id": 86,
+            "id": 85,
             "title": "Attendance Sheet",
             "routerLink": "/attendancesheet",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 79
+            "parentId": 78
         },
         {
-            "id": 87,
+            "id": 86,
             "title": "Employee Salary",
             "routerLink": "/employeesalary",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 79
+            "parentId": 78
         },
         {
-            "id": 88,
+            "id": 87,
             "title": "Payslip",
             "routerLink": "/payslip",
             "href": null,
             "icon": null,
             "target": null,
             "hasSubMenu": false,
-            "parentId": 79
+            "parentId": 78
         }
     ],
     "DoctorMenu": [

@@ -1,0 +1,98 @@
+[
+  {
+    "PatientName": "John Doe",
+    "Doctor": "Dr. Smith",
+    "NoteType": "Progress Note",
+    "Date": "2024-11-20",
+    "Content": "Patient reported feeling better. No new complaints.",
+    "Status": "Finalized"
+  },
+  {
+    "PatientName": "Sarah Jenkins",
+    "Doctor": "Dr. Miller",
+    "NoteType": "Initial Assessment",
+    "Date": "2024-11-21",
+    "Content": "Patient presented with mild hypertension. Recommended lifestyle changes.",
+    "Status": "Finalized"
+  },
+  {
+    "PatientName": "Michael Brown",
+    "Doctor": "Dr. Wilson",
+    "NoteType": "Follow-up Note",
+    "Date": "2024-11-22",
+    "Content": "Post-surgery recovery is on track. Wound healing well.",
+    "Status": "Draft"
+  },
+  {
+    "PatientName": "Emily Davis",
+    "Doctor": "Dr. Thompson",
+    "NoteType": "Consultation Note",
+    "Date": "2024-11-23",
+    "Content": "Discussed allergy test results. Prescribed antihistamines.",
+    "Status": "Finalized"
+  },
+  {
+    "PatientName": "Robert Wilson",
+    "Doctor": "Dr. Garcia",
+    "NoteType": "Progress Note",
+    "Date": "2024-11-24",
+    "Content": "Patient showing signs of improvement after starting new medication.",
+    "Status": "Finalized"
+  },
+  {
+    "PatientName": "Jessica Taylor",
+    "Doctor": "Dr. Anderson",
+    "NoteType": "Discharge Summary",
+    "Date": "2024-11-25",
+    "Content": "Patient fit for discharge. Follow-up scheduled in two weeks.",
+    "Status": "Finalized"
+  },
+  {
+    "PatientName": "William Martinez",
+    "Doctor": "Dr. Lee",
+    "NoteType": "Progress Note",
+    "Date": "2024-11-26",
+    "Content": "Blood pressure stabilized. Continuing current treatment plan.",
+    "Status": "Draft"
+  },
+  {
+    "PatientName": "Linda White",
+    "Doctor": "Dr. Moore",
+    "NoteType": "Consultation Note",
+    "Date": "2024-11-27",
+    "Content": "Evaluated chronic back pain. Referred to physical therapy.",
+    "Status": "Finalized"
+  },
+  {
+    "PatientName": "David Thomas",
+    "Doctor": "Dr. Taylor",
+    "NoteType": "Follow-up Note",
+    "Date": "2024-11-28",
+    "Content": "Review of lab results. All parameters within normal range.",
+    "Status": "Finalized"
+  },
+  {
+    "PatientName": "Elizabeth Jackson",
+    "Doctor": "Dr. Harris",
+    "NoteType": "Initial Assessment",
+    "Date": "2024-11-29",
+    "Content": "Patient reporting persistent headaches. Ordered MRI scan.",
+    "Status": "Finalized"
+  },
+  {
+    "PatientName": "James Martin",
+    "Doctor": "Dr. Clark",
+    "NoteType": "Progress Note",
+    "Date": "2024-11-30",
+    "Content": "Monitoring diabetic ketoacidosis. Adjusting insulin dosage.",
+    "Status": "Draft"
+  },
+  {
+    "PatientName": "Susan Lewis",
+    "Doctor": "Dr. Walker",
+    "NoteType": "Consultation Note",
+    "Date": "2024-12-01",
+    "Content": "Discussed management of seasonal affective disorder.",
+    "Status": "Finalized"
+  }
+]
