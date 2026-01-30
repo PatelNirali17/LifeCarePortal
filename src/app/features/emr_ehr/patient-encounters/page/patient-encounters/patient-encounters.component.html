@@ -1,1 +1,101 @@
-<p>patient-encounters works!</p>
+<div class="container-fluid">
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>All Patient Encounters</h2>
+            <p>View and manage all patient encounters with complete details</p>
+        </div>
+        <div class="header-actions">
+            <button class="add-btn" (click)="OpenAddPatientEncountersDialog(null)">
+                <span class="icon">+</span> Add New Patient Encounters
+            </button>
+        </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>Patient</th>
+                    <th>Doctor</th>
+                    <th>Date</th>
+                    <th>Type</th>
+                    <th>Department</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let encounter of paginatedList; trackBy: trackByFn;let i = index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>{{ encounter.PatientName }}</td>
+                    <td>{{ encounter.Doctor }}</td>
+                    <td>📅 {{ encounter.Date }}</td>
+                    <td>
+                        <span class="type-badge active" *ngIf="encounter.Type == 'OPD'">{{encounter.Type}}</span>
+                        <span class="type-badge contractual" *ngIf="encounter.Type == 'IPD'">{{encounter.Type}}</span>
+                        <span class="type-badge inactive" *ngIf="encounter.Type == 'Emergency'">{{encounter.Type}}</span>
+                    </td>
+                    <td>{{ encounter.Department }}</td>
+                    <td>
+                        <span class="type-badge onhold" *ngIf="encounter.Status == 'Admitted'">{{encounter.Status}}</span>
+                        <span class="type-badge warning" *ngIf="encounter.Status == 'Transferred'">{{encounter.Status}}</span>
+                        <span class="type-badge contractual" *ngIf="encounter.Status == 'FollowUp'">{{encounter.Status}}</span>
+                        <span class="type-badge inactive" *ngIf="encounter.Status == 'Critical'">{{encounter.Status}}</span>
+                        <span class="type-badge owned" *ngIf="encounter.Status == 'Completed'">{{encounter.Status}}</span>
+                        <span class="type-badge active" *ngIf="encounter.Status == 'Discharged'">{{encounter.Status}}</span>
+                    </td>
+                    <td class="text-end">
+                        <div class="action-group">
+                            <button class="action-btn edit" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="PatientEncountersList.length === 0" class="empty-state">
+            <p>No Patient Encounters data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                PatientEncountersList.length ?
+                PatientEncountersList.length : currentPage * pageSize }} of {{ PatientEncountersList.length }}
+                records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

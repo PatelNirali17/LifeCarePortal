@@ -1,11 +1,11 @@
 <div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
-    <h2>{{ MedicationHistoryDetails ? 'Edit' : 'Add New' }} Medication History</h2>
+    <h2>{{ TreatmentPlansDetails ? 'Edit' : 'Add New' }} Treatment Plans</h2>
     <button class="close-btn" [mat-dialog-close]="false">
         <mat-icon>close</mat-icon>
     </button>
 </div>
 <mat-dialog-content class="dialog-content">
-    <form [formGroup]="MedicationHistoryForm" class="row">
+    <form [formGroup]="TreatmentPlansForm" class="row">
         <div class="col-md-6">
             <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Patient</mat-label>
@@ -13,58 +13,49 @@
                     <mat-option *ngFor="let Patient of PatientList" [value]="Patient.Name">{{Patient.Name}}
                     </mat-option>
                 </mat-select>
-                <mat-error *ngIf="MedicationHistoryForm.get('PatientName')?.invalid">
+                <mat-error *ngIf="TreatmentPlansForm.get('PatientName')?.invalid">
                     Please select Patient
                 </mat-error>
             </mat-form-field>
         </div>
         <div class="col-md-6">
             <mat-form-field class="w-100">
-                <mat-label>Drug Name</mat-label>
-                <input matInput formControlName="DrugName" required>
-                <mat-error *ngIf="MedicationHistoryForm.get('DrugName')?.invalid">
-                    Please enter Drug Name
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="col-md-6">
-            <mat-form-field class="w-100">
-                <mat-label>Dosage</mat-label>
-                <input matInput formControlName="Dosage" required>
-                <mat-error *ngIf="MedicationHistoryForm.get('Dosage')?.invalid">
-                    Please enter Dosage
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="col-md-6">
-            <mat-form-field class="w-100">
-                <mat-label>Frequency</mat-label>
-                <input matInput formControlName="Frequency" required>
-                <mat-error *ngIf="MedicationHistoryForm.get('Frequency')?.invalid">
-                    Please enter Frequency
-                </mat-error>
-            </mat-form-field>
-        </div>
-        <div class="col-md-6">
-            <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">Prescribed By</mat-label>
-                <mat-select formControlName="PrescribedBy" required>
+                <mat-label style="font-size: 14px;">Doctor</mat-label>
+                <mat-select formControlName="Doctor" required>
                     <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{Doctor.Name}}
                     </mat-option>
                 </mat-select>
-                <mat-error *ngIf="MedicationHistoryForm.get('PrescribedBy')?.invalid">
-                    Please select Prescribed By
+                <mat-error *ngIf="TreatmentPlansForm.get('Doctor')?.invalid">
+                    Please select Doctor
                 </mat-error>
             </mat-form-field>
         </div>
         <div class="col-md-6">
             <mat-form-field class="w-100">
-                <mat-label style="font-size: 14px;">StartDate</mat-label>
+                <mat-label>Diagnosis</mat-label>
+                <input matInput formControlName="Diagnosis" required>
+                <mat-error *ngIf="TreatmentPlansForm.get('Diagnosis')?.invalid">
+                    Please enter Diagnosis
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label>Treatment</mat-label>
+                <input matInput formControlName="Treatment" required>
+                <mat-error *ngIf="TreatmentPlansForm.get('Treatment')?.invalid">
+                    Please enter Treatment
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Start Date</mat-label>
                 <input matInput [matDatepicker]="StartDate" formControlName="StartDate" required>
                 <mat-datepicker-toggle matIconSuffix [for]="StartDate"></mat-datepicker-toggle>
                 <mat-datepicker #StartDate></mat-datepicker>
-                <mat-error *ngIf="MedicationHistoryForm.get('StartDate')?.invalid">
-                    Please select StartDate
+                <mat-error *ngIf="TreatmentPlansForm.get('StartDate')?.invalid">
+                    Please select Start Date
                 </mat-error>
             </mat-form-field>
         </div>
@@ -74,7 +65,7 @@
                 <input matInput [matDatepicker]="EndDate" formControlName="EndDate" required>
                 <mat-datepicker-toggle matIconSuffix [for]="EndDate"></mat-datepicker-toggle>
                 <mat-datepicker #EndDate></mat-datepicker>
-                <mat-error *ngIf="MedicationHistoryForm.get('EndDate')?.invalid">
+                <mat-error *ngIf="TreatmentPlansForm.get('EndDate')?.invalid">
                     Please select End Date
                 </mat-error>
             </mat-form-field>
@@ -84,10 +75,11 @@
                 <mat-label style="font-size: 14px;">Status</mat-label>
                 <mat-select formControlName="Status" required>
                     <mat-option value="Active">Active</mat-option>
-                    <mat-option value="Completed">Completed</mat-option>
+                    <mat-option value="On Hold">On Hold</mat-option>
                     <mat-option value="Discontinued">Discontinued</mat-option>
+                    <mat-option value="Completed">Completed</mat-option>
                 </mat-select>
-                <mat-error *ngIf="MedicationHistoryForm.get('Status')?.invalid">
+                <mat-error *ngIf="TreatmentPlansForm.get('Status')?.invalid">
                     Please select Status
                 </mat-error>
             </mat-form-field>
@@ -95,6 +87,6 @@
     </form>
 </mat-dialog-content>
 <mat-dialog-actions class="dialog-actions">
-    <button mat-raised-button class="bgprimary">{{ MedicationHistoryDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button class="bgprimary">{{ TreatmentPlansDetails ? 'Update' : 'Save' }}</button>
     <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
 </mat-dialog-actions>

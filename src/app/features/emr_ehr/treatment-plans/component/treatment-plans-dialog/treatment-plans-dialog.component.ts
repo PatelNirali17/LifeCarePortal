@@ -7,26 +7,27 @@ import { AllDoctorsService } from '../../../../doctors/all-doctors/all-doctors.s
 import { AllPatientsService } from '../../../../patients/all-patients/all-patients.service';
 
 @Component({
-  selector: 'app-clinical-notes-dialog',
+  selector: 'app-treatment-plans-dialog',
   imports: [SharedModule, CommonModule, FormsModule, ReactiveFormsModule],
-  templateUrl: './clinical-notes-dialog.component.html',
-  styleUrl: './clinical-notes-dialog.component.scss'
+  templateUrl: './treatment-plans-dialog.component.html',
+  styleUrl: './treatment-plans-dialog.component.scss'
 })
-export class ClinicalNotesDialogComponent {
-  ClinicalNotesForm!: FormGroup;
+export class TreatmentPlansDialogComponent {
+  TreatmentPlansForm!: FormGroup;
   PatientList: any;
   DoctorList: any;
 
-  constructor(public dialogRef: MatDialogRef<ClinicalNotesDialogComponent>, private fb: NonNullableFormBuilder, private allDoctorsService: AllDoctorsService,
+  constructor(public dialogRef: MatDialogRef<TreatmentPlansDialogComponent>, private fb: NonNullableFormBuilder, private allDoctorsService: AllDoctorsService,
     private allPatientService: AllPatientsService,
-    @Optional() @Inject(MAT_DIALOG_DATA) public ClinicalNotesDetails: any) {
-    this.ClinicalNotesForm = this.fb.group({
+    @Optional() @Inject(MAT_DIALOG_DATA) public TreatmentPlansDetails: any) {
+    this.TreatmentPlansForm = this.fb.group({
       PatientName: this.fb.control('', Validators.required),
       Doctor: this.fb.control('', Validators.required),
-      NoteType: this.fb.control('', Validators.required),
-      Date: this.fb.control('', Validators.required),
-      Content: this.fb.control('', Validators.required),
-      Status: this.fb.control('', Validators.required),
+      Diagnosis: this.fb.control('', Validators.required),
+      Treatment: this.fb.control('', Validators.required),
+      StartDate: this.fb.control('', Validators.required),
+      EndDate: this.fb.control('', Validators.required),
+      Status: this.fb.control('', Validators.required)
     })
     this.allDoctorsService.GetAllDoctors().subscribe({
       next: (result: any) => {

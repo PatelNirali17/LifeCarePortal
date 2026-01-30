@@ -1,1 +1,100 @@
-<p>treatment-plans works!</p>
+<div class="container-fluid">
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>All Treatment Plans</h2>
+            <p>View and manage all treatment plans with complete details</p>
+        </div>
+        <div class="header-actions">
+            <button class="add-btn" (click)="OpenAddTreatmentPlansDialog(null)">
+                <span class="icon">+</span> Add New Treatment Plans
+            </button>
+        </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>Patient</th>
+                    <th>Doctor</th>
+                    <th>Diagnosis</th>
+                    <th>Treatment</th>
+                    <th>StartDate</th>
+                    <th>EndDate</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let treatment of paginatedList; trackBy: trackByFn;let i = index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>{{ treatment.PatientName }}</td>
+                    <td>{{ treatment.Doctor }}</td>
+                    <td>{{ treatment.Diagnosis }}</td>
+                    <td>{{ treatment.Treatment }}</td>
+                    <td>📅 {{ treatment.StartDate }}</td>
+                    <td>📅 {{ treatment.EndDate }}</td>
+                    <td>
+                        <span class="type-badge active" *ngIf="treatment.Status == 'Active'">{{treatment.Status}}</span>
+                        <span class="type-badge onhold"
+                            *ngIf="treatment.Status == 'On Hold'">{{treatment.Status}}</span>
+                        <span class="type-badge contractual"
+                            *ngIf="treatment.Status == 'Discontinued'">{{treatment.Status}}</span>
+                        <span class="type-badge inactive"
+                            *ngIf="treatment.Status == 'Completed'">{{treatment.Status}}</span>
+                    </td>
+                    <td class="text-end">
+                        <div class="action-group">
+                            <button class="action-btn edit" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="TreatmentPlansList.length === 0" class="empty-state">
+            <p>No Treatment Plans data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                TreatmentPlansList.length ?
+                TreatmentPlansList.length : currentPage * pageSize }} of {{ TreatmentPlansList.length }}
+                records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

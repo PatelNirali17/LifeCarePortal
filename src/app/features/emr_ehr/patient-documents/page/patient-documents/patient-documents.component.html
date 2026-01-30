@@ -1,1 +1,98 @@
-<p>patient-documents works!</p>
+<div class="container-fluid">
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>All Patient Documents</h2>
+            <p>View and manage all patient documents with complete details</p>
+        </div>
+        <div class="header-actions">
+            <button class="add-btn" (click)="OpenAddPatientDocumentsDialog(null)">
+                <span class="icon">+</span> Add New Patient Documents
+            </button>
+        </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>Patient</th>
+                    <th>Document Type</th>
+                    <th>Uploaded By</th>
+                    <th>Upload Date</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let documents of paginatedList; trackBy: trackByFn;let i = index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>{{ documents.PatientName }}</td>
+                    <td>{{ documents.DocumentType }}</td>
+                    <td>{{ documents.UploadedBy }}</td>
+                    <td>📅 {{ documents.UploadDate }}</td>
+                    <td>
+                        <span class="type-badge active"
+                            *ngIf="documents.Status == 'Verified'">{{documents.Status}}</span>
+                        <span class="type-badge onhold"
+                            *ngIf="documents.Status == 'Uploaded'">{{documents.Status}}</span>
+                        <span class="type-badge inactive"
+                            *ngIf="documents.Status == 'Pending'">{{documents.Status}}</span>
+                    </td>
+                    <td class="text-end">
+                        <div class="action-group">
+                            <button class="action-btn view" title="View">
+                                <mat-icon>visibility</mat-icon>
+                            </button>
+                            <button class="action-btn edit" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="PatientDocumentsList.length === 0" class="empty-state">
+            <p>No Patient Documents data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                PatientDocumentsList.length ?
+                PatientDocumentsList.length : currentPage * pageSize }} of {{ PatientDocumentsList.length }}
+                records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

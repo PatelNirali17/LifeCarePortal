@@ -231,6 +231,18 @@
         color: #FF6B6B;
         border-color: rgba(255, 107, 107, 0.2);
     }
+
+    &.onhold {
+        background: rgba(33, 150, 243, 0.1);
+        color: #2196F3;
+        border-color: rgba(33, 150, 243, 0.2);
+    }
+
+    &.warning {
+        background: rgba(255, 152, 0, 0.1);
+        color: #FF9800;
+        border-color: rgba(255, 152, 0, 0.2);
+    }
 }
 
 .cell-info {
@@ -299,7 +311,7 @@
         }
     }
 
-     &.view {
+    &.view {
         color: #D4AF37;
 
         &:hover {

@@ -1,1 +1,85 @@
-<p>patient-documents-dialog works!</p>
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ PatientDocumentsDetails ? 'Edit' : 'Add New' }} Patient Documents</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="PatientDocumentsForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Patient</mat-label>
+                <mat-select formControlName="PatientName" required>
+                    <mat-option *ngFor="let Patient of PatientList" [value]="Patient.Name">{{Patient.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="PatientDocumentsForm.get('PatientName')?.invalid">
+                    Please select Patient
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Document Type</mat-label>
+                <mat-select formControlName="DocumentType" required>
+                    <mat-option value="Lab Report">Lab Report</mat-option>
+                    <mat-option value="X-Ray">X-Ray</mat-option>
+                    <mat-option value="MRI Scan">MRI Scan</mat-option>
+                    <mat-option value="CT Scan">CT Scan</mat-option>
+                    <mat-option value="Discharge Summary">Discharge Summary</mat-option>
+                    <mat-option value="Prescription">Prescription</mat-option>
+                    <mat-option value="Consent Form">Consent Form</mat-option>
+                    <mat-option value="Blood Test">Blood Test</mat-option>
+                    <mat-option value="ECG Report">ECG Report</mat-option>
+                    <mat-option value="Physical Therapy Notes">Physical Therapy Notes</mat-option>
+                </mat-select>
+                <mat-error *ngIf="PatientDocumentsForm.get('DocumentType')?.invalid">
+                    Please select Document Type
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Uploaded By</mat-label>
+                <mat-select formControlName="UploadedBy" required>
+                    <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{Doctor.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="PatientDocumentsForm.get('UploadedBy')?.invalid">
+                    Please select Uploaded By
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Upload Date</mat-label>
+                <input matInput [matDatepicker]="UploadDate" formControlName="UploadDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="UploadDate"></mat-datepicker-toggle>
+                <mat-datepicker #UploadDate></mat-datepicker>
+                <mat-error *ngIf="PatientDocumentsForm.get('UploadDate')?.invalid">
+                    Please select Upload Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Status</mat-label>
+                <mat-select formControlName="Status" required>
+                    <mat-option value="Uploaded">Uploaded</mat-option>
+                    <mat-option value="Pending">Pending</mat-option>
+                    <mat-option value="Verified">Verified</mat-option>
+                </mat-select>
+                <mat-error *ngIf="PatientDocumentsForm.get('Status')?.invalid">
+                    Please select Status
+                </mat-error>
+            </mat-form-field>
+        </div>
+         <div class="col-lg-6 d-flex align-items-center">
+        <input #excelDocumentInputVariable class="form-control form-control-sm" id="file" type="file" (change)="onDocumentFileSelected($event)">
+    </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ PatientDocumentsDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

@@ -6,7 +6,8 @@
     "UploadedBy": "Dr. Smith",
     "UploadDate": "2024-11-20",
     "FileSize": "2.5 MB",
-    "Status": "Verified"
+    "Status": "Verified",
+    "FileURL": "https://example.com/files/DOC-1001"
   },
   {
     "DocumentID": "DOC-1002",
@@ -15,7 +16,8 @@
     "UploadedBy": "Dr. Williams",
     "UploadDate": "2024-11-19",
     "FileSize": "5.1 MB",
-    "Status": "Uploaded"
+    "Status": "Uploaded",
+    "FileURL": "https://example.com/files/DOC-1002"
   },
   {
     "DocumentID": "DOC-1003",
@@ -24,7 +26,8 @@
     "UploadedBy": "Dr. Johnson",
     "UploadDate": "2024-11-18",
     "FileSize": "1.8 MB",
-    "Status": "Verified"
+    "Status": "Verified",
+    "FileURL": "https://example.com/files/DOC-1003"
   },
   {
     "DocumentID": "DOC-1004",
@@ -33,7 +36,8 @@
     "UploadedBy": "Dr. Brown",
     "UploadDate": "2024-11-17",
     "FileSize": "15.3 MB",
-    "Status": "Uploaded"
+    "Status": "Uploaded",
+    "FileURL": "https://example.com/files/DOC-1004"
   },
   {
     "DocumentID": "DOC-1005",
@@ -42,7 +46,8 @@
     "UploadedBy": "Dr. Davis",
     "UploadDate": "2024-11-16",
     "FileSize": "0.5 MB",
-    "Status": "Verified"
+    "Status": "Verified",
+    "FileURL": "https://example.com/files/DOC-1005"
   },
   {
     "DocumentID": "DOC-1006",
@@ -51,7 +56,8 @@
     "UploadedBy": "Dr. Miller",
     "UploadDate": "2024-11-15",
     "FileSize": "1.2 MB",
-    "Status": "Pending"
+    "Status": "Pending",
+    "FileURL": "https://example.com/files/DOC-1006"
   },
   {
     "DocumentID": "DOC-1007",
@@ -60,7 +66,8 @@
     "UploadedBy": "Dr. Wilson",
     "UploadDate": "2024-11-14",
     "FileSize": "1.9 MB",
-    "Status": "Verified"
+    "Status": "Verified",
+    "FileURL": "https://example.com/files/DOC-1007"
   },
   {
     "DocumentID": "DOC-1008",
@@ -69,7 +76,8 @@
     "UploadedBy": "Dr. Moore",
     "UploadDate": "2024-11-13",
     "FileSize": "12.7 MB",
-    "Status": "Uploaded"
+    "Status": "Uploaded",
+    "FileURL": "https://example.com/files/DOC-1008"
   },
   {
     "DocumentID": "DOC-1009",
@@ -78,7 +86,8 @@
     "UploadedBy": "Dr. Taylor",
     "UploadDate": "2024-11-12",
     "FileSize": "0.8 MB",
-    "Status": "Verified"
+    "Status": "Verified",
+    "FileURL": "https://example.com/files/DOC-1009"
   },
   {
     "DocumentID": "DOC-1010",
@@ -87,6 +96,7 @@
     "UploadedBy": "Dr. Anderson",
     "UploadDate": "2024-11-11",
     "FileSize": "1.1 MB",
-    "Status": "Uploaded"
+    "Status": "Uploaded",
+    "FileURL": "https://example.com/files/DOC-1010"
   }
 ]

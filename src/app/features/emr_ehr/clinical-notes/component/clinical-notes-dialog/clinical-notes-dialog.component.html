@@ -1,1 +1,80 @@
-<p>clinical-notes-dialog works!</p>
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ ClinicalNotesDetails ? 'Edit' : 'Add New' }} Clinical Notes</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="ClinicalNotesForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Patient</mat-label>
+                <mat-select formControlName="PatientName" required>
+                    <mat-option *ngFor="let Patient of PatientList" [value]="Patient.Name">{{Patient.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="ClinicalNotesForm.get('PatientName')?.invalid">
+                    Please select Patient
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Doctor</mat-label>
+                <mat-select formControlName="Doctor" required>
+                    <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{Doctor.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="ClinicalNotesForm.get('Doctor')?.invalid">
+                    Please select Doctor
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label>Note Type</mat-label>
+                <input matInput formControlName="NoteType" required>
+                <mat-error *ngIf="ClinicalNotesForm.get('NoteType')?.invalid">
+                    Please enter Note Type
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Date</mat-label>
+                <input matInput [matDatepicker]="Date" formControlName="Date" required>
+                <mat-datepicker-toggle matIconSuffix [for]="Date"></mat-datepicker-toggle>
+                <mat-datepicker #Date></mat-datepicker>
+                <mat-error *ngIf="ClinicalNotesForm.get('Date')?.invalid">
+                    Please select Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label>Content</mat-label>
+                <input matInput formControlName="Content" required>
+                <mat-error *ngIf="ClinicalNotesForm.get('Content')?.invalid">
+                    Please enter Content
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Status</mat-label>
+                <mat-select formControlName="Status" required>
+                    <mat-option value="Finalized">Finalized</mat-option>
+                    <mat-option value="Pending Review">Pending Review</mat-option>
+                    <mat-option value="Draft">Draft</mat-option>
+                </mat-select>
+                <mat-error *ngIf="ClinicalNotesForm.get('Status')?.invalid">
+                    Please select Status
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ ClinicalNotesDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>
