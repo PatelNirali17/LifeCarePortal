@@ -1,0 +1,71 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ ImagingReportsDetails ? 'Edit' : 'Add New' }} Imaging Reports</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="ImagingReportsForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Patient</mat-label>
+                <mat-select formControlName="PatientName" required>
+                    <mat-option *ngFor="let Patient of PatientList" [value]="Patient.Name">{{Patient.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="ImagingReportsForm.get('PatientName')?.invalid">
+                    Please select Patient
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Scan Type</mat-label>
+                <input matInput formControlName="ScanType" required>
+                <mat-error *ngIf="ImagingReportsForm.get('ScanType')?.invalid">
+                    Please enter Scan Type
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Radiologist</mat-label>
+                <mat-select formControlName="Radiologist" required>
+                    <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{Doctor.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="ImagingReportsForm.get('Radiologist')?.invalid">
+                    Please select Radiologist
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Report Date</mat-label>
+                <input matInput [matDatepicker]="ReportDate" formControlName="ReportDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="ReportDate"></mat-datepicker-toggle>
+                <mat-datepicker #ReportDate></mat-datepicker>
+                <mat-error *ngIf="ImagingReportsForm.get('ReportDate')?.invalid">
+                    Please select Report Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Status</mat-label>
+                <mat-select formControlName="Status" required>
+                    <mat-option value="Finalized">Finalized</mat-option>
+                    <mat-option value="Reviewed">Reviewed</mat-option>
+                    <mat-option value="Draft">Draft</mat-option>
+                </mat-select>
+                <mat-error *ngIf="ImagingReportsForm.get('Status')?.invalid">
+                    Please select Status
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ ImagingReportsDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

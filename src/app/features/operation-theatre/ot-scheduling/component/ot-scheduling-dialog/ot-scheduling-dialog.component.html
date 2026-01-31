@@ -1,0 +1,107 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ OtSchedulingDetails ? 'Edit' : 'Add New' }} OT Scheduling</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="OtSchedulingForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Patient</mat-label>
+                <mat-select formControlName="patient_name" required>
+                    <mat-option *ngFor="let Patient of PatientList" [value]="Patient.Name">{{Patient.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="OtSchedulingForm.get('patient_name')?.invalid">
+                    Please select Patient
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Surgery Type</mat-label>
+                <input matInput formControlName="surgery_type" required>
+                <mat-error *ngIf="OtSchedulingForm.get('surgery_type')?.invalid">
+                    Please enter Surgery Type
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Surgeon</mat-label>
+                <mat-select formControlName="surgeon" required>
+                    <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{Doctor.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="OtSchedulingForm.get('surgeon')?.invalid">
+                    Please select Surgeon
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">OT Room</mat-label>
+                <mat-select formControlName="ot_room" required>
+                    <mat-option value="OT-1">OT-1</mat-option>
+                    <mat-option value="OT-2">OT-2</mat-option>
+                    <mat-option value="OT-3">OT-3</mat-option>
+                    <mat-option value="OT-4">OT-4</mat-option>
+                    <mat-option value="OT-5">OT-5</mat-option>
+                </mat-select>
+                <mat-error *ngIf="OtSchedulingForm.get('ot_room')?.invalid">
+                    Please select OT Room
+                </mat-error>
+            </mat-form-field>
+        </div>
+          <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Date</mat-label>
+                <input matInput [matDatepicker]="Date" formControlName="date" required>
+                <mat-datepicker-toggle matIconSuffix [for]="Date"></mat-datepicker-toggle>
+                <mat-datepicker #Date></mat-datepicker>
+                <mat-error *ngIf="OtSchedulingForm.get('date')?.invalid">
+                    Please select Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+          <div class="col-md-6">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Time</mat-label>
+                    <input matInput [matTimepicker]="Time" formControlName="time" required>
+                    <mat-timepicker-toggle matIconSuffix [for]="Time" />
+                    <mat-timepicker #Time />
+                    <mat-error *ngIf="OtSchedulingForm.get('time')?.invalid">
+                        Please select Time
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Duration</mat-label>
+                <input matInput formControlName="duration" required>
+                <mat-error *ngIf="OtSchedulingForm.get('duration')?.invalid">
+                    Please enter Duration
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Status</mat-label>
+                <mat-select formControlName="status" required>
+                    <mat-option value="Scheduled">Scheduled</mat-option>
+                    <mat-option value="In Progress">In Progress</mat-option>
+                    <mat-option value="Completed">Completed</mat-option>
+                    <mat-option value="Cancelled">Cancelled</mat-option>
+                </mat-select>
+                <mat-error *ngIf="OtSchedulingForm.get('status')?.invalid">
+                    Please select Status
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ OtSchedulingDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

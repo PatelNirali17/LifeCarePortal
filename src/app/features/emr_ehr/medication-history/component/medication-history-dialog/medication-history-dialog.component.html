@@ -20,7 +20,7 @@
         </div>
         <div class="col-md-6">
             <mat-form-field class="w-100">
-                <mat-label>Drug Name</mat-label>
+                <mat-label style="font-size: 14px;">Drug Name</mat-label>
                 <input matInput formControlName="DrugName" required>
                 <mat-error *ngIf="MedicationHistoryForm.get('DrugName')?.invalid">
                     Please enter Drug Name
@@ -29,7 +29,7 @@
         </div>
         <div class="col-md-6">
             <mat-form-field class="w-100">
-                <mat-label>Dosage</mat-label>
+                <mat-label style="font-size: 14px;">Dosage</mat-label>
                 <input matInput formControlName="Dosage" required>
                 <mat-error *ngIf="MedicationHistoryForm.get('Dosage')?.invalid">
                     Please enter Dosage
@@ -38,7 +38,7 @@
         </div>
         <div class="col-md-6">
             <mat-form-field class="w-100">
-                <mat-label>Frequency</mat-label>
+                <mat-label style="font-size: 14px;">Frequency</mat-label>
                 <input matInput formControlName="Frequency" required>
                 <mat-error *ngIf="MedicationHistoryForm.get('Frequency')?.invalid">
                     Please enter Frequency

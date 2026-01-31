@@ -1,0 +1,94 @@
+<div class="container-fluid">
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>All OT Inventory</h2>
+            <p>View and manage all OT inventory with complete details</p>
+        </div>
+        <div class="header-actions">
+            <button class="add-btn" (click)="OpenAddOtInventoryDialog(null)">
+                <span class="icon">+</span> Add New OT Inventory
+            </button>
+        </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>ItemName</th>
+                    <th>Category</th>
+                    <th>Quantity</th>
+                    <th>ExpiryDate</th>
+                    <th>Status</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let inventory of paginatedList; trackBy: trackByFn;let i = index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>{{ inventory.ItemName }}</td>
+                    <td>{{ inventory.Category }}</td>
+                    <td>{{ inventory.Quantity }}</td>
+                    <td>📅 {{ inventory.ExpiryDate }}</td>
+                    <td>
+                        <span class="type-badge owned"
+                            *ngIf="inventory.Status == 'In Stock'">{{inventory.Status}}</span>
+                        <span class="type-badge onhold" *ngIf="inventory.Status == 'Out of Stock'">{{inventory.Status}}</span>
+                        <span class="type-badge contractual"
+                            *ngIf="inventory.Status == 'Low Stock'">{{inventory.Status}}</span>
+                    </td>
+                    <td class="text-end">
+                        <div class="action-group">
+                            <button class="action-btn edit" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="OtInventoryList.length === 0" class="empty-state">
+            <p>No OT Inventory data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                OtInventoryList.length ?
+                OtInventoryList.length : currentPage * pageSize }} of {{ OtInventoryList.length }}
+                records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

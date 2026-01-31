@@ -1,0 +1,128 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ PatientInsuranceDetails ? 'Edit' : 'Add New' }} Patient Insurance</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="PatientInsuranceForm" class="row">
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Patient</mat-label>
+                    <mat-select formControlName="patientId" required>
+                        <mat-option *ngFor="let Patient of PatientList" [value]="Patient.Name">{{Patient.Name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="PatientInsuranceForm.get('patientId')?.invalid">
+                        Please select Patient
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Insurance Company</mat-label>
+                    <input matInput formControlName="insuranceCompanyName" required>
+                    <mat-error *ngIf="PatientInsuranceForm.get('insuranceCompanyName')?.invalid">
+                        Please enter Insurance Company
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Policy Number</mat-label>
+                    <input matInput formControlName="policyNumber" required>
+                    <mat-error *ngIf="PatientInsuranceForm.get('policyNumber')?.invalid">
+                        Please enter Policy Number
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Policy Type</mat-label>
+                    <mat-select formControlName="policyType" required>
+                        <mat-option value="Individual">Individual</mat-option>
+                        <mat-option value="Family">Family</mat-option>
+                        <mat-option value="Corporate">Corporate</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="PatientInsuranceForm.get('policyType')?.invalid">
+                        Please select Policy Type
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Plan Type</mat-label>
+                    <mat-select formControlName="planType" required>
+                        <mat-option value="Premium">Premium</mat-option>
+                        <mat-option value="Standard">Standard</mat-option>
+                        <mat-option value="Basic">Basic</mat-option>
+                        <mat-option value="Comprehensive">Comprehensive</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="PatientInsuranceForm.get('planType')?.invalid">
+                        Please select Plan Type
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Coverage Amount</mat-label>
+                    <input matInput formControlName="coverageAmount" required>
+                    <mat-error *ngIf="PatientInsuranceForm.get('coverageAmount')?.invalid">
+                        Please enter Coverage Amount
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Co-Payment</mat-label>
+                    <input matInput formControlName="coPayment" required>
+                    <mat-error *ngIf="PatientInsuranceForm.get('coPayment')?.invalid">
+                        Please enter Co-Payment
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="section-title">Coverage Information</div>
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Coverage Start Date</mat-label>
+                    <input matInput [matDatepicker]="coverageStartDate" formControlName="coverageStartDate" required>
+                    <mat-datepicker-toggle matIconSuffix [for]="coverageStartDate"></mat-datepicker-toggle>
+                    <mat-datepicker #coverageStartDate></mat-datepicker>
+                    <mat-error *ngIf="PatientInsuranceForm.get('coverageStartDate')?.invalid">
+                        Please select Coverage Start Date
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Coverage End Date</mat-label>
+                    <input matInput [matDatepicker]="coverageEndDate" formControlName="coverageEndDate" required>
+                    <mat-datepicker-toggle matIconSuffix [for]="coverageEndDate"></mat-datepicker-toggle>
+                    <mat-datepicker #coverageEndDate></mat-datepicker>
+                    <mat-error *ngIf="PatientInsuranceForm.get('coverageEndDate')?.invalid">
+                        Please select Coverage End Date
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Insurance Status</mat-label>
+                    <mat-select formControlName="insuranceStatus" required>
+                        <mat-option value="Active">Active</mat-option>
+                        <mat-option value="Inactive">Inactive</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="PatientInsuranceForm.get('insuranceStatus')?.invalid">
+                        Please select Insurance Status
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ PatientInsuranceDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

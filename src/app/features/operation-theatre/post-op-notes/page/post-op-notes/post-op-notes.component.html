@@ -1,0 +1,99 @@
+<div class="container-fluid">
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>All Post-Op Notes</h2>
+            <p>View and manage all post-operative notes with complete details</p>
+        </div>
+        <div class="header-actions">
+            <button class="add-btn" (click)="OpenAddPostOpNotesDialog(null)">
+                <span class="icon">+</span> Add New Post-Op Notes
+            </button>
+        </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>Patient</th>
+                    <th>Surgery Type</th>
+                    <th>Date</th>
+                    <th>Recorded By</th>
+                    <th>Recovery</th>
+                    <th>Pain Level</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let notes of paginatedList; trackBy: trackByFn;let i = index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>{{ notes.patient_name }}</td>
+                    <td>{{ notes.surgery_type }}</td>
+                    <td>📅 {{ notes.date }}</td>
+                    <td>{{ notes.recorded_by }}</td>
+                    <td>
+                        <span class="type-badge active"
+                            *ngIf="notes.recovery == 'Excellent'">{{notes.recovery}}</span>
+                        <span class="type-badge onhold"
+                            *ngIf="notes.recovery == 'Fair'">{{notes.recovery}}</span>
+                        <span class="type-badge contractual"
+                            *ngIf="notes.recovery == 'Poor'">{{notes.recovery}}</span>
+                        <span class="type-badge inactive"
+                            *ngIf="notes.recovery == 'Good'">{{notes.recovery}}</span>
+                    </td>
+                    <td>{{ notes.pain_level }}</td>
+                    <td class="text-end">
+                        <div class="action-group">
+                            <button class="action-btn edit" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="PostOpNotesList.length === 0" class="empty-state">
+            <p>No Post-Op Notes data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                PostOpNotesList.length ?
+                PostOpNotesList.length : currentPage * pageSize }} of {{ PostOpNotesList.length }}
+                records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

@@ -10,7 +10,7 @@
         <div class="row">
             <div class="col-md-6">
                 <mat-form-field class="w-100">
-                    <mat-label>Case Number</mat-label>
+                    <mat-label style="font-size: 14px;">Case Number</mat-label>
                     <input matInput formControlName="CaseNumber">
                     <mat-error *ngIf="AmbulanceCallForm.get('CaseNumber')?.invalid">
                         Please enter Case Number
@@ -19,7 +19,7 @@
             </div>
             <div class="col-md-6">
                 <mat-form-field class="w-100">
-                    <mat-label>Patient Name</mat-label>
+                    <mat-label style="font-size: 14px;">Patient Name</mat-label>
                     <input matInput formControlName="PatientName">
                     <mat-error *ngIf="AmbulanceCallForm.get('PatientName')?.invalid">
                         Please enter Patient Name
@@ -28,7 +28,7 @@
             </div>
             <div class="col-md-6">
                 <mat-form-field class="w-100">
-                    <mat-label>Patient Number</mat-label>
+                    <mat-label style="font-size: 14px;">Patient Number</mat-label>
                     <input matInput formControlName="PatientNumber">
                     <mat-icon matSuffix>call</mat-icon>
                     <mat-error *ngIf="AmbulanceCallForm.get('PatientNumber')?.invalid">
@@ -66,7 +66,7 @@
         <div class="row">
             <div class="col-md-6">
                 <mat-form-field class="w-100">
-                    <mat-label>Vehicle</mat-label>
+                    <mat-label style="font-size: 14px;">Vehicle</mat-label>
                     <mat-select formControlName="VehicleNumber">
                         <mat-option *ngFor="let Vehicle of VehicleList" [value]="Vehicle.VehicleNumber">
                             {{ Vehicle.VehicleNumber }} - {{ Vehicle.DriverName }}</mat-option>
@@ -78,7 +78,7 @@
             </div>
             <div class="col-md-6">
                 <mat-form-field class="w-100">
-                    <mat-label>PatientAddress</mat-label>
+                    <mat-label style="font-size: 14px;">PatientAddress</mat-label>
                     <textarea rows="1" matInput formControlName="PatientAddress"></textarea>
                     <mat-error *ngIf="AmbulanceCallForm.get('PatientAddress')?.invalid">
                         Please enter Patient Address

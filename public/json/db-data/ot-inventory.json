@@ -1,0 +1,82 @@
+[
+  {
+    "ItemID": "INV-001",
+    "ItemName": "Surgical Gloves (Size 7)",
+    "Category": "Consumables",
+    "Quantity": 500,
+    "ExpiryDate": "2025-12-31",
+    "Status": "In Stock"
+  },
+  {
+    "ItemID": "INV-002",
+    "ItemName": "Scalpel Blades #10",
+    "Category": "Instruments",
+    "Quantity": 200,
+    "ExpiryDate": "2026-06-30",
+    "Status": "In Stock"
+  },
+  {
+    "ItemID": "INV-003",
+    "ItemName": "Anesthesia Mask",
+    "Category": "Equipment",
+    "Quantity": 15,
+    "ExpiryDate": "2025-09-15",
+    "Status": "Low Stock"
+  },
+  {
+    "ItemID": "INV-004",
+    "ItemName": "Sutures (Vicryl 3-0)",
+    "Category": "Consumables",
+    "Quantity": 300,
+    "ExpiryDate": "2025-11-20",
+    "Status": "In Stock"
+  },
+  {
+    "ItemID": "INV-005",
+    "ItemName": "Sterile Drapes",
+    "Category": "Linens",
+    "Quantity": 40,
+    "ExpiryDate": "2025-05-10",
+    "Status": "Low Stock"
+  },
+  {
+    "ItemID": "INV-006",
+    "ItemName": "Foley Catheter (14Fr)",
+    "Category": "Consumables",
+    "Quantity": 0,
+    "ExpiryDate": "2025-08-01",
+    "Status": "Out of Stock"
+  },
+  {
+    "ItemID": "INV-007",
+    "ItemName": "Propofol (20ml)",
+    "Category": "Medications",
+    "Quantity": 100,
+    "ExpiryDate": "2024-12-31",
+    "Status": "In Stock"
+  },
+  {
+    "ItemID": "INV-008",
+    "ItemName": "Cautery Pencil",
+    "Category": "Instruments",
+    "Quantity": 45,
+    "ExpiryDate": "2025-10-15",
+    "Status": "Low Stock"
+  },
+  {
+    "ItemID": "INV-009",
+    "ItemName": "Laryngoscope Blade (Mac 3)",
+    "Category": "Equipment",
+    "Quantity": 5,
+    "ExpiryDate": "2030-01-01",
+    "Status": "Low Stock"
+  },
+  {
+    "ItemID": "INV-010",
+    "ItemName": "Suction Canister (2L)",
+    "Category": "Disposables",
+    "Quantity": 150,
+    "ExpiryDate": "2026-03-20",
+    "Status": "In Stock"
+  }
+]

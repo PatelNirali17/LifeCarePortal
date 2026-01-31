@@ -16,6 +16,9 @@ import { BloodBankRoutesList } from './features/blood-bank/blood-bank-routes';
 import { AccountsRoutesList } from './features/accounts/accounts-routes';
 import { LaboratoryRoutesList } from './features/laboratory/laboratory-routes';
 import { EMR_EHRRoutesList } from './features/emr_ehr/emr-ehr-routes';
+import { OperationTheatreRoutesList } from './features/operation-theatre/operation-theatre-routes';
+import { RadiologyRoutesList } from './features/radiology/radiology-routes';
+import { InsuranceRoutesList } from './features/insurance/insurance-routes';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -78,6 +81,18 @@ export const routes: Routes = [
       {
         path: 'emr_ehr', data: { breadcrumb: 'EMR/EHR' },
         children: EMR_EHRRoutesList
+      },
+      {
+        path: 'operationtheatre', data: { breadcrumb: 'Operation Theatre' },
+        children: OperationTheatreRoutesList
+      },
+      {
+        path: 'radiology', data: { breadcrumb: 'Radiology' },
+        children: RadiologyRoutesList
+      },
+      {
+        path: 'insurance', data: { breadcrumb: 'Insurance' },
+        children: InsuranceRoutesList
       },
     ]
   }

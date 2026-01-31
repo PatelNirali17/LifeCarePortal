@@ -1,0 +1,84 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ PreOpAssessmentDetails ? 'Edit' : 'Add New' }} Pre-Op Assessment</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="PreOpAssessmentForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Patient</mat-label>
+                <mat-select formControlName="patient_name" required>
+                    <mat-option *ngFor="let Patient of PatientList" [value]="Patient.Name">{{Patient.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="PreOpAssessmentForm.get('patient_name')?.invalid">
+                    Please select Patient
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Surgery Type</mat-label>
+                <input matInput formControlName="surgery_type" required>
+                <mat-error *ngIf="PreOpAssessmentForm.get('surgery_type')?.invalid">
+                    Please enter Surgery Type
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Date</mat-label>
+                <input matInput [matDatepicker]="Date" formControlName="date" required>
+                <mat-datepicker-toggle matIconSuffix [for]="Date"></mat-datepicker-toggle>
+                <mat-datepicker #Date></mat-datepicker>
+                <mat-error *ngIf="PreOpAssessmentForm.get('date')?.invalid">
+                    Please select Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Assessed By</mat-label>
+                <mat-select formControlName="assessed_by" required>
+                    <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{Doctor.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="PreOpAssessmentForm.get('assessed_by')?.invalid">
+                    Please select Assessed By
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Fitness</mat-label>
+                <mat-select formControlName="fitness" required>
+                    <mat-option value="Fit">Fit</mat-option>
+                    <mat-option value="Conditionally Fit">Conditionally Fit</mat-option>
+                    <mat-option value="Not Fit">Not Fit</mat-option>
+                </mat-select>
+                <mat-error *ngIf="PreOpAssessmentForm.get('fitness')?.invalid">
+                    Please select Fitness
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Risk Level</mat-label>
+                <mat-select formControlName="risk_level" required>
+                    <mat-option value="High">High</mat-option>
+                    <mat-option value="Medium">Medium</mat-option>
+                    <mat-option value="Low">Low</mat-option>
+                </mat-select>
+                <mat-error *ngIf="PreOpAssessmentForm.get('risk_level')?.invalid">
+                    Please select Risk Level
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ PreOpAssessmentDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

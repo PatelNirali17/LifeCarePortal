@@ -1,0 +1,65 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ OtInventoryDetails ? 'Edit' : 'Add New' }} OT Inventory</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="OtInventoryForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Item Name</mat-label>
+                <input matInput formControlName="ItemName" required>
+                <mat-error *ngIf="OtInventoryForm.get('ItemName')?.invalid">
+                    Please enter Item Name
+                </mat-error>
+            </mat-form-field>
+        </div>
+         <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Category</mat-label>
+                <input matInput formControlName="Category" required>
+                <mat-error *ngIf="OtInventoryForm.get('Category')?.invalid">
+                    Please enter Category
+                </mat-error>
+            </mat-form-field>
+        </div>
+         <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Quantity</mat-label>
+                <input matInput formControlName="Quantity" required>
+                <mat-error *ngIf="OtInventoryForm.get('Quantity')?.invalid">
+                    Please enter Quantity
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Expiry Date</mat-label>
+                <input matInput [matDatepicker]="ExpiryDate" formControlName="ExpiryDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="ExpiryDate"></mat-datepicker-toggle>
+                <mat-datepicker #ExpiryDate></mat-datepicker>
+                <mat-error *ngIf="OtInventoryForm.get('ExpiryDate')?.invalid">
+                    Please select Expiry Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Status</mat-label>
+                <mat-select formControlName="Status" required>
+                    <mat-option value="In Stock">In Stock</mat-option>
+                    <mat-option value="Low Stock">Low Stock</mat-option>
+                    <mat-option value="Out of Stock">Out of Stock</mat-option>
+                </mat-select>
+                <mat-error *ngIf="OtInventoryForm.get('Status')?.invalid">
+                    Please select Status
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ OtInventoryDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

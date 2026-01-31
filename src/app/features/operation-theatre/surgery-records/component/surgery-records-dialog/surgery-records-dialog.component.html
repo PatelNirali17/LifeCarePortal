@@ -1,0 +1,93 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ SurgeryRecordsDetails ? 'Edit' : 'Add New' }} Surgery Records</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="SurgeryRecordsForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Patient</mat-label>
+                <mat-select formControlName="PatientName" required>
+                    <mat-option *ngFor="let Patient of PatientList" [value]="Patient.Name">{{Patient.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="SurgeryRecordsForm.get('PatientName')?.invalid">
+                    Please select Patient
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Surgery Type</mat-label>
+                <input matInput formControlName="SurgeryType" required>
+                <mat-error *ngIf="SurgeryRecordsForm.get('SurgeryType')?.invalid">
+                    Please enter Surgery Type
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Surgeon</mat-label>
+                <mat-select formControlName="Surgeon" required>
+                    <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{Doctor.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="SurgeryRecordsForm.get('Surgeon')?.invalid">
+                    Please select Surgeon
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Date</mat-label>
+                <input matInput [matDatepicker]="Date" formControlName="Date" required>
+                <mat-datepicker-toggle matIconSuffix [for]="Date"></mat-datepicker-toggle>
+                <mat-datepicker #Date></mat-datepicker>
+                <mat-error *ngIf="SurgeryRecordsForm.get('Date')?.invalid">
+                    Please select Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Start Time</mat-label>
+                <input matInput [matTimepicker]="StartTime" formControlName="StartTime" required>
+                <mat-timepicker-toggle matIconSuffix [for]="StartTime" />
+                <mat-timepicker #StartTime />
+                <mat-error *ngIf="SurgeryRecordsForm.get('StartTime')?.invalid">
+                    Please select Start Time
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">End Time</mat-label>
+                <input matInput [matTimepicker]="EndTime" formControlName="EndTime" required>
+                <mat-timepicker-toggle matIconSuffix [for]="EndTime" />
+                <mat-timepicker #EndTime />
+                <mat-error *ngIf="SurgeryRecordsForm.get('EndTime')?.invalid">
+                    Please select End Time
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Outcome</mat-label>
+                <mat-select formControlName="Outcome" required>
+                    <mat-option value="Successful">Successful</mat-option>
+                    <mat-option value="Complicated">Complicated</mat-option>
+                    <mat-option value="Failed">Failed</mat-option>
+                </mat-select>
+                <mat-error *ngIf="SurgeryRecordsForm.get('Outcome')?.invalid">
+                    Please select Outcome
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ SurgeryRecordsDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

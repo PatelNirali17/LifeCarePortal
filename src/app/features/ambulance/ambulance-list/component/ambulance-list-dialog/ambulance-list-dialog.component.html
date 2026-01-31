@@ -10,25 +10,25 @@
         <div class="row">
             <div class="col-md-6">
                 <mat-form-field class="w-100">
-                    <mat-label>Vehicle Number</mat-label>
+                    <mat-label style="font-size: 14px;">Vehicle Number</mat-label>
                     <input matInput formControlName="VehicleNumber">
                 </mat-form-field>
             </div>
             <div class="col-md-6">
                 <mat-form-field class="w-100">
-                    <mat-label>Vehicle Name</mat-label>
+                    <mat-label style="font-size: 14px;">Vehicle Name</mat-label>
                     <input matInput formControlName="VehicleName">
                 </mat-form-field>
             </div>
             <div class="col-md-6">
                 <mat-form-field class="w-100">
-                    <mat-label>Year Made</mat-label>
+                    <mat-label style="font-size: 14px;">Year Made</mat-label>
                     <input matInput type="number" formControlName="YearMade">
                 </mat-form-field>
             </div>
             <div class="col-md-6">
                 <mat-form-field class="w-100">
-                    <mat-label>Vehicle Type</mat-label>
+                    <mat-label style="font-size: 14px;">Vehicle Type</mat-label>
                     <mat-select formControlName="VehicleType">
                         <mat-option *ngFor="let type of vehicleTypes" [value]="type">{{ type }}</mat-option>
                     </mat-select>
@@ -41,20 +41,20 @@
         <div class="row">
             <div class="col-md-6">
                 <mat-form-field class="w-100">
-                    <mat-label>Driver Name</mat-label>
+                    <mat-label style="font-size: 14px;">Driver Name</mat-label>
                     <input matInput formControlName="DriverName">
                 </mat-form-field>
             </div>
             <div class="col-md-6">
                 <mat-form-field class="w-100">
-                    <mat-label>Contact Number</mat-label>
+                    <mat-label style="font-size: 14px;">Contact Number</mat-label>
                     <input matInput formControlName="DriverNumber">
                     <mat-icon matSuffix>call</mat-icon>
                 </mat-form-field>
             </div>
             <div class="col-md-6">
                 <mat-form-field class="w-100">
-                    <mat-label>License Number</mat-label>
+                    <mat-label style="font-size: 14px;">License Number</mat-label>
                     <input matInput formControlName="DriverLicenseNumber">
                 </mat-form-field>
             </div>

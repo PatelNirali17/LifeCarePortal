@@ -1,0 +1,92 @@
+[
+  {
+    "ScanID": "SCN-001",
+    "PatientName": "John Doe",
+    "ScanType": "Chest",
+    "Modality": "X-Ray",
+    "Technician": "Tech. Sarah",
+    "ScanDate": "2023-12-01",
+    "Status": "Completed"
+  },
+  {
+    "ScanID": "SCN-002",
+    "PatientName": "Jane Smith",
+    "ScanType": "Brain",
+    "Modality": "MRI",
+    "Technician": "Tech. Mike",
+    "ScanDate": "2023-12-02",
+    "Status": "InProgress"
+  },
+  {
+    "ScanID": "SCN-003",
+    "PatientName": "Mike Johnson",
+    "ScanType": "Abdomen",
+    "Modality": "CT Scan",
+    "Technician": "Tech. Lisa",
+    "ScanDate": "2023-12-03",
+    "Status": "Scheduled"
+  },
+  {
+    "ScanID": "SCN-004",
+    "PatientName": "Sarah Davis",
+    "ScanType": "Kidney",
+    "Modality": "Ultrasound",
+    "Technician": "Tech. Tom",
+    "ScanDate": "2023-12-04",
+    "Status": "Completed"
+  },
+  {
+    "ScanID": "SCN-005",
+    "PatientName": "David Wilson",
+    "ScanType": "Knee",
+    "Modality": "X-Ray",
+    "Technician": "Tech. Sarah",
+    "ScanDate": "2023-12-05",
+    "Status": "Scheduled"
+  },
+  {
+    "ScanID": "SCN-006",
+    "PatientName": "Emily Taylor",
+    "ScanType": "Spine",
+    "Modality": "MRI",
+    "Technician": "Tech. Mike",
+    "ScanDate": "2023-12-06",
+    "Status": "Cancelled"
+  },
+  {
+    "ScanID": "SCN-007",
+    "PatientName": "Robert Martinez",
+    "ScanType": "Head",
+    "Modality": "CT Scan",
+    "Technician": "Tech. Lisa",
+    "ScanDate": "2023-12-07",
+    "Status": "Completed"
+  },
+  {
+    "ScanID": "SCN-008",
+    "PatientName": "Linda Anderson",
+    "ScanType": "Breast",
+    "Modality": "Mammogram",
+    "Technician": "Tech. Anna",
+    "ScanDate": "2023-12-08",
+    "Status": "Scheduled"
+  },
+  {
+    "ScanID": "SCN-009",
+    "PatientName": "William Thomas",
+    "ScanType": "Shoulder",
+    "Modality": "X-Ray",
+    "Technician": "Tech. Sarah",
+    "ScanDate": "2023-12-09",
+    "Status": "InProgress"
+  },
+  {
+    "ScanID": "SCN-010",
+    "PatientName": "Elizabeth Moore",
+    "ScanType": "Carotid",
+    "Modality": "Ultrasound",
+    "Technician": "Tech. Tom",
+    "ScanDate": "2023-12-10",
+    "Status": "Completed"
+  }
+]

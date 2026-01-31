@@ -1,0 +1,81 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ PostOpNotesDetails ? 'Edit' : 'Add New' }} Post-Op Notes</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="PostOpNotesForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Patient</mat-label>
+                <mat-select formControlName="patient_name" required>
+                    <mat-option *ngFor="let Patient of PatientList" [value]="Patient.Name">{{Patient.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="PostOpNotesForm.get('patient_name')?.invalid">
+                    Please select Patient
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Surgery Type</mat-label>
+                <input matInput formControlName="surgery_type" required>
+                <mat-error *ngIf="PostOpNotesForm.get('surgery_type')?.invalid">
+                    Please enter Surgery Type
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Date</mat-label>
+                <input matInput [matDatepicker]="Date" formControlName="date" required>
+                <mat-datepicker-toggle matIconSuffix [for]="Date"></mat-datepicker-toggle>
+                <mat-datepicker #Date></mat-datepicker>
+                <mat-error *ngIf="PostOpNotesForm.get('date')?.invalid">
+                    Please select Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Recorded By</mat-label>
+                <mat-select formControlName="recorded_by" required>
+                    <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{Doctor.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="PostOpNotesForm.get('recorded_by')?.invalid">
+                    Please select Recorded By
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Recovery</mat-label>
+                <mat-select formControlName="recovery" required>
+                    <mat-option value="Excellent">Excellent</mat-option>
+                    <mat-option value="Fair">Fair</mat-option>
+                    <mat-option value="Poor">Poor</mat-option>
+                    <mat-option value="Good">Good</mat-option>
+                </mat-select>
+                <mat-error *ngIf="PostOpNotesForm.get('recovery')?.invalid">
+                    Please select Recovery
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Pain Type</mat-label>
+                <input matInput formControlName="pain_level" required>
+                <mat-error *ngIf="PostOpNotesForm.get('pain_level')?.invalid">
+                    Please enter Pain Type
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ PostOpNotesDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

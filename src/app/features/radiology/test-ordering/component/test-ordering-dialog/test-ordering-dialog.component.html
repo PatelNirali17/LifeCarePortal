@@ -1,0 +1,84 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ TestOrderingDetails ? 'Edit' : 'Add New' }} Test Ordering</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="TestOrderingForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Patient</mat-label>
+                <mat-select formControlName="PatientName" required>
+                    <mat-option *ngFor="let Patient of PatientList" [value]="Patient.Name">{{Patient.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="TestOrderingForm.get('PatientName')?.invalid">
+                    Please select Patient
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Test Name</mat-label>
+                <input matInput formControlName="TestName" required>
+                <mat-error *ngIf="TestOrderingForm.get('TestName')?.invalid">
+                    Please enter Test Name
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Ordering Physician</mat-label>
+                <mat-select formControlName="OrderingPhysician" required>
+                    <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{Doctor.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="TestOrderingForm.get('OrderingPhysician')?.invalid">
+                    Please select Ordering Physician
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Order Date</mat-label>
+                <input matInput [matDatepicker]="OrderDate" formControlName="OrderDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="OrderDate"></mat-datepicker-toggle>
+                <mat-datepicker #OrderDate></mat-datepicker>
+                <mat-error *ngIf="TestOrderingForm.get('OrderDate')?.invalid">
+                    Please select Order Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Priority</mat-label>
+                <mat-select formControlName="Priority" required>
+                    <mat-option value="Stat">Stat</mat-option>
+                    <mat-option value="Routine">Routine</mat-option>
+                    <mat-option value="Urgent">Urgent</mat-option>
+                </mat-select>
+                <mat-error *ngIf="TestOrderingForm.get('Priority')?.invalid">
+                    Please select Priority
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Status</mat-label>
+                <mat-select formControlName="Status" required>
+                    <mat-option value="Scheduled">Scheduled</mat-option>
+                    <mat-option value="Ordered">Ordered</mat-option>
+                    <mat-option value="Completed">Completed</mat-option>
+                </mat-select>
+                <mat-error *ngIf="TestOrderingForm.get('Status')?.invalid">
+                    Please select Status
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ TestOrderingDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

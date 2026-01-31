@@ -1,0 +1,112 @@
+[
+  {
+    "schedule_id": "OT-SCH-001",
+    "patient_name": "Sarah Johnson",
+    "surgery_type": "Appendectomy",
+    "surgeon": "Dr. Smith",
+    "ot_room": "OT-1",
+    "date": "2024-12-16",
+    "time": "09:00 AM",
+    "duration": "2 hours",
+    "status": "Scheduled"
+  },
+  {
+    "schedule_id": "OT-SCH-002",
+    "patient_name": "Michael Brown",
+    "surgery_type": "Knee Replacement",
+    "surgeon": "Dr. Johnson",
+    "ot_room": "OT-2",
+    "date": "2024-12-16",
+    "time": "11:00 AM",
+    "duration": "3 hours",
+    "status": "In Progress"
+  },
+  {
+    "schedule_id": "OT-SCH-003",
+    "patient_name": "Emily Davis",
+    "surgery_type": "Cataract Surgery",
+    "surgeon": "Dr. Brown",
+    "ot_room": "OT-3",
+    "date": "2024-12-15",
+    "time": "02:00 PM",
+    "duration": "1 hour",
+    "status": "Completed"
+  },
+  {
+    "schedule_id": "OT-SCH-004",
+    "patient_name": "David Wilson",
+    "surgery_type": "Hernia Repair",
+    "surgeon": "Dr. Taylor",
+    "ot_room": "OT-1",
+    "date": "2024-12-17",
+    "time": "08:00 AM",
+    "duration": "2 hours",
+    "status": "Scheduled"
+  },
+  {
+    "schedule_id": "OT-SCH-005",
+    "patient_name": "Jessica Martinez",
+    "surgery_type": "Gallbladder Removal",
+    "surgeon": "Dr. Wilson",
+    "ot_room": "OT-2",
+    "date": "2024-12-17",
+    "time": "01:00 PM",
+    "duration": "2.5 hours",
+    "status": "Scheduled"
+  },
+  {
+    "schedule_id": "OT-SCH-006",
+    "patient_name": "James Anderson",
+    "surgery_type": "Hip Replacement",
+    "surgeon": "Dr. Jackson",
+    "ot_room": "OT-4",
+    "date": "2024-12-18",
+    "time": "10:00 AM",
+    "duration": "4 hours",
+    "status": "Scheduled"
+  },
+  {
+    "schedule_id": "OT-SCH-007",
+    "patient_name": "Linda Taylor",
+    "surgery_type": "Thyroidectomy",
+    "surgeon": "Dr. Thomas",
+    "ot_room": "OT-3",
+    "date": "2024-12-14",
+    "time": "09:30 AM",
+    "duration": "2 hours",
+    "status": "Completed"
+  },
+  {
+    "schedule_id": "OT-SCH-008",
+    "patient_name": "Robert Thomas",
+    "surgery_type": "Cardiac Bypass",
+    "surgeon": "Dr. Martin",
+    "ot_room": "OT-1",
+    "date": "2024-12-19",
+    "time": "07:00 AM",
+    "duration": "5 hours",
+    "status": "Scheduled"
+  },
+  {
+    "schedule_id": "OT-SCH-009",
+    "patient_name": "Patricia Jackson",
+    "surgery_type": "Tonsillectomy",
+    "surgeon": "Dr. Rodriguez",
+    "ot_room": "OT-2",
+    "date": "2024-12-13",
+    "time": "03:00 PM",
+    "duration": "1 hour",
+    "status": "Cancelled"
+  },
+  {
+    "schedule_id": "OT-SCH-010",
+    "patient_name": "Christopher White",
+    "surgery_type": "Spinal Fusion",
+    "surgeon": "Dr. Clark",
+    "ot_room": "OT-4",
+    "date": "2024-12-20",
+    "time": "08:30 AM",
+    "duration": "6 hours",
+    "status": "Scheduled"
+  }
+]

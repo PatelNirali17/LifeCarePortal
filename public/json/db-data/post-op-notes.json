@@ -1,0 +1,92 @@
+[
+  {
+    "note_id": "POST-001",
+    "patient_name": "Sarah Johnson",
+    "surgery_type": "Appendectomy",
+    "date": "2024-12-15",
+    "recorded_by": "Dr. Williams",
+    "recovery": "Excellent",
+    "pain_level": 3
+  },
+  {
+    "note_id": "POST-002",
+    "patient_name": "Michael Brown",
+    "surgery_type": "Knee Replacement",
+    "date": "2024-12-16",
+    "recorded_by": "Dr. Davis",
+    "recovery": "Good",
+    "pain_level": 6
+  },
+  {
+    "note_id": "POST-003",
+    "patient_name": "Emily Davis",
+    "surgery_type": "Cataract Surgery",
+    "date": "2024-12-15",
+    "recorded_by": "Dr. Miller",
+    "recovery": "Excellent",
+    "pain_level": 1
+  },
+  {
+    "note_id": "POST-004",
+    "patient_name": "David Wilson",
+    "surgery_type": "Hernia Repair",
+    "date": "2024-12-17",
+    "recorded_by": "Dr. Anderson",
+    "recovery": "Good",
+    "pain_level": 4
+  },
+  {
+    "note_id": "POST-005",
+    "patient_name": "Jessica Martinez",
+    "surgery_type": "Gallbladder Removal",
+    "date": "2024-12-17",
+    "recorded_by": "Dr. Moore",
+    "recovery": "Good",
+    "pain_level": 5
+  },
+  {
+    "note_id": "POST-006",
+    "patient_name": "James Anderson",
+    "surgery_type": "Hip Replacement",
+    "date": "2024-12-18",
+    "recorded_by": "Dr. White",
+    "recovery": "Fair",
+    "pain_level": 7
+  },
+  {
+    "note_id": "POST-007",
+    "patient_name": "Linda Taylor",
+    "surgery_type": "Thyroidectomy",
+    "date": "2024-12-14",
+    "recorded_by": "Dr. Harris",
+    "recovery": "Excellent",
+    "pain_level": 2
+  },
+  {
+    "note_id": "POST-008",
+    "patient_name": "Robert Thomas",
+    "surgery_type": "Cardiac Bypass",
+    "date": "2024-12-19",
+    "recorded_by": "Dr. Garcia",
+    "recovery": "Fair",
+    "pain_level": 8
+  },
+  {
+    "note_id": "POST-009",
+    "patient_name": "Patricia Jackson",
+    "surgery_type": "Tonsillectomy",
+    "date": "2024-12-13",
+    "recorded_by": "Dr. Lee",
+    "recovery": "Good",
+    "pain_level": 6
+  },
+  {
+    "note_id": "POST-010",
+    "patient_name": "Christopher White",
+    "surgery_type": "Spinal Fusion",
+    "date": "2024-12-20",
+    "recorded_by": "Dr. Lewis",
+    "recovery": "Good",
+    "pain_level": 7
+  }
+]

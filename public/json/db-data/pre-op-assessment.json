@@ -1,0 +1,92 @@
+[
+  {
+    "assessment_id": "PRE-001",
+    "patient_name": "Sarah Johnson",
+    "surgery_type": "Appendectomy",
+    "date": "2024-12-15",
+    "assessed_by": "Dr. Williams",
+    "fitness": "Fit",
+    "risk_level": "Low"
+  },
+  {
+    "assessment_id": "PRE-002",
+    "patient_name": "Michael Brown",
+    "surgery_type": "Knee Replacement",
+    "date": "2024-12-15",
+    "assessed_by": "Dr. Davis",
+    "fitness": "Conditionally Fit",
+    "risk_level": "Medium"
+  },
+  {
+    "assessment_id": "PRE-003",
+    "patient_name": "Emily Davis",
+    "surgery_type": "Cataract Surgery",
+    "date": "2024-12-14",
+    "assessed_by": "Dr. Miller",
+    "fitness": "Fit",
+    "risk_level": "Low"
+  },
+  {
+    "assessment_id": "PRE-004",
+    "patient_name": "David Wilson",
+    "surgery_type": "Hernia Repair",
+    "date": "2024-12-16",
+    "assessed_by": "Dr. Anderson",
+    "fitness": "Fit",
+    "risk_level": "Low"
+  },
+  {
+    "assessment_id": "PRE-005",
+    "patient_name": "Jessica Martinez",
+    "surgery_type": "Gallbladder Removal",
+    "date": "2024-12-16",
+    "assessed_by": "Dr. Moore",
+    "fitness": "Fit",
+    "risk_level": "Low"
+  },
+  {
+    "assessment_id": "PRE-006",
+    "patient_name": "James Anderson",
+    "surgery_type": "Hip Replacement",
+    "date": "2024-12-17",
+    "assessed_by": "Dr. White",
+    "fitness": "Conditionally Fit",
+    "risk_level": "High"
+  },
+  {
+    "assessment_id": "PRE-007",
+    "patient_name": "Linda Taylor",
+    "surgery_type": "Thyroidectomy",
+    "date": "2024-12-13",
+    "assessed_by": "Dr. Harris",
+    "fitness": "Fit",
+    "risk_level": "Low"
+  },
+  {
+    "assessment_id": "PRE-008",
+    "patient_name": "Robert Thomas",
+    "surgery_type": "Cardiac Bypass",
+    "date": "2024-12-18",
+    "assessed_by": "Dr. Garcia",
+    "fitness": "Conditionally Fit",
+    "risk_level": "High"
+  },
+  {
+    "assessment_id": "PRE-009",
+    "patient_name": "Patricia Jackson",
+    "surgery_type": "Tonsillectomy",
+    "date": "2024-12-12",
+    "assessed_by": "Dr. Lee",
+    "fitness": "Not Fit",
+    "risk_level": "Medium"
+  },
+  {
+    "assessment_id": "PRE-010",
+    "patient_name": "Christopher White",
+    "surgery_type": "Spinal Fusion",
+    "date": "2024-12-19",
+    "assessed_by": "Dr. Lewis",
+    "fitness": "Fit",
+    "risk_level": "Medium"
+  }
+]
