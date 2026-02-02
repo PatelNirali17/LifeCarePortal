@@ -1,0 +1,45 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ DepartmentDetails ? 'Edit' : 'Add New' }} Department</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form class="row" [formGroup]="DepartmentForm">
+        <div class="col-md-12">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Name</mat-label>
+                <input matInput formControlName="Name" required>
+                <mat-icon matSuffix>manage_accounts</mat-icon>
+                <mat-error *ngIf="DepartmentForm.get('Name')?.invalid">
+                    Please enter Name
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-12">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Description</mat-label>
+                <input matInput formControlName="Description" required>
+                <mat-icon matSuffix>description</mat-icon>
+                <mat-error *ngIf="DepartmentForm.get('Description')?.invalid">
+                    Please enter Description
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-12">
+            <mat-radio-group formControlName="Status">
+                <mat-label style="font-size: 14px;">Status :</mat-label>
+                <mat-radio-button value="Active">Active</mat-radio-button>
+                <mat-radio-button value="Inactive">Inactive</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="DepartmentForm.get('Status')?.invalid">
+                Please select Status
+            </mat-error>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ DepartmentDetails ? 'Update' : 'Save'
+        }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

@@ -1,0 +1,61 @@
+<div class="page-container">
+  <div class="header-section">
+    <div class="title-group">
+      <h1>Attendance Sheet</h1>
+      <p class="subtitle">Overview for {{ selectedMonth | date:'MMMM yyyy' }}</p>
+    </div>
+    
+    <mat-form-field appearance="outline" class="month-selector" subscriptSizing="dynamic">
+      <mat-label>Select Month</mat-label>
+      <input matInput [matDatepicker]="picker" [(ngModel)]="selectedMonth" readonly>
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker startView="multi-year" (monthSelected)="monthSelectedHandler($event, picker)"></mat-datepicker>
+    </mat-form-field>
+  </div>
+
+  <div class="legend">
+    <div class="legend-item"><span class="legend-color status-P"></span> Present</div>
+    <div class="legend-item"><span class="legend-color status-A"></span> Absent</div>
+    <div class="legend-item"><span class="legend-color status-L"></span> Leave</div>
+    <div class="legend-item"><span class="legend-color status-H"></span> Holiday</div>
+    <div class="legend-item"><span class="legend-color status-WO"></span> Week Off</div>
+  </div>
+
+  <div class="timeline-view">
+    <!-- Header Row -->
+    <div class="timeline-grid-header">
+      <div class="employee-header-cell">Employee</div>
+      <div class="days-header-cell">
+        <div class="day-labels" [style.grid-template-columns]="'repeat(' + daysInMonth.length + ', 1fr)'">
+          <span *ngFor="let day of daysInMonth">{{ day }}</span>
+        </div>
+      </div>
+      <div class="summary-header-cell">Summary</div>
+    </div>
+
+    <!-- Data Rows -->
+    <div *ngFor="let emp of attendanceData" class="timeline-grid-row">
+      <div class="employee-info-cell">
+        <div class="avatar">{{ emp.employeeName.charAt(0) }}</div>
+        <div class="details">
+          <span class="name">{{ emp.employeeName }}</span>
+          <span class="role">#{{ 1000 + attendanceData.indexOf(emp) }}</span>
+        </div>
+      </div>
+      <div class="days-cell">
+        <div class="timeline-bar" [style.grid-template-columns]="'repeat(' + daysInMonth.length + ', 1fr)'">
+          <div *ngFor="let day of daysInMonth"
+               class="day-segment"
+               [ngClass]="getStatusClass(emp.attendance[day])"
+               [matTooltip]="'Day ' + day + ': ' + getStatusTooltip(emp.attendance[day])">
+          </div>
+        </div>
+      </div>
+      <div class="summary-cell">
+        <div class="stat present" matTooltip="Present"><b>P:</b> {{ emp.summary.totalPresent }}</div>
+        <div class="stat absent" matTooltip="Absent"><b>A:</b> {{ emp.summary.totalAbsent }}</div>
+        <div class="stat leave" matTooltip="Leave"><b>L:</b> {{ emp.summary.totalLeave }}</div>
+      </div>
+    </div>
+  </div>
+</div>

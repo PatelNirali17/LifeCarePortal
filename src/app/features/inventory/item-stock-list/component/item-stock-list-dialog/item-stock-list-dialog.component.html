@@ -1,0 +1,75 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ ItemStockDetails ? 'Edit' : 'Add New' }} Item Stock</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form class="row" [formGroup]="ItemStockForm">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">ItemName</mat-label>
+                <input matInput formControlName="ItemName" required>
+                <mat-icon matSuffix>badge</mat-icon>
+                <mat-error *ngIf="ItemStockForm.get('ItemName')?.invalid">
+                    Please enter ItemName
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Category</mat-label>
+                <input matInput formControlName="Category" required>
+                <mat-icon matSuffix>category</mat-icon>
+                <mat-error *ngIf="ItemStockForm.get('Category')?.invalid">
+                    Please enter Category
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Quantity</mat-label>
+                <input matInput formControlName="Quantity" required>
+                <mat-icon matSuffix>tag</mat-icon>
+                <mat-error *ngIf="ItemStockForm.get('Quantity')?.invalid">
+                    Please enter Quantity
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Date</mat-label>
+                <input matInput [matDatepicker]="Date" formControlName="Date" required>
+                <mat-datepicker-toggle matIconSuffix [for]="Date"></mat-datepicker-toggle>
+                <mat-datepicker #Date></mat-datepicker>
+                <mat-error *ngIf="ItemStockForm.get('Date')?.invalid">
+                    Please select Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Price</mat-label>
+                <input matInput formControlName="Price" required>
+                <mat-icon matSuffix>attach_money</mat-icon>
+                <mat-error *ngIf="ItemStockForm.get('Price')?.invalid">
+                    Please enter Price
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Details</mat-label>
+                <input matInput formControlName="Details" required>
+                <mat-error *ngIf="ItemStockForm.get('Details')?.invalid">
+                    Please enter Details
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ ItemStockDetails ? 'Update' : 'Save'
+        }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

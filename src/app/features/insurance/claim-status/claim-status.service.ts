@@ -9,7 +9,7 @@ export class ClaimStatusService {
 
   constructor(private http: HttpClient) { }
 
-  GetAllCalimStatus(): Observable<any> {
+  GetAllClaimStatus(): Observable<any> {
     return this.http.get<any>('json/db-data/claim-status.json')
   }
 }

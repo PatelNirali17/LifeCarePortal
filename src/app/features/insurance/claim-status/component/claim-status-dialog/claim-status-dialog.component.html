@@ -1,1 +1,116 @@
-<p>claim-status-dialog works!</p>
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ ClaimStatusDetails ? 'Edit' : 'Add New' }} Claim Status</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="ClaimStatusForm" class="row">
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Patient</mat-label>
+                    <mat-select formControlName="patientName" required>
+                        <mat-option *ngFor="let Patient of PatientList" [value]="Patient.Name">{{Patient.Name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="ClaimStatusForm.get('patientName')?.invalid">
+                        Please select Patient
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Claim Type</mat-label>
+                    <mat-select formControlName="claimType" required>
+                        <mat-option value="Surgery">Surgery</mat-option>
+                        <mat-option value="Emergency">Emergency</mat-option>
+                        <mat-option value="Outpatient">Outpatient</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="ClaimStatusForm.get('claimType')?.invalid">
+                        Please select Claim Type
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Claim Status</mat-label>
+                    <mat-select formControlName="claimStatus" required>
+                        <mat-option value="Pending">Pending</mat-option>
+                        <mat-option value="Approved">Approved</mat-option>
+                        <mat-option value="Rejected">Rejected</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="ClaimStatusForm.get('claimStatus')?.invalid">
+                        Please select Claim Status
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Claim Date</mat-label>
+                    <input matInput [matDatepicker]="claimDate" formControlName="claimDate" required>
+                    <mat-datepicker-toggle matIconSuffix [for]="claimDate"></mat-datepicker-toggle>
+                    <mat-datepicker #claimDate></mat-datepicker>
+                    <mat-error *ngIf="ClaimStatusForm.get('claimDate')?.invalid">
+                        Please select Claim Date
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Claim Amount</mat-label>
+                    <input matInput formControlName="claimAmount" required>
+                    <mat-error *ngIf="ClaimStatusForm.get('claimAmount')?.invalid">
+                        Please enter Claim Amount
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Approved Amount</mat-label>
+                    <input matInput formControlName="approvedAmount" required>
+                    <mat-error *ngIf="ClaimStatusForm.get('approvedAmount')?.invalid">
+                        Please enter Approved Amount
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="section-title">Medical & Processing Details</div>
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Doctor</mat-label>
+                    <mat-select formControlName="doctorName" required>
+                        <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{Doctor.Name}}
+                        </mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="ClaimStatusForm.get('doctorName')?.invalid">
+                        Please select Doctor
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Hospital</mat-label>
+                    <input matInput formControlName="hospitalName" required>
+                    <mat-error *ngIf="ClaimStatusForm.get('hospitalName')?.invalid">
+                        Please enter Hospital
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Rejection Reason</mat-label>
+                    <input matInput formControlName="rejectionReason" required>
+                    <mat-error *ngIf="ClaimStatusForm.get('rejectionReason')?.invalid">
+                        Please enter Rejection Reason
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ ClaimStatusDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

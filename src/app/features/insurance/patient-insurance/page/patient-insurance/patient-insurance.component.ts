@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { PatientInsuranceService } from '../../patient-insurance.service';
 import { MatDialog } from '@angular/material/dialog';
 import { PatientInsuranceDialogComponent } from '../../component/patient-insurance-dialog/patient-insurance-dialog.component';
+import { PatientInsuranceDetailsDialogComponent } from '../../component/patient-insurance-details-dialog/patient-insurance-details-dialog.component';
 
 @Component({
   selector: 'app-patient-insurance',
@@ -76,6 +77,15 @@ export class PatientInsuranceComponent {
 
     dialogRef.afterClosed().subscribe(result => {
       this.GetAllPatientInsurance()
+    });
+  }
+
+  OpenPatientInsuranceDetailsDialog(PatientInsuranceDetails: any) {
+    const dialogRef = this.dialog.open(PatientInsuranceDetailsDialogComponent, {
+      minWidth: '1000px',
+      maxWidth: '1000px',
+      data: PatientInsuranceDetails,
+      disableClose: true
     });
   }
 }

@@ -1,0 +1,82 @@
+[
+  {
+    "ID": "001",
+    "ItemName": "Medical Equipment",
+    "Category": "Equipments",
+    "IssueDate": "2021-02-25",
+    "ReturnDate": "2021-04-12",
+    "IssuedTo": "Dr. Sarah Smith",
+    "Quantity": 44,
+    "Status": "Issued"
+  },
+  {
+    "ID": "002",
+    "ItemName": "Dressing Cotton",
+    "Category": "Cotton Packs",
+    "IssueDate": "2021-03-17",
+    "ReturnDate": "2021-03-23",
+    "IssuedTo": "Dr. Sarah Smith",
+    "Quantity": 234,
+    "Status": "Returned"
+  },
+  {
+    "ID": "003",
+    "ItemName": "Syringe",
+    "Category": "Syringe Packs",
+    "IssueDate": "2021-07-02",
+    "ReturnDate": "2021-09-12",
+    "IssuedTo": "Dr. Sarah Smith",
+    "Quantity": 27,
+    "Status": "Returned"
+  },
+  {
+    "ID": "004",
+    "ItemName": "Bed Sheet",
+    "Category": "Bed Items",
+    "IssueDate": "2021-02-11",
+    "ReturnDate": "2021-02-18",
+    "IssuedTo": "Dr. Sarah Smith",
+    "Quantity": 10,
+    "Status": "Issued"
+  },
+  {
+    "ID": "005",
+    "ItemName": "Hand Gloves",
+    "Category": "Equipments",
+    "IssueDate": "2021-03-15",
+    "ReturnDate": "2021-06-21",
+    "IssuedTo": "Dr. Sarah Smith",
+    "Quantity": 163,
+    "Status": "Returned"
+  },
+  {
+    "ID": "006",
+    "ItemName": "Uniform",
+    "Category": "Staff Items",
+    "IssueDate": "2021-02-25",
+    "ReturnDate": "2021-02-26",
+    "IssuedTo": "Dr. Sarah Smith",
+    "Quantity": 12,
+    "Status": "Returned"
+  },
+  {
+    "ID": "007",
+    "ItemName": "scissors",
+    "Category": "Equipments",
+    "IssueDate": "2021-02-13",
+    "ReturnDate": "2021-02-20",
+    "IssuedTo": "Dr. Sarah Smith",
+    "Quantity": 17,
+    "Status": "Issued"
+  },
+  {
+    "ID": "008",
+    "ItemName": "Thermometer",
+    "Category": "Equipments",
+    "IssueDate": "2021-02-10",
+    "ReturnDate": "2021-02-15",
+    "IssuedTo": "Dr. Sarah Smith",
+    "Quantity": 5,
+    "Status": "Returned"
+  }
+]

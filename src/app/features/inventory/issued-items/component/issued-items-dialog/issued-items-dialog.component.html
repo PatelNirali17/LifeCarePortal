@@ -1,0 +1,82 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ IssuedItemsDetails ? 'Edit' : 'Add New' }} Issued Items</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form class="row" [formGroup]="IssuedItemsForm">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Item</mat-label>
+                <mat-select formControlName="ItemName" required>
+                    <mat-option *ngFor="let Item of ItemList" [value]="Item.ItemName">{{Item.ItemName}} -
+                        {{Item.Category}} - {{Item.Quantity}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="IssuedItemsForm.get('ItemName')?.invalid">
+                    Please select ItemName
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Issue Date</mat-label>
+                <input matInput [matDatepicker]="IssueDate" formControlName="IssueDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="IssueDate"></mat-datepicker-toggle>
+                <mat-datepicker #IssueDate></mat-datepicker>
+                <mat-error *ngIf="IssuedItemsForm.get('IssueDate')?.invalid">
+                    Please select Issue Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Return Date</mat-label>
+                <input matInput [matDatepicker]="ReturnDate" formControlName="ReturnDate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="ReturnDate"></mat-datepicker-toggle>
+                <mat-datepicker #ReturnDate></mat-datepicker>
+                <mat-error *ngIf="IssuedItemsForm.get('ReturnDate')?.invalid">
+                    Please select Return Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Issued To</mat-label>
+                <mat-select formControlName="IssuedTo" required>
+                    <mat-option *ngFor="let Doctor of DoctorList" [value]="Doctor.Name">{{Doctor.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="IssuedItemsForm.get('IssuedTo')?.invalid">
+                    Please select Issued To
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Quantity</mat-label>
+                <input matInput formControlName="Quantity" required>
+                <mat-icon matSuffix>tag</mat-icon>
+                <mat-error *ngIf="IssuedItemsForm.get('Quantity')?.invalid">
+                    Please enter Quantity
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-radio-group formControlName="Status">
+                <mat-label style="font-size: 14px;">Status:</mat-label>
+                <mat-radio-button value="Issued">Issued</mat-radio-button>
+                <mat-radio-button value="Returned">Returned</mat-radio-button>
+            </mat-radio-group>
+            <mat-error *ngIf="IssuedItemsForm.get('Status')?.invalid">
+                Please enter Status
+            </mat-error>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ IssuedItemsDetails ? 'Update' : 'Save'
+        }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

@@ -1,0 +1,43 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>Patient Insurance Details</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <div class="row mt-2" style="font-size: 13px;">
+        <div class="col-md-4">
+            <b>Patient</b> : {{PatientInsuranceDetails?.patientName}}
+        </div>
+        <div class="col-md-4">
+            <b>Insurance Company</b> : {{PatientInsuranceDetails?.insuranceCompanyName}}
+        </div>
+        <div class="col-md-4">
+            <b>Policy Number</b> : {{PatientInsuranceDetails?.policyNumber}}
+        </div>
+        <div class="col-md-4">
+            <b>Policy Type</b> : {{PatientInsuranceDetails?.policyType}}
+        </div>
+        <div class="col-md-4">
+            <b>Plan Type</b> : {{PatientInsuranceDetails?.planType}}
+        </div>
+        <div class="col-md-4">
+            <b>Coverage Amount</b> : {{PatientInsuranceDetails?.coverageAmount}}
+        </div>
+        <div class="col-md-4">
+            <b>Co-Payment</b> : {{PatientInsuranceDetails?.coPayment}}
+        </div>
+        <div class="col-md-4">
+            <b>Coverage Start Date</b> : {{PatientInsuranceDetails?.coverageStartDate}}
+        </div>
+        <div class="col-md-4">
+            <b>Coverage End Date</b> : {{PatientInsuranceDetails?.coverageEndDate}}
+        </div>
+        <div class="col-md-4">
+            <b>Insurance Status</b> : {{PatientInsuranceDetails?.insuranceStatus}}
+        </div>
+    </div>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

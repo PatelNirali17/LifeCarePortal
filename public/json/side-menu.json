@@ -753,7 +753,7 @@
         {
             "id": 76,
             "title": "Item Stock List",
-            "routerLink": "/itemstocklist",
+            "routerLink": "inventory/itemstocklist",
             "href": null,
             "icon": null,
             "target": null,
@@ -763,7 +763,7 @@
         {
             "id": 77,
             "title": "Issued Items",
-            "routerLink": "/issueditem",
+            "routerLink": "inventory/issueditems",
             "href": null,
             "icon": null,
             "target": null,
@@ -783,7 +783,7 @@
         {
             "id": 79,
             "title": "Leave Requests",
-            "routerLink": "/leaverequest",
+            "routerLink": "humanresources/leaverequest",
             "href": null,
             "icon": null,
             "target": null,
@@ -793,7 +793,7 @@
         {
             "id": 80,
             "title": "Leave Balance",
-            "routerLink": "/leavebalance",
+            "routerLink": "humanresources/leavebalance",
             "href": null,
             "icon": null,
             "target": null,
@@ -803,7 +803,7 @@
         {
             "id": 81,
             "title": "Leave Types",
-            "routerLink": "/leavetypes",
+            "routerLink": "humanresources/leavetypes",
             "href": null,
             "icon": null,
             "target": null,
@@ -813,7 +813,7 @@
         {
             "id": 82,
             "title": "Holidays",
-            "routerLink": "/holidays",
+            "routerLink": "humanresources/holidays",
             "href": null,
             "icon": null,
             "target": null,
@@ -823,7 +823,7 @@
         {
             "id": 83,
             "title": "Today's Attendance",
-            "routerLink": "/todaysattendance",
+            "routerLink": "humanresources/todaysattendance",
             "href": null,
             "icon": null,
             "target": null,
@@ -833,7 +833,7 @@
         {
             "id": 84,
             "title": "Employee Attendance",
-            "routerLink": "/employeeattendance",
+            "routerLink": "humanresources/employeeattendance",
             "href": null,
             "icon": null,
             "target": null,
@@ -843,7 +843,7 @@
         {
             "id": 85,
             "title": "Attendance Sheet",
-            "routerLink": "/attendancesheet",
+            "routerLink": "humanresources/attendancesheet",
             "href": null,
             "icon": null,
             "target": null,
@@ -853,7 +853,7 @@
         {
             "id": 86,
             "title": "Employee Salary",
-            "routerLink": "/employeesalary",
+            "routerLink": "humanresources/employeesalary",
             "href": null,
             "icon": null,
             "target": null,
@@ -863,7 +863,7 @@
         {
             "id": 87,
             "title": "Payslip",
-            "routerLink": "/payslip",
+            "routerLink": "humanresources/payslip",
             "href": null,
             "icon": null,
             "target": null,

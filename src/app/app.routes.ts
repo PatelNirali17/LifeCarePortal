@@ -19,6 +19,9 @@ import { EMR_EHRRoutesList } from './features/emr_ehr/emr-ehr-routes';
 import { OperationTheatreRoutesList } from './features/operation-theatre/operation-theatre-routes';
 import { RadiologyRoutesList } from './features/radiology/radiology-routes';
 import { InsuranceRoutesList } from './features/insurance/insurance-routes';
+import { DepartmentsRoutesList } from './features/departments/departments-routes';
+import { InventoryRoutesList } from './features/inventory/inventory-routes';
+import { HumanResourcesRoutesList } from './features/human-resources/human-resources-routes';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -93,6 +96,18 @@ export const routes: Routes = [
       {
         path: 'insurance', data: { breadcrumb: 'Insurance' },
         children: InsuranceRoutesList
+      },
+      {
+        path: 'departments', data: { breadcrumb: 'Departments' },
+        children: DepartmentsRoutesList
+      },
+      {
+        path: 'inventory', data: { breadcrumb: 'Inventory' },
+        children: InventoryRoutesList
+      },
+      {
+        path: 'humanresources', data: { breadcrumb: 'Human Resources' },
+        children: HumanResourcesRoutesList
       },
     ]
   }

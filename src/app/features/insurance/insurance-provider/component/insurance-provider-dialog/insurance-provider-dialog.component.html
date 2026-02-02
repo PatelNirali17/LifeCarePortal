@@ -1,1 +1,147 @@
-<p>insurance-provider-dialog works!</p>
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ InsuranceProviderDetails ? 'Edit' : 'Add New' }} Insurance Provider</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="InsuranceProviderForm" class="row">
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Provider Name</mat-label>
+                    <input matInput formControlName="providerName" required>
+                    <mat-error *ngIf="InsuranceProviderForm.get('providerName')?.invalid">
+                        Please enter Provider Name
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Contact Phone</mat-label>
+                    <input matInput formControlName="contactPhone" required>
+                    <mat-icon matSuffix>call</mat-icon>
+                    <mat-error *ngIf="InsuranceProviderForm.get('contactPhone')?.invalid">
+                        Please enter Contact Phone
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Contact Email</mat-label>
+                    <input matInput formControlName="contactEmail" required>
+                    <mat-icon matSuffix>mail</mat-icon>
+                    <mat-error *ngIf="InsuranceProviderForm.get('contactEmail')?.invalid">
+                        Please enter Contact Email
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Address</mat-label>
+                    <input matInput formControlName="address" required>
+                    <mat-error *ngIf="InsuranceProviderForm.get('address')?.invalid">
+                        Please enter Address
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">WebsiteUrl</mat-label>
+                    <input matInput formControlName="websiteUrl" required>
+                    <mat-error *ngIf="InsuranceProviderForm.get('websiteUrl')?.invalid">
+                        Please enter WebsiteUrl
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Customer Support Number</mat-label>
+                    <input matInput formControlName="customerSupportNumber" required>
+                    <mat-error *ngIf="InsuranceProviderForm.get('customerSupportNumber')?.invalid">
+                        Please enter Customer Support Number
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Status</mat-label>
+                    <mat-select formControlName="status" required>
+                        <mat-option value="Active">Active</mat-option>
+                        <mat-option value="Inactive">Inactive</mat-option>
+                        <mat-option value="Suspended">Suspended</mat-option>
+                    </mat-select>
+                    <mat-error *ngIf="InsuranceProviderForm.get('status')?.invalid">
+                        Please select Status
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+        <div class="section-title">Contract & Coverage Details</div>
+        <div class="row">
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Payment Terms</mat-label>
+                    <input matInput formControlName="paymentTerms" required>
+                    <mat-error *ngIf="InsuranceProviderForm.get('paymentTerms')?.invalid">
+                        Please enter Payment Terms
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Contract Start Date</mat-label>
+                    <input matInput [matDatepicker]="contractStartDate" formControlName="contractStartDate" required>
+                    <mat-datepicker-toggle matIconSuffix [for]="contractStartDate"></mat-datepicker-toggle>
+                    <mat-datepicker #contractStartDate></mat-datepicker>
+                    <mat-error *ngIf="InsuranceProviderForm.get('contractStartDate')?.invalid">
+                        Please select Contract Start Date
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Contract End Date</mat-label>
+                    <input matInput [matDatepicker]="contractEndDate" formControlName="contractEndDate" required>
+                    <mat-datepicker-toggle matIconSuffix [for]="contractEndDate"></mat-datepicker-toggle>
+                    <mat-datepicker #contractEndDate></mat-datepicker>
+                    <mat-error *ngIf="InsuranceProviderForm.get('contractEndDate')?.invalid">
+                        Please select Contract End Date
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Reimbursement Rate</mat-label>
+                    <input matInput formControlName="reimbursementRate" required>
+                    <mat-icon matSuffix>percent</mat-icon>
+                    <mat-error *ngIf="InsuranceProviderForm.get('reimbursementRate')?.invalid">
+                        Please enter Reimbursement Rate
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Coverage Types</mat-label>
+                    <input matInput formControlName="coverageTypes" required>
+                    <mat-error *ngIf="InsuranceProviderForm.get('coverageTypes')?.invalid">
+                        Please enter Coverage Types
+                    </mat-error>
+                </mat-form-field>
+            </div>
+            <div class="col-md-4">
+                <mat-form-field class="w-100">
+                    <mat-label style="font-size: 14px;">Contract Notes</mat-label>
+                    <input matInput formControlName="contractNotes" required>
+                    <mat-error *ngIf="InsuranceProviderForm.get('contractNotes')?.invalid">
+                        Please enter Contract Notes
+                    </mat-error>
+                </mat-form-field>
+            </div>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ InsuranceProviderDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

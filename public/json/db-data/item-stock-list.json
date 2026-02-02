@@ -1,0 +1,74 @@
+[
+  {
+    "ID": "001",
+    "ItemName": "Medical Equipment",
+    "Category": "Equipments",
+    "Quantity": 44,
+    "Date": "2021-02-25",
+    "Price": 20,
+    "Details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  },
+  {
+    "ID": "002",
+    "ItemName": "Dressing Cotton",
+    "Category": "Cotton Packs",
+    "Quantity": 234,
+    "Date": "2021-04-15",
+    "Price": 11,
+    "Details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  },
+  {
+    "ID": "003",
+    "ItemName": "Syringe",
+    "Category": "Syringe Packs",
+    "Quantity": 476,
+    "Date": "2021-03-09",
+    "Price": 3,
+    "Details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  },
+  {
+    "ID": "004",
+    "ItemName": "Bed Sheet",
+    "Category": "Bed Items",
+    "Quantity": 29,
+    "Date": "2021-02-25",
+    "Price": 45,
+    "Details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  },
+  {
+    "ID": "005",
+    "ItemName": "Hand Gloves",
+    "Category": "Equipments",
+    "Quantity": 163,
+    "Date": "2021-06-22",
+    "Price": 10,
+    "Details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  },
+  {
+    "ID": "006",
+    "ItemName": "Uniform",
+    "Category": "Staff Items",
+    "Quantity": 14,
+    "Date": "2021-02-05",
+    "Price": 33,
+    "Details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  },
+  {
+    "ID": "007",
+    "ItemName": "scissors",
+    "Category": "Equipments",
+    "Quantity": 17,
+    "Date": "2021-03-19",
+    "Price": 29,
+    "Details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  },
+  {
+    "ID": "008",
+    "ItemName": "Thermometer",
+    "Category": "Equipments",
+    "Quantity": 5,
+    "Date": "2021-02-25",
+    "Price": 6,
+    "Details": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
+  }
+]
