@@ -35,7 +35,7 @@
                     <td>{{ stock.Category }}</td>
                     <td>{{ stock.Quantity }}</td>
                     <td>📅 {{ stock.Date }}</td>
-                    <td>₹{{ stock.Price }}</td>
+                    <td>{{ stock.Price | currency:'INR'}}</td>
                     <td>{{ stock.Details }}</td>
                     <td class="text-end">
                         <div class="action-group">

@@ -320,6 +320,16 @@
             border-color: #D4AF37;
         }
     }
+
+    &.pdf {
+        color: #f44336;
+
+        &:hover {
+            background: #f44336;
+            color: white;
+            border-color: #f44336;
+        }
+    }
 }
 
 .text-right {

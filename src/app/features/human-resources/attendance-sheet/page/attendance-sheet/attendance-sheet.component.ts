@@ -9,6 +9,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatTooltipModule } from '@angular/material/tooltip';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatChipsModule } from '@angular/material/chips';
 import { SharedModule } from '../../../../../shared/shared.module';
 
 @Component({
@@ -25,7 +26,8 @@ import { SharedModule } from '../../../../../shared/shared.module';
     MatInputModule,
     MatTooltipModule,
     MatButtonModule,
-    MatIconModule
+    MatIconModule,
+    MatChipsModule
   ],
   templateUrl: './attendance-sheet.component.html',
   styleUrl: './attendance-sheet.component.scss'

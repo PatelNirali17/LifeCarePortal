@@ -35,7 +35,7 @@
                     <td>{{ insurance.insuranceCompanyName }}</td>
                     <td>{{ insurance.policyNumber }}</td>
                     <td>{{ insurance.planType }}</td>
-                    <td>₹{{ insurance.coverageAmount }}</td>
+                    <td>{{ insurance.coverageAmount | currency:'INR'}}</td>
                     <td>
                         <span class="type-badge owned"
                             *ngIf="insurance.insuranceStatus == 'Active'">{{insurance.insuranceStatus}}</span>

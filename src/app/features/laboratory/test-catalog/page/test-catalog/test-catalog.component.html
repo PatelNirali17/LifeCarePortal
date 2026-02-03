@@ -36,7 +36,7 @@
                     <td>{{ test.Category }}</td>
                     <td>{{ test.Department }}</td>
                     <td>{{ test.SampleType }}</td>
-                    <td>₹{{ test.Price }}</td>
+                    <td>{{ test.Price | currency:'INR'}}</td>
                     <td>{{ test.Duration }}</td>
                     <td>
                         <span class="type-badge active" *ngIf="test.Status == 'Active'">{{test.Status}}</span>

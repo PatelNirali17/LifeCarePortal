@@ -1,0 +1,170 @@
+<div class="container-fluid py-4">
+    <div class="row mb-3">
+        <div class="col">
+            <h3 class="mb-0">Employee Attendance</h3>
+        </div>
+    </div>
+
+    <div class="card employee-card mb-4 border-0 shadow-sm">
+        <div class="card-body">
+            <div class="d-flex align-items-center mb-4">
+                <div class="flex-shrink-0">
+                    <img src="user/default-user.jpg" alt="Maria Smith"
+                        class="employee-avatar rounded-circle border border-3 border-primary-subtle shadow-sm">
+                </div>
+                <div class="flex-grow-1 ms-3">
+                    <h4 class="mb-1 fw-bold text-dark">Maria Smith</h4>
+                    <span class="type-badge active">Gynecologist</span>
+                </div>
+            </div>
+
+            <div class="row g-3">
+                <div class="col-md-4">
+                    <div class="detail-card detail-card--primary p-3 rounded-3 h-100">
+                        <small class="detail-card__label d-block text-uppercase fw-bold opacity-75 mb-1">Employee
+                            ID</small>
+                        <span class="h5 mb-0 fw-bold">IM062587UT</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="detail-card detail-card--secondary p-3 rounded-3 h-100">
+                        <small
+                            class="detail-card__label d-block text-uppercase fw-bold opacity-75 mb-1">Department</small>
+                        <span class="h5 mb-0 fw-bold">Gynecology</span>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="detail-card detail-card--owned p-3 rounded-3 h-100">
+                        <small class="detail-card__label d-block text-uppercase fw-bold opacity-75 mb-1">Joining
+                            Date</small>
+                        <span class="h5 mb-0 fw-bold">12 January 2015</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="row g-4">
+        <div class="col-sm-6 col-xl-3">
+            <div class="card stat-card stat-card--primary h-100">
+                <div class="card-body text-center">
+                    <h6 class="card-title">Average Working Hours</h6>
+                    <p class="fs-4 fw-bold mb-0">08:00</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="card stat-card stat-card--owned h-100">
+                <div class="card-body text-center">
+                    <h6 class="card-title">Average In Time</h6>
+                    <p class="fs-4 fw-bold mb-0">10:30 AM</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="card stat-card stat-card--warning h-100">
+                <div class="card-body text-center">
+                    <h6 class="card-title">Average Out Time</h6>
+                    <p class="fs-4 fw-bold mb-0">07:30 PM</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-sm-6 col-xl-3">
+            <div class="card stat-card stat-card--onhold h-100">
+                <div class="card-body text-center">
+                    <h6 class="card-title">Average Break Time</h6>
+                    <p class="fs-4 fw-bold mb-0">01:00</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>date</th>
+                    <th>check_in</th>
+                    <th>check_out</th>
+                    <th>working_hours</th>
+                    <th>shift</th>
+                    <th>status</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let attendance of paginatedList; trackBy: trackByFn;let i = index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>📅 {{ attendance.date }}</td>
+                    <td>{{ attendance.check_in }}</td>
+                    <td>{{ attendance.check_out }}</td>
+                    <td>{{ attendance.working_hours }}</td>
+                    <td>{{ attendance.shift }}</td>
+                    <td>
+                        <span class="type-badge owned" *ngIf="attendance.status == 'Present'">{{attendance.status
+                            }}</span>
+                        <span class="type-badge contractual" *ngIf="attendance.status == 'Leave'">{{attendance.status
+                            }}</span>
+                        <span class="type-badge onhold" *ngIf="attendance.status == 'Weekend'">{{attendance.status
+                            }}</span>
+                        <span class="type-badge inactive" *ngIf="attendance.status == 'Absent'">{{attendance.status
+                            }}</span>
+                        <span class="type-badge warning" *ngIf="attendance.status == 'Holiday'">{{attendance.status
+                            }}</span>
+                    </td>
+                    <td class="text-end">
+                        <div class="action-group">
+                            <button class="action-btn edit" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="EmployeeAttendanceList.length === 0" class="empty-state">
+            <p>No Attendance data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                EmployeeAttendanceList.length ?
+                EmployeeAttendanceList.length : currentPage * pageSize }} of {{ EmployeeAttendanceList.length }}
+                records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+[
+  {
+    "date": "10-02-2018",
+    "check_in": "10:28",
+    "check_out": "19:32",
+    "working_hours": "08:04",
+    "shift": "Shift 1",
+    "status": "Present"
+  },
+  {
+    "date": "11-02-2018",
+    "check_in": "10:32",
+    "check_out": "19:32",
+    "working_hours": "08:00",
+    "shift": "Shift 1",
+    "status": "Present"
+  },
+  {
+    "date": "12-02-2018",
+    "check_in": "-",
+    "check_out": "-",
+    "working_hours": "-",
+    "shift": "Shift 1",
+    "status": "Leave"
+  },
+  {
+    "date": "13-02-2018",
+    "check_in": "10:35",
+    "check_out": "19:31",
+    "working_hours": "07:56",
+    "shift": "Shift 1",
+    "status": "Present"
+  },
+  {
+    "date": "14-02-2018",
+    "check_in": "10:25",
+    "check_out": "19:29",
+    "working_hours": "08:04",
+    "shift": "Shift 1",
+    "status": "Present"
+  },
+  {
+    "date": "15-02-2018",
+    "check_in": "-",
+    "check_out": "-",
+    "working_hours": "-",
+    "shift": "Shift 1",
+    "status": "Weekend"
+  },
+  {
+    "date": "16-02-2018",
+    "check_in": "-",
+    "check_out": "-",
+    "working_hours": "-",
+    "shift": "Shift 1",
+    "status": "Weekend"
+  },
+  {
+    "date": "17-02-2018",
+    "check_in": "10:28",
+    "check_out": "19:35",
+    "working_hours": "08:07",
+    "shift": "Shift 1",
+    "status": "Present"
+  }
+]

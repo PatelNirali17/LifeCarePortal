@@ -37,7 +37,7 @@
                     <td>{{ room.ward }}</td>
                     <td>{{ room.floor }}</td>
                     <td>{{ room.totalBeds }}</td>
-                    <td>₹{{ room.chargePerDay }}</td>
+                    <td>{{ room.chargePerDay | currency:'INR'}}</td>
                     <td>
                         <span class="type-badge active" *ngIf="room.status == 'Available'">{{room.status}}</span>
                         <span class="type-badge contractual" *ngIf="room.status == 'Occupied'">{{room.status}}</span>

@@ -43,7 +43,7 @@
                     <td>📅 {{ bill.AdmissionDate }}</td>
                     <td>{{ bill.Tax }}</td>
                     <td>{{ bill.Discount }}</td>
-                    <td>₹{{ bill.TotalAmount }}</td>
+                    <td>{{ bill.TotalAmount | currency:'INR'}}</td>
                     <td class="text-end">
                         <div class="action-group">
                             <button class="action-btn edit" title="Edit">

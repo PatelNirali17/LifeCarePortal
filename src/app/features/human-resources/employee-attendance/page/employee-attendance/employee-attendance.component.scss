@@ -1,0 +1,57 @@
+.employee-card {
+    .employee-avatar {
+        width: 80px;
+        height: 80px;
+        object-fit: cover;
+    }
+}
+
+.detail-card {
+    &__label {
+        font-size: 0.75rem;
+    }
+
+    &--primary {
+        background-color: #f5dff8;
+        border: 1px solid #e1bee7;
+        color: #6A0572;
+    }
+
+    &--secondary {
+        background-color: rgba(212, 175, 55, 0.1);
+        border: 1px solid rgba(212, 175, 55, 0.2);
+        color: #b08d1e;
+    }
+
+    &--owned {
+        background-color: rgba(46, 125, 50, 0.1);
+        border: 1px solid rgba(46, 125, 50, 0.2);
+        color: #2e7d32;
+    }
+}
+
+.stat-card {
+    &.card {
+        border: 0;
+    }
+
+    &--primary {
+        background-color: #f5dff8;
+        color: #6A0572;
+    }
+
+    &--owned {
+        background-color: rgba(46, 125, 50, 0.1);
+        color: #2e7d32;
+    }
+
+    &--warning {
+        background-color: rgba(255, 152, 0, 0.1);
+        color: #FF9800;
+    }
+
+    &--onhold {
+        background-color: rgba(33, 150, 243, 0.1);
+        color: #2196F3;
+    }
+}

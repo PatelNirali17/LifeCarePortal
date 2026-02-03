@@ -1,0 +1,106 @@
+<div class="container-fluid">
+<div class="payslip-container">
+  <div class="header">
+    <div class="logo-section">
+      <h1 class="company-logo">{{ payslip.companyLogo }}</h1>
+    </div>
+    <div class="title-section">
+      <h2 class="doc-title">{{ payslip.title }}</h2>
+      <p class="period">{{ payslip.period }}</p>
+    </div>
+  </div>
+
+  <div class="content-body">
+  <div class="meta-info">
+    <div class="meta-item">
+      <span class="label">Payslip No.</span>
+      <span class="value">{{ payslip.payslipNo }}</span>
+    </div>
+    <div class="meta-item">
+      <span class="label">Payment Date</span>
+      <span class="value">{{ payslip.paymentDate }}</span>
+    </div>
+  </div>
+
+  <div class="address-section">
+    <div class="box company-box">
+      <h3 class="box-title"><i class="fas fa-building"></i> Company Details</h3>
+      <div class="details">
+        <p class="name">{{ payslip.companyDetails.name }}</p>
+        <p>{{ payslip.companyDetails.addressLine1 }}</p>
+        <p>{{ payslip.companyDetails.addressLine2 }}</p>
+        <p>{{ payslip.companyDetails.country }}</p>
+        <p class="email">{{ payslip.companyDetails.email }}</p>
+      </div>
+    </div>
+    <div class="box employee-box">
+      <h3 class="box-title"><i class="fas fa-user"></i> Employee Details</h3>
+      <div class="details">
+        <p class="name">{{ payslip.employeeDetails.name }}</p>
+        <p class="emp-id">Employee ID: {{ payslip.employeeDetails.id }}</p>
+        <p>{{ payslip.employeeDetails.addressLine1 }}</p>
+        <p>{{ payslip.employeeDetails.addressLine2 }}</p>
+        <p>{{ payslip.employeeDetails.country }}</p>
+        <p class="email">{{ payslip.employeeDetails.email }}</p>
+      </div>
+    </div>
+  </div>
+
+  <div class="financial-section">
+    <div class="financial-box">
+      <h3 class="box-title"><i class="fas fa-arrow-up-right-dots"></i> Earnings</h3>
+      <div class="financial-list">
+        <div class="list-header">
+          <span>Description</span>
+          <span>Amount</span>
+        </div>
+        <div class="list-item" *ngFor="let item of payslip.earnings">
+          <span class="item-name">{{ item.description }}</span>
+          <span class="item-value">{{ item.amount | currency:'INR' }}</span>
+        </div>
+        <div class="list-footer">
+          <span>Total Earnings</span>
+          <span>{{ payslip.totalEarnings | currency:'INR' }}</span>
+        </div>
+      </div>
+    </div>
+    
+    <div class="financial-box">
+      <h3 class="box-title"><i class="fas fa-arrow-down-right-dots"></i> Deductions</h3>
+      <div class="financial-list">
+        <div class="list-header">
+          <span>Description</span>
+          <span>Amount</span>
+        </div>
+        <div class="list-item" *ngFor="let item of payslip.deductions">
+          <span class="item-name">{{ item.description }}</span>
+          <span class="item-value">{{ item.amount | currency:'INR' }}</span>
+        </div>
+        <div class="list-footer">
+          <span>Total Deductions</span>
+          <span>{{ payslip.totalDeductions | currency:'INR' }}</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="net-pay-section">
+    <div class="net-pay-label">Net Pay</div>
+    <div class="net-pay-value">{{ payslip.netPay | currency:'INR' }}</div>
+    <div class="net-pay-words">{{ payslip.netPayInWords }}</div>
+  </div>
+
+  <div class="footer">
+    <div class="signature-block">
+      <div class="sign-name">{{ payslip.signatory.name }}</div>
+      <div class="sign-role">{{ payslip.signatory.role }}</div>
+      <div class="sign-line">Signature</div>
+    </div>
+    <div class="notes">
+      <p>{{ payslip.footerNote }}</p>
+      <p>{{ payslip.contactNote }}</p>
+    </div>
+  </div>
+  </div>
+</div>
+</div>

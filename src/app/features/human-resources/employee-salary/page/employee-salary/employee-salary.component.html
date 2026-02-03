@@ -1,56 +1,56 @@
 <div class="container-fluid">
-     <div class="unique-header-section">
+    <div class="unique-header-section">
         <div class="header-content">
-            <h2>All Doctor</h2>
-            <p>View a list of all registered doctors</p>
+            <h2>All Employee Salary</h2>
+            <p>View and manage salary details for all employees</p>
         </div>
         <div class="header-actions">
-            <button class="add-btn" (click)="OpenAddDoctorDialog(null)">
-                <span class="icon">+</span> Add New Doctor
+            <button class="add-btn" (click)="OpenAddEmployeeSalaryDialog(null)">
+                <span class="icon">+</span> Add New Employee Salary
             </button>
         </div>
     </div>
-      <div class="table-wrapper">
+    <div class="table-wrapper">
         <table class="modern-table">
             <thead>
                 <tr>
                     <th>SrNo</th>
-                    <th>Name</th>
+                    <th>Employee</th>
                     <th>Department</th>
-                    <th>Availability</th>
-                    <th>Experience (Years)</th>
-                    <th>Consultation Fee</th>
-                    <th>Clinic Location</th>
+                    <th>Salary</th>
+                    <th>Bonus</th>
+                    <th>Deductions</th>
+                    <th>Net Salary</th>
                     <th class="text-end">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let doctor of paginatedList; trackBy: trackByFn;let i = index">
+                <tr *ngFor="let salary of paginatedList; trackBy: trackByFn;let i = index">
                     <td>
                         <div class="column-cell">
-                                <div class="column-number">{{ i + 1 }}</div>
+                            <div class="column-number">{{ i + 1 }}</div>
                         </div>
                     </td>
                     <td>
                         <div class="column-cell">
                             <div>
-                                <div class="column-number">{{ doctor.Name }}</div>
+                                <div class="column-number">{{ salary.employeeName }}</div>
                                 <div class="column-name">
-                                    <mat-icon>call</mat-icon>
-                                    {{ doctor.Mobile }}
+                                    <mat-icon>mail</mat-icon>
+                                    {{ salary.email }}
                                 </div>
                             </div>
                         </div>
                     </td>
-                    <td>{{ doctor.Department }}</td>
-                    <td>{{ doctor.Availability }}</td>
-                    <td>{{ doctor.Experience }}</td>
-                    <td>{{ doctor.ConsultationFee | currency:'INR'}}</td>
-                    <td>📍 {{ doctor.ClinicLocation }}</td>
+                    <td>{{ salary.department }}</td>
+                    <td>{{ salary.salary | currency:'INR'}}</td>
+                    <td>{{ salary.bonus | currency:'INR' }}</td>
+                    <td>{{ salary.deductions | currency:'INR'}}</td>
+                    <td>{{ salary.netSalary | currency:'INR'}}</td>
                     <td class="text-end">
                         <div class="action-group">
-                             <button class="action-btn view" title="View" (click)="OpenDoctorDetailsDialog(doctor)">
-                                <mat-icon>visibility</mat-icon>
+                            <button class="action-btn pdf" title="PDF">
+                                <mat-icon>picture_as_pdf</mat-icon>
                             </button>
                             <button class="action-btn edit" title="Edit">
                                 <mat-icon>edit</mat-icon>
@@ -64,16 +64,17 @@
             </tbody>
         </table>
 
-        <div *ngIf="DoctorList.length === 0" class="empty-state">
-            <p>No doctor data available.</p>
+        <div *ngIf="EmployeeSalaryList.length === 0" class="empty-state">
+            <p>No Salary data available.</p>
         </div>
     </div>
 
     <div class="pagination-section">
         <div class="pagination-info">
             <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
-                DoctorList.length ?
-                DoctorList.length : currentPage * pageSize }} of {{ DoctorList.length }} records</span>
+                EmployeeSalaryList.length ?
+                EmployeeSalaryList.length : currentPage * pageSize }} of {{ EmployeeSalaryList.length }}
+                records</span>
         </div>
         <nav aria-label="Page navigation">
             <ul class="pagination">

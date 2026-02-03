@@ -37,7 +37,7 @@
                     <td>{{ room.bedNumber }}</td>
                     <td>📅 {{ room.dischargeDate }}</td>
                     <td>{{ room.totalDays }}</td>
-                    <td>₹{{ room.roomCharges }}</td>
+                    <td>{{ room.roomCharges | currency:'INR'}}</td>
                     <td>
                         <span class="type-badge active"
                             *ngIf="room.roomStatusAfterRelease == 'Available'">{{room.roomStatusAfterRelease}}</span>

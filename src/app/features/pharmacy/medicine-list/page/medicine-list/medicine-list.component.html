@@ -36,7 +36,7 @@
                     <td>{{ medicine.Category }}</td>
                     <td>{{ medicine.Company }}</td>
                     <td>📅 {{ medicine.PurchaseDate }}</td>
-                    <td>₹{{ medicine.Price }}</td>
+                    <td>{{ medicine.Price | currency:'INR'}}</td>
                     <td>📅 {{ medicine.ExpiryDate }}</td>
                     <td>{{ medicine.Stock }}</td>
                     <td class="text-end">

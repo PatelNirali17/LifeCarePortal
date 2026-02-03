@@ -1,0 +1,84 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ EmployeeSalaryDetails ? 'Edit' : 'Add New' }} Employee Salary</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="EmployeeSalaryForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Employee</mat-label>
+                <mat-select formControlName="employeeId" required>
+                    <mat-option *ngFor="let Staff of StaffList" [value]="Staff.Name">{{Staff.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="EmployeeSalaryForm.get('employeeId')?.invalid">
+                    Please select Employee
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Email</mat-label>
+                <input matInput formControlName="email" required>
+                <mat-icon matSuffix>mail</mat-icon>
+                <mat-error *ngIf="EmployeeSalaryForm.get('email')?.invalid">
+                    Please enter Email
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Department</mat-label>
+                <mat-select formControlName="department" required>
+                    <mat-option *ngFor="let Department of DepartmentList" [value]="Department.Name">{{Department.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="EmployeeSalaryForm.get('department')?.invalid">
+                    Please select Department
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Salary</mat-label>
+                <input matInput formControlName="salary" required>
+                <mat-error *ngIf="EmployeeSalaryForm.get('salary')?.invalid">
+                    Please enter Salary
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Bonus</mat-label>
+                <input matInput formControlName="bonus" required>
+                <mat-error *ngIf="EmployeeSalaryForm.get('bonus')?.invalid">
+                    Please enter Bonus
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Deductions</mat-label>
+                <input matInput formControlName="deductions" required>
+                <mat-error *ngIf="EmployeeSalaryForm.get('deductions')?.invalid">
+                    Please enter Deductions
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Net Salary</mat-label>
+                <input matInput formControlName="netSalary" required>
+                <mat-error *ngIf="EmployeeSalaryForm.get('netSalary')?.invalid">
+                    Please enter Net Salary
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ EmployeeSalaryDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

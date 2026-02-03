@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { CommonModule } from '@angular/common';
+import { CommonModule, DatePipe } from '@angular/common';
 import { MatSlideToggleModule } from '@angular/material/slide-toggle';
 import {MatAutocompleteModule} from '@angular/material/autocomplete';
 import {MatBadgeModule} from '@angular/material/badge';
@@ -82,7 +82,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatFormFieldModule,
     MatTimepickerModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    DatePipe
   ],
    exports:[
     MatAutocompleteModule,
@@ -121,7 +122,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatBottomSheetModule,
     MatDividerModule,
     MatFormFieldModule,
-    MatTimepickerModule
+    MatTimepickerModule,
+    DatePipe
   ]
 })
 export class SharedModule { }

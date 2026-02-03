@@ -1,0 +1,312 @@
+.payslip-container {
+  background-color: #fdfcff;
+  background-image: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f5eef7' fill-opacity='0.4'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  padding: 0;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+  font-family: 'Roboto', sans-serif;
+  color: #444;
+  border-radius: 8px;
+  overflow: hidden;
+}
+
+.header {
+  background: linear-gradient(135deg, #6A0572 0%, #8E24AA 100%);
+  color: white;
+  padding: 3rem 3rem 5rem 3rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  margin-bottom: 0;
+  border-bottom: none;
+  clip-path: polygon(0 0, 100% 0, 100% 85%, 0 100%);
+}
+
+.company-logo {
+  font-size: 2rem;
+  color: white;
+  margin: 0;
+  font-weight: 800;
+  letter-spacing: 1px;
+}
+
+.title-section {
+  text-align: right;
+}
+
+.doc-title {
+  font-size: 2.5rem;
+  margin: 0;
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.9);
+  letter-spacing: 3px;
+  font-weight: 300;
+}
+
+.period {
+  color: rgba(255, 255, 255, 0.8);
+  margin: 0.5rem 0 0;
+  font-size: 1rem;
+}
+
+.content-body {
+  padding: 3rem;
+}
+
+.meta-info {
+  display: flex;
+  justify-content: space-between;
+  background: #fff;
+  padding: 0;
+  margin-bottom: 3rem;
+  border-bottom: 1px solid #eee;
+  padding-bottom: 1.5rem;
+}
+
+.meta-item {
+  display: flex;
+  flex-direction: column;
+
+  .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #888;
+    letter-spacing: 1px;
+    margin-bottom: 0.5rem;
+  }
+
+  .value {
+    font-weight: 700;
+    font-size: 1.2rem;
+    color: #333;
+  }
+}
+
+.address-section {
+  display: flex;
+  gap: 4rem;
+  margin-bottom: 3rem;
+}
+
+.box {
+  flex: 1;
+}
+
+.box-title {
+  font-size: 0.9rem;
+  text-transform: uppercase;
+  color: #6A0572;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  letter-spacing: 0.5px;
+  border-bottom: none;
+  padding-bottom: 0;
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+
+  i {
+    color: #8E24AA;
+  }
+}
+
+.details {
+  p {
+    margin: 0.4rem 0;
+    font-size: 0.95rem;
+    line-height: 1.4;
+    color: #555;
+  }
+
+  .name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #222;
+    margin-bottom: 0.5rem;
+  }
+
+  .email {
+    color: #6A0572;
+    margin-top: 0.5rem;
+    font-weight: 500;
+  }
+
+  .emp-id {
+    font-weight: 600;
+    color: #666;
+  }
+}
+
+.financial-section {
+  display: flex;
+  gap: 3rem;
+  margin-bottom: 3rem;
+}
+
+.financial-box {
+  flex: 1;
+  background: #ffffff;
+  border-radius: 8px;
+  border: none;
+  padding: 1.5rem;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.06);
+}
+
+.list-header {
+  display: flex;
+  justify-content: space-between;
+  color: #999;
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  font-weight: 600;
+  margin-bottom: 1rem;
+  padding-bottom: 0.5rem;
+  border-bottom: 1px solid #f5f5f5;
+  letter-spacing: 1px;
+}
+
+.list-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.85rem 0;
+  border-bottom: 1px solid #f5f5f5;
+  font-size: 0.9rem;
+  color: #444;
+
+  &:last-child {
+    border-bottom: none;
+  }
+}
+
+.item-name {
+  font-weight: 500;
+}
+
+.item-value {
+  font-weight: 600;
+  color: #333;
+}
+
+.list-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 1rem;
+  padding-top: 1rem;
+  border-top: 2px solid #eee;
+  font-weight: 700;
+  color: #333;
+  font-size: 1.05rem;
+
+  span:last-child {
+    color: #6A0572;
+    font-size: 1.1rem;
+  }
+}
+
+.text-right {
+  text-align: right;
+}
+
+.net-pay-section {
+  background: linear-gradient(to right, #6A0572, #8E24AA);
+  padding: 2rem;
+  text-align: center;
+  border-radius: 8px;
+  margin-bottom: 3rem;
+  color: white;
+  box-shadow: 0 5px 15px rgba(106, 5, 114, 0.3);
+  position: relative;
+  overflow: hidden;
+  border: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0) 70%);
+    transform: rotate(30deg);
+  }
+}
+
+.net-pay-label {
+  text-transform: uppercase;
+  color: rgba(255, 255, 255, 0.8);
+  font-weight: 600;
+  letter-spacing: 2px;
+  margin-bottom: 0.5rem;
+  font-size: 0.9rem;
+  position: relative;
+  z-index: 1;
+}
+
+.net-pay-value {
+  font-size: 3.5rem;
+  font-weight: 800;
+  color: #D4AF37;
+  margin-bottom: 0.5rem;
+  position: relative;
+  z-index: 1;
+  text-shadow: 0 2px 5px rgba(0,0,0,0.25);
+}
+
+.net-pay-words {
+  font-style: italic;
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 1px dashed #ddd;
+}
+
+.signature-block {
+  text-align: center;
+  min-width: 200px;
+}
+
+.sign-name {
+  font-weight: 700;
+  font-size: 1.1rem;
+  color: #333;
+}
+
+.sign-role {
+  color: #666;
+  font-size: 0.85rem;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.sign-line {
+  border-top: 2px solid #D4AF37;
+  padding-top: 0.5rem;
+  color: #D4AF37;
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.notes {
+  text-align: right;
+  font-size: 0.8rem;
+  color: #999;
+  max-width: 400px;
+  line-height: 1.6;
+
+  p {
+    margin: 0.25rem 0;
+  }
+}

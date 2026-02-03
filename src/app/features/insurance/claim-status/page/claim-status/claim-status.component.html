@@ -41,8 +41,8 @@
                         <span class="type-badge inactive"
                             *ngIf="claim.claimStatus == 'Rejected'">{{claim.claimStatus}}</span>
                     </td>
-                    <td>₹{{ claim.claimAmount }}</td>
-                    <td>₹{{ claim.approvedAmount }}</td>
+                    <td>{{ claim.claimAmount | currency:'INR'}}</td>
+                    <td>{{ claim.approvedAmount | currency:'INR'}}</td>
                     <td>📅 {{ claim.claimDate }}</td>
                     <td class="text-end">
                         <div class="action-group">

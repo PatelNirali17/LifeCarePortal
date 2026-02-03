@@ -35,8 +35,8 @@
                     <td>{{ income.PatientName }}</td>
                     <td>{{ income.ServiceType }}</td>
                     <td>📅 {{ income.ServiceDate }}</td>
-                    <td>₹{{ income.AmountBilled }}</td>
-                    <td>₹{{ income.AmountPaid }}</td>
+                    <td>{{ income.AmountBilled | currency:'INR'}}</td>
+                    <td>{{ income.AmountPaid | currency:'INR'}}</td>
                     <td>
                         <span class="type-badge active" *ngIf="income.PaymentStatus == 'Completed'">{{income.PaymentStatus}}</span>
                         <span class="type-badge inactive" *ngIf="income.PaymentStatus == 'Pending'">{{income.PaymentStatus}}</span>

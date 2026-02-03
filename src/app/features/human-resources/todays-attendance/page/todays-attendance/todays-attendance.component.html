@@ -1,0 +1,51 @@
+<div class="container-fluid">
+    <div class="page-header">
+        <h2>Today's Attendance</h2>
+    </div>
+
+    <div class="attendance-grid">
+        <div *ngFor="let item of paginatedData" class="mini-card" [ngClass]="item.status">
+            <div class="card-header-row">
+                <div class="user-info">
+                    <div class="avatar">{{item.employeeName.charAt(0)}}</div>
+                    <div class="name-col">
+                        <span class="name">{{item.employeeName}}</span>
+                        <span class="shift">{{item.shift}}</span>
+                    </div>
+                </div>
+                <span class="status-badge" [ngClass]="getStatusClass(item.status)">{{item.status}}</span>
+            </div>
+            
+            <div class="card-body-row">
+                <div class="time-pill">
+                    <mat-icon>login</mat-icon> {{item.firstIn}}
+                </div>
+                <div class="time-pill">
+                    <mat-icon>logout</mat-icon> {{item.lastOut}}
+                </div>
+            </div>
+
+            <div class="card-footer-row">
+                <span class="label">Total: <b>{{item.totalHours}}</b></span>
+                <span class="label">Break: <b>{{item.break}}</b></span>
+            </div>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            Showing {{ (currentPage - 1) * pageSize + 1 }} - {{ showingRangeEnd }} of {{ attendanceData.length }}
+        </div>
+        <ul class="pagination">
+            <li class="page-item" [class.disabled]="currentPage === 1">
+                <a class="page-link" (click)="setPage(currentPage - 1)"><mat-icon>chevron_left</mat-icon></a>
+            </li>
+            <li class="page-item" *ngFor="let page of pagesArray" [class.active]="currentPage === page">
+                <a class="page-link" (click)="setPage(page)">{{page}}</a>
+            </li>
+            <li class="page-item" [class.disabled]="currentPage === totalPages">
+                <a class="page-link" (click)="setPage(currentPage + 1)"><mat-icon>chevron_right</mat-icon></a>
+            </li>
+        </ul>
+    </div>
+</div>

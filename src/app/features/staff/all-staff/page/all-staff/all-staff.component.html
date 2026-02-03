@@ -52,7 +52,7 @@
                     <td>{{ staff.Designation }}</td>
                     <td>✉️ {{ staff.Email }}</td>
                     <td>📅 {{ staff.JoiningDate }}</td>
-                    <td>₹{{ staff.Salary }}</td>
+                    <td>{{ staff.Salary | currency:'INR'}}</td>
                     <td>{{ staff.Shift }}</td>
                     <td>
                         <span class="type-badge active" *ngIf="staff.Status == 'Active'">{{staff.Status}}</span>

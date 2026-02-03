@@ -1,0 +1,129 @@
+// Define colors for different holiday types
+$national-color: #6A0572;
+$awareness-color: #D4AF37;
+$religious-color: #FF6B6B;
+
+.horizontal-timeline {
+    padding: 20px 0;
+
+    .timeline-items {
+        display: flex;
+        flex-wrap: wrap;
+        margin: 0 -15px; // Counteract padding on items to align the grid
+    }
+
+    .timeline-item {
+        position: relative;
+        flex: 1 1 300px; // Flex-grow, flex-shrink, and flex-basis for wrapping
+        padding: 0 15px 40px;
+        text-align: center;
+    }
+
+    .timeline-badge {
+        position: relative;
+        z-index: 1;
+        margin-bottom: 25px;
+        
+        .timeline-date {
+            display: inline-block;
+            background: #fff;
+            padding: 5px 15px;
+            border-radius: 20px;
+            border: 1px solid #e9ecef;
+            font-weight: 600;
+            font-size: 0.85rem;
+            color: #6c757d;
+            margin-bottom: 10px;
+        }
+
+        .timeline-dot {
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #fff;
+            border: 4px solid #ccc;
+            margin: 0 auto;
+            transition: all 0.3s ease;
+        }
+    }
+
+    .timeline-panel {
+        background: #fff;
+        border-radius: 12px;
+        padding: 20px;
+        box-shadow: 0 5px 15px rgba(0,0,0,0.05);
+        border: 1px solid #f0f0f0;
+        transition: all 0.3s ease;
+        position: relative;
+        
+        // Arrow pointing up
+        &::before {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-width: 0 10px 10px 10px;
+            border-style: solid;
+            border-color: transparent transparent #fff transparent;
+            filter: drop-shadow(0 -2px 2px rgba(0,0,0,0.05));
+        }
+
+    }
+
+    .holiday-icon-wrapper {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        opacity: 0.8;
+    }
+
+    .holiday-title {
+        font-size: 1.1rem;
+        font-weight: 700;
+        margin-bottom: 10px;
+        color: #333;
+    }
+
+    .holiday-details {
+        font-size: 0.9rem;
+        color: #777;
+        margin-bottom: 15px;
+        line-height: 1.5;
+    }
+
+    .holiday-meta {
+        display: flex;
+        justify-content: center;
+        gap: 15px;
+        font-size: 0.8rem;
+        color: #999;
+        border-top: 1px solid #f9f9f9;
+        padding-top: 10px;
+
+        span {
+            display: flex;
+            align-items: center;
+            i { margin-right: 5px; }
+        }
+    }
+}
+
+// --- Coloring based on type ---
+.holiday-type-national {
+    .timeline-dot { border-color: $national-color; background: lighten($national-color, 40%); }
+    .timeline-panel { border-top: 3px solid $national-color; }
+    .holiday-icon-wrapper { color: $national-color; }
+    .holiday-title { color: $national-color; }
+}
+.holiday-type-awareness {
+    .timeline-dot { border-color: $awareness-color; background: lighten($awareness-color, 40%); }
+    .timeline-panel { border-top: 3px solid $awareness-color; }
+    .holiday-icon-wrapper { color: $awareness-color; }
+    .holiday-title { color: darken($awareness-color, 15%); }
+}
+.holiday-type-religious {
+    .timeline-dot { border-color: $religious-color; background: lighten($religious-color, 40%); }
+    .timeline-panel { border-top: 3px solid $religious-color; }
+    .holiday-icon-wrapper { color: $religious-color; }
+    .holiday-title { color: $religious-color; }
+}
