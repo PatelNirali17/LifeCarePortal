@@ -93,7 +93,7 @@
         {
             "id": 10,
             "title": "Appointment Calendar",
-            "routerLink": "/appointmentcalendar",
+            "routerLink": "appointments/appointmentcalendar",
             "href": null,
             "icon": null,
             "target": null,
@@ -792,6 +792,16 @@
         },
         {
             "id": 80,
+            "title": "Leave Request Approval",
+            "routerLink": "humanresources/leaverequestapproval",
+            "href": null,
+            "icon": null,
+            "target": null,
+            "hasSubMenu": false,
+            "parentId": 78
+        },
+        {
+            "id": 81,
             "title": "Leave Balance",
             "routerLink": "humanresources/leavebalance",
             "href": null,
@@ -801,7 +811,7 @@
             "parentId": 78
         },
         {
-            "id": 81,
+            "id": 82,
             "title": "Leave Types",
             "routerLink": "humanresources/leavetypes",
             "href": null,
@@ -811,7 +821,7 @@
             "parentId": 78
         },
         {
-            "id": 82,
+            "id": 83,
             "title": "Holidays",
             "routerLink": "humanresources/holidays",
             "href": null,
@@ -821,7 +831,7 @@
             "parentId": 78
         },
         {
-            "id": 83,
+            "id": 84,
             "title": "Today's Attendance",
             "routerLink": "humanresources/todaysattendance",
             "href": null,
@@ -831,7 +841,7 @@
             "parentId": 78
         },
         {
-            "id": 84,
+            "id": 85,
             "title": "Employee Attendance",
             "routerLink": "humanresources/employeeattendance",
             "href": null,
@@ -841,7 +851,7 @@
             "parentId": 78
         },
         {
-            "id": 85,
+            "id": 86,
             "title": "Attendance Sheet",
             "routerLink": "humanresources/attendancesheet",
             "href": null,
@@ -851,7 +861,7 @@
             "parentId": 78
         },
         {
-            "id": 86,
+            "id": 87,
             "title": "Employee Salary",
             "routerLink": "humanresources/employeesalary",
             "href": null,
@@ -861,7 +871,7 @@
             "parentId": 78
         },
         {
-            "id": 87,
+            "id": 88,
             "title": "Payslip",
             "routerLink": "humanresources/payslip",
             "href": null,

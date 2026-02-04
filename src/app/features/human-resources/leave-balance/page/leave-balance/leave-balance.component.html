@@ -1,0 +1,115 @@
+<div class="container-fluid">
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>All Leave Balances</h2>
+            <p>Overview of employee leave allocations and utilization.</p>
+        </div>
+        <div class="header-actions">
+            <button class="add-btn" (click)="OpenAddLeaveBalanceDialog(null)">
+                <span class="icon">+</span> Add New Leave Balance
+            </button>
+        </div>
+    </div>
+
+  <div class="cards-grid mt-2">
+    <div class="balance-card" *ngFor="let item of paginatedList;trackBy: trackByFn; let i=index">
+      <div class="card-top">
+        <div class="avatar-circle">
+          {{ item['EmployeeName'].charAt(0) }}
+        </div>
+        <div class="employee-details">
+          <h3>{{ item['EmployeeName'] }}</h3>
+          <span>Employee ID: #{{ 1000 + ((currentPage - 1) * pageSize) + (i + 1) }}</span>
+        </div>
+      </div>
+
+      <div class="card-stats-main">
+        <div class="stat-box">
+          <span class="label">Previous</span>
+          <span class="value">{{ item['PreviousBalance'] }}</span>
+        </div>
+        <div class="stat-box">
+          <span class="label">Current</span>
+          <span class="value">{{ item['CurrentBalance'] }}</span>
+        </div>
+        <div class="stat-box highlight">
+          <span class="label">Total</span>
+          <span class="value">{{ item['TotalBalance'] }}</span>
+        </div>
+      </div>
+
+      <div class="card-stats-grid">
+        <div class="mini-stat">
+          <i class="fas fa-check-circle text-success"></i>
+          <div>
+            <strong>{{ item['AcceptedLeave'] }}</strong> Accepted
+          </div>
+        </div>
+        <div class="mini-stat">
+          <i class="fas fa-briefcase text-info"></i>
+          <div>
+            <strong>{{ item['UsedLeave'] }}</strong> Used
+          </div>
+        </div>
+        <div class="mini-stat">
+          <i class="fas fa-times-circle text-danger"></i>
+          <div>
+            <strong>{{ item['RejectedLeave'] }}</strong> Rejected
+          </div>
+        </div>
+        <div class="mini-stat">
+          <i class="fas fa-clock text-secondary"></i>
+          <div>
+            <strong>{{ item['ExpiredLeave'] }}</strong> Expired
+          </div>
+        </div>
+      </div>
+
+      <div class="footer-info">
+        <div>
+          <span>Carry Over: </span>
+          <strong>{{ item['CarryOverBalance'] }} Days</strong>
+        </div>
+        <div class="footer-actions">
+          <button class="btn-action edit" title="Edit">
+            <i class="fas fa-pen"></i>
+          </button>
+          <button class="btn-action delete" title="Delete">
+            <i class="fas fa-trash"></i>
+          </button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                LeaveBalanceList.length ?
+                LeaveBalanceList.length : currentPage * pageSize }} of {{ LeaveBalanceList.length }} records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

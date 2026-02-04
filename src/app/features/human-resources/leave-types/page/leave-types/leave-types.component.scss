@@ -1,0 +1,167 @@
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+  gap: 1rem;
+
+  @media (max-width: 1200px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: 768px) {
+    grid-template-columns: 1fr;
+  }
+}
+
+.card {
+  background: white;
+  border-radius: 16px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  overflow: hidden;
+  border: 1px solid rgba(106, 5, 114, 0.08); // Subtle primary border
+  display: flex;
+  flex-direction: column;
+
+  &.inactive {
+    opacity: 0.75;
+    filter: grayscale(0.8);
+  }
+}
+
+.card-top {
+  padding: 0.75rem 1rem;
+  background: linear-gradient(135deg, #ffffff 0%, #fcf4fd 100%); // Very light purple tint
+  border-bottom: 1px solid #f0e6f5;
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.type-info {
+  h3 {
+    margin: 0;
+    color: #6A0572; // Primary
+    font-size: 1.1rem;
+    font-weight: 700;
+  }
+}
+
+.category-tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  padding: 0.25rem 0.75rem;
+  border-radius: 20px;
+  margin-top: 0.5rem;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+
+  &.cat-paid {
+    background-color: rgba(212, 175, 55, 0.15); // Secondary (Gold) tint
+    color: #9e8229; // Darker Gold for text
+  }
+
+  &.cat-unpaid {
+    background-color: rgba(255, 107, 107, 0.1); // Accent (Red) tint
+    color: #d64545;
+  }
+}
+
+.status-badge {
+  font-size: 0.7rem;
+  padding: 0.35rem 0.75rem;
+  border-radius: 6px;
+  text-transform: uppercase;
+  font-weight: 800;
+  letter-spacing: 0.5px;
+
+  &.status-active {
+    background-color: #e8f5e9;
+    color: #2e7d32;
+  }
+
+  &.status-inactive {
+    background-color: #ffebee;
+    color: #c62828;
+  }
+}
+
+.card-body {
+  padding: 1rem;
+  flex-grow: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.description {
+  color: #5f6368;
+  font-size: 0.85rem;
+  line-height: 1.5;
+  margin-bottom: 1rem;
+}
+
+.stats-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+  margin-top: auto;
+}
+
+.stat-box {
+  background-color: #fcf4fd; // Very light purple
+  padding: 0.5rem;
+  border-radius: 10px;
+  text-align: center;
+  border: 1px solid #f3e5f5;
+
+  .stat-value {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 700;
+    color: #6A0572; // Primary
+  }
+
+  .stat-label {
+    font-size: 0.7rem;
+    color: #888;
+    text-transform: uppercase;
+    font-weight: 600;
+    margin-top: 0.25rem;
+    display: block;
+  }
+}
+
+.actions {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 1rem;
+
+  button {
+    flex: 1;
+    padding: 0.4rem;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 600;
+    font-size: 0.85rem;
+    transition: all 0.2s ease;
+  }
+
+  .btn-edit {
+    background-color: rgba(106, 5, 114, 0.1); // Primary tint
+    color: #6A0572;
+
+    &:hover {
+      background-color: rgba(106, 5, 114, 0.2);
+    }
+  }
+
+  .btn-delete {
+    background-color: rgba(255, 107, 107, 0.1); // Accent tint
+    color: #d64545;
+
+    &:hover {
+      background-color: rgba(255, 107, 107, 0.2);
+    }
+  }
+}

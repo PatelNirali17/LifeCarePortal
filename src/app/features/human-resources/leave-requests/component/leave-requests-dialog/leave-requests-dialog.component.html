@@ -1,0 +1,92 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ LeaveRequestsDetails ? 'Edit' : 'Add New' }} Leave Request</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="LeaveRequestsForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Employee</mat-label>
+                <mat-select formControlName="employeeid" required (selectionChange)="onEmployeeChange($event)">
+                    <mat-option *ngFor="let Staff of StaffList" [value]="Staff.Name">{{Staff.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="LeaveRequestsForm.get('employeeid')?.invalid">
+                    Please select Employee
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Manager</mat-label>
+                <mat-select formControlName="managername" required>
+                    <mat-option *ngFor="let Manager of ManagerList"
+                        [value]="Manager.DepartmentHead">{{Manager.DepartmentHead}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="LeaveRequestsForm.get('managername')?.invalid">
+                    Please select Manager
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Leave Type</mat-label>
+                <mat-select formControlName="leavetype" required>
+                    <mat-option *ngFor="let LeaveType of LeaveTypesList"
+                        [value]="LeaveType.leaveTypeName">{{LeaveType.leaveTypeName}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="LeaveRequestsForm.get('leavetype')?.invalid">
+                    Please select Leave Type
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Start Date</mat-label>
+                <input matInput [matDatepicker]="startdate" formControlName="startdate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="startdate"></mat-datepicker-toggle>
+                <mat-datepicker #startdate></mat-datepicker>
+                <mat-error *ngIf="LeaveRequestsForm.get('startdate')?.invalid">
+                    Please select Start Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">End Date</mat-label>
+                <input matInput [matDatepicker]="enddate" formControlName="enddate" required>
+                <mat-datepicker-toggle matIconSuffix [for]="enddate"></mat-datepicker-toggle>
+                <mat-datepicker #enddate></mat-datepicker>
+                <mat-error *ngIf="LeaveRequestsForm.get('enddate')?.invalid">
+                    Please select End Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Total Days</mat-label>
+                <input matInput formControlName="totaldays" required>
+                <mat-error *ngIf="LeaveRequestsForm.get('totaldays')?.invalid">
+                    Please enter Total Days
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Reason</mat-label>
+                <input matInput formControlName="reason" required>
+                <mat-error *ngIf="LeaveRequestsForm.get('reason')?.invalid">
+                    Please enter Reason
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ LeaveRequestsDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

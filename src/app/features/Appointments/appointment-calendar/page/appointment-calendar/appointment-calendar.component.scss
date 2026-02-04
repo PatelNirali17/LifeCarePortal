@@ -1,0 +1,166 @@
+// Variables for the project theme design
+$primary-color: #6A0572; // Purple
+$secondary-color: #D4AF37; // Gold
+$accent-color: #FF6B6B; // Coral
+$bg-color: #ffffff;
+$card-bg: #ffffff;
+$text-main: #333333;
+$text-muted: #64748b;
+$border-radius: 16px;
+$shadow-sm: 0 1px 3px rgba(0,0,0,0.1);
+$shadow-md: 0 4px 6px -1px rgba(0,0,0,0.1), 0 2px 4px -1px rgba(0,0,0,0.06);
+$shadow-hover: 0 10px 15px -3px rgba(0,0,0,0.1), 0 4px 6px -2px rgba(0,0,0,0.05);
+
+.calendar-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 30px;
+    padding: 0 10px;
+
+    h2 {
+      margin: 0;
+      color: $primary-color;
+      font-size: 1.75rem;
+      font-weight: 800;
+      letter-spacing: -0.5px;
+    }
+
+    .nav-btn {
+      padding: 10px 20px;
+      background-color: $card-bg;
+      color: $primary-color;
+      border: 1px solid rgba($primary-color, 0.3);
+      border-radius: 50px; // Pill shape
+      font-weight: 600;
+      cursor: pointer;
+      transition: all 0.2s ease;
+      box-shadow: $shadow-sm;
+      
+      &:hover {
+        background-color: $primary-color;
+        color: white;
+        border-color: $primary-color;
+        transform: translateY(-1px);
+      }
+    }
+  }
+
+  .calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 15px; // Spacing between cards instead of grid lines
+    border: none;
+    background: transparent;
+
+    .weekday {
+      padding: 0 0 15px 0;
+      text-align: center;
+      font-weight: 700;
+      color: $text-muted;
+      text-transform: uppercase;
+      font-size: 0.8rem;
+      letter-spacing: 1px;
+      background: transparent;
+    }
+
+    .day-cell {
+      background-color: $card-bg;
+      min-height: 80px;
+      padding: 8px;
+      position: relative;
+      border-radius: 12px;
+      box-shadow: $shadow-sm;
+      border: 1px solid transparent;
+      transition: all 0.3s ease;
+      display: flex;
+      flex-direction: column;
+
+      &.empty {
+        background-color: transparent;
+        box-shadow: none;
+        pointer-events: none;
+      }
+
+      &.today {
+        border: 2px solid $primary-color;
+        background-color: rgba($primary-color, 0.05);
+        
+        .date-number {
+          background-color: $primary-color;
+          color: white;
+          width: 28px;
+          height: 28px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          border-radius: 50%;
+          box-shadow: 0 2px 5px rgba($primary-color, 0.4);
+        }
+      }
+
+      .date-number {
+        font-size: 1rem;
+        font-weight: 600;
+        color: $text-muted;
+        margin-bottom: 10px;
+        text-align: right;
+      }
+
+      .appointments-list {
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+        flex-grow: 1;
+
+        .appointment-item {
+          padding: 6px 10px;
+          font-size: 0.75rem;
+          border-radius: 6px;
+          cursor: pointer;
+          white-space: nowrap;
+          overflow: hidden;
+          text-overflow: ellipsis;
+          transition: filter 0.2s;
+          border-left: 3px solid transparent;
+          font-weight: 500;
+          
+          &:hover {
+            filter: brightness(0.95);
+          }
+
+          .time {
+            font-weight: 700;
+            margin-right: 4px;
+            opacity: 0.8;
+          }
+
+          // Status Colors
+          &.status-completed {
+            background-color: rgba(#198754, 0.15); // Green
+            color: #198754;
+            border-left-color: #198754;
+          }
+
+          &.status-canceled {
+            background-color: rgba($accent-color, 0.15);
+            color: darken($accent-color, 15%);
+            border-left-color: $accent-color;
+          }
+
+          &.status-scheduled {
+            background-color: rgba($primary-color, 0.1);
+            color: $primary-color;
+            border-left-color: $primary-color;
+          }
+
+          // Fallback
+          &:not([class*="status-"]) {
+            background-color: rgba($secondary-color, 0.15);
+            color: darken($secondary-color, 20%);
+            border-left-color: $secondary-color;
+          }
+        }
+      }
+    }
+  }

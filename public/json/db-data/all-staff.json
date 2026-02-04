@@ -10,7 +10,8 @@
         "Shift": "Morning",
         "Experience": "6",
         "Gender": "Female",
-        "Address": "11, Shyam Appt., Rajkot"
+        "Address": "11, Shyam Appt., Rajkot",
+        "Department": "Pharmacy"
     },
     {
         "Name": "Oliver Jones",
@@ -23,6 +24,105 @@
         "Shift": "Morning",
         "Experience": "3",
         "Gender": "Male",
-        "Address": "45, Sunrise Villa, Ahmedabad"
+        "Address": "45, Sunrise Villa, Ahmedabad",
+        "Department": "Administration"
+    },
+    {
+        "Name": "Sophia Smith",
+        "Designation": "Nurse",
+        "Mobile": "9988776655",
+        "Email": "sophia.smith@hospital.com",
+        "JoiningDate": "12/03/2017",
+        "Salary": "30000",
+        "Status": "Active",
+        "Shift": "Night",
+        "Experience": "5",
+        "Gender": "Female",
+        "Address": "22, Green Park, Surat",
+        "Department": "Nursing"
+    },
+    {
+        "Name": "Liam Brown",
+        "Designation": "Lab Technician",
+        "Mobile": "8877665544",
+        "Email": "liam.brown@hospital.com",
+        "JoiningDate": "25/06/2019",
+        "Salary": "28000",
+        "Status": "Active",
+        "Shift": "Morning",
+        "Experience": "4",
+        "Gender": "Male",
+        "Address": "7, Blue Sky Apt, Vadodara",
+        "Department": "Laboratory"
+    },
+    {
+        "Name": "Emma Wilson",
+        "Designation": "Pharmacist",
+        "Mobile": "7766554433",
+        "Email": "emma.wilson@hospital.com",
+        "JoiningDate": "30/11/2015",
+        "Salary": "32000",
+        "Status": "Active",
+        "Shift": "Evening",
+        "Experience": "7",
+        "Gender": "Female",
+        "Address": "18, Lake View, Rajkot",
+        "Department": "Pharmacy"
+    },
+    {
+        "Name": "Noah Davis",
+        "Designation": "Accountant",
+        "Mobile": "6655443322",
+        "Email": "noah.davis@hospital.com",
+        "JoiningDate": "10/01/2020",
+        "Salary": "26000",
+        "Status": "Active",
+        "Shift": "Morning",
+        "Experience": "3",
+        "Gender": "Male",
+        "Address": "5, Sunrise Park, Ahmedabad",
+        "Department": "Finance"
+    },
+    {
+        "Name": "Olivia Martinez",
+        "Designation": "Receptionist",
+        "Mobile": "5544332211",
+        "Email": "olivia.martinez@hospital.com",
+        "JoiningDate": "08/08/2021",
+        "Salary": "21000",
+        "Status": "Active",
+        "Shift": "Evening",
+        "Experience": "2",
+        "Gender": "Female",
+        "Address": "12, Palm Street, Surat",
+        "Department": "Administration"
+    },
+    {
+        "Name": "Dr. Ethan Taylor",
+        "Designation": "Surgeon",
+        "Mobile": "4433221100",
+        "Email": "ethan.taylor@hospital.com",
+        "JoiningDate": "15/02/2014",
+        "Salary": "75000",
+        "Status": "Active",
+        "Shift": "Morning",
+        "Experience": "9",
+        "Gender": "Male",
+        "Address": "3, Rosewood Lane, Vadodara",
+        "Department": "Surgery"
+    },
+    {
+        "Name": "Ava Anderson",
+        "Designation": "Lab Technician",
+        "Mobile": "3322110099",
+        "Email": "ava.anderson@hospital.com",
+        "JoiningDate": "20/05/2018",
+        "Salary": "29000",
+        "Status": "Active",
+        "Shift": "Night",
+        "Experience": "4",
+        "Gender": "Female",
+        "Address": "9, Horizon Apt, Rajkot",
+        "Department": "Laboratory"
     }
 ]

@@ -1,0 +1,49 @@
+<div class="container-fluid">
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>All Leave Types</h2>
+            <p>Manage employee leave allocations and policies</p>
+        </div>
+        <div class="header-actions">
+            <button class="add-btn" (click)="OpenAddLeaveTypeDialog(null)">
+                <span class="icon">+</span> Add New Leave Type
+            </button>
+        </div>
+    </div>
+
+    <div class="grid mt-2">
+        <div class="card" *ngFor="let leave of LeaveTypeList" [class.inactive]="leave.status === 'Inactive'">
+            <div class="card-top">
+                <div class="type-info">
+                    <h3>{{ leave.leaveTypeName }}</h3>
+                    <span class="category-tag" [ngClass]="leave.category === 'Paid' ? 'cat-paid' : 'cat-unpaid'">
+                        {{ leave.category }}
+                    </span>
+                </div>
+                <span class="status-badge" [ngClass]="leave.status === 'Active' ? 'status-active' : 'status-inactive'">
+                    {{ leave.status }}
+                </span>
+            </div>
+
+            <div class="card-body">
+                <p class="description">{{ leave.description }}</p>
+
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <span class="stat-value">{{ leave.totalLeavesPerYear }}</span>
+                        <span class="stat-label">Days / Year</span>
+                    </div>
+                    <div class="stat-box">
+                        <span class="stat-value">{{ leave.CarryOverLimit }}</span>
+                        <span class="stat-label">Carry Over</span>
+                    </div>
+                </div>
+
+                <div class="actions">
+                    <button class="btn-edit">Edit</button>
+                    <button class="btn-delete">Delete</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

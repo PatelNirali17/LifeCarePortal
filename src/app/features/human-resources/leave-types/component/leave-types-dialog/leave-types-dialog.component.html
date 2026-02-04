@@ -1,0 +1,83 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ LeaveTypesDetails ? 'Edit' : 'Add New' }} Leave Type</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="LeaveTypesForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Name</mat-label>
+                <input matInput formControlName="leaveTypeName" required>
+                <mat-error *ngIf="LeaveTypesForm.get('leaveTypeName')?.invalid">
+                    Please enter Name
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Description</mat-label>
+                <input matInput formControlName="description" required>
+                <mat-error *ngIf="LeaveTypesForm.get('description')?.invalid">
+                    Please enter Description
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Category</mat-label>
+                <mat-select required formControlName="category">
+                    <mat-option value="Paid">Paid</mat-option>
+                    <mat-option value="Unpaid">Unpaid</mat-option>
+                </mat-select>
+                <mat-error *ngIf="LeaveTypesForm.get('category')?.invalid">
+                    Please enter Category
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Leave Unit</mat-label>
+                <input matInput formControlName="leaveUnit" required>
+                <mat-error *ngIf="LeaveTypesForm.get('leaveUnit')?.invalid">
+                    Please enter Leave Unit
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Total Leaves Per Year</mat-label>
+                <input matInput formControlName="totalLeavesPerYear" required>
+                <mat-error *ngIf="LeaveTypesForm.get('totalLeavesPerYear')?.invalid">
+                    Please enter Total Leaves Per Year
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Carry Over Limit</mat-label>
+                <input matInput formControlName="CarryOverLimit" required>
+                <mat-error *ngIf="LeaveTypesForm.get('CarryOverLimit')?.invalid">
+                    Please enter Carry Over Limit
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Status</mat-label>
+                <mat-select formControlName="status" required>
+                    <mat-option value="Active">Active</mat-option>
+                    <mat-option value="Inactive">Inactive</mat-option>
+                </mat-select>
+                <mat-error *ngIf="LeaveTypesForm.get('status')?.invalid">
+                    Please select Status
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ LeaveTypesDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

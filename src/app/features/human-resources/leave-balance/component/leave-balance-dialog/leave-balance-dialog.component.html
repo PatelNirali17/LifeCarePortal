@@ -1,0 +1,98 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ LeaveBalanceDetails ? 'Edit' : 'Add New' }} Leave Balance</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="LeaveBalanceForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Employee</mat-label>
+                <mat-select formControlName="EmployeeName" required>
+                    <mat-option *ngFor="let Staff of StaffList" [value]="Staff.Name">{{Staff.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="LeaveBalanceForm.get('EmployeeName')?.invalid">
+                    Please select Employee
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Previous Balance</mat-label>
+                <input matInput formControlName="PreviousBalance" required>
+                <mat-error *ngIf="LeaveBalanceForm.get('PreviousBalance')?.invalid">
+                    Please enter Previous Balance
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Current Balance</mat-label>
+                <input matInput formControlName="CurrentBalance" required>
+                <mat-error *ngIf="LeaveBalanceForm.get('CurrentBalance')?.invalid">
+                    Please enter Current Balance
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Total Balance</mat-label>
+                <input matInput formControlName="TotalBalance" required>
+                <mat-error *ngIf="LeaveBalanceForm.get('TotalBalance')?.invalid">
+                    Please enter Total Balance
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Used Leave</mat-label>
+                <input matInput formControlName="UsedLeave" required>
+                <mat-error *ngIf="LeaveBalanceForm.get('UsedLeave')?.invalid">
+                    Please enter Used Leave
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Accepted Leave</mat-label>
+                <input matInput formControlName="AcceptedLeave" required>
+                <mat-error *ngIf="LeaveBalanceForm.get('AcceptedLeave')?.invalid">
+                    Please enter Accepted Leave
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Rejected Leave</mat-label>
+                <input matInput formControlName="RejectedLeave" required>
+                <mat-error *ngIf="LeaveBalanceForm.get('RejectedLeave')?.invalid">
+                    Please enter Rejected Leave
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Expired Leave</mat-label>
+                <input matInput formControlName="ExpiredLeave" required>
+                <mat-error *ngIf="LeaveBalanceForm.get('ExpiredLeave')?.invalid">
+                    Please enter Expired Leave
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Carry Over Balance</mat-label>
+                <input matInput formControlName="CarryOverBalance" required>
+                <mat-error *ngIf="LeaveBalanceForm.get('CarryOverBalance')?.invalid">
+                    Please enter Carry Over Balance
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ LeaveBalanceDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

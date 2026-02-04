@@ -31,6 +31,19 @@
         </div>
         <div class="col-md-4">
             <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Department</mat-label>
+                <mat-select formControlName="Department" required>
+                    <mat-option *ngFor="let Department of DepartmentList"
+                        [value]="Department.Name">{{Department.Name}}
+                    </mat-option>
+                </mat-select>
+                <mat-error *ngIf="StaffForm.get('Department')?.invalid">
+                    Please select Department
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-4">
+            <mat-form-field class="w-100">
                 <mat-label style="font-size: 14px;">Mobile</mat-label>
                 <input matInput formControlName="Mobile" required>
                 <mat-icon matSuffix>call</mat-icon>

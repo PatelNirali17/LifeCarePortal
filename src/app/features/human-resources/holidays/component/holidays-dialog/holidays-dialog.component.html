@@ -1,0 +1,75 @@
+<div mat-dialog-title class="dialog-header d-flex justify-content-between align-items-center">
+    <h2>{{ HolidaysDetails ? 'Edit' : 'Add New' }} Holiday</h2>
+    <button class="close-btn" [mat-dialog-close]="false">
+        <mat-icon>close</mat-icon>
+    </button>
+</div>
+<mat-dialog-content class="dialog-content">
+    <form [formGroup]="HolidaysForm" class="row">
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Name</mat-label>
+                <input matInput formControlName="name" required>
+                <mat-error *ngIf="HolidaysForm.get('name')?.invalid">
+                    Please enter Name
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Holiday Date</mat-label>
+                <input matInput [matDatepicker]="date" formControlName="date" required>
+                <mat-datepicker-toggle matIconSuffix [for]="date"></mat-datepicker-toggle>
+                <mat-datepicker #date></mat-datepicker>
+                <mat-error *ngIf="HolidaysForm.get('date')?.invalid">
+                    Please select Holiday Date
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Shift</mat-label>
+                <mat-select formControlName="shift" required>
+                    <mat-option value="All Shift">All Shift</mat-option>
+                    <mat-option value="Day Shift">Day Shift</mat-option>
+                    <mat-option value="Night Shift">Night Shift</mat-option>
+                </mat-select>
+                <mat-error *ngIf="HolidaysForm.get('shift')?.invalid">
+                    Please select Shift
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Location</mat-label>
+                <input matInput formControlName="location" required>
+                <mat-icon matSuffix>location_on</mat-icon>
+                <mat-error *ngIf="HolidaysForm.get('location')?.invalid">
+                    Please enter Location
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Holiday type</mat-label>
+                <input matInput formControlName="type" required>
+                <mat-error *ngIf="HolidaysForm.get('type')?.invalid">
+                    Please enter Holiday Type
+                </mat-error>
+            </mat-form-field>
+        </div>
+        <div class="col-md-6">
+            <mat-form-field class="w-100">
+                <mat-label style="font-size: 14px;">Details</mat-label>
+                <input matInput formControlName="details" required>
+                <mat-error *ngIf="HolidaysForm.get('details')?.invalid">
+                    Please enter Details
+                </mat-error>
+            </mat-form-field>
+        </div>
+    </form>
+</mat-dialog-content>
+<mat-dialog-actions class="dialog-actions">
+    <button mat-raised-button class="bgprimary">{{ HolidaysDetails ? 'Update' : 'Save' }}</button>
+    <button mat-raised-button [mat-dialog-close]="false" class="bgaccent">Cancel</button>
+</mat-dialog-actions>

@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 import { FormGroup, FormsModule, NonNullableFormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MAT_DIALOG_DATA, MatDialogRef } from '@angular/material/dialog';
 import { AllStaffService } from '../../all-staff.service';
+import { AllDoctorsService } from '../../../../doctors/all-doctors/all-doctors.service';
 
 @Component({
   selector: 'app-add-staff-dialog',
@@ -14,13 +15,16 @@ import { AllStaffService } from '../../all-staff.service';
 export class AddStaffDialogComponent {
   StaffForm!: FormGroup;
   DesignationList: any;
+  DepartmentList: any;
   ShiftList = ['Morning', 'Night', 'Day', 'Evening'];
   constructor(public dialogRef: MatDialogRef<AddStaffDialogComponent>, private fb: NonNullableFormBuilder, private allStaffService: AllStaffService,
+    private allDoctorService: AllDoctorsService,
     @Optional() @Inject(MAT_DIALOG_DATA) public StaffDetails: any
   ) {
     this.StaffForm = this.fb.group({
       Name: this.fb.control('', Validators.required),
       Designation: this.fb.control('', Validators.required),
+      Department: this.fb.control('', Validators.required),
       Mobile: this.fb.control('', Validators.required),
       Email: this.fb.control('', Validators.required),
       JoiningDate: this.fb.control('', Validators.required),
@@ -36,5 +40,11 @@ export class AddStaffDialogComponent {
         this.DesignationList = result
       },
     })
+    this.allDoctorService.GetAllDepartment().subscribe({
+      next: (result: any) => {
+        this.DepartmentList = result
+      },
+    })
+
   }
 }

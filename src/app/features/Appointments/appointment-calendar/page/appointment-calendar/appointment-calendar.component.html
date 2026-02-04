@@ -1,0 +1,23 @@
+<div class="container-fluid">
+  <div class="calendar-header">
+    <button class="nav-btn" (click)="previousMonth()">&lt; Prev</button>
+    <h2>{{ currentMonth | date: 'MMMM yyyy' }}</h2>
+    <button class="nav-btn" (click)="nextMonth()">Next &gt;</button>
+  </div>
+
+  <div class="calendar-grid">
+    <!-- Weekday Headers -->
+    <div class="weekday" *ngFor="let day of weekDays">{{ day }}</div>
+
+    <!-- Calendar Days -->
+    <div class="day-cell" *ngFor="let day of calendarDays" [class.empty]="!day.date" [class.today]="isToday(day)">
+      <div class="date-number" *ngIf="day.dayNumber">{{ day.dayNumber }}</div>
+      
+      <div class="appointments-list" *ngIf="day.appointments.length > 0">
+        <div class="appointment-item" *ngFor="let app of day.appointments" [ngClass]="'status-' + (app.AppointmentStatus | lowercase)" [title]="app.Injury + ' - ' + app.Doctor">
+          <span class="time">{{ app.AppointmentTime }}</span> {{ app.Name }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

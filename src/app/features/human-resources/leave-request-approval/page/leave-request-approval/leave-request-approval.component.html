@@ -1,13 +1,8 @@
 <div class="container-fluid">
     <div class="unique-header-section">
         <div class="header-content">
-            <h2>Staff Details</h2>
-            <p>View complete information about all staff members</p>
-        </div>
-        <div class="header-actions">
-            <button class="add-btn" (click)="OpenAllStaffDialog(null)">
-                <span class="icon">+</span> Add New Staff
-            </button>
+            <h2>All Leave Request Approval</h2>
+            <p>Review, track, and approve leave requests submitted by employees across the organization</p>
         </div>
     </div>
     <div class="table-wrapper">
@@ -15,20 +10,20 @@
             <thead>
                 <tr>
                     <th>SrNo</th>
-                    <th>Name</th>
-                    <th>Gender</th>
-                    <th>Designation</th>
-                    <th>Department</th>
-                    <th>Email</th>
-                    <th>Date Of Joining</th>
-                    <th>Salary</th>
-                    <th>Shift</th>
+                    <th>Employee</th>
+                    <th>Manager</th>
+                    <th>Leave Type</th>
+                    <th>Start Date</th>
+                    <th>End Date</th>
+                    <th>Total Days</th>
+                    <th>Leave Balance</th>
+                    <th>Reason</th>
                     <th>Status</th>
                     <th class="text-end">Actions</th>
                 </tr>
             </thead>
             <tbody>
-                <tr *ngFor="let staff of paginatedList; trackBy: trackByFn;let i = index">
+                <tr *ngFor="let request of paginatedList; trackBy: trackByFn;let i = index">
                     <td>
                         <div class="column-cell">
                             <div class="column-number">{{ i + 1 }}</div>
@@ -37,39 +32,36 @@
                     <td>
                         <div class="column-cell">
                             <div>
-                                <div class="column-number">{{ staff.Name }}</div>
+                                <div class="column-number">{{ request.employeename }}</div>
                                 <div class="column-name">
-                                    <mat-icon>call</mat-icon>
-                                    {{ staff.Mobile }}
+                                    <mat-icon>dvr</mat-icon>
+                                    {{ request.department }}
                                 </div>
                             </div>
                         </div>
                     </td>
+                    <td>{{ request.managername }}</td>
+                    <td>{{ request.leavetype }}</td>
+                    <td>📅 {{ request.startdate }}</td>
+                    <td>📅 {{ request.enddate }}</td>
+                    <td>{{ request.totaldays }}</td>
+                    <td>{{ request.leavebalance }}</td>
+                    <td>{{ request.reason }}</td>
                     <td>
-                        <span class="type-badge active" *ngIf="staff.Gender == 'Male'">{{staff.Gender}}</span>
-                        <span class="type-badge contractual" *ngIf="staff.Gender == 'Female'">{{staff.Gender}}</span>
-                        <span class="type-badge inactive" *ngIf="staff.Gender == 'Other'">{{staff.Gender}}</span>
-                    </td>
-                    <td>{{ staff.Designation }}</td>
-                    <td>{{ staff.Department }}</td>
-                    <td>✉️ {{ staff.Email }}</td>
-                    <td>📅 {{ staff.JoiningDate }}</td>
-                    <td>{{ staff.Salary | currency:'INR'}}</td>
-                    <td>{{ staff.Shift }}</td>
-                    <td>
-                        <span class="type-badge active" *ngIf="staff.Status == 'Active'">{{staff.Status}}</span>
-                        <span class="type-badge inactive" *ngIf="staff.Status == 'Inactive'">{{staff.Status}}</span>
+                        <span class="type-badge active" *ngIf="request.status == 'Approved'">{{request.status
+                            }}</span>
+                        <span class="type-badge contractual" *ngIf="request.status == 'Pending'">{{request.status
+                            }}</span>
+                        <span class="type-badge inactive" *ngIf="request.status == 'Rejected'">{{request.status
+                            }}</span>
                     </td>
                     <td class="text-end">
                         <div class="action-group">
-                            <button class="action-btn view" title="View" (click)="OpenStaffDetailsDialog(staff)">
-                                <mat-icon>visibility</mat-icon>
+                            <button class="action-btn edit" title="Approve" matTooltip="Approve Leave">
+                                <mat-icon>check</mat-icon>
                             </button>
-                            <button class="action-btn edit" title="Edit">
-                                <mat-icon>edit</mat-icon>
-                            </button>
-                            <button class="action-btn delete" title="Delete">
-                                <mat-icon>delete</mat-icon>
+                            <button class="action-btn delete" title="Reject" matTooltip="Reject Leave">
+                                <mat-icon>close</mat-icon>
                             </button>
                         </div>
                     </td>
@@ -77,16 +69,17 @@
             </tbody>
         </table>
 
-        <div *ngIf="StaffList.length === 0" class="empty-state">
-            <p>No staff data available.</p>
+        <div *ngIf="LeaveRequestApprovalList.length === 0" class="empty-state">
+            <p>No leave request approval data available.</p>
         </div>
     </div>
 
     <div class="pagination-section">
         <div class="pagination-info">
             <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
-                StaffList.length ?
-                StaffList.length : currentPage * pageSize }} of {{ StaffList.length }} records</span>
+                LeaveRequestApprovalList.length ?
+                LeaveRequestApprovalList.length : currentPage * pageSize }} of {{ LeaveRequestApprovalList.length }}
+                records</span>
         </div>
         <nav aria-label="Page navigation">
             <ul class="pagination">

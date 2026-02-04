@@ -6,10 +6,16 @@
             <div class="page-header">
                 <div class="row align-items-center">
                     <div class="col">
-                        <h3 class="page-title">Holidays 2026</h3>
+                        <h3 class="page-title">Holidays {{selectedYear}}</h3>
                     </div>
-                    <div class="col-auto float-right ml-auto">
-                        <button class="add-btn">
+                    <div class="col-auto ms-auto d-flex align-items-center">
+                        <mat-form-field appearance="outline" class="me-2" subscriptSizing="dynamic">
+                            <mat-label>Year</mat-label>
+                            <mat-select [(value)]="selectedYear" (selectionChange)="GetAllHolidays()">
+                                <mat-option *ngFor="let year of years" [value]="year">{{ year }}</mat-option>
+                            </mat-select>
+                        </mat-form-field>
+                        <button class="add-btn" (click)="OpenAddHolidayDialog(null)">
                             <span class="icon">+</span> Add New Holiday
                         </button>
                     </div>
@@ -19,13 +25,17 @@
 
             <div class="horizontal-timeline">
                 <div class="timeline-items">
-                    <div *ngFor="let holiday of holidays" class="timeline-item"
+                    <div *ngFor="let holiday of HolidaysList" class="timeline-item"
                         [ngClass]="'holiday-type-' + holiday.type.toLowerCase()">
                         <div class="timeline-badge">
                             <div class="timeline-date">{{ holiday.date | date: 'd MMM y' }}</div>
                             <div class="timeline-dot"></div>
                         </div>
                         <div class="timeline-panel">
+                            <div class="holiday-actions">
+                                <a href="javascript:void(0);"><i class="fa fa-pencil" style="color: #6A0572;"></i></a>
+                                <a href="javascript:void(0);"><i class="fa fa-trash" style="color: #FF6B6B;"></i></a>
+                            </div>
                             <div class="holiday-icon-wrapper">
                                 <i [class]="getHolidayIcon(holiday.type)"></i>
                             </div>
