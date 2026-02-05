@@ -1,0 +1,135 @@
+<div class="container-fluid">
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>Book Appointment</h2>
+            <p>View scheduled appointments and their details</p>
+        </div>
+        <div class="header-actions">
+            <mat-form-field appearance="outline" class="me-2" subscriptSizing="dynamic">
+                <mat-label>Filter</mat-label>
+                <mat-select>
+                    <mat-option value="Today">Today</mat-option>
+                    <mat-option value="Upcoming">Upcoming</mat-option>
+                    <mat-option value="Past">Past</mat-option>
+                </mat-select>
+            </mat-form-field>
+            <button class="add-btn" (click)="OpenBookAppointmentsDailog(null)">
+                <span class="icon">+</span> Add New Appointment
+            </button>
+        </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>Doctor</th>
+                    <th>Date</th>
+                    <th>Injury</th>
+                    <th>Appointment Status</th>
+                    <th>Visit Type</th>
+                    <th>Payment Status</th>
+                    <th>Insurance Provider</th>
+                    <th class="text-end">Actions</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let appointment of paginatedList; trackBy: trackByFn;let i = index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="cell-info">
+                            <div class="cell-name">{{ appointment.DoctorName }}</div>
+                            <div class="cell-number">
+                                {{ appointment.DoctorSpecialization }}
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="cell-info">
+                            <div class="cell-name">📅 {{ appointment.AppointmentDate }}</div>
+                            <div class="cell-number">
+                                <mat-icon>schedule</mat-icon>
+                                {{ appointment.AppointmentTime }}
+                            </div>
+                        </div>
+                    </td>
+                    <td>{{ appointment.Injury }}</td>
+                    <td>
+                        <span class="type-badge active"
+                            *ngIf="appointment.AppointmentStatus == 'Upcoming'">{{appointment.AppointmentStatus
+                            }}</span>
+                        <span class="type-badge owned"
+                            *ngIf="appointment.AppointmentStatus == 'Completed'">{{appointment.AppointmentStatus
+                            }}</span>
+                        <span class="type-badge inactive"
+                            *ngIf="appointment.AppointmentStatus == 'Cancelled'">{{appointment.AppointmentStatus
+                            }}</span>
+                    </td>
+                    <td>{{ appointment.VisitType }}</td>
+                    <td>
+                        <span class="type-badge active"
+                            *ngIf="appointment.PaymentStatus == 'Paid'">{{appointment.PaymentStatus
+                            }}</span>
+                        <span class="type-badge owned"
+                            *ngIf="appointment.PaymentStatus == 'Pending'">{{appointment.PaymentStatus
+                            }}</span>
+                        <span class="type-badge inactive"
+                            *ngIf="appointment.PaymentStatus == 'Refunded'">{{appointment.PaymentStatus
+                            }}</span>
+                    </td>
+                    <td>{{ appointment.InsuranceProvider }}</td>
+                    <td class="text-end">
+                        <div class="action-group">
+                            <button class="action-btn edit" title="Edit">
+                                <mat-icon>edit</mat-icon>
+                            </button>
+                            <button class="action-btn delete" title="Delete">
+                                <mat-icon>delete</mat-icon>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="BookAppointmentsList.length === 0" class="empty-state">
+            <p>No book appointment data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                BookAppointmentsList.length ?
+                BookAppointmentsList.length : currentPage * pageSize }} of {{ BookAppointmentsList.length }}
+                records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

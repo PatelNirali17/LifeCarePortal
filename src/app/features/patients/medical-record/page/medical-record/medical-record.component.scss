@@ -1,0 +1,302 @@
+// --- Theme Variables ---
+$primary-color: #6A0572;
+$secondary-color: #D4AF37;
+$accent-color: #FF6B6B;
+$light-gray: #f8f9fa;
+$border-color: #b8b8b8;
+$shadow-color: rgba(106, 5, 114, 0.15);
+$white: #fff;
+$dark-text: #333333;
+$muted-text: #6c757d;
+$body-text: #5a5c69;
+
+// --- Activity Colors ---
+$activity-colors: (
+  "x-ray": #17a2b8,
+  "medication": #198754,
+  "consultation": $primary-color,
+  "prescription": $secondary-color,
+  "operation": $accent-color
+);
+
+.timeline {
+  position: relative;
+  padding: 40px 0;
+  list-style: none;
+  display: block;
+
+  &::before {
+    content: " ";
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    width: 4px;
+    background-color: $border-color;
+    margin-left: -2px;
+    display: block;
+    border-radius: 2px;
+    z-index: 0;
+  }
+
+  // Clearfix to prevent height collapse due to floated items
+  &::after {
+    content: "";
+    display: table;
+    clear: both;
+  }
+}
+
+.timeline-item {
+  position: relative;
+  width: 50%;
+  float: left;
+  clear: both;
+  padding-right: 40px;
+  margin-bottom: 40px;
+  display: block;
+
+  // Connect card with line
+  &::before {
+    content: "";
+    position: absolute;
+    top: 38px;
+    width: 40px;
+    height: 4px;
+    background-color: $border-color;
+    z-index: 1;
+  }
+
+  // Left side (default)
+  .timeline-badge {
+    right: -20px;
+    left: auto;
+  }
+
+  &::before {
+    right: 0;
+  }
+  
+  .timeline-date {
+    right: 55px; // 40px padding + 15px margin
+  }
+
+  // Right side (even)
+  &:nth-child(even) {
+    float: right;
+    padding-right: 0;
+    padding-left: 40px;
+
+    .timeline-badge {
+      left: -20px;
+      right: auto;
+    }
+    
+    &::before {
+      left: 0;
+    }
+
+    .timeline-date {
+      right: 15px;
+      left: auto;
+    }
+  }
+}
+
+.timeline-badge {
+  position: absolute;
+  top: 20px;
+  // left/right handled in item
+  transform: none;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: $white;
+  border: 4px solid $white;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 1.2rem;
+  margin: 0;
+
+  // Dynamically create classes from the map
+  @each $activity, $color in $activity-colors {
+    // Styles are now applied via the parent .timeline-item class
+  }
+}
+
+.timeline-date {
+  position: absolute;
+  top: 25px;
+  // right handled in item
+  width: auto;
+  text-align: right;
+  padding: 0;
+  z-index: 5;
+  pointer-events: none; // Let clicks pass through to panel
+
+  .day {
+    display: block;
+    font-size: 0.8rem;
+    font-weight: 700;
+    color: $muted-text;
+    line-height: 1;
+    margin-bottom: 2px;
+  }
+
+  .time {
+    display: block;
+    font-size: 0.7rem;
+    color: #adb5bd;
+  }
+}
+
+.timeline-panel {
+  position: relative;
+  margin-top: 0;
+  background: $white;
+  border: none;
+  border-radius: 16px;
+  padding: 20px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  border-top: 6px solid $border-color; // Default border
+  transition: transform 0.2s, box-shadow 0.2s;
+  text-align: left;
+
+  // Remove Arrow
+  &::before {
+    display: none;
+  }
+
+  &:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    z-index: 1;
+  }
+}
+
+// --- Dynamic Coloring based on Activity Type ---
+@each $activity, $color in $activity-colors {
+  .timeline-item.#{$activity} {
+    .timeline-panel {
+      border-top-color: $color;
+      background: linear-gradient(180deg, rgba($color, 0.05) 0%, $white 100%);
+    }
+    .timeline-badge {
+      background-color: $color;
+      box-shadow: 0 4px 10px rgba($color, 0.4);
+    }
+    .timeline-date .day {
+      color: $color;
+    }
+  }
+}
+
+.timeline-heading {
+  display: block;
+  margin-bottom: 10px;
+}
+
+.timeline-title {
+  margin-top: 0;
+  color: inherit;
+  font-size: 1rem;
+  font-weight: 600;
+}
+
+.text-muted {
+  color: $muted-text !important;
+  font-size: 0.85rem;
+}
+
+.timeline-body {
+  p {
+    margin-bottom: 0;
+    color: $body-text;
+    font-size: 0.85rem;
+    line-height: 1.5;
+  }
+
+  div {
+    margin-top: 10px;
+    font-size: 0.85rem;
+    color: $primary-color;
+  }
+}
+
+.badge {
+  display: inline-block;
+  padding: 0.25em 0.4em;
+  font-size: 75%;
+  font-weight: 700;
+  line-height: 1;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: baseline;
+  border-radius: 0.25rem;
+}
+
+.badge-secondary { color: $white; background-color: $muted-text; }
+.badge-info { color: $white; background-color: map-get($activity-colors, "x-ray"); }
+
+.doctor-name {
+  font-weight: 600;
+  color: $primary-color;
+}
+
+.attachment-icon {
+  margin-right: 5px;
+  color: #e74a3b;
+}
+
+// H3 Header
+.mb-4 { color: $dark-text; font-weight: 700; text-align: center; margin-bottom: 30px !important; }
+
+@media (max-width: 768px) {
+  .timeline::before {
+    left: 30px;
+  }
+  
+  .timeline-item {
+    width: 100%;
+    float: none;
+    padding-left: 70px;
+    padding-right: 15px;
+    margin-bottom: 30px;
+    
+    .timeline-badge {
+      left: 10px;
+      right: auto;
+    }
+
+    &::before {
+      left: 30px;
+      right: auto;
+      width: 40px;
+    }
+    
+    .timeline-date {
+      right: 30px;
+    }
+    
+    &:nth-child(even) {
+      float: none;
+      padding-left: 70px;
+      padding-right: 15px;
+      
+      .timeline-badge {
+        left: 10px;
+      }
+
+      &::before {
+        left: 30px;
+      }
+      
+      .timeline-date {
+        right: 30px;
+      }
+    }
+  }
+}

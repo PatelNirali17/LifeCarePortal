@@ -894,8 +894,8 @@
         },
         {
             "id": 2,
-            "title": "Appointments",
-            "routerLink": "/appointments/viewappointment",
+            "title": "Appointment List",
+            "routerLink": "/appointments/appointmentlist",
             "href": null,
             "icon": "assignment",
             "target": null,
@@ -904,8 +904,8 @@
         },
         {
             "id": 3,
-            "title": "Doctors",
-            "routerLink": "/doctordetails",
+            "title": "Doctor Details",
+            "routerLink": "doctors/doctordetails",
             "href": null,
             "icon": "supervised_user_circle",
             "target": null,
@@ -914,8 +914,8 @@
         },
         {
             "id": 4,
-            "title": "Patients",
-            "routerLink": "/patientdetails",
+            "title": "Patient Details",
+            "routerLink": "patients/patientdetails",
             "href": null,
             "icon": "face",
             "target": null,
@@ -936,58 +936,18 @@
         },
         {
             "id": 2,
-            "title": "Appointments",
-            "routerLink": null,
+            "title": "Book Appointments",
+            "routerLink": "appointments/bookappointments",
             "href": null,
             "icon": "assignment",
             "target": null,
-            "hasSubMenu": true,
+            "hasSubMenu": false,
             "parentId": 0
         },
         {
             "id": 3,
-            "title": "Book Appointments",
-            "routerLink": "/bookappointments",
-            "href": null,
-            "icon": null,
-            "target": null,
-            "hasSubMenu": false,
-            "parentId": 2
-        },
-        {
-            "id": 4,
-            "title": "Today Appointments",
-            "routerLink": "/todayappointments",
-            "href": null,
-            "icon": null,
-            "target": null,
-            "hasSubMenu": false,
-            "parentId": 2
-        },
-        {
-            "id": 5,
-            "title": "Upcoming Appointments",
-            "routerLink": "/upcomingappointments",
-            "href": null,
-            "icon": null,
-            "target": null,
-            "hasSubMenu": false,
-            "parentId": 2
-        },
-        {
-            "id": 6,
-            "title": "Past Appointments",
-            "routerLink": "/pastappointments",
-            "href": null,
-            "icon": null,
-            "target": null,
-            "hasSubMenu": false,
-            "parentId": 2
-        },
-        {
-            "id": 7,
             "title": "Prescriptions",
-            "routerLink": "/prescriptions",
+            "routerLink": "patients/prescriptions",
             "href": null,
             "icon": "receipt_long",
             "target": null,
@@ -995,9 +955,9 @@
             "parentId": 0
         },
         {
-            "id": 8,
+            "id": 4,
             "title": "Medical Record",
-            "routerLink": "/medicalrecord",
+            "routerLink": "patients/medicalrecord",
             "href": null,
             "icon": "medical_information",
             "target": null,
@@ -1005,9 +965,9 @@
             "parentId": 0
         },
         {
-            "id": 9,
+            "id": 5,
             "title": "Billing",
-            "routerLink": "/billing",
+            "routerLink": "patients/billing",
             "href": null,
             "icon": "receipt",
             "target": null,

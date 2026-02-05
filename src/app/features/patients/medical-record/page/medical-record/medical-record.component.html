@@ -1,0 +1,29 @@
+<div class="container-fluid">  
+  <div class="timeline">
+    <div *ngFor="let record of medicalHistory" class="timeline-item" [ngClass]="record.activity_type.toLowerCase().replace(' ', '-')">
+      <div class="timeline-date">
+        <span class="day">{{ record.date | date:'dd MMM yyyy' }}</span>
+        <span class="time">{{ record.time }}</span>
+      </div>
+      <div class="timeline-badge">
+        {{ getActivityIcon(record.activity_type) }}
+      </div>
+      <div class="timeline-panel">
+        <div class="timeline-heading">
+          <h4 class="timeline-title">{{ record.activity_type }}</h4>
+          <span *ngIf="record.status" class="badge badge-secondary">{{ record.status }}</span>
+          <small *ngIf="record.doctor || record.medical_team" class="text-muted">
+            <span class="doctor-name">{{ record.doctor || record.medical_team }}</span>
+          </small>
+        </div>
+        <div class="timeline-body">
+          <p>{{ record.notes }}</p>
+          <div *ngIf="record.attachments">
+            <i class="attachment-icon">📎</i> {{ record.attachments }} Attachments
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div>
+</div>

@@ -1,0 +1,111 @@
+<div class="container-fluid">
+    <div class="unique-header-section">
+        <div class="header-content">
+            <h2>Appointment List</h2>
+            <p>View scheduled appointments and their details</p>
+        </div>
+    </div>
+    <div class="table-wrapper">
+        <table class="modern-table">
+            <thead>
+                <tr>
+                    <th>SrNo</th>
+                    <th>PatientName</th>
+                    <th>AppointmentDate</th>
+                    <th>Email</th>
+                    <th>Gender</th>
+                    <th>Status</th>
+                    <th>Address</th>
+                    <th>Disease</th>
+                    <th>LastVisitDate</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let appointment of paginatedList; trackBy: trackByFn;let i = index">
+                    <td>
+                        <div class="column-cell">
+                            <div class="column-number">{{ i + 1 }}</div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="column-cell">
+                            <div>
+                                <div class="column-number">{{ appointment.PatientName }}</div>
+                                <div class="column-name">
+                                    <mat-icon>call</mat-icon>
+                                    {{ appointment.Mobile }}
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>
+                        <div class="column-cell">
+                            <div>
+                                <div class="column-number">📅 {{ appointment.AppointmentDate }}</div>
+                                <div class="column-name">
+                                    <mat-icon>schedule</mat-icon>
+                                    {{ appointment.Time }}
+                                </div>
+                            </div>
+                        </div>
+                    </td>
+                    <td>✉️ {{ appointment.Email }}</td>
+                    <td>
+                        <span class="type-badge active" *ngIf="appointment.Gender == 'Male'">{{appointment.Gender
+                            }}</span>
+                        <span class="type-badge contractual" *ngIf="appointment.Gender == 'Female'">{{appointment.Gender
+                            }}</span>
+                        <span class="type-badge inactive" *ngIf="appointment.Gender == 'Other'">{{appointment.Gender
+                            }}</span>
+                    </td>
+                    <td>
+                        <span class="type-badge active" *ngIf="appointment.Status == 'Upcoming'">{{appointment.Status
+                            }}</span>
+                        <span class="type-badge owned" *ngIf="appointment.Status == 'Completed'">{{appointment.Status
+                            }}</span>
+                        <span class="type-badge inactive" *ngIf="appointment.Status == 'Canceled'">{{appointment.Status
+                            }}</span>
+                    </td>
+                    <td>📍 {{ appointment.Address }}</td>
+                    <td>{{ appointment.Disease }}</td>
+                    <td>📅 {{ appointment.LastVisitDate }}</td>
+                </tr>
+            </tbody>
+        </table>
+
+        <div *ngIf="AppointmentList.length === 0" class="empty-state">
+            <p>No appointment data available.</p>
+        </div>
+    </div>
+
+    <div class="pagination-section">
+        <div class="pagination-info">
+            <span>Showing {{ (currentPage - 1) * pageSize + 1 }} to {{ currentPage * pageSize >
+                AppointmentList.length ?
+                AppointmentList.length : currentPage * pageSize }} of {{ AppointmentList.length }} records</span>
+        </div>
+        <nav aria-label="Page navigation">
+            <ul class="pagination">
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(1)" [disabled]="currentPage == 1">First</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == 1}">
+                    <button class="page-link" (click)="changePage(currentPage - 1)"
+                        [disabled]="currentPage == 1">Previous</button>
+                </li>
+                <li class="page-item" *ngFor="let page of pagesArray; let i = index"
+                    [ngClass]="{active: currentPage == i + 1}">
+                    <button class="page-link" (click)="changePage(i + 1)">{{ i + 1 }}</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(currentPage + 1)"
+                        [disabled]="currentPage == totalPages">Next</button>
+                </li>
+                <li class="page-item" [ngClass]="{disabled: currentPage == totalPages}">
+                    <button class="page-link" (click)="changePage(totalPages)"
+                        [disabled]="currentPage == totalPages">Last</button>
+                </li>
+            </ul>
+        </nav>
+    </div>
+</div>

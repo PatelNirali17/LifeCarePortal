@@ -1,0 +1,49 @@
+<div class="container-fluid">
+  <div class="records-grid" *ngIf="patientRecords.length > 0; else loading">
+    <div class="record-card" *ngFor="let record of patientRecords">
+      <div class="card-header">
+        <div class="header-content">
+          <div class="patient-info">
+            <h3>{{ record.name }}</h3>
+            <span class="patient-id">ID: {{ record.patient_id }}</span>
+          </div>
+          <div class="blood-group">{{ record.blood_group }}</div>
+        </div>
+        <div class="avatar-container">
+          <div class="avatar">{{ record.name.charAt(0) }}</div>
+        </div>
+      </div>
+
+      <div class="card-body">
+        <div class="appointment-section">
+          <div class="info-pill">
+            <i class="fas fa-calendar-day"></i>
+            <span>{{ record.appointment_date }}</span>
+          </div>
+          <div class="info-pill">
+            <i class="fas fa-clock"></i>
+            <span>{{ record.appointment_time }}</span>
+          </div>
+        </div>
+
+        <div class="contact-section">
+          <div class="contact-row">
+            <i class="fas fa-phone-alt"></i>
+            <span>{{ record.phone }}</span>
+          </div>
+          <div class="contact-row">
+            <i class="fas fa-map-marker-alt"></i>
+            <span class="address-text">{{ record.address }}</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="card-footer">
+        <button class="btn-view-reports">View Reports</button>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #loading>
+  <div class="loading-state">Loading patient records...</div>
+</ng-template>

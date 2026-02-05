@@ -1,0 +1,74 @@
+[
+  {
+    "name": "Dr. Sarah Smith",
+    "qualifications": "MBBS, MD - Dermatology",
+    "rating": 4,
+    "ratings_count": 12342,
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer...",
+    "address": "Shanti Nagar Bldg No B 4, Sector No 6, Mira Road",
+    "feedback_count": 234,
+    "consultation_fee": 500,
+    "currency": "INR",
+    "availability": "MON - SAT 10:00 AM - 8:00 PM"
+  },
+  {
+    "name": "Dr. Jay Soni",
+    "qualifications": "BDS, MDS",
+    "rating": 3,
+    "ratings_count": 6545,
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer...",
+    "address": "Shanti Nagar Bldg No B 4, Sector No 6, Mira Road",
+    "feedback_count": 176,
+    "consultation_fee": 300,
+    "currency": "INR",
+    "availability": "MON - SAT 10:00 AM - 8:00 PM"
+  },
+  {
+    "name": "Dr. Megha Trivedi",
+    "qualifications": "MBBS, MS",
+    "rating": 4,
+    "ratings_count": 3456,
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer...",
+    "address": "Shanti Nagar Bldg No B 4, Sector No 6, Mira Road",
+    "feedback_count": 659,
+    "consultation_fee": 600,
+    "currency": "INR",
+    "availability": "MON - SAT 10:00 AM - 8:00 PM"
+  },
+  {
+    "name": "Dr. Jacob Ryan",
+    "qualifications": "MBBS, MD - Orthopedic",
+    "rating": 5,
+    "ratings_count": 3987,
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer...",
+    "address": "Shanti Nagar Bldg No B 4, Sector No 6, Mira Road",
+    "feedback_count": 761,
+    "consultation_fee": 400,
+    "currency": "INR",
+    "availability": "MON - SAT 10:00 AM - 8:00 PM"
+  },
+  {
+    "name": "Dr. Ashton Cox",
+    "qualifications": "DHMS, BHMS",
+    "rating": 3,
+    "ratings_count": 34,
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer...",
+    "address": "Shanti Nagar Bldg No B 4, Sector No 6, Mira Road",
+    "feedback_count": 12,
+    "consultation_fee": 200,
+    "currency": "INR",
+    "availability": "MON - SAT 10:00 AM - 8:00 PM"
+  },
+  {
+    "name": "Dr. Angelica Ramos",
+    "qualifications": "BDS, MDS",
+    "rating": 5,
+    "ratings_count": 765,
+    "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer...",
+    "address": "Shanti Nagar Bldg No B 4, Sector No 6, Mira Road",
+    "feedback_count": 354,
+    "consultation_fee": 350,
+    "currency": "INR",
+    "availability": "MON - SAT 10:00 AM - 8:00 PM"
+  }
+]

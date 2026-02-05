@@ -1,0 +1,210 @@
+.doctor-details-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 40px;
+}
+
+.doctor-card {
+  background: #ffffff;
+  border-radius: 24px;
+  overflow: hidden;
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.05);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  border: 1px solid rgba(0,0,0,0.02);
+
+  &:hover {
+    .book-btn {
+      background-color: #580464; // Darker Purple
+      box-shadow: 0 4px 12px rgba(106, 5, 114, 0.3);
+    }
+  }
+}
+
+
+.card-header-banner {
+  height: 110px;
+  background: linear-gradient(120deg, #6A0572, #8E24AA); // Primary Purple gradient
+  position: relative;
+  
+  &::after {
+    content: '';
+    position: absolute;
+    bottom: -1px;
+    left: 0;
+    right: 0;
+    height: 40px;
+    background: #ffffff;
+    clip-path: ellipse(60% 100% at 50% 100%); // Curve effect
+  }
+}
+
+.card-body-content {
+  padding: 0 28px 28px;
+  margin-top: -60px; // Pull up content
+  position: relative;
+  z-index: 1;
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+}
+
+.profile-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.avatar-container {
+  width: 110px;
+  height: 110px;
+  border-radius: 50%;
+  padding: 4px;
+  background: #ffffff;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.1);
+  margin-bottom: 15px;
+
+  img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    object-fit: cover;
+  }
+}
+
+.identity {
+  .name {
+    font-size: 1.5rem;
+    font-weight: 800;
+    color: #111827;
+    margin: 0;
+    letter-spacing: -0.5px;
+  }
+
+  .specialty {
+    font-size: 0.95rem;
+    color: #FF6B6B; // Accent Coral
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 0 0 12px;
+  }
+
+  .rating-pill {
+    display: inline-flex;
+    align-items: center;
+    background: rgba(212, 175, 55, 0.15); // Light Gold
+    padding: 6px 16px;
+    border-radius: 50px;
+    font-size: 0.85rem;
+    color: #333333;
+    font-weight: 600;
+
+    .star {
+      color: #D4AF37; // Secondary Gold
+      margin-right: 2px;
+      font-size: 1rem;
+    }
+    
+    .count {
+      margin-left: 6px;
+      font-weight: 400;
+      opacity: 0.8;
+    }
+  }
+}
+
+.bio-text {
+  color: #6b7280;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  text-align: center;
+  margin-bottom: 25px;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.info-box {
+  background: #f3f4f6;
+  border-radius: 16px;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  margin-bottom: 25px;
+}
+
+.info-row {
+  display: flex;
+  align-items: flex-start;
+  font-size: 0.9rem;
+  color: #374151;
+
+  .icon {
+    margin-right: 12px;
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  .text {
+    font-weight: 500;
+    line-height: 1.4;
+  }
+}
+
+.card-footer-actions {
+  margin-top: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-top: 20px;
+  border-top: 1px dashed #e5e7eb;
+}
+
+.fee-info {
+  display: flex;
+  flex-direction: column;
+
+  .label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #9ca3af;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+    margin-bottom: 2px;
+  }
+
+  .price {
+    color: #111827;
+    font-weight: 800;
+    
+    .currency {
+      font-size: 0.9rem;
+      vertical-align: top;
+      margin-right: 2px;
+    }
+    
+    .amount {
+      font-size: 1.4rem;
+    }
+  }
+}
+
+.book-btn {
+  background-color: #6A0572; // Primary Purple
+  color: #ffffff;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  letter-spacing: 0.3px;
+}

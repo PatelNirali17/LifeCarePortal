@@ -1,0 +1,38 @@
+<div class="container-fluid">
+    <div class="prescription-container">
+        <div class="prescription-card" *ngFor="let prescription of prescriptions">
+            <div class="card-accent"></div>
+            <div class="card-content">
+                <div class="card-header">
+                    <div class="header-top">
+                        <span class="prescription-id">#{{ prescription.ID }}</span>
+                        <span class="prescription-date">{{ prescription.Date }}</span>
+                    </div>
+                    <h3>{{ prescription.Title }}</h3>
+                </div>
+
+                <div class="card-body">
+                    <div class="doctor-info">
+                        <span class="label">Prescribed By</span>
+                        <span class="value">{{ prescription.Created_by }}</span>
+                    </div>
+                    <div class="diagnosis-wrapper">
+                        <span class="disease-tag">{{ prescription.Diseases }}</span>
+                    </div>
+                </div>
+
+                <div class="card-actions">
+                    <button class="btn-action view" title="View Details">
+                        <mat-icon>visibility</mat-icon>
+                    </button>
+                    <button class="btn-action download" title="Download">
+                        <mat-icon>download</mat-icon>
+                    </button>
+                    <button class="btn-action delete" title="Delete">
+                        <mat-icon>delete</mat-icon>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

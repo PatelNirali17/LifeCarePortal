@@ -1,0 +1,55 @@
+<div class="container-fluid pb-2">
+    <div class="doctor-details-container">
+        <div class="doctor-card" *ngFor="let doctor of doctors">
+            <div class="card-header-banner"></div>
+
+            <div class="card-body-content">
+                <div class="profile-section">
+                    <div class="avatar-container">
+                        <!-- Using a placeholder avatar service. Replace with actual image property if available -->
+                        <img src="user/default-user.jpg" alt="{{doctor.name}}">
+                    </div>
+                    <div class="identity">
+                        <h2 class="name">{{doctor.name}}</h2>
+                        <p class="specialty">{{doctor.qualifications}}</p>
+                        <div class="rating-pill">
+                            <ng-container *ngFor="let i of [1,2,3,4,5]">
+                                <span class="star" [style.color]="doctor.rating >= i ? '#D4AF37' : '#cbd5e1'">★</span>
+                            </ng-container>
+                            <span class="score">{{doctor.rating}}</span>
+                            <span class="count">({{doctor.ratings_count | number}} reviews)</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p class="bio-text">{{doctor.description}}</p>
+
+                <div class="info-box">
+                    <div class="info-row">
+                        <span class="icon">📍</span>
+                        <span class="text">{{doctor.address}}</span>
+                    </div>
+                    <div class="info-row">
+                        <span class="icon">📅</span>
+                        <span class="text">{{doctor.availability}}</span>
+                    </div>
+                    <div class="info-row" *ngIf="doctor.feedback_count">
+                        <span class="icon">💬</span>
+                        <span class="text">{{doctor.feedback_count}} Patient Feedbacks</span>
+                    </div>
+                </div>
+
+                <div class="card-footer-actions">
+                    <div class="fee-info">
+                        <span class="label">Consultation</span>
+                        <div class="price">
+                            <!-- <span class="currency">{{doctor.currency}}</span> -->
+                            <span class="amount">{{doctor.consultation_fee | currency:doctor.currency}}</span>
+                        </div>
+                    </div>
+                    <button class="book-btn">Book Appointment</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
