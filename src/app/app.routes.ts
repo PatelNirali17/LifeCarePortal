@@ -22,6 +22,7 @@ import { InsuranceRoutesList } from './features/insurance/insurance-routes';
 import { DepartmentsRoutesList } from './features/departments/departments-routes';
 import { InventoryRoutesList } from './features/inventory/inventory-routes';
 import { HumanResourcesRoutesList } from './features/human-resources/human-resources-routes';
+import { PatientDashboardComponent } from './features/patient-dashboard/page/patient-dashboard/patient-dashboard.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -32,7 +33,7 @@ export const routes: Routes = [
     children: [
       { path: 'dashboard', component: DashboardComponent, data: { breadcrumb: 'Dashboard' } },
       { path: 'doctordashboard', component: DashboardComponent, data: { breadcrumb: 'Dashboard' } },
-      { path: 'patientdashboard', component: DashboardComponent, data: { breadcrumb: 'Dashboard' } },
+      { path: 'patientdashboard', component: PatientDashboardComponent, data: { breadcrumb: 'Dashboard' } },
       {
         path: 'appointments', data: { breadcrumb: 'Appointments' },
         children: AppointmentsRoutesList

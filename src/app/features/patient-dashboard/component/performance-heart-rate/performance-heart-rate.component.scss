@@ -1,0 +1,41 @@
+.details-card {
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}
+
+.custom-header {
+  background-color: #F6EEFB;
+  background-image:
+    radial-gradient(circle at 0% 0%, rgba(255, 230, 190, 0.3) 0%, transparent 45%),
+    radial-gradient(circle at 100% 100%, rgba(255, 210, 210, 0.25) 0%, transparent 45%),
+    linear-gradient(135deg, #FFFFFF 0%, #EAD8F5 100%);
+    color: #1F1F1F;
+    padding: 16px;
+}
+
+.custom-header mat-card-title {
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #1F1F1F;
+}
+
+.custom-header mat-card-subtitle {
+    color: #1F1F1F;
+    margin-top: 4px;
+}
+
+.avatar-placeholder {
+    background-color: rgba(255, 255, 255, 0.2);
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+}
+
+.custom-content {
+    background-color: #ffffff;
+    padding: 8px;
+    height: 360px;
+}

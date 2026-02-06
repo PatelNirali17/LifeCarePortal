@@ -38,7 +38,7 @@ import {MatTooltipModule} from '@angular/material/tooltip';
 import {MatTreeModule} from '@angular/material/tree';
 import { MatTimepickerModule } from '@angular/material/timepicker';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
-
+import { NgApexchartsModule } from 'ng-apexcharts';
 
 @NgModule({
   declarations: [],
@@ -83,7 +83,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatTimepickerModule,
     FormsModule,
     ReactiveFormsModule,
-    DatePipe
+    DatePipe,
+    NgApexchartsModule
   ],
    exports:[
     MatAutocompleteModule,
@@ -123,7 +124,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     MatDividerModule,
     MatFormFieldModule,
     MatTimepickerModule,
-    DatePipe
+    DatePipe,
+    NgApexchartsModule
   ]
 })
 export class SharedModule { }

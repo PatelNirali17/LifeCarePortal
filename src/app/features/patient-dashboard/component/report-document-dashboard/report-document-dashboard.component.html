@@ -1,0 +1,26 @@
+<mat-card class="details-card">
+    <div class="d-flex custom-header">
+        <div class="p-0 flex-grow-1 header-title">Reports/Documents</div>
+        <div class="p-0 d-flex align-items-center"><a class="action-hyperlink">View All</a></div>
+    </div>
+    <mat-card-content class="custom-content">
+        <mat-list style="padding-top: 8px;">
+            <mat-list-item *ngFor="let report of reportlist" class="list-item">
+                <div mat-list-icon class="d-flex align-items-center justify-content-center list-icon">
+                    <mat-icon style="color: #1565c0;">assignment</mat-icon>
+                </div>
+                <div class="d-flex w-100 justify-content-between align-items-center">
+                    <span class="list-info">{{report}}</span>
+                    <div>
+                        <button mat-icon-button style="color: #1976d2;" title="Download">
+                            <mat-icon>cloud_download</mat-icon>
+                        </button>
+                        <button mat-icon-button style="color: #d32f2f;" title="Delete">
+                            <mat-icon>delete_outline</mat-icon>
+                        </button>
+                    </div>
+                </div>
+            </mat-list-item>
+        </mat-list>
+    </mat-card-content>
+</mat-card>

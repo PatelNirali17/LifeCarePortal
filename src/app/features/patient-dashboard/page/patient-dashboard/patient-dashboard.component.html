@@ -1,0 +1,94 @@
+<div class="container-fluid">
+    <mat-card class="welcome-card">
+        <mat-card-header>
+            <mat-card-title>Welcome back, Cara Stevens!</mat-card-title>
+        </mat-card-header>
+        <mat-card-content>
+            <p>
+                We're glad to see you! Your dashboard gives you easy access to appointments, medical records, messages,
+                and wellness tools. Explore your dashboard to take control of your health. </p>
+        </mat-card-content>
+    </mat-card>
+
+    <div class="row mt-4">
+        <div class="col-lg-3 col-md-6 mb-4">
+            <mat-card class="metric-card">
+                <mat-card-content>
+                    <div class="metric-header">
+                        <span class="metric-title">Blood Pressure</span>
+                        <div class="icon-box bg-purple-light"><mat-icon class="text-purple">favorite</mat-icon></div>
+                    </div>
+                    <div class="metric-value">110/70</div>
+                    <div class="metric-trend text-danger">
+                        <mat-icon>trending_up</mat-icon>
+                        <span>10% Higher Than Last Month</span>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <mat-card class="metric-card">
+                <mat-card-content>
+                    <div class="metric-header">
+                        <span class="metric-title">Pulse</span>
+                        <div class="icon-box bg-gold-light"><mat-icon class="text-gold">monitor_heart</mat-icon></div>
+                    </div>
+                    <div class="metric-value">650</div>
+                    <div class="metric-trend text-success">
+                        <mat-icon>trending_down</mat-icon>
+                        <span>07% Less Than Last Month</span>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <mat-card class="metric-card">
+                <mat-card-content>
+                    <div class="metric-header">
+                        <span class="metric-title">Glucose Level</span>
+                        <div class="icon-box bg-blue-light"><mat-icon class="text-blue">water_drop</mat-icon></div>
+                    </div>
+                    <div class="metric-value">88-75</div>
+                    <div class="metric-trend text-danger">
+                        <mat-icon>trending_up</mat-icon>
+                        <span>12% Higher Than Last Month</span>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="col-lg-3 col-md-6 mb-4">
+            <mat-card class="metric-card">
+                <mat-card-content>
+                    <div class="metric-header">
+                        <span class="metric-title">Blood Count</span>
+                        <div class="icon-box bg-red-light"><mat-icon class="text-red">opacity</mat-icon></div>
+                    </div>
+                    <div class="metric-value">9,456/mL</div>
+                    <div class="metric-trend text-success">
+                        <mat-icon>trending_down</mat-icon>
+                        <span>22% Less Than Last Month</span>
+                    </div>
+                </mat-card-content>
+            </mat-card>
+        </div>
+
+        <div class="col-lg-4 col-md-12 mb-4">
+            <app-resting-heart-rate></app-resting-heart-rate>
+        </div>
+        <div class="col-lg-4 col-md-12 mb-4">
+            <app-performance-heart-rate></app-performance-heart-rate>
+        </div>
+        <div class="col-lg-4 col-md-12 mb-4">
+            <app-medications-dashboard></app-medications-dashboard>
+        </div>
+        <div class="col-lg-8 col-md-12 mb-4">
+            <app-appointment-dashboard></app-appointment-dashboard>
+        </div>
+        <div class="col-lg-4 col-md-12 mb-4">
+            <app-report-document-dashboard></app-report-document-dashboard>
+        </div>
+    </div>
+</div>
