@@ -1,0 +1,16 @@
+<mat-card class="dashboard-card">
+    <mat-card-header>
+        <mat-card-title>Today's Revenue</mat-card-title>
+        <mat-card-subtitle>₹4,250</mat-card-subtitle>
+        <span class="spacer" style="flex: 1 1 auto;"></span>
+        <div class="avatar-container">
+            <mat-icon class="header-icon">currency_rupee</mat-icon>
+        </div>
+    </mat-card-header>
+    <mat-card-content class="p-0">
+        <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+            [dataLabels]="chartOptions.dataLabels" [stroke]="chartOptions.stroke" [yaxis]="chartOptions.yaxis"
+            [grid]="chartOptions.grid" [tooltip]="chartOptions.tooltip">
+        </apx-chart>
+    </mat-card-content>
+</mat-card>

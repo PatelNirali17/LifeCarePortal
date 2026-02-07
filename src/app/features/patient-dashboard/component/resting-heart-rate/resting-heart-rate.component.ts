@@ -55,7 +55,7 @@ export class RestingHeartRateComponent {
       align: "left"
     },
     xaxis: {
-      categories: ["Son", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+      categories: ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
       title: {
         text: "Weekdays"
       }

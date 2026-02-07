@@ -1,0 +1,31 @@
+<mat-card>
+    <div (mousemove)="onCalendarMouseMove($event)" (mouseleave)="tooltipText = null">
+        <mat-calendar [dateClass]="dateClass" class="calendar"></mat-calendar>
+    </div>
+    <div class="legend">
+        <div class="legend-item">
+            <span class="legend-dot surgery"></span>
+            <span>Surgery</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-dot polyclinic"></span>
+            <span>Polyclinic</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-dot consultation"></span>
+            <span>Consultation</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-dot followup"></span>
+            <span>Followup</span>
+        </div>
+        <div class="legend-item">
+            <span class="legend-dot wardround"></span>
+            <span>Ward Round</span>
+        </div>
+    </div>
+</mat-card>
+
+<div class="custom-tooltip" *ngIf="tooltipText" [style.left.px]="tooltipPosition.x" [style.top.px]="tooltipPosition.y">
+    {{ tooltipText }}
+</div>

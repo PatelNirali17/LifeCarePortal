@@ -4,6 +4,7 @@ import { CommonModule } from '@angular/common';
 
 @Component({
   selector: 'app-patient-billing',
+  standalone: true,
   imports: [SharedModule, CommonModule],
   templateUrl: './patient-billing.component.html',
   styleUrl: './patient-billing.component.scss'

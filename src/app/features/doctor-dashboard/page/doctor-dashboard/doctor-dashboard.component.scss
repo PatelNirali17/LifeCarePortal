@@ -1,0 +1,51 @@
+// Theme Colors
+@use "sass:color";
+
+$theme-primary: #6A0572;
+$theme-secondary: #D4AF37;
+$theme-accent: #FF6B6B;
+
+.dashboard-card {
+  background: linear-gradient(135deg, lighten($theme-primary, 58%) 0%, lighten($theme-secondary, 38%) 100%);
+  color: $theme-primary;
+  box-shadow: 0 4px 24px 0 rgba(34, 41, 47, 0.1);
+}
+
+.details-box {
+  box-shadow: 0 4px 24px 0 rgba(34, 41, 47, 0.1);
+}
+
+.profile-avatar {
+  width: 70px;
+  height: 70px;
+  font-size: 1.5rem;
+  color: $theme-primary;
+}
+
+.welcome-badge {
+  letter-spacing: 1px;
+  color: $theme-primary;
+  font-weight: 600;
+}
+
+.stat-label {
+  font-size: 0.75rem;
+  color: #6c757d;
+}
+
+.stat-card {
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+// Custom Text Colors for Stats
+.text-theme-primary {
+  color: $theme-primary !important;
+}
+
+.text-theme-secondary {
+  color: $theme-secondary !important;
+}
+
+.text-theme-accent {
+  color: $theme-accent !important;
+}

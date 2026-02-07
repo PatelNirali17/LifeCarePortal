@@ -1,0 +1,11 @@
+<mat-card class="dashboard-card">
+    <mat-card-header>
+        <mat-card-title>Patients Survay</mat-card-title>
+    </mat-card-header>
+    <mat-card-content class="p-0">
+        <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+            [dataLabels]="chartOptions.dataLabels" [stroke]="chartOptions.stroke" [tooltip]="chartOptions.tooltip"
+            [colors]="chartOptions.colors">
+        </apx-chart>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,179 @@
+.calander {
+    background-color: white;
+    border-radius: 10px;
+}
+
+// Define Colors
+$color-surgery: #f44336; // Red
+$color-consultation: #4caf50; // Green
+$color-polyclinic: #ff9800; // Orange
+$color-followup: #2196f3; // Blue
+$color-wardround: #9c27b0; // Purple
+
+// Mixin to draw multiple dots using radial gradients
+@mixin draw-dots($colors...) {
+    $num: length($colors);
+    $dot-size: 6px;
+    $gap: 2px;
+    $total-width: (
+        $dot-size * $num) + ($gap * ($num - 1)
+    );
+
+width: $total-width;
+height: $dot-size;
+
+@if $num ==1 {
+    border-radius: 50%;
+    background-color: nth($colors, 1);
+    background-image: none;
+}
+
+@else {
+    border-radius: 0; // Reset border-radius as we are using gradients
+    background-color: transparent;
+
+    $bg-images: (
+    );
+$bg-positions: (
+);
+$bg-sizes: (
+);
+
+@for $i from 1 through $num {
+    $color: nth($colors, $i);
+    // Create a dot
+    $bg-images: append($bg-images, radial-gradient(circle, $color 45%, transparent 55%), comma);
+    // Calculate position
+    $pos-x: (
+        $dot-size + $gap) * ($i - 1
+    );
+$bg-positions: append($bg-positions, #{$pos-x} center, comma);
+$bg-sizes: append($bg-sizes, #{$dot-size} #{$dot-size}, comma);
+}
+
+background-image: $bg-images;
+background-position: $bg-positions;
+background-size: $bg-sizes;
+background-repeat: no-repeat;
+}
+}
+
+::ng-deep .event-indicator {
+    position: relative;
+    cursor: pointer;
+}
+
+::ng-deep .event-indicator .mat-calendar-body-cell-content::after {
+    content: '';
+    position: absolute;
+    bottom: 2px;
+    /* Adjust position from bottom */
+    left: 50%;
+    transform: translateX(-50%);
+
+    // Default fallback style
+    width: 5px;
+    height: 5px;
+    border-radius: 50%;
+    background-color: #ff4081;
+    /* Default color */
+}
+
+// --- Single Types ---
+::ng-deep .event-indicator.combo-surgery .mat-calendar-body-cell-content::after {
+    @include draw-dots($color-surgery);
+}
+
+::ng-deep .event-indicator.combo-consultation .mat-calendar-body-cell-content::after {
+    @include draw-dots($color-consultation);
+}
+
+::ng-deep .event-indicator.combo-polyclinic .mat-calendar-body-cell-content::after {
+    @include draw-dots($color-polyclinic);
+}
+
+::ng-deep .event-indicator.combo-followup .mat-calendar-body-cell-content::after {
+    @include draw-dots($color-followup);
+}
+
+::ng-deep .event-indicator.combo-wardround .mat-calendar-body-cell-content::after {
+    @include draw-dots($color-wardround);
+}
+
+// --- Combinations (Alphabetically Sorted) ---
+
+// Consultation + Surgery
+::ng-deep .event-indicator.combo-consultation-surgery .mat-calendar-body-cell-content::after {
+    @include draw-dots($color-consultation, $color-surgery);
+}
+
+// Followup + Polyclinic
+::ng-deep .event-indicator.combo-followup-polyclinic .mat-calendar-body-cell-content::after {
+    @include draw-dots($color-followup, $color-polyclinic);
+}
+
+// Followup + Surgery
+::ng-deep .event-indicator.combo-followup-surgery .mat-calendar-body-cell-content::after {
+    @include draw-dots($color-followup, $color-surgery);
+}
+
+// Followup + Ward Round
+::ng-deep .event-indicator.combo-followup-wardround .mat-calendar-body-cell-content::after {
+    @include draw-dots($color-followup, $color-wardround);
+}
+
+.custom-tooltip {
+    position: fixed;
+    background-color: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 8px 12px;
+    border-radius: 4px;
+    font-size: 12px;
+    z-index: 1000;
+    pointer-events: none;
+    white-space: nowrap;
+    transform: translateX(-100%);
+}
+
+.legend {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 20px;
+    padding: 15px 0;
+}
+
+.legend-item {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 12px;
+    color: rgba(0, 0, 0, 0.87);
+}
+
+.legend-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+
+    &.surgery {
+        background-color: $color-surgery;
+    }
+
+    &.polyclinic {
+        background-color: $color-polyclinic;
+    }
+
+    &.consultation {
+        background-color: $color-consultation;
+    }
+
+    &.followup {
+        background-color: $color-followup;
+    }
+
+    &.wardround {
+        background-color: $color-wardround;
+    }
+}
