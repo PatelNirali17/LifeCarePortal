@@ -1,0 +1,30 @@
+<mat-card class="unique-dashboard-card">
+    <mat-card-header class="dashboard-card-header">
+        <mat-card-title class="dashboard-card-title">Patient Stats</mat-card-title>
+        <span class="header-spacer"></span>
+    </mat-card-header>
+    <mat-card-content class="dashboard-card-content">
+        <div class="text-center button-group">
+            <button mat-button type="button" (click)="ShowDaily()" [class.active]="IsDaily">Daily</button>
+            <button mat-button type="button" (click)="ShowWeekly()" [class.active]="IsWeekly">Weekly</button>
+            <button mat-button type="button" (click)="ShowMonthly()" [class.active]="IsMonthly">Monthly</button>
+        </div>
+        <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [labels]="chartOptions.labels"
+            [responsive]="chartOptions.responsive" [legend]="chartOptions.legend" [colors]="chartOptions.colors">
+        </apx-chart>
+
+        <div class="row mt-3">
+            <div class="col-6" *ngFor="let label of chartOptions.labels; let i = index">
+                <div class="stat-item">
+                    <div class="stat-icon" [style.background-color]="chartOptions.colors[i]">
+                        <mat-icon class="text-white">{{ i === 0 ? 'coronavirus' : i === 1 ? 'local_drink' : i === 2 ? 'pest_control' : 'ac_unit' }}</mat-icon>
+                    </div>
+                    <div class="stat-content">
+                        <div class="stats-value">{{chartOptions.series[i]}}%</div>
+                        <div class="stats-label">{{label}}</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

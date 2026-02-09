@@ -1,1 +1,98 @@
-<p>dashboard works!</p>
+<div class="container-fluid p-4">
+    <div class="row g-4 mb-4">
+        <div class="col-xl-3 col-md-6">
+            <div class="card shadow-sm border-0 h-100" style="background-color: rgba(106, 5, 114, 0.1);">
+                <div class="card-body d-flex flex-column">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="text-uppercase mb-1 fw-semibold" style="color: #6A0572;">Appointments</h6>
+                            <h2 class="fw-bold mb-0" style="color: #6A0572;">650</h2>
+                        </div>
+                        <div class="rounded-3 p-2 d-flex align-items-center justify-content-center"
+                            style="background-color: #6A0572;">
+                            <mat-icon class="text-white">face</mat-icon>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-auto" *ngIf="appointmentsChartOptions">
+                    <apx-chart [series]="appointmentsChartOptions.series" [chart]="appointmentsChartOptions.chart"
+                        [stroke]="appointmentsChartOptions.stroke" [tooltip]="appointmentsChartOptions.tooltip"
+                        [colors]="appointmentsChartOptions.colors" [xaxis]="appointmentsChartOptions.xaxis"></apx-chart>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card shadow-sm border-0 h-100" style="background-color: rgba(255, 107, 107, 0.1);">
+                <div class="card-body d-flex flex-column">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="text-uppercase mb-1 fw-semibold" style="color: #FF6B6B;">Operations</h6>
+                            <h2 class="fw-bold mb-0" style="color: #FF6B6B;">54</h2>
+                        </div>
+                        <div class="rounded-3 p-2 d-flex align-items-center justify-content-center"
+                            style="background-color: #FF6B6B;">
+                            <mat-icon class="text-white">content_cut</mat-icon>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-auto" *ngIf="operationsChartOptions">
+                    <apx-chart [series]="operationsChartOptions.series" [chart]="operationsChartOptions.chart"
+                        [stroke]="operationsChartOptions.stroke" [tooltip]="operationsChartOptions.tooltip"
+                        [colors]="operationsChartOptions.colors" [xaxis]="operationsChartOptions.xaxis"></apx-chart>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card shadow-sm border-0 h-100" style="background-color: rgba(25, 135, 84, 0.1);">
+                <div class="card-body d-flex flex-column">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="text-uppercase mb-1 fw-semibold" style="color: #198754;">New Patients</h6>
+                            <h2 class="fw-bold mb-0" style="color: #198754;">129</h2>
+                        </div>
+                        <div class="rounded-3 p-2 d-flex align-items-center justify-content-center"
+                            style="background-color: #198754;">
+                            <mat-icon class="text-white">person_add</mat-icon>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-auto" *ngIf="newPatientsChartOptions">
+                    <apx-chart [series]="newPatientsChartOptions.series" [chart]="newPatientsChartOptions.chart"
+                        [stroke]="newPatientsChartOptions.stroke" [tooltip]="newPatientsChartOptions.tooltip"
+                        [colors]="newPatientsChartOptions.colors" [xaxis]="newPatientsChartOptions.xaxis"></apx-chart>
+                </div>
+            </div>
+        </div>
+        <div class="col-xl-3 col-md-6">
+            <div class="card shadow-sm border-0 h-100" style="background-color: rgba(212, 175, 55, 0.1);">
+                <div class="card-body d-flex flex-column">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="text-uppercase mb-1 fw-semibold" style="color: #D4AF37;">Earning</h6>
+                            <h2 class="fw-bold mb-0" style="color: #D4AF37;">20,125</h2>
+                        </div>
+                        <div class="rounded-3 p-2 d-flex align-items-center justify-content-center"
+                            style="background-color: #D4AF37;">
+                            <mat-icon class="text-white">local_activity</mat-icon>
+                        </div>
+                    </div>
+                </div>
+                <div class="mt-auto" *ngIf="earningChartOptions">
+                    <apx-chart [series]="earningChartOptions.series" [chart]="earningChartOptions.chart"
+                        [stroke]="earningChartOptions.stroke" [tooltip]="earningChartOptions.tooltip"
+                        [colors]="earningChartOptions.colors" [xaxis]="earningChartOptions.xaxis"></apx-chart>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-8 mb-3">
+            <div class="row">
+                <div class="col-lg-6 mb-3">
+                    <app-patient-chart-dashboard></app-patient-chart-dashboard>
+                </div>
+                <div class="col-lg-6 mb-3">
+                    <app-all-appointments-dashboard></app-all-appointments-dashboard>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

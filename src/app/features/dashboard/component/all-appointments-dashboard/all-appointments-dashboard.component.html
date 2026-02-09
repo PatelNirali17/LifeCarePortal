@@ -1,0 +1,35 @@
+<mat-card class="unique-dashboard-card">
+    <mat-card-header class="dashboard-card-header">
+        <mat-card-title class="dashboard-card-title">Appointments</mat-card-title>
+        <span class="header-spacer"></span>
+        <div>{{ currentMonthYear }}</div>
+    </mat-card-header>
+    <mat-card-content class="dashboard-card-content">
+        <mat-tab-group class="custom-tab-group" mat-stretch-tabs="false" [selectedIndex]="selectedTabIndex">
+            <mat-tab *ngFor="let day of daysInMonth" [label]="day">
+                <div class="tab-content-wrapper" style="height: 295px;">
+                    <div class="appointments-header">
+                        {{ getAppointmentCount(day) }} appointments
+                    </div>
+                    <div class="appointment-list">
+                        <div class="appointment-card" *ngFor="let apt of appointments[day]">
+                            <div class="apt-time-section">
+                                <span class="apt-time">{{ apt.time }}</span>
+                            </div>
+                            <div class="apt-details">
+                                <div>
+                                    <div class="patient-name">{{ apt.patientName }}</div>
+                                    <div class="apt-title">{{ apt.title }}</div>
+                                </div>
+                                <div class="apt-doctor">{{ apt.doctor }}</div>
+                            </div>
+                        </div>
+                        <div class="no-data" *ngIf="!appointments[day]?.length">
+                            No appointments
+                        </div>
+                    </div>
+                </div>
+            </mat-tab>
+        </mat-tab-group>
+    </mat-card-content>
+</mat-card>

@@ -1,0 +1,94 @@
+.unique-dashboard-card {
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+}
+
+.dashboard-card-header {
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.dashboard-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  letter-spacing: 0.5px;
+  margin-bottom: 0;
+}
+
+.header-spacer {
+  flex: 1 1 auto;
+}
+
+.dashboard-card-link {
+  color: #3f51b5;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.dashboard-card-content {
+  padding: 16px;
+  color: #546e7a;
+  line-height: 1.6;
+}
+
+.button-group {
+  margin-bottom: 16px;
+}
+
+.button-group .mat-mdc-button {
+  color: #546e7a;
+  font-weight: 500;
+}
+
+.button-group .mat-mdc-button.active {
+  color: #3f51b5;
+  font-weight: 700;
+  border-bottom: 2px solid #3f51b5;
+  border-radius: 0;
+}
+
+.stats-label {
+  font-size: 13px;
+  color: #78909c;
+  font-weight: 500;
+}
+
+.stats-value {
+  font-size: 13px;
+  font-weight: 700;
+  color: #2c3e50;
+  line-height: 1.2;
+}
+
+.stat-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border-radius: 12px;
+}
+
+.stat-icon {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-right: 16px;
+  flex-shrink: 0;
+}
+
+.stat-content {
+  display: flex;
+  flex-direction: column;
+}

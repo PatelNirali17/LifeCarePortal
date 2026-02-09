@@ -1,0 +1,198 @@
+.unique-dashboard-card {
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+  border: 1px solid rgba(0, 0, 0, 0.03);
+  overflow: hidden;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  background-color: #fff;
+}
+
+.dashboard-card-header {
+  background: linear-gradient(135deg, #fdfbfb 0%, #ebedee 100%);
+  padding: 5px;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid rgba(0,0,0,0.05);
+}
+
+.dashboard-card-title {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #2c3e50;
+  letter-spacing: 0.5px;
+  margin-bottom: 0;
+}
+
+.header-spacer {
+  flex: 1 1 auto;
+}
+
+.dashboard-card-link {
+  color: #3f51b5;
+  font-weight: 500;
+  letter-spacing: 1px;
+  font-size: 0.85rem;
+  text-decoration: none;
+}
+
+.dashboard-card-content {
+  padding: 16px;
+  color: #546e7a;
+  line-height: 1.6;
+}
+
+/* Unique Tab Design - Minimalist Dot */
+.custom-tab-group {
+  ::ng-deep {
+    .mat-mdc-tab-header {
+      border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+      margin-bottom: 16px;
+    }
+
+    .mdc-tab-indicator {
+      display: none !important;
+    }
+
+    .mdc-tab {
+      min-width: auto !important;
+      padding: 0 16px !important;
+      margin-right: 4px;
+      opacity: 1 !important;
+      height: 44px !important;
+      transition: background-color 0.2s;
+      border-radius: 8px;
+
+      &:hover {
+        background-color: #f5f5f5;
+      }
+
+      &.mdc-tab--active {
+        background-color: transparent;
+        
+        .mdc-tab__text-label {
+          color: #2c3e50 !important;
+          font-weight: 700;
+          
+          &::after {
+            content: '';
+            display: block;
+            width: 5px;
+            height: 5px;
+            background-color: #e74c3c; /* Unique Red Dot */
+            border-radius: 50%;
+            margin: 4px auto 0;
+          }
+        }
+      }
+    }
+
+    .mdc-tab__text-label {
+      color: #95a5a6;
+      font-weight: 500;
+      font-size: 0.9rem;
+      letter-spacing: 0.5px;
+    }
+  }
+}
+
+/* Appointment List Styles */
+.tab-content-wrapper {
+  padding-top: 10px;
+  animation: fadeIn 0.4s ease-out;
+}
+
+.appointments-header {
+  font-size: 0.85rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #95a5a6;
+  margin-bottom: 15px;
+  font-weight: 500;
+}
+
+.appointment-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  max-height: 300px;
+  overflow-y: auto;
+  padding-right: 4px;
+}
+
+.appointment-card {
+  display: flex;
+  align-items: center;
+  border-radius: 12px;
+  padding: 10px;
+  background: #ffffff;
+  border: 1px solid #eceff1;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.02);
+  transition: all 0.2s ease;
+
+  &:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.08);
+    border-color: #cfd8dc;
+  }
+}
+
+.apt-time-section {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: #e3f2fd;
+  color: #1565c0;
+  padding: 8px 4px;
+  border-radius: 8px;
+  min-width: 60px;
+  margin-right: 12px;
+}
+
+.apt-time {
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-align: center;
+  line-height: 1.2;
+}
+
+.apt-details {
+  padding: 0;
+  flex: 1;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.patient-name {
+  font-weight: 600;
+  color: #34495e;
+  font-size: 0.85rem;
+}
+
+.apt-title {
+  color: #78909c;
+  font-size: 0.75rem;
+  margin: 1px 0;
+}
+
+.apt-doctor {
+  font-size: 0.75rem;
+  color: #546e7a;
+  font-weight: 500;
+  background-color: #f5f7fa;
+  padding: 4px 8px;
+  border-radius: 6px;
+}
+
+.no-data {
+  text-align: center;
+  color: #bdc3c7;
+  padding: 20px;
+  font-style: italic;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(5px); }
+  to { opacity: 1; transform: translateY(0); }
+}
