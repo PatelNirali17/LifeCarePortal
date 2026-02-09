@@ -1,0 +1,60 @@
+<mat-card class="dashboard-card shadow-sm">
+    <mat-card-header class="mb-3">
+        <mat-card-title>Upcoming Surgeries & Procedures</mat-card-title>
+        <span class="spacer" style="flex: 1 1 auto;"></span>
+        <a class="actionhyper">View All</a>
+    </mat-card-header>
+    <mat-card-content style="height: 368px; overflow: auto;">
+        <div class="table-wrapper">
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>patientName</th>
+                        <th>surgeryType</th>
+                        <th>date</th>
+                        <th>doctor</th>
+                        <th>status</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let surgeries of UpcomingSurgeries;let i = index">
+                        <td>
+                            <div class="column-cell">
+                                <div>
+                                    <div class="column-number">{{ surgeries.patientName }}</div>
+                                    <div class="column-name">
+                                        ID:{{ surgeries.patientId }}
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>{{ surgeries.surgeryType }}</td>
+                        <td>
+                            <div class="column-cell">
+                                <div>
+                                    <div class="column-number">📅 {{ surgeries.date }}</div>
+                                    <div class="column-name">
+                                        <mat-icon>schedule</mat-icon>
+                                        {{ surgeries.time }}
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                        <td>{{ surgeries.doctor }}</td>
+                        <td>
+                            <span class="type-badge active"
+                                *ngIf="surgeries.status == 'Scheduled'">{{surgeries.status
+                                }}</span>
+                            <span class="type-badge contractual"
+                                *ngIf="surgeries.status == 'Urgent'">{{surgeries.status
+                                }}</span>
+                            <span class="type-badge inactive"
+                                *ngIf="surgeries.status == 'Delayed'">{{surgeries.status
+                                }}</span>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </mat-card-content>
+</mat-card>

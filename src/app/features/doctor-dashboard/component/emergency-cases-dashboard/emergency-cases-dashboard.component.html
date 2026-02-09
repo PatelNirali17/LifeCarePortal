@@ -1,0 +1,85 @@
+<mat-card class="dashboard-card">
+    <mat-card-header>
+        <mat-card-title class="d-flex align-items-center"><mat-icon class="mx-1 text-danger">warning</mat-icon>Emergency
+            Cases</mat-card-title>
+        <span class="spacer" style="flex: 1 1 auto;"></span>
+        <div class="badge d-flex justify-content-center align-items-center">5</div>
+    </mat-card-header>
+    <mat-card-content style="height: 270px;overflow: auto;">
+        <div class="timeline">
+            <div class="timeline-item">
+                <div class="timeline-icon critical">
+                    <mat-icon>monitor_heart</mat-icon>
+                </div>
+                <div class="timeline-content">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="mb-0">John Doe</h6>
+                            <span class="case-type">Cardiac Arrest</span>
+                        </div>
+                        <span class="time-badge critical">10 min ago</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon critical">
+                    <mat-icon>personal_injury</mat-icon>
+                </div>
+                <div class="timeline-content">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="mb-0">Sarah Smith</h6>
+                            <span class="case-type">Severe Trauma</span>
+                        </div>
+                        <span class="time-badge critical">25 min ago</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon severe">
+                    <mat-icon>bolt</mat-icon>
+                </div>
+                <div class="timeline-content">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="mb-0">Mike Johnson</h6>
+                            <span class="case-type">Stroke</span>
+                        </div>
+                        <span class="time-badge severe">45 min ago</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon severe">
+                    <mat-icon>local_fire_department</mat-icon>
+                </div>
+                <div class="timeline-content">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="mb-0">Emily Davis</h6>
+                            <span class="case-type">Severe Burns</span>
+                        </div>
+                        <span class="time-badge severe">1 hr ago</span>
+                    </div>
+                </div>
+            </div>
+            <div class="timeline-item">
+                <div class="timeline-icon moderate">
+                    <mat-icon>healing</mat-icon>
+                </div>
+                <div class="timeline-content">
+                    <div class="d-flex justify-content-between align-items-start">
+                        <div>
+                            <h6 class="mb-0">David Wilson</h6>
+                            <span class="case-type">Multiple Fractures</span>
+                        </div>
+                        <span class="time-badge moderate">1 hr 20 min ago</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+    <mat-card-actions class="d-flex justify-content-center">
+        <button mat-button class="actionlink">View All Emergency Cases</button>
+    </mat-card-actions>
+</mat-card>
