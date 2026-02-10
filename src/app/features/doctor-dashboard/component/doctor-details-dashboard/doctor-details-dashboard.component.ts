@@ -14,13 +14,22 @@ export class DoctorDetailsDashboardComponent {
   tooltipText: string | null = null;
   tooltipPosition = { x: 0, y: 0 };
 
+  private readonly eventPatterns = [
+    { key: 'consultation', type: 'consultation' },
+    { key: 'followup', type: 'followup' },
+    { key: 'polyclinic', type: 'polyclinic' },
+    { key: 'surgery', type: 'surgery' },
+    { key: 'ward round', type: 'wardround' },
+    { key: 'evaluation', type: 'evaluation' }
+  ];
+
   events: { date: Date; title: string }[] = [
     { date: new Date(2026, 1, 6), title: '2 Followup Appointment' },
     { date: new Date(2026, 1, 7), title: '1 Surgery, 1 Consultation' },
     { date: new Date(2026, 1, 8), title: '1 Polyclinic Visit, 1 Followup Appointment' },
     { date: new Date(2026, 1, 10), title: '1 Surgery, 1 Followup Appointment' },
     { date: new Date(2026, 1, 11), title: '1 Followup Appointment' },
-    { date: new Date(2026, 1, 17), title: '1 Followup Appointment' },
+    { date: new Date(2026, 1, 17), title: '1 Followup Appointment, 1 Evaluation' },
     { date: new Date(2026, 1, 20), title: '1 Surgery' },
     { date: new Date(2026, 1, 21), title: '1 Followup Appointment, 1 Ward Round' },
     { date: new Date(2026, 1, 23), title: '2 Surgery' },
@@ -50,21 +59,16 @@ export class DoctorDetailsDashboardComponent {
   };
 
   getEventTypes(title: string): string[] {
-    const types: string[] = [];
     const lowerTitle = title.toLowerCase();
-    if (lowerTitle.includes('consultation')) types.push('consultation');
-    if (lowerTitle.includes('followup')) types.push('followup');
-    if (lowerTitle.includes('polyclinic')) types.push('polyclinic');
-    if (lowerTitle.includes('surgery')) types.push('surgery');
-    if (lowerTitle.includes('ward round')) types.push('wardround');
-    return types.sort();
+    return this.eventPatterns
+      .filter(p => lowerTitle.includes(p.key))
+      .map(p => p.type);
   }
 
   getTooltipForType(fullTitle: string, type: string): string {
+    const pattern = this.eventPatterns.find(p => p.type === type);
+    const searchKey = pattern ? pattern.key : type;
     const parts = fullTitle.split(',');
-    let searchKey = type;
-    if (type === 'wardround') searchKey = 'ward round';
-
     const match = parts.find(p => p.toLowerCase().includes(searchKey));
     return match ? match.trim() : type;
   }

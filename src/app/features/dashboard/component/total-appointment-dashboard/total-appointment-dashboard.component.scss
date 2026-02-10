@@ -1,0 +1,92 @@
+.appointment-card-v3 {
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    padding: 24px;
+    transition: all 0.3s ease-in-out;
+}
+
+.dashboard-card-content {
+    padding: 0 !important; // Override default padding if any
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+.card-top {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+.icon-background {
+    background-color: #eef2ff; // A light blue/purple
+    color: #6366f1; // A matching darker shade
+    border-radius: 50%;
+    width: 64px;
+    height: 64px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    mat-icon {
+        font-size: 32px;
+        width: 32px;
+        height: 32px;
+    }
+}
+
+.total-section {
+    line-height: 1.2;
+}
+
+.title {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #6b7280;
+}
+
+.total-value {
+    font-size: 2.5rem;
+    font-weight: 700;
+    color: #111827;
+}
+
+.card-bottom {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.split-details {
+    display: flex;
+    gap: 24px;
+}
+
+.completed,
+.upcoming {
+    display: flex;
+    flex-direction: column;
+}
+
+.count {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #374151;
+}
+
+.label {
+    font-size: 0.8rem;
+    color: #9ca3af;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.details-button {
+    color: #6366f1;
+    border-color: #c7d2fe;
+
+    &:hover {
+        background-color: #f5f6ff;
+    }
+}

@@ -1,0 +1,41 @@
+<mat-card class="monthly-schedule-card">
+    <mat-card-header class="monthly-header">
+        <mat-card-title class="monthly-card-title">{{ currentDate | date:'MMMM yyyy' }}</mat-card-title>
+        <span class="header-spacer"></span>
+        <div class="month-nav-controls">
+            <button mat-icon-button (click)="previousMonth()" aria-label="Previous month">
+                <mat-icon>chevron_left</mat-icon>
+            </button>
+            <button mat-icon-button (click)="nextMonth()" aria-label="Next month">
+                <mat-icon>chevron_right</mat-icon>
+            </button>
+        </div>
+    </mat-card-header>
+
+    <mat-card-content class="scrollable-content">
+        <div *ngIf="groupedEvents.length > 0; else noEvents" class="agenda-container">
+            <div class="agenda-day-group" *ngFor="let group of groupedEvents">
+                <div class="agenda-date">
+                    <div class="day-of-week">{{ group.date | date:'EEE' }}</div>
+                    <div class="day-of-month">{{ group.date | date:'d' }}</div>
+                </div>
+                <div class="agenda-events">
+                    <div class="agenda-event-item" *ngFor="let event of group.events" [ngClass]="getEventType(event.title)">
+                        <div class="event-details">
+                            <span class="event-title">{{ event.title }}</span>
+                            <span class="event-time-placeholder">All Day</span>
+                        </div>
+                        <span class="event-dot"></span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <ng-template #noEvents>
+            <div class="no-events">
+                <mat-icon class="no-events-icon">event_busy</mat-icon>
+                <p>No scheduled events for this month.</p>
+            </div>
+        </ng-template>
+    </mat-card-content>
+</mat-card>

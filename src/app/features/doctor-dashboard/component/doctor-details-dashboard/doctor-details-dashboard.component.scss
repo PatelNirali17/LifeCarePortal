@@ -9,6 +9,7 @@ $color-consultation: #4caf50; // Green
 $color-polyclinic: #ff9800; // Orange
 $color-followup: #2196f3; // Blue
 $color-wardround: #9c27b0; // Purple
+$color-evaluation: #1908af; // Purple
 
 // Mixin to draw multiple dots using radial gradients
 @mixin draw-dots($colors...) {
@@ -100,6 +101,10 @@ background-repeat: no-repeat;
     @include draw-dots($color-wardround);
 }
 
+::ng-deep .event-indicator.combo-evaluation .mat-calendar-body-cell-content::after {
+    @include draw-dots($color-evaluation);
+}
+
 // --- Combinations (Alphabetically Sorted) ---
 
 // Consultation + Surgery
@@ -120,6 +125,10 @@ background-repeat: no-repeat;
 // Followup + Ward Round
 ::ng-deep .event-indicator.combo-followup-wardround .mat-calendar-body-cell-content::after {
     @include draw-dots($color-followup, $color-wardround);
+}
+
+::ng-deep .event-indicator.combo-followup-evaluation .mat-calendar-body-cell-content::after {
+    @include draw-dots($color-followup, $color-evaluation);
 }
 
 .custom-tooltip {
@@ -176,4 +185,9 @@ background-repeat: no-repeat;
     &.wardround {
         background-color: $color-wardround;
     }
+
+    &.evaluation {
+        background-color: $color-evaluation;
+    }
+
 }

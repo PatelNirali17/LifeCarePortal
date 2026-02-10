@@ -4,6 +4,8 @@ import { CommonModule } from '@angular/common';
 import { ApexChart, ApexAxisChartSeries, ApexXAxis, ApexDataLabels, ApexStroke, ApexTooltip } from 'ng-apexcharts';
 import { PatientChartDashboardComponent } from '../../component/patient-chart-dashboard/patient-chart-dashboard.component';
 import { AllAppointmentsDashboardComponent } from '../../component/all-appointments-dashboard/all-appointments-dashboard.component';
+import { DoctorMonthlyDashboardComponent } from '../../component/doctor-monthly-dashboard/doctor-monthly-dashboard.component';
+import { TotalAppointmentDashboardComponent } from '../../component/total-appointment-dashboard/total-appointment-dashboard.component';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -17,7 +19,9 @@ export type ChartOptions = {
 
 @Component({
   selector: 'app-dashboard',
-  imports: [SharedModule, CommonModule,PatientChartDashboardComponent,AllAppointmentsDashboardComponent],
+  imports: [SharedModule, CommonModule,PatientChartDashboardComponent,AllAppointmentsDashboardComponent,DoctorMonthlyDashboardComponent,
+    TotalAppointmentDashboardComponent
+  ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',
 })
