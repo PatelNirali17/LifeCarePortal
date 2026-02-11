@@ -1,0 +1,123 @@
+.doctor-card-glass {
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    color: #1a1a1a;
+    overflow: hidden;
+}
+
+.card-header-glass {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background: linear-gradient(135deg, #e6e9f0 0%, #eef1f5 100%);
+    color: #1a1a1a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.avatar-glass {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    margin-right: 15px;
+}
+
+.doctor-name-glass {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.view-all-link {
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: #607d8b;
+    font-weight: 600;
+}
+
+.card-content-glass {
+    height: 100px;
+    background: #fff;
+}
+
+.patient-stats-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+}
+
+.stat-item {
+    text-align: center;
+    flex-grow: 1;
+
+    p {
+        margin: 0;
+        font-size: 14px;
+        color: #607d8b;
+    }
+
+    .stat-value {
+        font-size: 20px;
+        font-weight: 600;
+        color: #607d8b;
+        margin-top: 4px;
+    }
+}
+
+.stat-percentage {
+    padding-left: 24px;
+    border-left: 1px solid #e0e0e0;
+    flex-basis: 150px;
+    display: flex;
+    align-items: center;
+}
+
+.progress-container {
+    width: 100%;
+    height: 24px;
+    background-color: #f1f3f5;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.06);
+    padding: 3px;
+}
+
+.progress-bar {
+    height: 100%;
+    border-radius: 20px;
+    background: linear-gradient(90deg, #00d2ff 0%, #3a7bd5 100%);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 0.8rem;
+    box-shadow: 0 3px 6px rgba(58, 123, 213, 0.3);
+    position: relative;
+    overflow: hidden;
+
+    &::before {
+        content: '';
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: linear-gradient(to right, rgba(255, 255, 255, 0) 0%, rgba(255, 255, 255, 0.3) 50%, rgba(255, 255, 255, 0) 100%);
+        transform: skewX(-20deg) translateX(-150%);
+        animation: shine 2s infinite;
+    }
+
+    &.greenbar {
+        background: linear-gradient(90deg, #00ff95 0%, #3ad59a 100%);
+    }
+}
+
+@keyframes shine {
+    100% {
+        transform: skewX(-20deg) translateX(150%);
+    }
+}

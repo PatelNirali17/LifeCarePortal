@@ -1,0 +1,40 @@
+<mat-card class="unique-dashboard-card">
+    <mat-card-header class="dashboard-card-header">
+        <mat-card-title class="dashboard-card-title">Appointments</mat-card-title>
+        <span class="header-spacer"></span>
+        <a class="dashboard-card-link">View All</a>
+    </mat-card-header>
+    <mat-card-content class="dashboard-card-content">
+        <div class="table-wrapper">
+            <table class="modern-table">
+                <thead>
+                    <tr>
+                        <th>Patient</th>
+                        <th>Assigned Doctor</th>
+                        <th>Date</th>
+                        <th>Diseases</th>
+                        <th class="text-end">Actions</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr *ngFor="let appointment of AppointmentList;let i = index">
+                        <td>{{ appointment.PatientName }}</td>
+                        <td>{{ appointment.AssignedDoctor }}</td>
+                        <td>📅 {{ appointment.Date }}</td>
+                        <td>{{ appointment.Diseases }}</td>
+                        <td class="text-end">
+                            <div class="action-group">
+                                <button class="action-btn edit" title="Edit">
+                                    <mat-icon>edit</mat-icon>
+                                </button>
+                                <button class="action-btn delete" title="Delete">
+                                    <mat-icon>delete</mat-icon>
+                                </button>
+                            </div>
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </mat-card-content>
+</mat-card>

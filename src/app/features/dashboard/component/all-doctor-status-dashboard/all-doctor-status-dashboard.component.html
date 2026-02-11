@@ -1,0 +1,24 @@
+<mat-card class="unique-dashboard-card">
+    <mat-card-header class="dashboard-card-header">
+        <mat-card-title class="dashboard-card-title">Doctor Status</mat-card-title>
+        <span class="header-spacer"></span>
+        <a class="dashboard-card-link">View All</a>
+    </mat-card-header>
+    <mat-card-content class="dashboard-card-content">
+        <div class="doctor-status-list">
+            <div *ngFor="let doctor of doctors" class="doctor-item">
+                <div class="doctor-avatar">
+                    <img [src]="doctor.image" [alt]="doctor.name">
+                </div>
+                <div class="doctor-info">
+                    <div class="doctor-name">{{ doctor.name }}</div>
+                    <div class="doctor-quals">{{ doctor.qualifications }}</div>
+                </div>
+                <div class="doctor-status" [ngClass]="{'available': doctor.status === 'Available', 'absent': doctor.status === 'Absent'}">
+                    <span class="status-dot"></span>
+                    <span>{{ doctor.status }}</span>
+                </div>
+            </div>
+        </div>
+    </mat-card-content>
+</mat-card>

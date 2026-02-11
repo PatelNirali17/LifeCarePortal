@@ -1,0 +1,13 @@
+<div class="doctor-card-glass">
+    <div class="card-header-glass">
+        <div>
+            <h6 class="doctor-name-glass d-flex align-items-center"><mat-icon>bar_chart</mat-icon> Room Status</h6>
+            <p class="doctor-name-glass-sub">Room status for patients in the hospital</p>
+        </div>
+    </div>
+    <div class="card-content-glass">
+        <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [labels]="chartOptions.labels" [dataLabels]="chartOptions.dataLabels"
+            [responsive]="chartOptions.responsive" [legend]="chartOptions.legend" [colors]="chartOptions.colors">
+        </apx-chart>
+    </div>
+</div>

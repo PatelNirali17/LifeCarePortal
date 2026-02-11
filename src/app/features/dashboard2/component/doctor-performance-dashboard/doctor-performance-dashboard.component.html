@@ -1,0 +1,13 @@
+<div class="doctor-card-glass">
+    <div class="card-header-glass">
+        <h6 class="doctor-name-glass">Doctor Perfoemance</h6>
+        <!-- <a class="view-all-link">View All</a> -->
+    </div>
+
+    <div class="card-content-glass">
+        <apx-chart #chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+            [dataLabels]="chartOptions.dataLabels" [stroke]="chartOptions.stroke" [tooltip]="chartOptions.tooltip"
+            [colors]="chartOptions.colors" [markers]="chartOptions.markers">
+        </apx-chart>
+    </div>
+</div>

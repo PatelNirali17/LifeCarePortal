@@ -1,0 +1,14 @@
+<div class="doctor-card-glass">
+    <div class="card-header-glass">
+        <div>
+            <h6 class="doctor-name-glass d-flex align-items-center"><mat-icon>bar_chart</mat-icon> Patient chart</h6>
+            <p class="doctor-name-glass-sub">Number of patients visited the last 5 years in the hospital</p>
+        </div>
+    </div>
+    <div class="card-content-glass">
+        <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+            [dataLabels]="chartOptions.dataLabels" [yaxis]="chartOptions.yaxis" [colors]="chartOptions.colors"
+            [grid]="chartOptions.grid" [plotOptions]="chartOptions.plotOptions">
+        </apx-chart>
+    </div>
+</div>

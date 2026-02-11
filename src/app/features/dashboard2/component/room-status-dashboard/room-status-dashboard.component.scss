@@ -1,0 +1,48 @@
+.doctor-card-glass {
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    color: #1a1a1a;
+    overflow: hidden;
+}
+
+.card-header-glass {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background: linear-gradient(135deg, #e6e9f0 0%, #eef1f5 100%);
+    color: #1a1a1a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.avatar-glass {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    margin-right: 15px;
+}
+
+.doctor-name-glass {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.doctor-name-glass-sub {
+    margin: 0;
+    font-size: 12px;
+    color: #607d8b;
+}
+
+.view-all-link {
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: #607d8b;
+    font-weight: 600;
+}
+
+.card-content-glass {
+    background: #fff;
+}

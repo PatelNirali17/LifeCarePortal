@@ -6,6 +6,11 @@ import { PatientChartDashboardComponent } from '../../component/patient-chart-da
 import { AllAppointmentsDashboardComponent } from '../../component/all-appointments-dashboard/all-appointments-dashboard.component';
 import { DoctorMonthlyDashboardComponent } from '../../component/doctor-monthly-dashboard/doctor-monthly-dashboard.component';
 import { TotalAppointmentDashboardComponent } from '../../component/total-appointment-dashboard/total-appointment-dashboard.component';
+import { RevenueDashboardComponent } from '../../component/revenue-dashboard/revenue-dashboard.component';
+import { HospitalSurveyDashboardComponent } from '../../component/hospital-survey-dashboard/hospital-survey-dashboard.component';
+import { AppointmentsDashboardComponent } from '../../component/appointments-dashboard/appointments-dashboard.component';
+import { AllDoctorStatusDashboardComponent } from '../../component/all-doctor-status-dashboard/all-doctor-status-dashboard.component';
+import { OperationDashboardComponent } from '../../component/operation-dashboard/operation-dashboard.component';
 
 export type ChartOptions = {
   series: ApexAxisChartSeries;
@@ -20,7 +25,8 @@ export type ChartOptions = {
 @Component({
   selector: 'app-dashboard',
   imports: [SharedModule, CommonModule,PatientChartDashboardComponent,AllAppointmentsDashboardComponent,DoctorMonthlyDashboardComponent,
-    TotalAppointmentDashboardComponent
+    TotalAppointmentDashboardComponent,RevenueDashboardComponent,HospitalSurveyDashboardComponent,AppointmentsDashboardComponent,
+    AllDoctorStatusDashboardComponent,OperationDashboardComponent
   ],
   templateUrl: './dashboard.component.html',
   styleUrl: './dashboard.component.scss',

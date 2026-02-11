@@ -1,0 +1,17 @@
+<div class="card">
+    <div class="card-body p-3">
+        <div class="row">
+            <div class="col-4">
+                <h5 class="card-title text-muted">Revenue</h5>
+                <h2 class="mb-0 mt-4">$4,589</h2>
+                <span class="text-success fw-bold">+7.5%</span>
+            </div>
+            <div class="col-8">
+                <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [xaxis]="chartOptions.xaxis"
+                    [colors]="chartOptions.colors" [dataLabels]="chartOptions.dataLabels" [yaxis]="chartOptions.yaxis"
+                    [grid]="chartOptions.grid" [plotOptions]="chartOptions.plotOptions">
+                </apx-chart>
+            </div>
+        </div>
+    </div>
+</div>
