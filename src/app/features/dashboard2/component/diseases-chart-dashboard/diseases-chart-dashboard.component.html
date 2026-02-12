@@ -1,0 +1,46 @@
+<div class="doctor-card-glass">
+    <div class="card-header-glass">
+        <div>
+            <h6 class="doctor-name-glass d-flex align-items-center"><mat-icon>bar_chart</mat-icon> Diseases chart</h6>
+            <p class="doctor-name-glass-sub">Number of patients in one day</p>
+        </div>
+    </div>
+    <div class="card-content-glass">
+        <apx-chart [series]="chartOptions.series" [chart]="chartOptions.chart" [labels]="chartOptions.labels"
+            [dataLabels]="chartOptions.dataLabels" [responsive]="chartOptions.responsive" [legend]="chartOptions.legend"
+            [colors]="chartOptions.colors">
+        </apx-chart>
+        <div class="d-flex flex-wrap justify-content-around mt-3 small">
+            <div class="d-flex align-items-center mb-2">
+                <span class="me-2" [style.background-color]="chartOptions.colors[0]" style="width: 10px; height: 10px; border-radius: 50%; display: inline-block;"></span>
+                <span class="me-2">Fever:</span>
+                <span class="fw-bold">44</span>
+                <span class="text-success d-flex align-items-center ms-2"><i class="fa-solid fa-arrow-up me-1"></i>32%</span>
+            </div>
+            <div class="d-flex align-items-center mb-2">
+                <span class="me-2" [style.background-color]="chartOptions.colors[1]" style="width: 10px; height: 10px; border-radius: 50%; display: inline-block;"></span>
+                <span class="me-2">Cholera:</span>
+                <span class="fw-bold">55</span>
+                <span class="text-success d-flex align-items-center ms-2"><i class="fa-solid fa-arrow-up me-1"></i>12%</span>
+            </div>
+            <div class="d-flex align-items-center mb-2">
+                <span class="me-2" [style.background-color]="chartOptions.colors[2]" style="width: 10px; height: 10px; border-radius: 50%; display: inline-block;"></span>
+                <span class="me-2">Typhoid:</span>
+                <span class="fw-bold">13</span>
+                <span class="text-danger d-flex align-items-center ms-2"><i class="fa-solid fa-arrow-down me-1"></i>12%</span>
+            </div>
+            <div class="d-flex align-items-center mb-2">
+                <span class="me-2" [style.background-color]="chartOptions.colors[3]" style="width: 10px; height: 10px; border-radius: 50%; display: inline-block;"></span>
+                <span class="me-2">Infection:</span>
+                <span class="fw-bold">43</span>
+                <span class="text-success d-flex align-items-center ms-2"><i class="fa-solid fa-arrow-up me-1"></i>10%</span>
+            </div>
+            <div class="d-flex align-items-center mb-2">
+                <span class="me-2" [style.background-color]="chartOptions.colors[4]" style="width: 10px; height: 10px; border-radius: 50%; display: inline-block;"></span>
+                <span class="me-2">Malaria:</span>
+                <span class="fw-bold">22</span>
+                <span class="text-danger d-flex align-items-center ms-2"><i class="fa-solid fa-arrow-down me-1"></i>5%</span>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,111 @@
+.doctor-card-glass {
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    color: #1a1a1a;
+    overflow: hidden;
+}
+
+.card-header-glass {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background: linear-gradient(135deg, #e6e9f0 0%, #eef1f5 100%);
+    color: #1a1a1a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.avatar-glass {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    margin-right: 15px;
+}
+
+.doctor-name-glass {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.doctor-name-glass-sub {
+    margin: 0;
+    font-size: 12px;
+    color: #607d8b;
+}
+
+.view-all-link {
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: #607d8b;
+    font-weight: 600;
+}
+
+.card-content-glass {
+    background: #fff;
+}
+
+.custom-progress {
+  height: 10px;
+  border-radius: 20px;
+  box-shadow: inset 0 1px 3px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  background-color: #e9ecef; // Default fallback
+
+  .progress-bar {
+    border-radius: 20px;
+    position: relative;
+    overflow: hidden;
+    transition: width 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+
+    // Glassy shine effect with animation
+    &::after {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      bottom: 0;
+      right: 0;
+      background-image: linear-gradient(
+        45deg,
+        rgba(255, 255, 255, 0.2) 25%,
+        transparent 25%,
+        transparent 50%,
+        rgba(255, 255, 255, 0.2) 50%,
+        rgba(255, 255, 255, 0.2) 75%,
+        transparent 75%,
+        transparent
+      );
+      background-size: 1rem 1rem;
+      animation: progress-bar-stripes 1s linear infinite;
+    }
+  }
+
+  // Custom track colors for each variant
+  &.progress-success {
+    background-color: rgba(25, 135, 84, 0.15);
+  }
+
+  &.progress-primary {
+    background-color: rgba(13, 110, 253, 0.15);
+  }
+
+  &.progress-info {
+    background-color: rgba(13, 202, 240, 0.15);
+  }
+
+  &.progress-warning {
+    background-color: rgba(255, 193, 7, 0.15);
+  }
+
+  &.progress-danger {
+    background-color: rgba(220, 53, 69, 0.15);
+  }
+}
+
+@keyframes progress-bar-stripes {
+  0% { background-position: 1rem 0; }
+  100% { background-position: 0 0; }
+}

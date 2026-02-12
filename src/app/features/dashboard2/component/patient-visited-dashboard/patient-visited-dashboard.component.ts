@@ -21,7 +21,7 @@ export type ChartOptions = {
   styleUrl: './patient-visited-dashboard.component.scss'
 })
 export class PatientVisitedDashboardComponent {
-  data = [150, 600, 300, 450, 225, 140];
+  data = [150, 600, 300, 450, 225];
   maxValue = Math.max(...this.data);
   chartOptions: any = {
     series: [
@@ -44,7 +44,7 @@ export class PatientVisitedDashboardComponent {
     },
     colors: this.data.map(value => value === this.maxValue ? '#198754' : '#a0a0a0'), 
     xaxis: {
-      categories: ["2021", "2020", "2019", "2018", "2017", "2016"],
+      categories: ["2021", "2020", "2019", "2018", "2017"],
       labels: { show: false },
       axisBorder: { show: false },
       axisTicks: { show: false }

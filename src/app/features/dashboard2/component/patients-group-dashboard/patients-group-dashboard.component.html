@@ -1,0 +1,21 @@
+<div class="doctor-card-glass">
+    <div class="card-header-glass">
+        <h6 class="doctor-name-glass">Patients Group</h6>
+    </div>
+    <div class="card-content-glass">
+        <ul class="patient-groups-list">
+            <li *ngFor="let group of patientGroups" class="group-item">
+                <div class="group-icon" [style.background]="'linear-gradient(135deg, ' + group.color + ', ' + group.color + 'dd)'" [style.boxShadow]="'0 4px 10px ' + group.color + '40'">
+                    {{ group.initial }}
+                </div>
+                <div class="group-info">
+                    <span class="group-name">{{ group.name }}</span>
+                </div>
+                <div class="group-stat">
+                    <span class="count-value" [style.color]="group.color">{{ group.count }}</span>
+                    <span class="count-label">Patients</span>
+                </div>
+            </li>
+        </ul>
+    </div>
+</div>

@@ -1,0 +1,143 @@
+.doctor-card-glass {
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.05);
+    color: #1a1a1a;
+    overflow: hidden;
+}
+
+.card-header-glass {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10px;
+    background: linear-gradient(135deg, #e6e9f0 0%, #eef1f5 100%);
+    color: #1a1a1a;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+.avatar-glass {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 2px solid rgba(255, 255, 255, 0.5);
+    margin-right: 15px;
+}
+
+.doctor-name-glass {
+    margin: 0;
+    font-size: 1.1rem;
+    font-weight: 600;
+}
+
+.doctor-name-glass-sub {
+    margin: 0;
+    font-size: 12px;
+    color: #607d8b;
+}
+
+.view-all-link {
+    font-size: 0.8rem;
+    text-decoration: none;
+    color: #607d8b;
+    font-weight: 600;
+}
+
+.card-content-glass {
+    background: #fff;
+    height: 400px;
+    overflow: auto;
+}
+
+.timeline-activity {
+  position: relative;
+  padding: 10px 10px 10px 30px;
+
+  // Vertical dashed line
+  &::before {
+    content: '';
+    position: absolute;
+    left: 10px;
+    top: 5px;
+    bottom: 5px;
+    width: 0;
+    border-left: 2px dashed #d1d5db;
+  }
+}
+
+.activity-item {
+  position: relative;
+  margin-bottom: 20px;
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  border-left: 4px solid transparent; // Prepare for color
+
+  &:last-child {
+    margin-bottom: 0;
+  }
+
+  // The dot on the timeline
+  &::before {
+    content: '';
+    position: absolute;
+    left: -27px; // Adjust based on padding
+    top: 20px;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background-color: #fff;
+    border: 2px solid #9ca3af;
+    z-index: 1;
+    transition: background-color 0.3s, border-color 0.3s;
+  }
+
+  // Horizontal connector line
+  &::after {
+    content: '';
+    position: absolute;
+    left: -20px;
+    top: 25px;
+    width: 20px;
+    height: 1px;
+    background: #e5e7eb;
+    z-index: 0;
+  }
+
+  // Color Variations (Cycling)
+  &:nth-child(4n+1) {
+    border-left-color: #3b82f6; // Blue
+    &::before { border-color: #3b82f6; }
+    .time { color: #3b82f6; }
+  }
+  &:nth-child(4n+2) {
+    border-left-color: #10b981; // Green
+    &::before { border-color: #10b981; }
+    .time { color: #10b981; }
+  }
+  &:nth-child(4n+3) {
+    border-left-color: #f59e0b; // Amber
+    &::before { border-color: #f59e0b; }
+    .time { color: #f59e0b; }
+  }
+  &:nth-child(4n+4) {
+    border-left-color: #ef4444; // Red
+    &::before { border-color: #ef4444; }
+    .time { color: #ef4444; }
+  }
+
+  .time {
+    font-size: 0.75rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+    text-transform: uppercase;
+  }
+
+  .text {
+    font-size: 0.9rem;
+    color: #4b5563;
+    line-height: 1.4;
+  }
+}
