@@ -25,6 +25,7 @@ import { HumanResourcesRoutesList } from './features/human-resources/human-resou
 import { PatientDashboardComponent } from './features/patient-dashboard/page/patient-dashboard/patient-dashboard.component';
 import { DoctorDashboardComponent } from './features/doctor-dashboard/page/doctor-dashboard/doctor-dashboard.component';
 import { Dashboard2Component } from './features/dashboard2/page/dashboard2/dashboard2.component';
+import { MyProfileComponent } from './features/my-profile/page/my-profile/my-profile.component';
 
 export const routes: Routes = [
   { path: '', redirectTo: 'login', pathMatch: 'full' },
@@ -37,6 +38,7 @@ export const routes: Routes = [
       { path: 'dashboard2', component: Dashboard2Component, data: { breadcrumb: 'Dashboard 2' } },
       { path: 'doctordashboard', component: DoctorDashboardComponent, data: { breadcrumb: 'Dashboard' } },
       { path: 'patientdashboard', component: PatientDashboardComponent, data: { breadcrumb: 'Dashboard' } },
+      { path: 'myprofile', component: MyProfileComponent, data: { breadcrumb: 'My Profile' } },
       {
         path: 'appointments', data: { breadcrumb: 'Appointments' },
         children: AppointmentsRoutesList

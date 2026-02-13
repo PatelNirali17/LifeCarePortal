@@ -1,0 +1,106 @@
+<div class="main-container">
+  
+  <!-- Cover Area -->
+  <div class="cover-section" [style.background-image]="'url(' + user.cover + ')'">
+    <div class="overlay"></div>
+  </div>
+
+  <div class="content-wrapper">
+    
+    <!-- Profile Header Card -->
+    <div class="profile-header-card">
+      <div class="profile-top">
+        <div class="avatar-wrapper">
+          <img [src]="user.avatar" alt="Profile">
+        </div>
+        <div class="profile-identity">
+          <h1 class="name">{{ user.name }}</h1>
+          <p class="role">{{ user.role }}</p>
+          <p class="location">{{ user.details.location }}</p>
+        </div>
+        <div class="profile-actions">
+          <button class="btn btn-primary">Follow</button>
+          <button class="btn btn-outline">Message</button>
+        </div>
+      </div>
+      
+      <div class="profile-stats">
+        <div class="stat">
+          <span class="num">{{ user.stats.posts }}</span>
+          <span class="txt">Posts</span>
+        </div>
+        <div class="stat">
+          <span class="num">{{ user.stats.followers }}</span>
+          <span class="txt">Followers</span>
+        </div>
+        <div class="stat">
+          <span class="num">{{ user.stats.following }}</span>
+          <span class="txt">Following</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Two Column Layout -->
+    <div class="grid-layout">
+      
+      <!-- Left Column -->
+      <div class="column left-col">
+        
+        <!-- About Section -->
+        <div class="content-card">
+          <h3 class="card-title">About Me</h3>
+          <p class="bio-text">{{ user.intro.about }}</p>
+          
+          <div class="contact-info">
+            <div class="info-row">
+              <span class="label">Email:</span>
+              <span class="val">{{ user.details.email }}</span>
+            </div>
+            <div class="info-row">
+              <span class="label">Phone:</span>
+              <span class="val">{{ user.details.mobile }}</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Education Section -->
+        <div class="content-card">
+          <h3 class="card-title">Education</h3>
+          <div class="education-list">
+            <div class="edu-item" *ngFor="let edu of user.details.education">
+              <div class="edu-icon">🎓</div>
+              <div class="edu-detail">{{ edu }}</div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Right Column -->
+      <div class="column right-col">
+        
+        <!-- Experience Section -->
+        <div class="content-card">
+          <h3 class="card-title">Experience</h3>
+          <div class="timeline">
+            <div class="timeline-item" *ngFor="let exp of user.details.experience">
+              <div class="dot"></div>
+              <div class="desc">{{ exp }}</div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Conferences Section -->
+        <div class="content-card">
+          <h3 class="card-title">Conferences & Workshops</h3>
+          <ul class="simple-list">
+            <li *ngFor="let conf of user.details.conferences">{{ conf }}</li>
+          </ul>
+        </div>
+
+      </div>
+
+    </div>
+
+  </div>
+</div>

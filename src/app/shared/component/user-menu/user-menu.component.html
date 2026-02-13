@@ -1,7 +1,7 @@
 <mat-chip [matMenuTriggerFor]="menu"><img matChipAvatar src="user/default-user.jpg" alt="" />
     <span style="color: #ffffff;">{{LoginType}}</span></mat-chip>
 <mat-menu #menu="matMenu">
-    <button mat-menu-item>
+    <button mat-menu-item routerLink="/myprofile">
         <mat-icon>account_circle</mat-icon>
         <span>Profile</span>
     </button>
